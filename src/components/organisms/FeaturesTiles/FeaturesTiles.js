@@ -24,6 +24,7 @@ class FeaturesTiles extends Component {
       hasBgColor,
       invertColor,
       pushLeft,
+      tiles,
       ...rest
     } = this.props;
 
@@ -52,15 +53,13 @@ class FeaturesTiles extends Component {
       paragraph:
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.",
     };
-    const Items = [0, 1, 2, 4].map((item, i) => (
+    const Items = tiles.map((item, i) => (
       <TilesItem
         key={i}
-        icon="./images/feature-tile-icon-01.svg"
-        title="Robust Workflow"
-        description="Duis aute irure dolor in reprehenderit in voluptate velit
-      esse cillum dolore eu fugiat nulla pariatur. Excepteur
-      sint occaecat cupidatat."
-        alt="Features tile icon 01"
+        icon={`./images/${item.icon}`}
+        title={item.title}
+        description={item.description}
+        alt={item.alt}
         delay={`${i * 200}`}
       />
     ));

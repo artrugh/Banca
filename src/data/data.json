@@ -1,0 +1,68 @@
+{
+  "tiles": [
+    {
+      "icon": "feature-tile-icon-01.svg",
+      "title": "IT-Consulting",
+      "description": "Wir verbinden technologische Kompetenz mit branchenübergreifender Projekterfahrung und begleiten Sie von der Konzeption bis zur erfolgreichen Umsetzung Ihrer IT-Projekte.",
+      "alt": "Features tile icon 01"
+    },
+    {
+      "icon": "feature-tile-icon-02.svg",
+      "title": "Technologie Coaching",
+      "description": "Technologie Coaching Firmeninternes technologisches Know-How ist eine Grundvoraussetzung abgeschlossener IT-Projekte, um langfristig erfolgreich bestehen zu können.",
+      "alt": "Features tile icon 02"
+    },
+    {
+      "icon": "feature-tile-icon-03.svg",
+      "title": "IT-Architectur",
+      "description": "Beratung in der Konzeption und Erstellung von nachhaltigen Technologiestrategien in den Bereichen Software- und Infrastrukturarchitektur.",
+      "alt": "Features tile icon 01"
+    },
+    {
+      "icon": "feature-tile-icon-04.svg",
+      "title": "Robust Workflow",
+      "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.",
+      "alt": "Features tile icon 01"
+    }
+  ],
+  "split": [
+    {
+      "title": "AEM Dialog Generator",
+      "sub_title": "Lightning fast workflow",
+      "description": "Mithilfe des Dialog-Generators kann Ihr Entwicklerteam schneller, zuverlässiger und dynamischer sowohl Classic-UI als auch Touch-UI Dialoge erstellen. Durch die Benutzung des Dialog-Generators können außerdem Ihre Frontend-Developer ohne AEM Erfahrung extrem schnell und zuverlässig AEM Komponenten erstellen",
+      "image": "features-split-image-01.png",
+      "alt": "Features split 01"
+    },
+    {
+      "title": "AEM Custom Dialoge",
+      "sub_title": "Lightning fast workflow",
+      "description": "AEM Custom-Dialoge erleichtert die Arbeit Ihrer Content-Autoren durch die Erweiterung der klassischen AEM-Dialoge um Custom-Funktionalitäten, die durch AEM nicht ermöglicht werden. Ein sehr gutes Beispiel ist der Icon-Picker: Die Content-Autoren haben eine Auswahl von Icons.",
+      "image": "features-split-image-02.png",
+      "alt": "Features split 01"
+    },
+    {
+      "title": "React Integration mit SSR",
+      "sub_title": "Decoupled React-Components",
+      "description": "Durch die Verwendung des Integrationsansatzes “Decoupled React-Components” ist der Aufwand an Entwicklung direkt im AEM minimal. Es müssen keine Java-Klassen für jede Komponente geschrieben werden, die Generierung der XML-Files übernimmt der Dialog Generator.",
+      "image": "features-split-image-03.png",
+      "alt": "Features split 01"
+    }
+  ],
+  "testimonial": [
+    {
+      "name": "Mariano Rajoy",
+      "testimony": "  — Descubrir a Banca ha sido inolvidable. Hacía tiempo no me sentía tan satisfecho con una producto. Calidad, precio, y el trato que todo cliente muy español y mucho español merece.",
+      "company": "CompanyName"
+    },
+    {
+      "name": "José María Aznar",
+      "testimony": "  — Saber que hay una empresa española que garantiza una excelente comercialización de la tierra es signo de prosperidad. España necesita empresas modelos y Banca es una de ellas.",
+      "company": "CompanyName"
+    },
+    {
+      "name": "José Luís Zapatero",
+      "testimony": "  — Banca traza un camino en la venta de tierra en España, lo que me llena de orgullo. Ya obtuve mi pequeña earth-box. Totalmente satisfecho.",
+      "company": "CompanyName"
+    }
+  ]
+}

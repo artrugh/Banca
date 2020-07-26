@@ -27,6 +27,7 @@ class FeaturesSplit extends Component {
       invertDesktop,
       alignTop,
       imageFill,
+      split,
       ...rest
     } = this.props;
 
@@ -58,17 +59,14 @@ class FeaturesSplit extends Component {
         "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.",
     };
 
-    const Items = [0, 1, 2].map((item, i) => (
+    const Items = split.map((item, i) => (
       <SplitItem
         key={i}
-        title="Data-driven insights"
-        subTitle="Lightning fast workflow"
-        description=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-        do eiusmod tempor incididunt ut labore et dolore magna
-        aliqua — Ut enim ad minim veniam, quis nostrud exercitation
-        ullamco laboris nisi ut aliquip ex ea commodo consequat."
-        image="./images/features-split-image-01.png"
-        alt="Features split 01"
+        title={item.title}
+        subTitle={item.subtitle}
+        description={item.description}
+        image={`./images/${item.image}`}
+        alt={item.alt}
         imageFill={imageFill}
       />
     ));

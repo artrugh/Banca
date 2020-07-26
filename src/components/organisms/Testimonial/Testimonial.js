@@ -24,6 +24,7 @@ class Testimonial extends Component {
       hasBgColor,
       invertColor,
       pushLeft,
+      testimonial,
       ...rest
     } = this.props;
 
@@ -50,16 +51,12 @@ class Testimonial extends Component {
         "Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.",
     };
 
-    const Items = [0, 1, 2].map((item, i) => (
+    const Items = testimonial.map((item, i) => (
       <TestimonialItem
         key={i}
-        name="Roman Level"
-        testimony="  — Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur.
-      Excepteur sint occaecat cupidatat non proident, sunt in
-      culpa qui officia deserunt mollit anim id est laborum
-      cillum dolore eu fugiat."
-        company="CompanyName"
+        name={item.name}
+        testimony={item.testimony}
+        company={item.company}
       />
     ));
 

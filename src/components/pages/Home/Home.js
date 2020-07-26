@@ -8,17 +8,20 @@ import Cta from "./../../organisms/Cta/Cta";
 
 export default class Home extends Component {
   render() {
+    const { split, tiles, testimonial } = this.props.data;
+
     return (
       <>
         <Hero className="illustration-section-01" />
-        <FeaturesTiles />
+        <FeaturesTiles tiles={tiles} />
         <FeaturesSplit
           invertMobile
           topDivider
           imageFill
           className="illustration-section-02"
+          split={split}
         />
-        <Testimonial topDivider />
+        <Testimonial testimonial={testimonial} topDivider />
         <Cta split />
       </>
     );
