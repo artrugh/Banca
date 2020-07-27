@@ -6,11 +6,7 @@ import Home from "./../components/pages/Home/Home";
 export default class HomePage extends Component {
   render() {
     const { data } = this.props;
-    return (
-      <>
-        <Home data={data} />
-      </>
-    );
+    return <Home data={data} />;
   }
 }
 

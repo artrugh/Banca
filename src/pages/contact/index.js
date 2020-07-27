@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Head from "next/head";
 
 import Contact from "../../components/pages/Contact/Contact";
+import { contact } from "./../../data/staticData";
 
 class ContactPage extends Component {
   render() {
@@ -10,7 +11,7 @@ class ContactPage extends Component {
         <Head>
           <title>Contact</title>
         </Head>
-        <Contact />
+        <Contact data={contact}  />
       </>
     );
   }

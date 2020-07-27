@@ -140,19 +140,19 @@ class Header extends Component {
                     >
                       <li>
                         <Link href="/contact">
-                          <a onClick={this.closeMenu}>Documentation</a>
+                          <a onClick={this.closeMenu}>Contact</a>
                         </Link>
                       </li>
                     </ul>
                     {!hideSignin && (
                       <ul className="list-reset header-nav-right">
                         <li>
-                          <Link href="/">
+                          <Link href="/career">
                             <a
                               className="button button-primary button-wide-mobile button-sm"
                               onClick={this.closeMenu}
                             >
-                              Sign up
+                              Career
                             </a>
                           </Link>
                         </li>

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import classNames from "classnames";
 
 import { SectionSplitProps } from "../../../utils/SectionProps";
-import SectionHeader from "./../../molecules/SectionHeader/SectionHeader";
+
+import SectionTemplate from "./../../templates/SectionTemplate/SectionTemplate";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
 
 const propTypes = {
@@ -16,35 +17,13 @@ const defaultProps = {
 class FeaturesSplit extends Component {
   render() {
     const {
-      className,
-      topOuterDivider,
-      bottomOuterDivider,
-      topDivider,
-      bottomDivider,
-      hasBgColor,
-      invertColor,
       invertMobile,
       invertDesktop,
       alignTop,
       imageFill,
-      split,
+      data,
       ...rest
     } = this.props;
-
-    const outerClasses = classNames(
-      "features-split section",
-      topOuterDivider && "has-top-divider",
-      bottomOuterDivider && "has-bottom-divider",
-      hasBgColor && "has-bg-color",
-      invertColor && "invert-color",
-      className
-    );
-
-    const innerClasses = classNames(
-      "features-split-inner section-inner",
-      topDivider && "has-top-divider",
-      bottomDivider && "has-bottom-divider"
-    );
 
     const splitClasses = classNames(
       "split-wrap",
@@ -53,13 +32,7 @@ class FeaturesSplit extends Component {
       alignTop && "align-top"
     );
 
-    const sectionHeader = {
-      title: "Workflow that just works",
-      paragraph:
-        "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.",
-    };
-
-    const Items = split.map((item, i) => (
+    const Items = data.items.map((item, i) => (
       <SplitItem
         key={i}
         title={item.title}
@@ -72,14 +45,13 @@ class FeaturesSplit extends Component {
     ));
 
     return (
-      <section {...rest} className={outerClasses}>
-        <div className="container">
-          <div className={innerClasses}>
-            <SectionHeader data={sectionHeader} className="center-content" />
-            <div className={splitClasses}>{Items}</div>
-          </div>
-        </div>
-      </section>
+      <SectionTemplate
+        {...rest}
+        sectionName="features-split"
+        sectionHeaderData={data.header}
+      >
+        <div className={splitClasses}>{Items}</div>
+      </SectionTemplate>
     );
   }
 }

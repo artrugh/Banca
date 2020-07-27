@@ -22,7 +22,6 @@ class Checkbox extends Component {
   handleInputChange(event) {
     const target = event.target;
     const name = target.name;
-    console.log(name);
   }
   
   render() {
