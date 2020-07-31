@@ -1,8 +1,7 @@
 export const contact = {
   header: {
     title: "Contact",
-    paragraph:
-      "Don't waste your time and contact us to start your next awesome project!",
+    paragraph: "Don't waste your time and contact us to start your next awesome project!",
   },
 };
 
