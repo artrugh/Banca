@@ -21,3 +21,4 @@
 [Events](https://medium.com/@martin_hotell/react-typescript-and-defaultprops-dilemma-ca7f81c661c7)
 [TypeScript-React](https://blog.logrocket.com/a-complete-guide-to-default-props-in-react-984ea8e6972d/)
 [reactRefWithTS](https://medium.com/@martin_hotell/react-refs-with-typescript-a32d56c4d315)
+[RefForwardingComponent](https://stackoverflow.com/questions/58991706/typescript-refforwardingcomponent-not-working)

@@ -37,11 +37,6 @@ class Header extends Component<IProps, HeaderState> {
     this.state = { isActive: false };
   }
 
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log("Header getDerivedStateFromProps");
-  //   return state;
-  // }
-
   public componentDidMount(): void {
     if (this.state.isActive) {
       this.handleOpenMenu();
@@ -50,19 +45,6 @@ class Header extends Component<IProps, HeaderState> {
     document.addEventListener("keydown", this.handleKeyPress);
     document.addEventListener("click", this.handleClickOutside);
   }
-
-  // componentDidUpdate(prevProps, prevState, snapshot) {
-  //   console.log("Header DidUpdate");
-  // }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log("Header shouldUpdate");
-  //   return true;
-  // }
-  // getSnapshotBeforeUpdate(prevProps, prevState) {
-  //   console.log("Header SnapshotBeforeUpdate");
-  //   return { snapshot: this.state.isActive };
-  // }
 
   public get classes(): Iclasses {
     const { bottomOuterDivider, bottomDivider, className, navPosition } = this.props;
