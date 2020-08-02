@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode } from "react";
+import { ReactNode } from "react";
 
 export enum Headings {
   h1 = "h1",
@@ -20,6 +20,41 @@ export enum InputTypes {
   time = "time",
   datetimeLocal = "datetime-local",
   checkbox = "checkbox",
+}
+
+export interface IPropsInput {
+  children?: ReactNode;
+  label?: string;
+  labelHidden?: boolean;
+  type?: InputTypes;
+  name?: string;
+  status?: string;
+  disabled?: boolean;
+  required?: boolean;
+  value?: string;
+  formGroup?: string;
+  hasIcon?: string;
+  size?: string;
+  placeholder?: string;
+  rows?: number;
+  hint?: string;
+  id?: string;
+  className?: string;
+  [index: string]: any;
+}
+
+export interface IPropsButton {
+  tag?: string;
+  color?: string;
+  size?: string;
+  loading?: boolean;
+  wide?: boolean;
+  wideMobile?: boolean;
+  disabled?: boolean;
+  children?: string;
+  className?: string;
+  href?: string;
+  [index: string]: any;
 }
 
 export interface Iclasses {

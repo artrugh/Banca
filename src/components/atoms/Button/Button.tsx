@@ -1,20 +1,9 @@
 import { Component, createElement } from "react";
 import classNames from "classnames";
 
-import { Iclasses } from "../../../common/interfaces";
+import { Iclasses, IPropsButton } from "../../../common/interfaces";
 
-interface IProps {
-  tag?: string;
-  color?: string;
-  size?: string;
-  loading?: boolean;
-  wide?: boolean;
-  wideMobile?: boolean;
-  disabled?: boolean;
-  [index: string]: boolean | string;
-}
-
-const DefaultProps: IProps = {
+const DefaultProps: IPropsButton = {
   tag: "button",
   color: "",
   size: "",
@@ -27,10 +16,10 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Button extends Component<IProps> {
+class Button extends Component<IPropsButton> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
-  public constructor(props: IProps) {
+  public constructor(props: IPropsButton) {
     super(props);
   }
 

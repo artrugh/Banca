@@ -1,77 +1,113 @@
 import React, { Component } from "react";
 
-import { InputTypes } from "../../../common/interfaces";
+import { IPropsButton, IPropsInput } from "../../../common/interfaces";
 
 import Button from "../../atoms/Button/Button";
 import ButtonGroup from "../../atoms/ButtonGroup/ButtonGroup";
 import Input from "../../molecules/Input/Input";
 
-class Form extends Component<{}> {
-  public constructor(props: {}) {
+interface IProps {
+  data: { inputs: IPropsInput[]; buttons?: IPropsButton[] };
+}
+
+class Form extends Component<IProps> {
+  public constructor(props: IProps) {
     super(props);
   }
 
   public render(): JSX.Element {
+    const { inputs, buttons } = this.props.data;
+    const Inputs = inputs.map((input) => {
+      const {
+        id,
+        className,
+        children,
+        label,
+        labelHidden,
+        type,
+        name,
+        status,
+        disabled,
+        value,
+        formGroup,
+        hasIcon,
+        size,
+        placeholder,
+        required,
+        rows,
+        hint,
+        ...rest
+      } = input;
+
+      return (
+        <Input
+          {...rest}
+          className={className}
+          id={id}
+          type={type}
+          label={label}
+          name={name}
+          labelHidden={labelHidden}
+          hasIcon={hasIcon}
+          placeholder={placeholder}
+          hint={hint}
+          status={status}
+          size={size}
+          formGroup={formGroup}
+          required={required}
+          disabled={disabled}
+          value={value}
+          rows={rows}
+          key={Math.random()}
+        >
+          {children}
+        </Input>
+      );
+    });
+
+    const Buttons = buttons.map((button) => {
+      const {
+        tag,
+        disabled,
+        href,
+        children,
+        color,
+        size,
+        loading,
+        wide,
+        wideMobile,
+        className,
+        ...rest
+      } = button;
+
+      return (
+        <Button
+          {...rest}
+          tag={tag}
+          className={className}
+          color={color}
+          wide={wide}
+          wideMobile={wideMobile}
+          disabled={disabled}
+          href={href}
+          size={size}
+          loading={loading}
+          key={Math.random()}
+        >
+          {children}
+        </Button>
+      );
+    });
+
     return (
       <form>
-        <Input
-          id="newsletter"
-          type={InputTypes.email}
-          label="Email"
-          hasIcon="right"
-          placeholder="Your email"
-          hint="Some Err"
-          status="error"
-          size="sm"
-          formGroup="vhvn"
-          required
-        >
-          input props: size=sm, hasIcon= false, labbelHiden= false, status=error, hint=SomeErr,
-          formGroup=displayFlex
-        </Input>
-        <Input
-          id="user-name"
-          type={InputTypes.text}
-          label="Name"
-          placeholder="Your Name"
-          hint="warning"
-          status="warning"
-          formGroup="desktop"
-          required
-        >
-          props: requiered=true, formGroup= desktop
-        </Input>
-        <Input
-          id="user-phone"
-          type={InputTypes.tel}
-          label="Your phone"
-          placeholder="Your phone-number"
-        >
-          validators-info
-        </Input>
-        <Input
-          id="textarea"
-          type={InputTypes.textarea}
-          label="Message"
-          placeholder="Your Message"
-          hint="Great success"
-          status="success"
-          rows={7}
-          required
-        >
-          props: row=7, default=3
-        </Input>
-        <ButtonGroup>
-          <Button tag="a" color="primary" wide href="https://cruip.com/">
-            WIDE props
-          </Button>
-          <Button tag="a" color="primary" href="https://cruip.com/" wideMobile>
+        {Inputs}
+        {!Button && (
+          <Button tag="a" color="primary" wideMobile href="https://cruip.com/">
             SEND EMAIL / wideMobile
           </Button>
-          <Button tag="button" color="secondary" size="sm" href="https://cruip.com/" wideMobile>
-            SEND EMAIL / size= sm
-          </Button>
-        </ButtonGroup>
+        )}{" "}
+        {Buttons.length > 1 ? <ButtonGroup>{Buttons}</ButtonGroup> : { Buttons }}
       </form>
     );
   }

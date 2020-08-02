@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-import { IHeader } from "../../../common/interfaces";
+import { IHeader, IPropsInput, IPropsButton } from "../../../common/interfaces";
 
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 import Form from "../../organisms/Form/Form";
 
 interface IProps {
-  data: { header: IHeader };
+  data: { header: IHeader; form: { inputs: IPropsInput[]; buttons?: IPropsButton[] } };
 }
 
 class Contact extends Component<IProps> {
@@ -25,7 +25,7 @@ class Contact extends Component<IProps> {
         containerSize="xs"
         bottomOuterDivider
       >
-        <Form />
+        <Form data={data.form} />
       </SectionTemplate>
     );
   }

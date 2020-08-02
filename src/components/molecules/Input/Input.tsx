@@ -1,31 +1,11 @@
 import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
 
-import { InputTypes, Iclasses } from "../../../common/interfaces";
+import { InputTypes, Iclasses, IPropsInput } from "../../../common/interfaces";
 import FormLabel from "../../atoms/FormLabel/FormLabel";
 import FormHint from "../../atoms/FormHint/FormHint";
 
-interface IProps {
-  children?: ReactNode;
-  label?: string;
-  labelHidden?: boolean;
-  type?: InputTypes;
-  name?: string;
-  status?: string;
-  disabled?: boolean;
-  required?: boolean;
-  value?: string;
-  formGroup?: string;
-  hasIcon?: string;
-  size?: string;
-  placeholder?: string;
-  rows?: number;
-  hint?: string;
-  id?: string;
-  [index: string]: any;
-}
-
-const DefaultProps: IProps = {
+const DefaultProps: IPropsInput = {
   children: null,
   label: "",
   labelHidden: false,
@@ -46,9 +26,9 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Input extends Component<IProps> {
+class Input extends Component<IPropsInput> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IProps) {
+  public constructor(props: IPropsInput) {
     super(props);
   }
 
