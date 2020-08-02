@@ -65,49 +65,54 @@ class Form extends Component<IProps> {
       );
     });
 
-    const Buttons = buttons.map((button) => {
-      const {
-        tag,
-        disabled,
-        href,
-        children,
-        color,
-        size,
-        loading,
-        wide,
-        wideMobile,
-        className,
-        ...rest
-      } = button;
+    const Buttons: JSX.Element[] = [];
 
-      return (
-        <Button
-          {...rest}
-          tag={tag}
-          className={className}
-          color={color}
-          wide={wide}
-          wideMobile={wideMobile}
-          disabled={disabled}
-          href={href}
-          size={size}
-          loading={loading}
-          key={Math.random()}
-        >
-          {children}
+    if (!buttons || buttons.length === 0) {
+      Buttons.push(
+        <Button tag="a" color="primary" wideMobile href="https://cruip.com/" key={Math.random()}>
+          SEND EMAIL / wideMobile
         </Button>
       );
-    });
+    } else {
+      buttons.forEach((button): void => {
+        const {
+          tag,
+          disabled,
+          href,
+          children,
+          color,
+          size,
+          loading,
+          wide,
+          wideMobile,
+          className,
+          ...rest
+        } = button;
+
+        Buttons.push(
+          <Button
+            {...rest}
+            tag={tag}
+            className={className}
+            color={color}
+            wide={wide}
+            wideMobile={wideMobile}
+            disabled={disabled}
+            href={href}
+            size={size}
+            loading={loading}
+            key={Math.random()}
+          >
+            {children}
+          </Button>
+        );
+      });
+    }
 
     return (
       <form>
         {Inputs}
-        {!Button && (
-          <Button tag="a" color="primary" wideMobile href="https://cruip.com/">
-            SEND EMAIL / wideMobile
-          </Button>
-        )}{" "}
-        {Buttons.length > 1 ? <ButtonGroup>{Buttons}</ButtonGroup> : { Buttons }}
+        {Buttons.length > 1 ? <ButtonGroup>{Buttons}</ButtonGroup> : Buttons}
       </form>
     );
   }
