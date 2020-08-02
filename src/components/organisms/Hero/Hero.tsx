@@ -86,7 +86,7 @@ class Hero extends Component<IProps> {
     } = this.props;
 
     return (
-      <section {...rest} className={this.classes.outerClasses}>
+      <section {...rest} className={this.classes.outerClasses} id="hero">
         <div className="container-sm">
           <div className={this.classes.innerClasses}>
             <div className="hero-content">

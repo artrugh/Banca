@@ -14,17 +14,17 @@ class SmoothScroll extends Component<IProps> {
     super(props);
   }
 
-  private easeInOutQuad(t): number {
+  private easeInOutQuad = (t): number => {
     return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-  }
+  };
 
-  private scrollToEl(
+  private scrollToEl = (
     startTime: number,
     currentTime: number,
     duration: number,
     scrollEndElemTop: number,
     startScrollOffset: number
-  ): void {
+  ): void => {
     const runtime: number = currentTime - startTime;
     let progress: number = runtime / duration;
     progress = Math.min(progress, 1);
@@ -39,14 +39,14 @@ class SmoothScroll extends Component<IProps> {
         this.scrollToEl(startTime, current, duration, scrollEndElemTop, startScrollOffset);
       });
     }
-  }
+  };
 
-  private smoothScroll(
+  private smoothScroll = (
     e: MouseEvent<HTMLAnchorElement>,
     to: string,
     duration: number,
     onLinkClick: Function
-  ): void {
+  ): void => {
     e.preventDefault();
 
     const targetId = to;
@@ -70,7 +70,7 @@ class SmoothScroll extends Component<IProps> {
 
       this.scrollToEl(start, stamp, timing, scrollEndElemTop, startScrollOffset);
     });
-  }
+  };
 
   public render(): JSX.Element {
     const { className, children, to, duration, onLinkClick, ...rest } = this.props;

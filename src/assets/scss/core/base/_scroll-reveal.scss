@@ -1,7 +1,6 @@
 // this animation is applied in screens bigger than 640px _width-and-spacing.scss
 
 @include media(">medium") {
-  body,
   .has-animations {
     [class*="reveal-"] {
       opacity: 0;

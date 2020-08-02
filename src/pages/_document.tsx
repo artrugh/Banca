@@ -18,12 +18,10 @@ class MyDocument extends Document {
   public render(): JSX.Element {
     return (
       <Html lang="en">
-        <Head>
-          <title>Hey</title>
-        </Head>
+        <Head />
         <body className="has-animations">
           <Main />
-          {/* <NextScript /> */}
+          <NextScript />
         </body>
       </Html>
     );

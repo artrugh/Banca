@@ -20,7 +20,6 @@ interface IRef {
 
 const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
   const [viewportHeight, setViewportheight] = useState<number>(0);
-  // const [revealEl, setRevealel] = useState<Refer[]>([]);
   const [revealEl, setRevealel] = useState<NodeListOf<Element> | []>([]);
 
   // get all the nodeElements and return if the revealEl.length <= nodeElements

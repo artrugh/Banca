@@ -8,6 +8,7 @@ import FooterNav from "../../molecules/FooterNav/FooterNav";
 import FooterSocial from "../../molecules/FooterSocial/FooterSocial";
 
 interface IProps {
+  pathname?: string;
   topOuterDivider?: boolean;
   topDivider?: boolean;
   [propName: string]: boolean | string;
@@ -41,14 +42,14 @@ class Footer extends Component<IProps> {
   }
 
   public render(): JSX.Element {
-    const { className, topOuterDivider, topDivider, ...rest } = this.props;
+    const { className, pathname, topOuterDivider, topDivider, ...rest } = this.props;
 
     return (
       <footer {...rest} className={this.classes.outerClasses}>
         <div className="container">
           <div className={this.classes.innerClasses}>
             <div className="footer-top space-between text-xxs">
-              <Logo />
+              <Logo pathname={pathname} />
               <FooterSocial />
             </div>
             <div className="footer-bottom space-between text-xxs invert-order-desktop">
