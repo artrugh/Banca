@@ -1,41 +1,40 @@
 import React, { createRef } from "react";
 import App, { AppProps } from "next/app";
 
-import "../assets/scss/style.scss";
 // import ReactGA from 'react-ga';
 
-import DefaultTemplate from "../components/templates/DefaultTemplate/DefaultTemplate";
+// STYLE
+import "../assets/scss/style.scss";
+// BASE CLASS
+
+// COMMON
+
+// HELPERS
+
+// UTILS
 import ScrollReveal from "../utils/ScrollReveal";
+// COMPONENTS
+import DefaultTemplate from "../components/templates/DefaultTemplate/DefaultTemplate";
 
-// Initialize Google Analytics
-// ReactGA.initialize(process.env.REACT_APP_GA_CODE);
+type IRef = { init(): void };
+type State = {
+  path?: string;
+};
 
-// const trackPage = page => {
-//   ReactGA.set({ page });
-//   ReactGA.pageview(page);
-// };
-
-interface IRef {
-  init(): void;
-}
-
-interface IState {
-  path: string | undefined;
-}
-class MyApp extends App<AppProps, IState> {
+class MyApp extends App<AppProps, State> {
   private childRef = createRef<IRef>();
-  public state = { path: this.props.router.pathname };
+
+  private constructor(props: AppProps, public state: State) {
+    super(props);
+    this.state = { path: this.props.router.pathname };
+  }
 
   public componentDidMount(): void {
-    // document.body.classList.add("has-animations");
     document.body.classList.add("is-loaded");
 
     if (this.childRef.current) {
       this.childRef.current.init();
     }
-    // this is used for Google Analytics
-    // const page = this.props.router.pathname;
-    // trackPage(page);
   }
 
   public componentDidUpdate(): void {
@@ -48,11 +47,8 @@ class MyApp extends App<AppProps, IState> {
 
   public shouldComponentUpdate(): boolean {
     if (this.state.path !== this.props.router.pathname) {
-      const path: string = this.props.router.pathname;
+      const path = this.props.router.pathname as string;
       this.setState({ path });
-      // this is used for Google Analytics
-      // const page = this.props.router.pathname;
-      // trackPage(page);
     }
 
     return true;

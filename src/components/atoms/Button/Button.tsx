@@ -1,12 +1,24 @@
-import { Component, createElement } from "react";
+import React, { createElement } from "react";
 import classNames from "classnames";
 
+// STYLE
+
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
 import { Iclasses, IPropsButton } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 
 const DefaultProps: IPropsButton = {
   tag: "button",
   color: "",
   size: "",
+  children: "click",
+  reveal: undefined,
   loading: false,
   wide: false,
   wideMobile: false,
@@ -16,28 +28,29 @@ const DefaultProps: IPropsButton = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Button extends Component<IPropsButton> {
+class Button<P extends IPropsButton = IPropsButton, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
-  public constructor(props: IPropsButton) {
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): Iclasses {
-    const { color, size, loading, wide, wideMobile, className } = this.props;
+  public get classes(): Iclasses {
+    const { color, size, reveal, loading, wide, wideMobile, className } = this.props;
 
-    const classes = classNames(
+    const classesContainer = classNames("button-container", reveal && reveal);
+
+    const classesButton = classNames(
       "button",
       color && `button-${color}`,
       size && `button-${size}`,
       loading && "is-loading",
       wide && "button-block",
       wideMobile && "button-wide-mobile",
-
       className
     );
 
-    return { classes };
+    return { classesButton, classesContainer };
   }
 
   private createReactElement = (tag: string, props: {}): JSX.Element => {
@@ -57,13 +70,17 @@ class Button extends Component<IPropsButton> {
       disabled,
       tag,
       className,
-
+      children,
       ...rest
     } = this.props;
 
-    const props = { className: this.classes.classes, disabled, ...rest };
+    const props = { className: this.classes.classesButton, children, disabled, ...rest };
 
-    return this.createReactElement(tag, props);
+    return (
+      <div className={this.classes.classesContainer} data-reveal-delay={200}>
+        {this.createReactElement(tag, props)}
+      </div>
+    );
   }
 }
 

@@ -1,16 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 import classNames from "classnames";
 
-import Image from "../../atoms/Image/Image";
+// STYLE
 
+// BASE CLASS
+
+// COMMON
 import { IsplitDataItem, Iclasses } from "../../../common/interfaces";
+// HELPERS
 
-class SplitItem extends Component<IsplitDataItem> {
-  public constructor(props: IsplitDataItem) {
+// UTILS
+
+// COMPONENTS
+import Image from "../../atoms/Image/Image";
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+
+class SplitItem<P extends IsplitDataItem = IsplitDataItem, S = {}> extends BaseClassesGetter<P, S> {
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): Iclasses {
+  public get classes(): Iclasses {
     const { imageFill } = this.props;
     const classes = classNames(
       "split-item-image center-content-mobile reveal-from-bottom",

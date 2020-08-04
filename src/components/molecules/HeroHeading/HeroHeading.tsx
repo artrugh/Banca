@@ -1,10 +1,21 @@
 import React, { Component } from "react";
 
+// STYLE
+
+// BASE CLASS
+
+// COMMON
+
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import ButtonGroup from "../../atoms/ButtonGroup/ButtonGroup";
 import Button from "../../atoms/Button/Button";
 
-class HeroHeading extends Component<{ [key: string]: any }> {
-  public constructor(props: { [key: string]: any }) {
+class HeroHeading extends Component<{}> {
+  public constructor(props: {}) {
     super(props);
   }
 

@@ -2,6 +2,17 @@ import React, { Component, ReactNode } from "react";
 import { withRouter, SingletonRouter } from "next/router";
 import Head from "next/head";
 
+// STYLE
+
+// BASE CLASS
+
+// COMMON
+
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import Header from "../../organisms/Header/Header";
 import Footer from "../../organisms/Footer/Footer";
 

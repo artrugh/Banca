@@ -35,7 +35,7 @@ class SmoothScroll extends Component<IProps> {
 
     if (runtime < duration) {
       window.requestAnimationFrame((timestamp) => {
-        const current: number = timestamp || new Date().getTime();
+        const current: number = timestamp ?? new Date().getTime();
         this.scrollToEl(startTime, current, duration, scrollEndElemTop, startScrollOffset);
       });
     }
@@ -50,8 +50,8 @@ class SmoothScroll extends Component<IProps> {
     e.preventDefault();
 
     const targetId = to;
-    const target: HTMLElement = document.getElementById(targetId);
-    const timing = duration || 1000;
+    const target = document.getElementById(targetId)! as HTMLElement;
+    const timing = duration ?? 1000;
 
     if (!target) {
       return;
@@ -62,7 +62,7 @@ class SmoothScroll extends Component<IProps> {
     }
 
     window.requestAnimationFrame((timestamp: number) => {
-      const stamp = timestamp || new Date().getTime();
+      const stamp = timestamp ?? new Date().getTime();
       const start = stamp;
 
       const startScrollOffset: number = window.pageYOffset;

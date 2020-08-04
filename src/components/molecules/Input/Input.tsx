@@ -1,7 +1,17 @@
-import React, { Component, ReactNode } from "react";
+import React from "react";
 import classNames from "classnames";
 
+// STYLE
+
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
 import { InputTypes, Iclasses, IPropsInput } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import FormLabel from "../../atoms/FormLabel/FormLabel";
 import FormHint from "../../atoms/FormHint/FormHint";
 
@@ -14,6 +24,7 @@ const DefaultProps: IPropsInput = {
   status: "",
   disabled: false,
   required: false,
+  reveal: undefined,
   value: undefined,
   formGroup: null,
   hasIcon: null,
@@ -26,16 +37,19 @@ const DefaultProps: IPropsInput = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Input extends Component<IPropsInput> {
+class Input<P extends IPropsInput = IPropsInput, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IPropsInput) {
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): Iclasses {
-    const { formGroup, hasIcon, size, status, className } = this.props;
+  public get classes(): Iclasses {
+    const { formGroup, reveal, hasIcon, size, status, className } = this.props;
+
+    const containerClasses = classNames("input-container--main", reveal && reveal);
 
     const outerClasses = classNames(
+      "input-container--sub",
       formGroup &&
         formGroup !== "" &&
         (formGroup === "desktop" ? "form-group-desktop" : "form-group"),
@@ -49,7 +63,7 @@ class Input extends Component<IPropsInput> {
       className
     );
 
-    return { outerClasses, innerClasses };
+    return { containerClasses, outerClasses, innerClasses };
   }
 
   public render(): JSX.Element {
@@ -67,6 +81,7 @@ class Input extends Component<IPropsInput> {
       formGroup,
       hasIcon,
       size,
+
       placeholder,
       rows,
       hint,
@@ -77,7 +92,7 @@ class Input extends Component<IPropsInput> {
       type === "textarea" ? InputTypes.textarea : InputTypes.input;
 
     return (
-      <>
+      <div className={this.classes.containerClasses} data-reveal-delay={200}>
         {label && (
           <FormLabel labelHidden={labelHidden} id={id}>
             {label}
@@ -97,7 +112,7 @@ class Input extends Component<IPropsInput> {
           {children}
         </div>
         {hint && <FormHint status={status}>{hint}</FormHint>}
-      </>
+      </div>
     );
   }
 }

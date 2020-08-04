@@ -1,13 +1,21 @@
 import React, { Component } from "react";
 import { GetStaticProps } from "next";
 
-import { IinitialData, IPropsData } from "../../common/interfaces";
+// STYLE
 
+// BASE CLASS
+
+// COMMON
+import { IinitialData, IPropsData } from "../../common/interfaces";
+// HELPERS
 import { readFile } from "../../helpers/ReadFile";
+// UTILS
+
+// COMPONENTS
 import Career from "../../components/pages/Career/Career";
 
 export default class CareerPage extends Component<IPropsData> {
-  public constructor(props: IPropsData) {
+  private constructor(props: IPropsData) {
     super(props);
   }
 

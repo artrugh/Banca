@@ -1,8 +1,18 @@
-import React, { Component, createRef } from "react";
+import React, { createRef, KeyboardEvent } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 
-import { Iclasses } from "../../../common/interfaces";
+// STYLE
+
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
+import { Iclasses, EventHandler } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import Logo from "../../atoms/Logo/Logo";
 
 export interface IProps {
@@ -24,15 +34,15 @@ export const DefaultProps: IProps = {
 
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
-type HeaderState = { isActive: boolean };
+type State = { isActive: boolean };
 
-class Header extends Component<IProps, HeaderState> {
+class Header extends BaseClassesGetter<IProps, State> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   private nav = createRef<HTMLElement>();
   private hamburger = createRef<HTMLButtonElement>();
 
-  public constructor(props: IProps) {
+  public constructor(props: Readonly<IProps>, public state: State) {
     super(props);
     this.state = { isActive: false };
   }
@@ -73,15 +83,15 @@ class Header extends Component<IProps, HeaderState> {
     this.setState({ isActive: false });
   };
 
-  private handleKeyPress = (e: KeyboardEvent): void => {
-    const key = e.keyCode;
+  private handleKeyPress: EventHandler<Event | KeyboardEvent> = (e: KeyboardEvent): void => {
+    const { keyCode } = e;
 
-    if (this.state.isActive && key === 27) {
+    if (this.state.isActive && keyCode === 27) {
       this.handleCloseMenu();
     }
   };
 
-  private handleClickOutside = (e: Event): void | undefined => {
+  private handleClickOutside: EventHandler<Event> = (e: Event): void | undefined => {
     if (!this.nav.current) {
       return;
     }

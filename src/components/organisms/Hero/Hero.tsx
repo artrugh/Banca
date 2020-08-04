@@ -1,28 +1,34 @@
-import React, { Component, KeyboardEvent, MouseEvent } from "react";
+import React, { KeyboardEvent, MouseEvent } from "react";
 import classNames from "classnames";
 
-import {
-  IProps,
-  DefaultPropsClasses,
-  KeyboardEventHandler,
-  Iclasses,
-} from "../../../common/interfaces";
+// STYLE
 
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
+import { IProps, DefaultPropsClasses, EventHandler, Iclasses } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import HeroVideo from "../../molecules/HeroVideo/HeroVideo";
 import HeroHeading from "../../molecules/HeroHeading/HeroHeading";
 import Modal from "../../molecules/Modal/Modal";
 
 type Props = {} & Partial<DefaultProps>;
+type State = { videoModalActive: boolean };
 type DefaultProps = Readonly<typeof DefaultPropsClasses>;
 
-class Hero extends Component<IProps> {
+class Hero extends BaseClassesGetter<IProps, State> {
   public static defaultProps: Partial<Props> = DefaultPropsClasses;
-  public state: { videoModalActive: boolean } = { videoModalActive: false };
-  public constructor(props: IProps) {
+
+  public constructor(props: Readonly<IProps>, public state: State) {
     super(props);
+    this.state = { videoModalActive: false };
   }
 
-  private get classes(): Iclasses {
+  public get classes(): Iclasses {
     const {
       topOuterDivider,
       bottomOuterDivider,
@@ -61,12 +67,14 @@ class Hero extends Component<IProps> {
     this.setState({ videoModalActive: false });
   };
 
-  private handleCloseModalDocument = (e: KeyboardEventHandler): void => {
+  private handleCloseModalDocument: EventHandler<KeyboardEvent> = (e: KeyboardEvent): void => {
     e.preventDefault();
     this.setState({ videoModalActive: false });
   };
 
-  private handleCloseModalKeyboard = (e: KeyboardEvent<HTMLDivElement>): void => {
+  private handleCloseModalKeyboard: EventHandler<KeyboardEvent<HTMLDivElement>> = (
+    e: KeyboardEvent<HTMLDivElement>
+  ): void => {
     e.preventDefault();
     this.setState({ videoModalActive: false });
   };

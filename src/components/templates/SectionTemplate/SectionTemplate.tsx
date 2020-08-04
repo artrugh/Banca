@@ -1,6 +1,11 @@
-import React, { Component } from "react";
+import React, { ReactNode } from "react";
 import classNames from "classnames";
 
+// STYLE
+
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
 import {
   DefaultPropsClasses,
   Iclasses,
@@ -9,17 +14,21 @@ import {
   IHeader,
   Headings,
 } from "../../../common/interfaces";
+// HELPERS
 
+// UTILS
+
+// COMPONENTS
 import SectionHeader from "../../molecules/SectionHeader/SectionHeader";
 
 export interface IProps extends Iouter, Iinner {
+  children?: ReactNode;
   sectionName: string;
   sectionHeaderData: IHeader;
   containerSize?: string;
   padding?: string;
   tag?: Headings;
-
-  [propName: string]: boolean | string | {};
+  className?: string;
 }
 
 export const DefaultProps: IProps = {
@@ -35,13 +44,14 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class SectionTemplate extends Component<IProps> {
+class SectionTemplate<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IProps) {
+
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): Iclasses {
+  public get classes(): Iclasses {
     const {
       containerSize,
 

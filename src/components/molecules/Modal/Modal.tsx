@@ -1,20 +1,30 @@
-import React, { Component, ReactNode, MouseEvent, KeyboardEvent } from "react";
+import React, { ReactNode, MouseEvent, KeyboardEvent } from "react";
 import classNames from "classnames";
 
-import { Iclasses, KeyboardEventHandler } from "../../../common/interfaces";
+// STYLE
+
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
+import { Iclasses, EventHandler } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 
 type KeyboardEventNames = "keydown" | "keyup";
 
 interface IProps {
   closeModal?: (e: MouseEvent<HTMLElement>) => void;
-  closeModalDocument?: (e: KeyboardEventHandler) => void;
+  closeModalDocument?: (e: KeyboardEvent) => void;
   closeModalKeyboard?: (e: KeyboardEvent<HTMLDivElement>) => void;
   children?: ReactNode;
   show: boolean;
   closeHidden?: boolean;
   video?: string;
   videoTag?: "iframe" | "video";
-  [propName: string]: boolean | string | Function | ReactNode;
+  className?: string;
 }
 
 const DefaultProps: IProps = {
@@ -28,42 +38,32 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Modal extends Component<IProps> {
+class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IProps) {
+  public constructor(props: P) {
     super(props);
   }
 
   public componentDidMount(): void {
     const eventNames: KeyboardEventNames[] = ["keydown", "keyup"];
     eventNames.forEach((eventName) => {
-      document.addEventListener(eventName, (e: KeyboardEventHandler | Event) => {
+      document.addEventListener(eventName, (e: Event) => {
         this.keyPress(e);
       });
     });
-
-    // document.addEventListener("keydown", this.keyPress);
-    document.addEventListener("click", (e: Event) => e.stopPropagation());
+    document.addEventListener("click", (e) => e.stopPropagation());
   }
 
   public componentDidUpdate(prevProps: IProps): void {
-    // console.log("Modal DidUpdate");
-
     if (prevProps.show !== this.props.show) {
-      // const eventNames: KeyboardEventNames[] = ["keydown", "keyup"];
-      // eventNames.forEach((eventName) => {
-      //   document.addEventListener(eventName, (e: KeyboardEvent<Element>): void => {
-      //     this.keyPress(e);
-      //   });
-      // });
       document.addEventListener("keydown", this.keyPress);
-      document.addEventListener("click", (e: Event): void => e.stopPropagation());
+      document.addEventListener("click", (e) => e.stopPropagation());
     } else {
       this.handleBodyClass();
     }
   }
 
-  private get classes(): Iclasses {
+  public get classes(): Iclasses {
     const { className, show, video } = this.props;
     const classes = classNames("modal", show && "is-active", video && "modal-video", className);
 
@@ -71,8 +71,7 @@ class Modal extends Component<IProps> {
   }
 
   private handleBodyClass = (): void => {
-    let elementArray: NodeListOf<Element> = null;
-    elementArray = document.querySelectorAll(".modal.is-active");
+    const elementArray = document.querySelectorAll(".modal.is-active")! as NodeListOf<Element>;
 
     if (elementArray.length) {
       document.body.classList.add("modal-is-active");
@@ -81,7 +80,7 @@ class Modal extends Component<IProps> {
     }
   };
 
-  private keyPress = (e: KeyboardEventHandler): void => {
+  private keyPress: EventHandler<Event | KeyboardEvent> = (e: KeyboardEvent): void => {
     const { keyCode } = e;
 
     if (keyCode === 27) {
@@ -89,11 +88,15 @@ class Modal extends Component<IProps> {
     }
   };
 
-  private stopProgagation = (e: MouseEvent<HTMLDivElement>): void => {
+  private stopProgagation: EventHandler<MouseEvent<HTMLDivElement>> = (
+    e: MouseEvent<HTMLDivElement>
+  ): void => {
     e.stopPropagation();
   };
 
-  private stopProgagationKeyboard = (e: KeyboardEvent<HTMLDivElement>): void => {
+  private stopProgagationKeyboard: EventHandler<KeyboardEvent<HTMLDivElement>> = (
+    e: KeyboardEvent<HTMLDivElement>
+  ): void => {
     e.stopPropagation();
   };
 

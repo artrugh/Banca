@@ -1,7 +1,18 @@
 import React, { Component } from "react";
 import Link from "next/link";
-
 import classNames from "classnames";
+
+// STYLE
+
+// BASE CLASS
+
+// COMMON
+
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import Image from "../Image/Image";
 import SmoothScroll from "../SmoothScroll/SmoothScroll";
 

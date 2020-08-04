@@ -3,7 +3,7 @@ import { IPropsData } from "../../../common/interfaces";
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 
 class Career extends Component<IPropsData> {
-  public constructor(props: IPropsData) {
+  private constructor(props: IPropsData) {
     super(props);
   }
 

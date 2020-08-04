@@ -1,13 +1,23 @@
-import React, { Component, ReactNode } from "react";
+import React, { ReactNode, createElement } from "react";
 import classNames from "classnames";
 
+// STYLE
+
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
 import { IHeader, Headings, Iclasses } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 
 interface IProps {
   data: IHeader;
-  children?: ReactNode;
-  tag?: Headings;
-  [index: string]: {} | string;
+  children?: Partial<ReactNode>;
+  tag: Headings;
+  className?: string;
 }
 
 const DefaultProps: IProps = {
@@ -16,19 +26,18 @@ const DefaultProps: IProps = {
     paragraph: "you are missing a huge description about my session",
   },
   tag: Headings.h1,
-  children: null,
 };
 
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class SectionHeader extends Component<IProps> {
+class SectionHeader<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IProps) {
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): Iclasses {
+  public get classes(): Iclasses {
     const { data, className } = this.props;
     const containerClasses = classNames("section-header", className);
     const headingClasses = classNames("mt-0", data.paragraph ? "mb-16" : "mb-0");
@@ -36,9 +45,16 @@ class SectionHeader extends Component<IProps> {
     return { containerClasses, headingClasses };
   }
 
+  private createReactElement = (tag: string, props: {}): JSX.Element => {
+    const e = createElement;
+    const el: JSX.Element = e(tag, props);
+
+    return el;
+  };
+
   public render(): JSX.Element {
     const { className, data, children, tag, ...rest } = this.props;
-    const C = tag;
+    const props = { className: this.classes.headingClasses, children: data.title, ...rest };
 
     return (
       <>
@@ -46,7 +62,8 @@ class SectionHeader extends Component<IProps> {
           <div {...rest} className={this.classes.containerClasses}>
             <div className="container-xs">
               {children}
-              {data.title && <C className={this.classes.headingClasses}>{data.title}</C>}
+              {data.title && this.createReactElement(tag, props)}
+              {/* <C className={this.classes.headingClasses}>{data.title}</C> */}
               {data.paragraph && <p className="m-0">{data.paragraph}</p>}
             </div>
           </div>

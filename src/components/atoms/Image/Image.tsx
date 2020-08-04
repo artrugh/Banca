@@ -1,12 +1,10 @@
 import React, { Component, createRef } from "react";
 
 interface IProps {
-  [index: string]: number | string | {};
   src: string;
   width?: number;
   height?: number;
   alt?: string;
-
   className?: string;
 }
 
@@ -43,8 +41,8 @@ class Image extends Component<IProps> {
     img.before(placeholder);
 
     placeholder.src = this.placeholderSrc(
-      +img.getAttribute("width") || 0,
-      +img.getAttribute("height") || 0
+      +img.getAttribute("width") ?? 0,
+      +img.getAttribute("height") ?? 0
     );
 
     placeholder.width = +img.getAttribute("width");

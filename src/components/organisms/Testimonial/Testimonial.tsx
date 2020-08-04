@@ -1,21 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 import classNames from "classnames";
 
+// STYLE
+
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
 import {
   DefaultPropsClasses,
   ItestimonialData,
   Headings,
   Iouter,
   Iinner,
+  Iclasses,
 } from "../../../common/interfaces";
+// HELPERS
 
+// UTILS
+
+// COMPONENTS
 import TestimonialItem from "../../molecules/TestimonialItem/TestimonialItem";
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 
 export interface IProps extends Iouter, Iinner {
   pushLeft?: boolean;
   data?: ItestimonialData;
-  [propName: string]: boolean | string | ItestimonialData;
 }
 
 export const DefaultProps: IProps = {
@@ -26,17 +35,17 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Testimonial extends Component<IProps> {
+class Testimonial<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IProps) {
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): string {
+  public get classes(): Iclasses {
     const { pushLeft } = this.props;
     const classes = classNames("tiles-wrap", pushLeft && "push-left");
 
-    return classes;
+    return { classes };
   }
 
   public render(): JSX.Element {
@@ -58,7 +67,7 @@ class Testimonial extends Component<IProps> {
         sectionHeaderData={data.header}
         tag={Headings.h2}
       >
-        <div className={this.classes}>{Items}</div>
+        <div className={this.classes.classes}>{Items}</div>
       </SectionTemplate>
     );
   }

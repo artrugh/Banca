@@ -14,9 +14,7 @@ interface IProps {
   [propName: string]: any;
 }
 
-interface IRef {
-  init(): void;
-}
+type IRef = { init(): void };
 
 const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
   const [viewportHeight, setViewportheight] = useState<number>(0);
@@ -24,14 +22,21 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
 
   // get all the nodeElements and return if the revealEl.length <= nodeElements
   const checkComplete = (): boolean => {
-    let elementArray: NodeListOf<Element> = null;
-    elementArray = document.querySelectorAll("[class*=reveal-].is-revealed");
+    const elementArray = document.querySelectorAll("[class*=reveal-].is-revealed")! as NodeListOf<
+      Element
+    >;
 
     return revealEl.length <= elementArray.length;
   };
 
   const elementIsVisible = (el: Element, offset: number): boolean => {
-    return el.getBoundingClientRect().top <= viewportHeight - offset;
+    let visible: boolean = false;
+
+    if (el) {
+      visible = el.getBoundingClientRect().top <= viewportHeight - offset;
+    }
+
+    return visible;
   };
 
   const revealElements = (): void => {
@@ -71,8 +76,7 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
 
   useImperativeHandle(ref, () => ({
     init: () => {
-      let elementArray: NodeListOf<Element> = null;
-      elementArray = document.querySelectorAll("[class*=reveal-]");
+      const elementArray = document.querySelectorAll("[class*=reveal-]")! as NodeListOf<Element>;
       setRevealel(elementArray);
     },
   }));

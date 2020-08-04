@@ -1,4 +1,4 @@
-import React, { Component, ReactNode, MouseEvent } from "react";
+import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
 
 interface IProps {
@@ -25,7 +25,7 @@ type DefaultProps = Readonly<typeof DefaultProps>;
 
 class Radio extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IProps) {
+  public constructor(public props: IProps) {
     super(props);
   }
 

@@ -1,8 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import classNames from "classnames";
 
-import { Iclasses } from "../../../common/interfaces";
+// STYLE
 
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
+import { Iclasses } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import Logo from "../../atoms/Logo/Logo";
 import FooterNav from "../../molecules/FooterNav/FooterNav";
 import FooterSocial from "../../molecules/FooterSocial/FooterSocial";
@@ -11,7 +20,7 @@ interface IProps {
   pathname?: string;
   topOuterDivider?: boolean;
   topDivider?: boolean;
-  [propName: string]: boolean | string;
+  className?: string;
 }
 
 const DefaultProps: IProps = {
@@ -22,13 +31,13 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Footer extends Component<IProps> {
+class Footer<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IProps) {
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): Iclasses {
+  public get classes(): Iclasses {
     const { className, topOuterDivider, topDivider } = this.props;
     const outerClasses = classNames(
       "site-footer center-content-mobile",

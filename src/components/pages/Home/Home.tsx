@@ -10,7 +10,7 @@ import Testimonial from "../../organisms/Testimonial/Testimonial";
 import Cta from "../../organisms/Cta/Cta";
 
 export default class Home extends Component<IPropsData> {
-  public constructor(props: IPropsData) {
+  private constructor(props: IPropsData) {
     super(props);
   }
 

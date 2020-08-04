@@ -1,6 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import classNames from "classnames";
 
+// STYLE
+
+// BASE CLASS
+
+// COMMON
 import {
   DefaultPropsClasses,
   InputTypes,
@@ -8,12 +13,17 @@ import {
   Iouter,
   Iinner,
 } from "../../../common/interfaces";
+// HELPERS
 
+// UTILS
+
+// COMPONENTS
 import Input from "../../molecules/Input/Input";
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
 
 export interface IProps extends Iouter, Iinner {
   split: boolean;
-  [propName: string]: boolean | string;
+  className?: string;
 }
 
 export const DefaultProps: IProps = {
@@ -24,13 +34,13 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Cta extends Component<IProps> {
+class Cta<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IProps) {
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): Iclasses {
+  public get classes(): Iclasses {
     const {
       className,
       topOuterDivider,

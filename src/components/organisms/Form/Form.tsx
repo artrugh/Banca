@@ -1,18 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
+import classNames from "classnames";
+// STYLE
 
-import { IPropsButton, IPropsInput } from "../../../common/interfaces";
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
+import { IPropsButton, IPropsInput, Iclasses, Reveal } from "../../../common/interfaces";
+// HELPERS
 
+// UTILS
+
+// COMPONENTS
 import Button from "../../atoms/Button/Button";
 import ButtonGroup from "../../atoms/ButtonGroup/ButtonGroup";
 import Input from "../../molecules/Input/Input";
 
 interface IProps {
-  data: { inputs: IPropsInput[]; buttons?: IPropsButton[] };
+  data: { inputs: IPropsInput[]; buttons?: IPropsButton[]; reveal?: Reveal };
 }
 
-class Form extends Component<IProps> {
-  public constructor(props: IProps) {
+class Form<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
+  // class Form extends Component<IProps> {
+  public constructor(props: P) {
     super(props);
+  }
+
+  public get classes(): Iclasses {
+    const { reveal } = this.props.data;
+    const classesForm = classNames("form", reveal && reveal);
+
+    return { classesForm };
   }
 
   public render(): JSX.Element {
@@ -34,6 +51,7 @@ class Form extends Component<IProps> {
         size,
         placeholder,
         required,
+        reveal,
         rows,
         hint,
         ...rest
@@ -54,6 +72,7 @@ class Form extends Component<IProps> {
           status={status}
           size={size}
           formGroup={formGroup}
+          reveal={reveal}
           required={required}
           disabled={disabled}
           value={value}
@@ -83,6 +102,7 @@ class Form extends Component<IProps> {
           color,
           size,
           loading,
+          reveal,
           wide,
           wideMobile,
           className,
@@ -101,6 +121,7 @@ class Form extends Component<IProps> {
             href={href}
             size={size}
             loading={loading}
+            reveal={reveal}
             key={Math.random()}
           >
             {children}
@@ -110,7 +131,7 @@ class Form extends Component<IProps> {
     }
 
     return (
-      <form>
+      <form className={this.classes.classesForm} data-reveal-delay={200}>
         {Inputs}
         {Buttons.length > 1 ? <ButtonGroup>{Buttons}</ButtonGroup> : Buttons}
       </form>

@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import Image from "../../atoms/Image/Image";
 
+// STYLE
+
+// BASE CLASS
+
+// COMMON
 import { ItileDataItem } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 
 class TilesItem extends Component<ItileDataItem> {
   public constructor(props: ItileDataItem) {

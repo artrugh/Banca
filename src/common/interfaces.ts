@@ -6,6 +6,13 @@ export enum Headings {
   h3 = "h3",
 }
 
+export enum Reveal {
+  top = "reveal-from-top",
+  bottom = "reveal-from-bottom",
+  right = "reveal-from-right",
+  left = "reveal-from-left",
+}
+
 export enum InputTypes {
   input = "input",
   textarea = "textarea",
@@ -26,7 +33,7 @@ export interface IPropsInput {
   children?: ReactNode;
   label?: string;
   labelHidden?: boolean;
-  type?: InputTypes;
+  readonly type?: InputTypes;
   name?: string;
   status?: string;
   disabled?: boolean;
@@ -36,20 +43,21 @@ export interface IPropsInput {
   hasIcon?: string;
   size?: string;
   placeholder?: string;
+  reveal?: Reveal;
   rows?: number;
   hint?: string;
-  id?: string;
+  readonly id?: string;
   className?: string;
-  [index: string]: any;
 }
 
 export interface IPropsButton {
-  tag?: string;
+  readonly tag?: string;
   color?: string;
   size?: string;
   loading?: boolean;
   wide?: boolean;
   wideMobile?: boolean;
+  reveal?: Reveal;
   disabled?: boolean;
   children?: string;
   className?: string;
@@ -76,7 +84,7 @@ interface SyntheticEvent {
   type: string;
 }
 
-interface KeyboardEvent extends SyntheticEvent {
+export interface KeyboardEvent extends SyntheticEvent {
   altKey: boolean;
   charCode: number;
   ctrlKey: boolean;
@@ -91,12 +99,9 @@ interface KeyboardEvent extends SyntheticEvent {
   which: number;
 }
 
-interface EventHandler<E> {
+export interface EventHandler<E> {
   (e: E): void;
 }
-// export interface KeyboardEventHandler extends EventHandler<KeyboardEvent> {}
-
-export interface KeyboardEventHandler extends KeyboardEvent {}
 
 // // // INITIAL DATA
 
@@ -181,7 +186,7 @@ export interface Iinner {
 
 // SECCION + CONTAINER
 export interface IProps extends Iouter, Iinner {
-  [propName: string]: boolean | string;
+  [propName: string]: any;
 }
 
 export const DefaultPropsClasses: IProps = {

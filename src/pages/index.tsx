@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import { GetStaticProps } from "next";
 
-import { readFile } from "../helpers/ReadFile";
-import Home from "../components/pages/Home/Home";
+// STYLE
 
+// BASE CLASS
+
+// COMMON
 import { IinitialData, IPropsData } from "../common/interfaces";
+// HELPERS
+import { readFile } from "../helpers/ReadFile";
+// UTILS
+
+// COMPONENTS
+import Home from "../components/pages/Home/Home";
 
 export default class HomePage extends Component<IPropsData> {
   public constructor(props: IPropsData) {

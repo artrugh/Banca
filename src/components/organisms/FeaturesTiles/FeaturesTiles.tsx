@@ -1,6 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import classNames from "classnames";
 
+// STYLE
+
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
 import {
   DefaultPropsClasses,
   Headings,
@@ -9,14 +14,17 @@ import {
   Iouter,
   Iinner,
 } from "../../../common/interfaces";
+// HELPERS
 
+// UTILS
+
+// COMPONENTS
 import TilesItem from "../../molecules/TilesItem/TilesItem";
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 
 export interface IProps extends Iouter, Iinner {
   pushLeft?: boolean;
   data?: ItileData;
-  [propName: string]: boolean | string | ItileData;
 }
 
 export const DefaultProps: IProps = {
@@ -27,13 +35,13 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class FeaturesTiles extends Component<IProps> {
+class FeaturesTiles<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IProps) {
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): Iclasses {
+  public get classes(): Iclasses {
     const { pushLeft } = this.props;
     const classes = classNames("tiles-wrap center-content", pushLeft && "push-left");
 

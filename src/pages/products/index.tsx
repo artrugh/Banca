@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-class Products extends Component {
-  render() {
+class Products extends Component<{}> {
+  public render(): JSX.Element {
     return <div>Products</div>;
   }
 }

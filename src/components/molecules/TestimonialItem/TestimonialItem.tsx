@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 
+// STYLE
+
+// BASE CLASS
+
+// COMMON
 import { ItestimonialDataItem } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 
 class TestimonialItem extends Component<ItestimonialDataItem> {
   public constructor(props: ItestimonialDataItem) {

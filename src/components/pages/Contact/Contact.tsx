@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 
-import { IHeader, IPropsInput, IPropsButton } from "../../../common/interfaces";
+import { IHeader, IPropsInput, IPropsButton, Reveal } from "../../../common/interfaces";
 
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 import Form from "../../organisms/Form/Form";
 
 interface IProps {
-  data: { header: IHeader; form: { inputs: IPropsInput[]; buttons?: IPropsButton[] } };
+  data: {
+    header: IHeader;
+    form: { inputs: IPropsInput[]; buttons?: IPropsButton[]; reveal?: Reveal };
+  };
 }
 
 class Contact extends Component<IProps> {
-  public constructor(props: IProps) {
+  private constructor(props: IProps) {
     super(props);
   }
 

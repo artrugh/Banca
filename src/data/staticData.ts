@@ -1,7 +1,15 @@
-import { InputTypes, IHeader, ItileData, IPropsInput, IPropsButton } from "../common/interfaces";
+import {
+  InputTypes,
+  IHeader,
+  ItileData,
+  IPropsInput,
+  IPropsButton,
+  Reveal,
+} from "../common/interfaces";
 
 interface Iforms {
   [key: string]: {
+    reveal?: Reveal;
     inputs: IPropsInput[];
     buttons?: IPropsButton[];
   };
@@ -9,6 +17,7 @@ interface Iforms {
 
 export const forms: Iforms = {
   contact: {
+    reveal: Reveal.bottom,
     inputs: [
       {
         children: null,

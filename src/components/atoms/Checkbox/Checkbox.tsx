@@ -1,10 +1,20 @@
-import React, { Component, MouseEvent, ReactNode } from "react";
-import PropTypes from "prop-types";
+import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
+
+// STYLE
+
+// BASE CLASS
+
+// COMMON
 import { InputTypes } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 
 interface IProps {
-  id: string;
+  readonly id: string;
   children?: ReactNode;
   name?: string;
   value?: string;

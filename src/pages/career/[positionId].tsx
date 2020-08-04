@@ -1,8 +1,15 @@
 import React, { Component } from "react";
-import { withRouter } from "next/router";
+import { withRouter, SingletonRouter } from "next/router";
 
-class Position extends Component<any> {
-  public constructor(props: any) {
+interface IProps {
+  router: SingletonRouter;
+  // children?: ReactNode;
+  pageTitle?: string;
+  [index: string]: any;
+}
+
+class Position extends Component<IProps> {
+  public constructor(props: IProps) {
     super(props);
   }
 

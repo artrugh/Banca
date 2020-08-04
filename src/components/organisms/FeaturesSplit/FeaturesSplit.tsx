@@ -1,5 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import classNames from "classnames";
+
+// STYLE
+
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
+
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
+import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
+import SplitItem from "../../molecules/SplitItem/SplitItem";
 
 import {
   Iouter,
@@ -10,16 +24,12 @@ import {
   DefaultPropsClasses,
 } from "../../../common/interfaces";
 
-import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
-import SplitItem from "../../molecules/SplitItem/SplitItem";
-
 export interface IProps extends Iouter, Iinner {
   invertMobile?: boolean;
   invertDesktop?: boolean;
   alignTop?: boolean;
   imageFill?: boolean;
   data?: IsplitData;
-  [propName: string]: boolean | string | IsplitData;
 }
 
 export const DefaultProps: IProps = {
@@ -33,13 +43,13 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class FeaturesSplit extends Component<IProps> {
+class FeaturesSplit<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: IProps) {
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): Iclasses {
+  public get classes(): Iclasses {
     const { invertMobile, invertDesktop, alignTop } = this.props;
 
     const classes = classNames(

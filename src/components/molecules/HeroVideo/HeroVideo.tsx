@@ -1,5 +1,16 @@
 import React, { Component, MouseEvent } from "react";
 
+// STYLE
+
+// BASE CLASS
+
+// COMMON
+
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import Image from "../../atoms/Image/Image";
 
 interface IProps {

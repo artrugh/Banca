@@ -1,12 +1,22 @@
-import React, { Component, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import classNames from "classnames";
 
+// STYLE
+
+// BASE CLASS
+import BaseClassesGetter from "../../_base/BaseGetterClasses";
+// COMMON
 import { Iclasses } from "../../../common/interfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 
 export interface IProps {
-  children?: ReactNode;
+  children: Partial<ReactNode>;
   status?: string | boolean;
-  [propName: string]: string | ReactNode;
+  className?: string;
 }
 export const DefaultProps: IProps = {
   children: null,
@@ -16,14 +26,14 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class FormHint extends Component<IProps> {
+class FormHint<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
-  public constructor(props: IProps) {
+  public constructor(props: P) {
     super(props);
   }
 
-  private get classes(): Iclasses {
+  public get classes(): Iclasses {
     const { className, status } = this.props;
     const classes = classNames("form-hint", status && `text-color-${status}`, className);
 
