@@ -16,7 +16,16 @@ import { ItileDataItem } from "../../../common/interfaces";
 class TilesItem extends Component<ItileDataItem> {
   public constructor(props: ItileDataItem) {
     super(props);
+    this.checkLenghPropsData(this.props);
   }
+
+  private checkLenghPropsData = (data: ItileDataItem): void | never => {
+    const { title, description } = data;
+
+    if (title.length < 4 || description.length < 20) {
+      throw new Error("Check length!");
+    }
+  };
 
   public render(): JSX.Element {
     const { icon, title, description, delay, alt } = this.props;

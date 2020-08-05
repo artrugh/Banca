@@ -15,7 +15,16 @@ import { ItestimonialDataItem } from "../../../common/interfaces";
 class TestimonialItem extends Component<ItestimonialDataItem> {
   public constructor(props: ItestimonialDataItem) {
     super(props);
+    this.checkLenghPropsData(this.props);
   }
+
+  private checkLenghPropsData = (data: ItestimonialDataItem): void | never => {
+    const { testimony } = data;
+
+    if (testimony.length < 20) {
+      throw new Error("Check length!");
+    }
+  };
 
   public render(): JSX.Element {
     const { name, testimony, company } = this.props;

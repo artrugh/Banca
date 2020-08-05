@@ -65,10 +65,6 @@ export interface IPropsButton {
   [index: string]: any;
 }
 
-export interface Iclasses {
-  [key: string]: string;
-}
-
 interface SyntheticEvent {
   bubbles: boolean;
   cancelable: boolean;
@@ -187,6 +183,10 @@ export interface Iinner {
 // SECCION + CONTAINER
 export interface IProps extends Iouter, Iinner {
   [propName: string]: any;
+}
+
+export interface Iclasses {
+  [key: string]: string;
 }
 
 export const DefaultPropsClasses: IProps = {

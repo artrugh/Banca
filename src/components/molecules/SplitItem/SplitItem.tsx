@@ -16,8 +16,9 @@ import Image from "../../atoms/Image/Image";
 import BaseClassesGetter from "../../_base/BaseGetterClasses";
 
 class SplitItem<P extends IsplitDataItem = IsplitDataItem, S = {}> extends BaseClassesGetter<P, S> {
-  public constructor(props: P) {
+  public constructor(public props: P) {
     super(props);
+    this.checkLenghPropsData(this.props);
   }
 
   public get classes(): Iclasses {
@@ -29,6 +30,14 @@ class SplitItem<P extends IsplitDataItem = IsplitDataItem, S = {}> extends BaseC
 
     return { classes };
   }
+
+  private checkLenghPropsData = (data: P): void | never => {
+    const { title, subtitle, description } = data;
+
+    if (title.length < 4 || subtitle.length < 2 || description.length < 4) {
+      throw new Error("Check length!");
+    }
+  };
 
   public render(): JSX.Element {
     const { title, subtitle, description, image, alt } = this.props;

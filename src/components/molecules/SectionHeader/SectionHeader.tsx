@@ -33,8 +33,10 @@ type DefaultProps = Readonly<typeof DefaultProps>;
 
 class SectionHeader<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
+
   public constructor(props: P) {
     super(props);
+    this.checkLenghPropsData(this.props.data);
   }
 
   public get classes(): Iclasses {
@@ -45,6 +47,14 @@ class SectionHeader<P extends IProps = IProps, S = {}> extends BaseClassesGetter
     return { containerClasses, headingClasses };
   }
 
+  private checkLenghPropsData = (data: IHeader): void | never => {
+    const { title, paragraph } = data;
+
+    if (title.length < 4 || paragraph.length < 20) {
+      throw new Error("Check length!");
+    }
+  };
+
   private createReactElement = (tag: string, props: {}): JSX.Element => {
     const e = createElement;
     const el: JSX.Element = e(tag, props);
@@ -54,17 +64,18 @@ class SectionHeader<P extends IProps = IProps, S = {}> extends BaseClassesGetter
 
   public render(): JSX.Element {
     const { className, data, children, tag, ...rest } = this.props;
-    const props = { className: this.classes.headingClasses, children: data.title, ...rest };
+    const { title, paragraph } = this.props.data;
+    const props = { className: this.classes.headingClasses, children: title, ...rest };
 
     return (
       <>
-        {(data.title || data.paragraph) && (
+        {(title || paragraph) && (
           <div {...rest} className={this.classes.containerClasses}>
             <div className="container-xs">
               {children}
-              {data.title && this.createReactElement(tag, props)}
+              {title && this.createReactElement(tag, props)}
               {/* <C className={this.classes.headingClasses}>{data.title}</C> */}
-              {data.paragraph && <p className="m-0">{data.paragraph}</p>}
+              {paragraph && <p className="m-0">{paragraph}</p>}
             </div>
           </div>
         )}
