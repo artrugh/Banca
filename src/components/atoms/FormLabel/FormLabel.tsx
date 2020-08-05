@@ -4,7 +4,7 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
 import { Iclasses } from "../../../common/interfaces";
 // HELPERS
@@ -29,7 +29,10 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class FormLabel<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
+class FormLabel<P extends IProps = IProps, S = {}> extends BaseClassesGetter<
+  P,
+  S
+> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   public constructor(props: P) {
@@ -38,7 +41,11 @@ class FormLabel<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, 
 
   public get classes(): Iclasses {
     const { className, labelHidden } = this.props;
-    const classes = classNames("form-label", labelHidden && "screen-reader", className);
+    const classes = classNames(
+      "form-label",
+      labelHidden && "screen-reader",
+      className
+    );
 
     return { classes };
   }

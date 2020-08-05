@@ -17,7 +17,11 @@ class Product extends Component<IProps> {
 
   public render(): JSX.Element {
     const productName = this.query.slug;
-    const C = productName ? <div>{productName[0]}</div> : <div>Product not defined</div>;
+    const C = productName ? (
+      <div>{productName[0]}</div>
+    ) : (
+      <div>Product not defined</div>
+    );
 
     return C;
   }

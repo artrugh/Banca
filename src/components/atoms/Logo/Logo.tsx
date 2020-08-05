@@ -40,7 +40,12 @@ class Logo extends Component<IProps> {
           ) : (
             <Link href="/">
               <a>
-                <Image src="/images/logo.svg" alt="Open" width={32} height={32} />
+                <Image
+                  src="/images/logo.svg"
+                  alt="Open"
+                  width={32}
+                  height={32}
+                />
               </a>
             </Link>
           )}

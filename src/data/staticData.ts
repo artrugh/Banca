@@ -1,11 +1,11 @@
 import {
   InputTypes,
-  IHeader,
-  ItileData,
   IPropsInput,
   IPropsButton,
   Reveal,
 } from "../common/interfaces";
+
+import { IHeader, ItileData } from "../common/dataInterfaces";
 
 interface Iforms {
   [key: string]: {
@@ -109,44 +109,55 @@ export const forms: Iforms = {
 export const contact: { header: IHeader; form: { inputs: IPropsInput[] } } = {
   header: {
     title: "Contact",
-    paragraph: "Don't waste your time and contact us to start your next awesome project!",
+    paragraph:
+      "Don't waste your time and contact us to start your next awesome project!",
   },
   form: forms.contact,
 };
 
 export const tiles: ItileData = {
+  settings: {
+    header: {
+      title: [30],
+      paragraph: [200],
+    },
+    items: {
+      title: [20],
+      description: [150],
+    },
+  },
   header: {
     title: "Build up the whole picture",
     paragraph:
-      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.",
+      "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at",
   },
   items: [
     {
-      icon: "feature-tile-icon-01.svg",
       title: "IT-Consulting",
       description:
-        "Wir verbinden technologische Kompetenz mit branchenübergreifender Projekterfahrung und begleiten Sie von der Konzeption bis zur erfolgreichen Umsetzung Ihrer IT-Projekte.",
+        "Wir verbinden technologische Kompetenz mit branchenübergreifender Projekterfahrung und begleiten Sie von der Konzeption bis zur erfolgr",
+      icon: "feature-tile-icon-01.svg",
       alt: "Features tile icon 01",
     },
     {
-      icon: "feature-tile-icon-02.svg",
       title: "Technologie Coaching",
       description:
-        "Technologie Coaching Firmeninternes technologisches Know-How ist eine Grundvoraussetzung abgeschlossener IT-Projekte, um langfristig erfolgreich bestehen zu können.",
+        "Technologie Coaching Firmeninternes technologisches Know-How ist eine Grundvoraussetzung abgeschlossener IT-Projekte, um langfristig erf",
+      icon: "feature-tile-icon-02.svg",
       alt: "Features tile icon 02",
     },
     {
-      icon: "feature-tile-icon-03.svg",
       title: "IT-Architectur",
       description:
         "Beratung in der Konzeption und Erstellung von nachaltigenTechnologiestrategien in den Bereichen Software- und Infrastrukturarchitektur.",
+      icon: "feature-tile-icon-03.svg",
       alt: "Features tile icon 01",
     },
     {
-      icon: "feature-tile-icon-04.svg",
       title: "Robust Workflow",
       description:
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.",
+      icon: "feature-tile-icon-04.svg",
       alt: "Features tile icon 01",
     },
   ],

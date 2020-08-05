@@ -19,7 +19,7 @@ import {
 
 // COMPONENTS
 import Input from "../../molecules/Input/Input";
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 
 export interface IProps extends Iouter, Iinner {
   split: boolean;
@@ -101,7 +101,10 @@ class Cta<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
                 placeholder="Your best email"
               >
                 <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z" fill="#376DF9" />
+                  <path
+                    d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z"
+                    fill="#376DF9"
+                  />
                 </svg>
               </Input>
             </div>

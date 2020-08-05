@@ -48,7 +48,16 @@ class Checkbox extends Component<IProps> {
   // }
 
   public render(): JSX.Element {
-    const { id, className, children, name, value, disabled, checked, ...rest } = this.props;
+    const {
+      id,
+      className,
+      children,
+      name,
+      value,
+      disabled,
+      checked,
+      ...rest
+    } = this.props;
 
     return (
       <label className={classNames("form-checkbox", className)} htmlFor={id}>

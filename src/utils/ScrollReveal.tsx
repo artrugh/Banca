@@ -22,9 +22,9 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
 
   // get all the nodeElements and return if the revealEl.length <= nodeElements
   const checkComplete = (): boolean => {
-    const elementArray = document.querySelectorAll("[class*=reveal-].is-revealed")! as NodeListOf<
-      Element
-    >;
+    const elementArray = document.querySelectorAll(
+      "[class*=reveal-].is-revealed"
+    )! as NodeListOf<Element>;
 
     return revealEl.length <= elementArray.length;
   };
@@ -62,7 +62,10 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
         ? el.closest(el.getAttribute("data-reveal-container"))
         : el;
 
-      if (elementIsVisible(listenedEl, +revealOffset) && !el.classList.contains("is-revealed")) {
+      if (
+        elementIsVisible(listenedEl, +revealOffset) &&
+        !el.classList.contains("is-revealed")
+      ) {
         if (revealDelay && +revealDelay !== 0) {
           setTimeout((): void => {
             el.classList.add("is-revealed");
@@ -76,15 +79,22 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
 
   useImperativeHandle(ref, () => ({
     init: () => {
-      const elementArray = document.querySelectorAll("[class*=reveal-]")! as NodeListOf<Element>;
+      const elementArray = document.querySelectorAll(
+        "[class*=reveal-]"
+      )! as NodeListOf<Element>;
       setRevealel(elementArray);
     },
   }));
   interface IhandleListeners {
-    (scroll: () => void | undefined, reveal: () => void | undefined): void | undefined;
+    (scroll: () => void | undefined, reveal: () => void | undefined):
+      | void
+      | undefined;
   }
 
-  const handleListeners: IhandleListeners = (scroll, resize): void | undefined => {
+  const handleListeners: IhandleListeners = (
+    scroll,
+    resize
+  ): void | undefined => {
     if (!checkComplete()) {
       return;
     }

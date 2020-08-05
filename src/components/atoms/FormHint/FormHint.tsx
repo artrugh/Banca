@@ -4,7 +4,7 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
 import { Iclasses } from "../../../common/interfaces";
 // HELPERS
@@ -26,7 +26,10 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class FormHint<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
+class FormHint<P extends IProps = IProps, S = {}> extends BaseClassesGetter<
+  P,
+  S
+> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   public constructor(props: P) {
@@ -35,7 +38,11 @@ class FormHint<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S
 
   public get classes(): Iclasses {
     const { className, status } = this.props;
-    const classes = classNames("form-hint", status && `text-color-${status}`, className);
+    const classes = classNames(
+      "form-hint",
+      status && `text-color-${status}`,
+      className
+    );
 
     return { classes };
   }

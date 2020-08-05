@@ -1,5 +1,16 @@
 {
   "split": {
+    "settings": {
+      "header": {
+        "title": [30],
+        "paragraph": [200]
+      },
+      "items": {
+        "title": [25],
+        "subtitle": [25],
+        "description": [300]
+      }
+    },
     "header": {
       "title": "Workflow that just works",
       "paragraph": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis."
@@ -8,20 +19,20 @@
       {
         "title": "AEM Dialog Generator",
         "subtitle": "Lightning fast workflow",
-        "description": "Mithilfe des Dialog-Generators kann Ihr Entwicklerteam schneller, zuverlässiger und dynamischer sowohl Classic-UI als auch Touch-UI Dialoge erstellen. Durch die Benutzung des Dialog-Generators können außerdem Ihre Frontend-Developer ohne AEM Erfahrung extrem schnell und zuverlässig AEM Komponenten erstellen",
+        "description": "Mithilfe des Dialog-Generators kann Ihr Entwicklerteam schneller, zuverlässiger und dynamischer sowohl Classic-UI als auch Touch-UI Dialoge erstellen. Durch die Benutzung des Dialog-Generators können außerdem Ihre Frontend-Developer ohne AEM Erfahrung extrem schnell und zuverlässig AEM Komponenten",
         "image": "features-split-image-01.png",
         "alt": "Features split 01"
       },
       {
         "title": "AEM Custom Dialoge",
-        "subtitle": "Lightning fast workflow",
+        "subtitle": "Lightning fast workflo",
         "description": "AEM Custom-Dialoge erleichtert die Arbeit Ihrer Content-Autoren durch die Erweiterung der klassischen AEM-Dialoge um Custom-Funktionalitäten, die durch AEM nicht ermöglicht werden. Ein sehr gutes Beispiel ist der Icon-Picker: Die Content-Autoren haben eine Auswahl von Icons.",
         "image": "features-split-image-02.png",
         "alt": "Features split 01"
       },
       {
         "title": "React Integration mit SSR",
-        "subtitle": "Decoupled React-Components",
+        "subtitle": "Decoupled React-Component",
         "description": "Durch die Verwendung des Integrationsansatzes “Decoupled React-Components” ist der Aufwand an Entwicklung direkt im AEM minimal. Es müssen keine Java-Klassen für jede Komponente geschrieben werden, die Generierung der XML-Files übernimmt der Dialog Generator.",
         "image": "features-split-image-03.png",
         "alt": "Features split 01"
@@ -29,6 +40,17 @@
     ]
   },
   "testimonial": {
+    "settings": {
+      "header": {
+        "title": [30],
+        "paragraph": [200]
+      },
+      "items": {
+        "name": [20],
+        "testimony": [185],
+        "company": [15]
+      }
+    },
     "header": {
       "title": "Customer testimonials",
       "paragraph": "Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare."
@@ -52,6 +74,13 @@
     ]
   },
   "career": {
+    "settings": {
+      "header": {
+        "title": [30],
+        "paragraph": [200]
+      },
+      "items": {}
+    },
     "header": {
       "title": "Career",
       "paragraph": "Don't waste your time, join the Team!"

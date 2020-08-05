@@ -3,9 +3,14 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
-import { IPropsButton, IPropsInput, Iclasses, Reveal } from "../../../common/interfaces";
+import {
+  IPropsButton,
+  IPropsInput,
+  Iclasses,
+  Reveal,
+} from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
@@ -88,7 +93,13 @@ class Form<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
 
     if (!buttons || buttons.length === 0) {
       Buttons.push(
-        <Button tag="a" color="primary" wideMobile href="https://cruip.com/" key={Math.random()}>
+        <Button
+          tag="a"
+          color="primary"
+          wideMobile
+          href="https://cruip.com/"
+          key={Math.random()}
+        >
           SEND EMAIL / wideMobile
         </Button>
       );

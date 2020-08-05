@@ -1,16 +1,26 @@
 import React, { Component } from "react";
 
+// DATA
 import { tiles } from "../../../data/staticData";
-import { IPropsData } from "../../../common/interfaces";
+// STYLE
 
+// BASE CLASS
+
+// COMMON
+import { IPropsData } from "../../../common/dataInterfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import Hero from "../../organisms/Hero/Hero";
 import FeaturesTiles from "../../organisms/FeaturesTiles/FeaturesTiles";
 import FeaturesSplit from "../../organisms/FeaturesSplit/FeaturesSplit";
-import Testimonial from "../../organisms/Testimonial/Testimonial";
+import FeaturesTestimonial from "../../organisms/FeaturesTestimonial/FeaturesTestimonial";
 import Cta from "../../organisms/Cta/Cta";
 
 export default class Home extends Component<IPropsData> {
-  private constructor(props: IPropsData) {
+  private constructor(public readonly props: IPropsData) {
     super(props);
   }
 
@@ -28,7 +38,7 @@ export default class Home extends Component<IPropsData> {
           className="illustration-section-02"
           data={split}
         />
-        <Testimonial data={testimonial} topDivider pushLeft />
+        <FeaturesTestimonial data={testimonial} topDivider pushLeft />
         <Cta split />
       </>
     );

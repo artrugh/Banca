@@ -6,19 +6,26 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { IsplitDataItem, Iclasses } from "../../../common/interfaces";
+import { Iclasses } from "../../../common/interfaces";
+import { Iitem } from "../../../common/dataInterfaces";
 // HELPERS
 
 // UTILS
-
+import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 import Image from "../../atoms/Image/Image";
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 
-class SplitItem<P extends IsplitDataItem = IsplitDataItem, S = {}> extends BaseClassesGetter<P, S> {
+interface IProps extends Iitem {
+  imageFill?: boolean;
+}
+class SplitItem<P extends IProps = IProps, S = {}> extends BaseClassesGetter<
+  P,
+  S
+> {
   public constructor(public props: P) {
     super(props);
-    this.checkLenghPropsData(this.props);
+    checkLenghPropsData.check(this.props.item, this.props.settings);
   }
 
   public get classes(): Iclasses {
@@ -31,29 +38,28 @@ class SplitItem<P extends IsplitDataItem = IsplitDataItem, S = {}> extends BaseC
     return { classes };
   }
 
-  private checkLenghPropsData = (data: P): void | never => {
-    const { title, subtitle, description } = data;
-
-    if (title.length < 4 || subtitle.length < 2 || description.length < 4) {
-      throw new Error("Check length!");
-    }
-  };
-
   public render(): JSX.Element {
-    const { title, subtitle, description, image, alt } = this.props;
+    const { title, subtitle, description, image, alt } = this.props.item;
+    const { i } = this.props;
 
     return (
       <div className="split-item">
         <div
           className="split-item-content center-content-mobile reveal-from-left"
           data-reveal-container=".split-item"
+          data-reveal-delay={`${i * 200}`}
         >
-          <div className="text-xxs text-color-primary fw-600 tt-u mb-8">{subtitle}</div>
+          <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+            {subtitle}
+          </div>
           <h3 className="mt-0 mb-12">{title}</h3>
           <p className="m-0">{description}</p>
         </div>
-        <div className={this.classes.classes} data-reveal-container=".split-item">
-          <Image src={image} alt={alt} width={528} height={396} />
+        <div
+          className={this.classes.classes}
+          data-reveal-container=".split-item"
+        >
+          <Image src={`./images/${image}`} alt={alt} width={528} height={396} />
         </div>
       </div>
     );

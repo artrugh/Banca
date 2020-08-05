@@ -4,7 +4,7 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
 import { Iclasses, EventHandler } from "../../../common/interfaces";
 // HELPERS
@@ -65,13 +65,20 @@ class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
 
   public get classes(): Iclasses {
     const { className, show, video } = this.props;
-    const classes = classNames("modal", show && "is-active", video && "modal-video", className);
+    const classes = classNames(
+      "modal",
+      show && "is-active",
+      video && "modal-video",
+      className
+    );
 
     return { classes };
   }
 
   private handleBodyClass = (): void => {
-    const elementArray = document.querySelectorAll(".modal.is-active")! as NodeListOf<Element>;
+    const elementArray = document.querySelectorAll(
+      ".modal.is-active"
+    )! as NodeListOf<Element>;
 
     if (elementArray.length) {
       document.body.classList.add("modal-is-active");
@@ -80,7 +87,9 @@ class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
     }
   };
 
-  private keyPress: EventHandler<Event | KeyboardEvent> = (e: KeyboardEvent): void => {
+  private keyPress: EventHandler<Event | KeyboardEvent> = (
+    e: KeyboardEvent
+  ): void => {
     const { keyCode } = e;
 
     if (keyCode === 27) {
@@ -94,9 +103,9 @@ class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
     e.stopPropagation();
   };
 
-  private stopProgagationKeyboard: EventHandler<KeyboardEvent<HTMLDivElement>> = (
-    e: KeyboardEvent<HTMLDivElement>
-  ): void => {
+  private stopProgagationKeyboard: EventHandler<
+    KeyboardEvent<HTMLDivElement>
+  > = (e: KeyboardEvent<HTMLDivElement>): void => {
     e.stopPropagation();
   };
 
@@ -135,7 +144,12 @@ class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
               {video ? (
                 <div className="responsive-video">
                   {videoTag === "iframe" ? (
-                    <iframe title="video" src={video} frameBorder="0" allowFullScreen />
+                    <iframe
+                      title="video"
+                      src={video}
+                      frameBorder="0"
+                      allowFullScreen
+                    />
                   ) : (
                     <video v-else controls src={video}>
                       <track default kind="captions" srcLang="en" src={video} />

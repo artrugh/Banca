@@ -4,9 +4,10 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
-import { IHeader, Headings, Iclasses } from "../../../common/interfaces";
+import { Headings, Iclasses } from "../../../common/interfaces";
+import { IHeader } from "../../../common/dataInterfaces";
 // HELPERS
 
 // UTILS
@@ -31,7 +32,10 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class SectionHeader<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
+class SectionHeader<
+  P extends IProps = IProps,
+  S = {}
+> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   public constructor(props: P) {
@@ -42,7 +46,10 @@ class SectionHeader<P extends IProps = IProps, S = {}> extends BaseClassesGetter
   public get classes(): Iclasses {
     const { data, className } = this.props;
     const containerClasses = classNames("section-header", className);
-    const headingClasses = classNames("mt-0", data.paragraph ? "mb-16" : "mb-0");
+    const headingClasses = classNames(
+      "mt-0",
+      data.paragraph ? "mb-16" : "mb-0"
+    );
 
     return { containerClasses, headingClasses };
   }
@@ -65,7 +72,11 @@ class SectionHeader<P extends IProps = IProps, S = {}> extends BaseClassesGetter
   public render(): JSX.Element {
     const { className, data, children, tag, ...rest } = this.props;
     const { title, paragraph } = this.props.data;
-    const props = { className: this.classes.headingClasses, children: title, ...rest };
+    const props = {
+      className: this.classes.headingClasses,
+      children: title,
+      ...rest,
+    };
 
     return (
       <>

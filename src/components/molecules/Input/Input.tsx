@@ -4,7 +4,7 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
 import { InputTypes, Iclasses, IPropsInput } from "../../../common/interfaces";
 // HELPERS
@@ -37,7 +37,10 @@ const DefaultProps: IPropsInput = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Input<P extends IPropsInput = IPropsInput, S = {}> extends BaseClassesGetter<P, S> {
+class Input<
+  P extends IPropsInput = IPropsInput,
+  S = {}
+> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
   public constructor(props: P) {
     super(props);
@@ -46,7 +49,10 @@ class Input<P extends IPropsInput = IPropsInput, S = {}> extends BaseClassesGett
   public get classes(): Iclasses {
     const { formGroup, reveal, hasIcon, size, status, className } = this.props;
 
-    const containerClasses = classNames("input-container--main", reveal && reveal);
+    const containerClasses = classNames(
+      "input-container--main",
+      reveal && reveal
+    );
 
     const outerClasses = classNames(
       "input-container--sub",

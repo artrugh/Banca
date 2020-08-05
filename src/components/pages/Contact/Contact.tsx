@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 
-import { IHeader, IPropsInput, IPropsButton, Reveal } from "../../../common/interfaces";
+// STYLE
 
+// BASE CLASS
+
+// COMMON
+import { IPropsInput, IPropsButton, Reveal } from "../../../common/interfaces";
+import { IHeader } from "../../../common/dataInterfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 import Form from "../../organisms/Form/Form";
 

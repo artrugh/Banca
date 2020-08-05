@@ -6,36 +6,37 @@ import Image from "../../atoms/Image/Image";
 // BASE CLASS
 
 // COMMON
-import { ItileDataItem } from "../../../common/interfaces";
+import { Iitem } from "../../../common/dataInterfaces";
 // HELPERS
 
 // UTILS
-
+import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 
-class TilesItem extends Component<ItileDataItem> {
-  public constructor(props: ItileDataItem) {
+class TilesItem extends Component<Iitem> {
+  public constructor(props: Iitem) {
     super(props);
-    this.checkLenghPropsData(this.props);
+    checkLenghPropsData.check(this.props.item, this.props.settings);
   }
 
-  private checkLenghPropsData = (data: ItileDataItem): void | never => {
-    const { title, description } = data;
-
-    if (title.length < 4 || description.length < 20) {
-      throw new Error("Check length!");
-    }
-  };
-
   public render(): JSX.Element {
-    const { icon, title, description, delay, alt } = this.props;
+    const { title, description, icon, alt } = this.props.item;
+    const { i } = this.props;
 
     return (
-      <div className="tiles-item reveal-from-bottom" data-reveal-delay={delay}>
+      <div
+        className="tiles-item reveal-from-bottom"
+        data-reveal-delay={`${i * 200}`}
+      >
         <div className="tiles-item-inner">
           <div className="features-tiles-item-header">
             <div className="features-tiles-item-image mb-16">
-              <Image src={icon} alt={alt} width={64} height={64} />
+              <Image
+                src={`./images/${icon}`}
+                alt={alt}
+                width={64}
+                height={64}
+              />
             </div>
           </div>
           <div className="features-tiles-item-content">

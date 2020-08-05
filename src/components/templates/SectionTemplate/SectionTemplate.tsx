@@ -4,20 +4,20 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
 import {
   DefaultPropsClasses,
   Iclasses,
   Iouter,
   Iinner,
-  IHeader,
   Headings,
 } from "../../../common/interfaces";
+import { IHeader, IheaderSettings } from "../../../common/dataInterfaces";
 // HELPERS
 
 // UTILS
-
+import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 import SectionHeader from "../../molecules/SectionHeader/SectionHeader";
 
@@ -29,6 +29,7 @@ export interface IProps extends Iouter, Iinner {
   padding?: string;
   tag?: Headings;
   className?: string;
+  settings?: IheaderSettings;
 }
 
 export const DefaultProps: IProps = {
@@ -44,11 +45,18 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class SectionTemplate<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
+class SectionTemplate<
+  P extends IProps = IProps,
+  S = {}
+> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   public constructor(props: P) {
     super(props);
+    checkLenghPropsData.check(
+      this.props.sectionHeaderData,
+      this.props.settings
+    );
   }
 
   public get classes(): Iclasses {
@@ -67,7 +75,9 @@ class SectionTemplate<P extends IProps = IProps, S = {}> extends BaseClassesGett
       padding,
     } = this.props;
 
-    const containerClasses = classNames(containerSize ? `container-${containerSize}` : "container");
+    const containerClasses = classNames(
+      containerSize ? `container-${containerSize}` : "container"
+    );
 
     const outerClasses = classNames(
       `${sectionName} section`,
@@ -111,7 +121,11 @@ class SectionTemplate<P extends IProps = IProps, S = {}> extends BaseClassesGett
       <section {...rest} className={this.classes.outerClasses}>
         <div className={this.classes.containerClasses}>
           <div className={this.classes.innerClasses}>
-            <SectionHeader tag={tag} data={sectionHeaderData} className="center-content" />
+            <SectionHeader
+              tag={tag}
+              data={sectionHeaderData}
+              className="center-content"
+            />
             {children}
           </div>
         </div>

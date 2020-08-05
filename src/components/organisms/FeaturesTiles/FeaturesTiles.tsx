@@ -4,16 +4,16 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
 import {
   DefaultPropsClasses,
   Headings,
   Iclasses,
-  ItileData,
   Iouter,
   Iinner,
 } from "../../../common/interfaces";
+import { ItileData } from "../../../common/dataInterfaces";
 // HELPERS
 
 // UTILS
@@ -35,15 +35,22 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class FeaturesTiles<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
+class FeaturesTiles<
+  P extends IProps = IProps,
+  S = {}
+> extends BaseClassesGetter<P, S> {
   public static defaultProps: Partial<Props> = DefaultProps;
+
   public constructor(props: P) {
     super(props);
   }
 
   public get classes(): Iclasses {
     const { pushLeft } = this.props;
-    const classes = classNames("tiles-wrap center-content", pushLeft && "push-left");
+    const classes = classNames(
+      "tiles-wrap center-content",
+      pushLeft && "push-left"
+    );
 
     return { classes };
   }
@@ -54,11 +61,9 @@ class FeaturesTiles<P extends IProps = IProps, S = {}> extends BaseClassesGetter
     const Items = data.items.map((item, i) => (
       <TilesItem
         key={Math.random()}
-        icon={`./images/${item.icon}`}
-        title={item.title}
-        description={item.description}
-        alt={item.alt}
-        delay={`${i * 200}`}
+        item={item}
+        i={i}
+        settings={data.settings.items}
       />
     ));
 
@@ -68,6 +73,7 @@ class FeaturesTiles<P extends IProps = IProps, S = {}> extends BaseClassesGetter
         sectionName="features-tiles"
         sectionHeaderData={data.header}
         tag={Headings.h2}
+        settings={data.settings.header}
       >
         <div className={this.classes.classes}>{Items}</div>
       </SectionTemplate>

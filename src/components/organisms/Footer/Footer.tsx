@@ -4,7 +4,7 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
 import { Iclasses } from "../../../common/interfaces";
 // HELPERS
@@ -31,7 +31,10 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Footer<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
+class Footer<P extends IProps = IProps, S = {}> extends BaseClassesGetter<
+  P,
+  S
+> {
   public static defaultProps: Partial<Props> = DefaultProps;
   public constructor(props: P) {
     super(props);
@@ -45,13 +48,22 @@ class Footer<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> 
       className
     );
 
-    const innerClasses = classNames("site-footer-inner", topDivider && "has-top-divider");
+    const innerClasses = classNames(
+      "site-footer-inner",
+      topDivider && "has-top-divider"
+    );
 
     return { outerClasses, innerClasses };
   }
 
   public render(): JSX.Element {
-    const { className, pathname, topOuterDivider, topDivider, ...rest } = this.props;
+    const {
+      className,
+      pathname,
+      topOuterDivider,
+      topDivider,
+      ...rest
+    } = this.props;
 
     return (
       <footer {...rest} className={this.classes.outerClasses}>
@@ -64,7 +76,8 @@ class Footer<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> 
             <div className="footer-bottom space-between text-xxs invert-order-desktop">
               <FooterNav />
               <div className="footer-copyright">
-                Made by <a href="https://cruip.com">Cruip</a>. All right reserved
+                Made by <a href="https://cruip.com">Cruip</a>. All right
+                reserved
               </div>
             </div>
           </div>

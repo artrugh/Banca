@@ -4,9 +4,14 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
-import { IProps, DefaultPropsClasses, EventHandler, Iclasses } from "../../../common/interfaces";
+import {
+  IProps,
+  DefaultPropsClasses,
+  EventHandler,
+  Iclasses,
+} from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
@@ -67,14 +72,16 @@ class Hero extends BaseClassesGetter<IProps, State> {
     this.setState({ videoModalActive: false });
   };
 
-  private handleCloseModalDocument: EventHandler<KeyboardEvent> = (e: KeyboardEvent): void => {
+  private handleCloseModalDocument: EventHandler<KeyboardEvent> = (
+    e: KeyboardEvent
+  ): void => {
     e.preventDefault();
     this.setState({ videoModalActive: false });
   };
 
-  private handleCloseModalKeyboard: EventHandler<KeyboardEvent<HTMLDivElement>> = (
-    e: KeyboardEvent<HTMLDivElement>
-  ): void => {
+  private handleCloseModalKeyboard: EventHandler<
+    KeyboardEvent<HTMLDivElement>
+  > = (e: KeyboardEvent<HTMLDivElement>): void => {
     e.preventDefault();
     this.setState({ videoModalActive: false });
   };

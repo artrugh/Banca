@@ -4,7 +4,7 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
 import { Iclasses } from "../../../common/interfaces";
 // HELPERS
@@ -47,7 +47,10 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Select<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
+class Select<P extends IProps = IProps, S = {}> extends BaseClassesGetter<
+  P,
+  S
+> {
   public static defaultProps: Partial<Props> = DefaultProps;
   public constructor(props: P) {
     super(props);

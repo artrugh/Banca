@@ -1,5 +1,16 @@
 import React, { Component } from "react";
-import { IPropsData } from "../../../common/interfaces";
+
+// STYLE
+
+// BASE CLASS
+
+// COMMON
+import { IPropsData } from "../../../common/dataInterfaces";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 
 class Career extends Component<IPropsData> {

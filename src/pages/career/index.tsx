@@ -6,7 +6,7 @@ import { GetStaticProps } from "next";
 // BASE CLASS
 
 // COMMON
-import { IinitialData, IPropsData } from "../../common/interfaces";
+import { IinitialData, IPropsData } from "../../common/dataInterfaces";
 // HELPERS
 import { readFile } from "../../helpers/ReadFile";
 // UTILS

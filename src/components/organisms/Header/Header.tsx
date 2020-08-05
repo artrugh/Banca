@@ -5,7 +5,7 @@ import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../_base/BaseGetterClasses";
+import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 // COMMON
 import { Iclasses, EventHandler } from "../../../common/interfaces";
 // HELPERS
@@ -57,12 +57,27 @@ class Header extends BaseClassesGetter<IProps, State> {
   }
 
   public get classes(): Iclasses {
-    const { bottomOuterDivider, bottomDivider, className, navPosition } = this.props;
+    const {
+      bottomOuterDivider,
+      bottomDivider,
+      className,
+      navPosition,
+    } = this.props;
 
-    const header = classNames("site-header", bottomOuterDivider && "has-bottom-divider", className);
-    const container = classNames("site-header-inner", bottomDivider && "has-bottom-divider");
+    const header = classNames(
+      "site-header",
+      bottomOuterDivider && "has-bottom-divider",
+      className
+    );
+    const container = classNames(
+      "site-header-inner",
+      bottomDivider && "has-bottom-divider"
+    );
     const nav = classNames("header-nav", this.state.isActive && "is-active");
-    const ul = classNames("list-reset text-xs", navPosition && `header-nav-${navPosition}`);
+    const ul = classNames(
+      "list-reset text-xs",
+      navPosition && `header-nav-${navPosition}`
+    );
 
     return { header, container, nav, ul };
   }
@@ -83,7 +98,9 @@ class Header extends BaseClassesGetter<IProps, State> {
     this.setState({ isActive: false });
   };
 
-  private handleKeyPress: EventHandler<Event | KeyboardEvent> = (e: KeyboardEvent): void => {
+  private handleKeyPress: EventHandler<Event | KeyboardEvent> = (
+    e: KeyboardEvent
+  ): void => {
     const { keyCode } = e;
 
     if (this.state.isActive && keyCode === 27) {
@@ -91,7 +108,9 @@ class Header extends BaseClassesGetter<IProps, State> {
     }
   };
 
-  private handleClickOutside: EventHandler<Event> = (e: Event): void | undefined => {
+  private handleClickOutside: EventHandler<Event> = (
+    e: Event
+  ): void | undefined => {
     if (!this.nav.current) {
       return;
     }
@@ -130,7 +149,11 @@ class Header extends BaseClassesGetter<IProps, State> {
                   tabIndex={0}
                   ref={this.hamburger}
                   className="header-nav-toggle"
-                  onClick={this.state.isActive ? this.handleCloseMenu : this.handleOpenMenu}
+                  onClick={
+                    this.state.isActive
+                      ? this.handleCloseMenu
+                      : this.handleOpenMenu
+                  }
                 >
                   <span className="screen-reader">Menu</span>
                   <span className="hamburger">

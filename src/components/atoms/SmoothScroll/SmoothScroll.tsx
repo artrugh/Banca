@@ -36,7 +36,13 @@ class SmoothScroll extends Component<IProps> {
     if (runtime < duration) {
       window.requestAnimationFrame((timestamp) => {
         const current: number = timestamp ?? new Date().getTime();
-        this.scrollToEl(startTime, current, duration, scrollEndElemTop, startScrollOffset);
+        this.scrollToEl(
+          startTime,
+          current,
+          duration,
+          scrollEndElemTop,
+          startScrollOffset
+        );
       });
     }
   };
@@ -68,12 +74,25 @@ class SmoothScroll extends Component<IProps> {
       const startScrollOffset: number = window.pageYOffset;
       const scrollEndElemTop: number = target.getBoundingClientRect().top;
 
-      this.scrollToEl(start, stamp, timing, scrollEndElemTop, startScrollOffset);
+      this.scrollToEl(
+        start,
+        stamp,
+        timing,
+        scrollEndElemTop,
+        startScrollOffset
+      );
     });
   };
 
   public render(): JSX.Element {
-    const { className, children, to, duration, onLinkClick, ...rest } = this.props;
+    const {
+      className,
+      children,
+      to,
+      duration,
+      onLinkClick,
+      ...rest
+    } = this.props;
 
     return (
       <a
