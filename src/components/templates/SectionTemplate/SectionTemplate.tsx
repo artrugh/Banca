@@ -1,19 +1,19 @@
-import React, { ReactNode } from "react";
+import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
 import {
   DefaultPropsClasses,
-  Iclasses,
-  Iouter,
-  Iinner,
-  Headings,
-} from "../../../common/interfaces";
-import { IHeader, IheaderSettings } from "../../../common/dataInterfaces";
+  IPropsClasses,
+  IPropsOuter,
+  IPropsInner,
+} from "../../../common/interfacesProps";
+import { Headings } from "../../../common/enums";
+import { IHeader } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
@@ -21,7 +21,7 @@ import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 import SectionHeader from "../../molecules/SectionHeader/SectionHeader";
 
-export interface IProps extends Iouter, Iinner {
+export interface IProps extends IPropsOuter, IPropsInner {
   children?: ReactNode;
   sectionName: string;
   sectionHeaderData: IHeader;
@@ -29,7 +29,7 @@ export interface IProps extends Iouter, Iinner {
   padding?: string;
   tag?: Headings;
   className?: string;
-  settings?: IheaderSettings;
+  config?: { title: number[]; paragraph: number[] };
 }
 
 export const DefaultProps: IProps = {
@@ -45,21 +45,15 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class SectionTemplate<
-  P extends IProps = IProps,
-  S = {}
-> extends BaseClassesGetter<P, S> {
+class SectionTemplate extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
-  public constructor(props: P) {
+  public constructor(props: IProps) {
     super(props);
-    checkLenghPropsData.check(
-      this.props.sectionHeaderData,
-      this.props.settings
-    );
+    checkLenghPropsData.check(this.props.sectionHeaderData, this.props.config);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const {
       containerSize,
 

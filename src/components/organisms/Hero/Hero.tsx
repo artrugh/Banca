@@ -1,17 +1,18 @@
-import React, { KeyboardEvent, MouseEvent } from "react";
+import React, { Component, KeyboardEvent, MouseEvent } from "react";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
 import {
   IProps,
   DefaultPropsClasses,
-  EventHandler,
-  Iclasses,
-} from "../../../common/interfaces";
+  IPropsClasses,
+} from "../../../common/interfacesProps";
+import { IEventHandler } from "../../../common/interfacesEvents";
+import { VideoTag } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -25,7 +26,7 @@ type Props = {} & Partial<DefaultProps>;
 type State = { videoModalActive: boolean };
 type DefaultProps = Readonly<typeof DefaultPropsClasses>;
 
-class Hero extends BaseClassesGetter<IProps, State> {
+class Hero extends Component<IProps, State> {
   public static defaultProps: Partial<Props> = DefaultPropsClasses;
 
   public constructor(props: Readonly<IProps>, public state: State) {
@@ -33,7 +34,7 @@ class Hero extends BaseClassesGetter<IProps, State> {
     this.state = { videoModalActive: false };
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const {
       topOuterDivider,
       bottomOuterDivider,
@@ -72,14 +73,14 @@ class Hero extends BaseClassesGetter<IProps, State> {
     this.setState({ videoModalActive: false });
   };
 
-  private handleCloseModalDocument: EventHandler<KeyboardEvent> = (
+  private handleCloseModalDocument: IEventHandler<KeyboardEvent> = (
     e: KeyboardEvent
   ): void => {
     e.preventDefault();
     this.setState({ videoModalActive: false });
   };
 
-  private handleCloseModalKeyboard: EventHandler<
+  private handleCloseModalKeyboard: IEventHandler<
     KeyboardEvent<HTMLDivElement>
   > = (e: KeyboardEvent<HTMLDivElement>): void => {
     e.preventDefault();
@@ -115,7 +116,7 @@ class Hero extends BaseClassesGetter<IProps, State> {
               closeModalDocument={this.handleCloseModalDocument}
               closeModalKeyboard={this.handleCloseModalKeyboard}
               video="https://player.vimeo.com/video/174002812"
-              videoTag="iframe"
+              videoTag={VideoTag.iframe}
             />
           </div>
         </div>

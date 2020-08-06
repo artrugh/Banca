@@ -1,12 +1,14 @@
-import React, { ReactNode, MouseEvent, KeyboardEvent } from "react";
+import React, { Component, ReactNode, MouseEvent, KeyboardEvent } from "react";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
-import { Iclasses, EventHandler } from "../../../common/interfaces";
+import { IPropsClasses } from "../../../common/interfacesProps";
+import { IEventHandler } from "../../../common/interfacesEvents";
+import { VideoTag } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -23,8 +25,9 @@ interface IProps {
   show: boolean;
   closeHidden?: boolean;
   video?: string;
-  videoTag?: "iframe" | "video";
+  videoTag?: VideoTag;
   className?: string;
+  id?: string;
 }
 
 const DefaultProps: IProps = {
@@ -32,15 +35,15 @@ const DefaultProps: IProps = {
   show: false,
   closeHidden: false,
   video: "",
-  videoTag: "iframe",
+  videoTag: VideoTag.iframe,
 };
 
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
+class Modal extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: P) {
+  public constructor(props: IProps) {
     super(props);
   }
 
@@ -63,7 +66,7 @@ class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
     }
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const { className, show, video } = this.props;
     const classes = classNames(
       "modal",
@@ -87,7 +90,7 @@ class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
     }
   };
 
-  private keyPress: EventHandler<Event | KeyboardEvent> = (
+  private keyPress: IEventHandler<Event | KeyboardEvent> = (
     e: KeyboardEvent
   ): void => {
     const { keyCode } = e;
@@ -97,13 +100,13 @@ class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
     }
   };
 
-  private stopProgagation: EventHandler<MouseEvent<HTMLDivElement>> = (
+  private stopProgagation: IEventHandler<MouseEvent<HTMLDivElement>> = (
     e: MouseEvent<HTMLDivElement>
   ): void => {
     e.stopPropagation();
   };
 
-  private stopProgagationKeyboard: EventHandler<
+  private stopProgagationKeyboard: IEventHandler<
     KeyboardEvent<HTMLDivElement>
   > = (e: KeyboardEvent<HTMLDivElement>): void => {
     e.stopPropagation();
@@ -122,6 +125,15 @@ class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
       closeModalKeyboard,
       ...rest
     } = this.props;
+
+    const VideoTagComponent =
+      videoTag === VideoTag.iframe ? (
+        <iframe title="video" src={video} frameBorder="0" allowFullScreen />
+      ) : (
+        <video v-else controls src={video}>
+          <track default kind="captions" srcLang="en" src={video} />
+        </video>
+      );
 
     return (
       <>
@@ -142,20 +154,7 @@ class Modal<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
               tabIndex={0}
             >
               {video ? (
-                <div className="responsive-video">
-                  {videoTag === "iframe" ? (
-                    <iframe
-                      title="video"
-                      src={video}
-                      frameBorder="0"
-                      allowFullScreen
-                    />
-                  ) : (
-                    <video v-else controls src={video}>
-                      <track default kind="captions" srcLang="en" src={video} />
-                    </video>
-                  )}
-                </div>
+                <div className="responsive-video">{VideoTagComponent}</div>
               ) : (
                 <>
                   {!closeHidden && (

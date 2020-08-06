@@ -4,7 +4,6 @@ import { ParsedUrlQuery } from "querystring";
 
 interface IProps {
   router: SingletonRouter;
-  // children?: ReactNode;
   pageTitle?: string;
   [index: string]: any;
 }

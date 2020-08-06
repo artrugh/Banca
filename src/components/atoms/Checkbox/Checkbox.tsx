@@ -6,7 +6,7 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { InputTypes } from "../../../common/interfaces";
+import { InputTypes } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -27,10 +27,7 @@ interface IProps {
 const DefaultProps: IProps = {
   id: `${Math.random()}`,
   children: null,
-  name: undefined,
-  value: undefined,
   disabled: false,
-  checked: undefined,
 };
 
 type Props = {} & Partial<DefaultProps>;

@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 interface IProps {
   children?: ReactNode;
-  name: string;
+  name?: string;
   value?: string;
   disabled?: boolean;
   checked?: boolean;
@@ -13,7 +13,6 @@ interface IProps {
 
 const DefaultProps: IProps = {
   children: null,
-  name: undefined,
   value: "",
   disabled: false,
   checked: false,

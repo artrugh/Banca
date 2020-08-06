@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import classNames from "classnames";
 
 // STYLE
@@ -8,20 +8,19 @@ import classNames from "classnames";
 // COMMON
 import {
   DefaultPropsClasses,
-  InputTypes,
-  Iclasses,
-  Iouter,
-  Iinner,
-} from "../../../common/interfaces";
+  IPropsClasses,
+  IPropsOuter,
+  IPropsInner,
+} from "../../../common/interfacesProps";
+import { InputTypes } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
 import Input from "../../molecules/Input/Input";
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 
-export interface IProps extends Iouter, Iinner {
+export interface IProps extends IPropsOuter, IPropsInner {
   split: boolean;
   className?: string;
 }
@@ -34,13 +33,13 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Cta<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
+class Cta extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: P) {
+  public constructor(props: IProps) {
     super(props);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const {
       className,
       topOuterDivider,

@@ -6,27 +6,34 @@ import Image from "../../atoms/Image/Image";
 // BASE CLASS
 
 // COMMON
-import { Iitem } from "../../../common/dataInterfaces";
+import { IItem } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
 import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 
-class TilesItem extends Component<Iitem> {
-  public constructor(props: Iitem) {
+interface IProps extends IItem {
+  config: {
+    title: number[];
+    description: number[];
+  };
+}
+
+class TilesItem extends Component<IProps> {
+  public constructor(props: IProps) {
     super(props);
-    checkLenghPropsData.check(this.props.item, this.props.settings);
+    checkLenghPropsData.check(this.props.item, this.props.config);
   }
 
   public render(): JSX.Element {
     const { title, description, icon, alt } = this.props.item;
-    const { i } = this.props;
+    const { delay } = this.props;
 
     return (
       <div
         className="tiles-item reveal-from-bottom"
-        data-reveal-delay={`${i * 200}`}
+        data-reveal-delay={`${delay * 200}`}
       >
         <div className="tiles-item-inner">
           <div className="features-tiles-item-header">

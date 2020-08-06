@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import classNames from "classnames";
 
 // STYLE
@@ -6,29 +6,30 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { Iclasses } from "../../../common/interfaces";
-import { Iitem } from "../../../common/dataInterfaces";
+import { IPropsClasses } from "../../../common/interfacesProps";
+import { IItem } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
 import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 import Image from "../../atoms/Image/Image";
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
 
-interface IProps extends Iitem {
+interface IProps extends IItem {
   imageFill?: boolean;
+  config: {
+    title: number[];
+    subtitle: number[];
+    description: number[];
+  };
 }
-class SplitItem<P extends IProps = IProps, S = {}> extends BaseClassesGetter<
-  P,
-  S
-> {
-  public constructor(public props: P) {
+class SplitItem extends Component<IProps> {
+  public constructor(public props: IProps) {
     super(props);
-    checkLenghPropsData.check(this.props.item, this.props.settings);
+    checkLenghPropsData.check(this.props.item, this.props.config);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const { imageFill } = this.props;
     const classes = classNames(
       "split-item-image center-content-mobile reveal-from-bottom",
@@ -40,14 +41,14 @@ class SplitItem<P extends IProps = IProps, S = {}> extends BaseClassesGetter<
 
   public render(): JSX.Element {
     const { title, subtitle, description, image, alt } = this.props.item;
-    const { i } = this.props;
+    const { delay } = this.props;
 
     return (
       <div className="split-item">
         <div
           className="split-item-content center-content-mobile reveal-from-left"
           data-reveal-container=".split-item"
-          data-reveal-delay={`${i * 200}`}
+          data-reveal-delay={`${delay * 200}`}
         >
           <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
             {subtitle}

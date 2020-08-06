@@ -40,7 +40,7 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
   };
 
   const revealElements = (): void => {
-    // if the revealEl.length <= nodeElements return undefiend
+    // if the revealEl.length <= nodeElements return undefined
     if (checkComplete()) {
       return;
     }

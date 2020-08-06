@@ -1,19 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
 import {
-  Iouter,
-  Iinner,
-  Headings,
-  Iclasses,
+  IPropsOuter,
+  IPropsInner,
+  IPropsClasses,
   DefaultPropsClasses,
-} from "../../../common/interfaces";
-import { IFeatureData } from "../../../common/dataInterfaces";
+} from "../../../common/interfacesProps";
+import { Headings } from "../../../common/enums";
+import { IFeatureData } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
@@ -21,13 +21,16 @@ import { IFeatureData } from "../../../common/dataInterfaces";
 // COMPONENTS
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
+// CONFIG
+import { splitConfig } from "../../../config/configData";
 
-export interface IProps extends Iouter, Iinner {
+export interface IProps extends IPropsOuter, IPropsInner {
   invertMobile?: boolean;
   invertDesktop?: boolean;
   alignTop?: boolean;
   imageFill?: boolean;
   data?: IFeatureData;
+  className?: string;
 }
 
 export const DefaultProps: IProps = {
@@ -41,16 +44,13 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class FeaturesSplit<
-  P extends IProps = IProps,
-  S = {}
-> extends BaseClassesGetter<P, S> {
+class FeaturesSplit extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: P) {
+  public constructor(props: IProps) {
     super(props);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const { invertMobile, invertDesktop, alignTop } = this.props;
 
     const classes = classNames(
@@ -73,13 +73,13 @@ class FeaturesSplit<
       ...rest
     } = this.props;
 
-    const Items = data.items.map((item, i) => (
+    const Items = data.items.map((item, delay) => (
       <SplitItem
         key={Math.random()}
         item={item}
-        i={i}
+        delay={delay}
         imageFill={imageFill}
-        settings={data.settings.items}
+        config={splitConfig.items}
       />
     ));
 
@@ -89,7 +89,7 @@ class FeaturesSplit<
         sectionName="features-split"
         sectionHeaderData={data.header}
         tag={Headings.h2}
-        settings={data.settings.header}
+        config={splitConfig.header}
       >
         <div className={this.classes.classes}>{Items}</div>
       </SectionTemplate>

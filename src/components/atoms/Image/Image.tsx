@@ -8,18 +8,7 @@ interface IProps {
   className?: string;
 }
 
-const DefaultProps: IProps = {
-  src: undefined,
-  width: undefined,
-  height: undefined,
-  alt: undefined,
-};
-
-type Props = {} & Partial<DefaultProps>;
-type DefaultProps = Readonly<typeof DefaultProps>;
-
 class Image extends Component<IProps> {
-  public static defaultProps: Partial<Props> = DefaultProps;
   private image = createRef<HTMLImageElement>();
 
   public constructor(props: IProps) {

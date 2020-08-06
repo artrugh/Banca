@@ -1,16 +1,5 @@
 {
   "split": {
-    "settings": {
-      "header": {
-        "title": [30],
-        "paragraph": [200]
-      },
-      "items": {
-        "title": [25],
-        "subtitle": [25],
-        "description": [300]
-      }
-    },
     "header": {
       "title": "Workflow that just works",
       "paragraph": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis."
@@ -40,17 +29,6 @@
     ]
   },
   "testimonial": {
-    "settings": {
-      "header": {
-        "title": [30],
-        "paragraph": [200]
-      },
-      "items": {
-        "name": [20],
-        "testimony": [185],
-        "company": [15]
-      }
-    },
     "header": {
       "title": "Customer testimonials",
       "paragraph": "Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare."
@@ -74,13 +52,6 @@
     ]
   },
   "career": {
-    "settings": {
-      "header": {
-        "title": [30],
-        "paragraph": [200]
-      },
-      "items": {}
-    },
     "header": {
       "title": "Career",
       "paragraph": "Don't waste your time, join the Team!"

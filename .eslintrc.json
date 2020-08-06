@@ -5,7 +5,11 @@
     "node": true
     // "jest/globals": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "plugin:prettier/recommended"],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -30,7 +34,10 @@
     "react/jsx-props-no-spreading": 0,
     "comma-dangle": 0,
     "no-console": 1,
-    "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      "warn",
+      { "extensions": [".jsx", ".tsx"] }
+    ],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -54,7 +61,11 @@
     "no-plusplus": "off",
     "no-useless-constructor": "off",
     "no-empty-function": "off",
-    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+    "lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true }
+    ],
     "class-methods-use-this": "off",
     "no-useless-return": "off",
     "react/prefer-stateless-function": "off",
@@ -65,7 +76,10 @@
     // "no-param-reassign": [2, { "props": false }],
     "no-param-reassign": [
       "error",
-      { "props": true, "ignorePropertyModificationsFor": ["img", "placeholder"] }
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["img", "placeholder"]
+      }
     ],
     "jsx-a11y/anchor-is-valid": "off",
     "react/static-property-placement": "off",
@@ -83,7 +97,8 @@
       { "blankLine": "always", "prev": "block", "next": "*" },
       { "blankLine": "always", "prev": "*", "next": "block-like" },
       { "blankLine": "always", "prev": "block-like", "next": "*" }
-    ]
+    ],
+    "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }]
   },
   "settings": {
     "import/resolver": {

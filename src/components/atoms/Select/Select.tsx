@@ -1,12 +1,12 @@
-import React, { ReactNode } from "react";
+import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
-import { Iclasses } from "../../../common/interfaces";
+import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -34,10 +34,8 @@ const DefaultProps: IProps = {
   children: null,
   label: "",
   labelHidden: false,
-  name: undefined,
   status: "",
   disabled: false,
-  value: undefined,
   size: "",
   placeholder: null,
   hint: null,
@@ -47,16 +45,13 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Select<P extends IProps = IProps, S = {}> extends BaseClassesGetter<
-  P,
-  S
-> {
+class Select extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: P) {
+  public constructor(props: IProps) {
     super(props);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const { className, status, size } = this.props;
 
     const classes = classNames(

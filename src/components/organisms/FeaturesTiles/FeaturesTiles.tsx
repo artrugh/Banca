@@ -1,19 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
 import {
   DefaultPropsClasses,
-  Headings,
-  Iclasses,
-  Iouter,
-  Iinner,
-} from "../../../common/interfaces";
-import { IFeatureData } from "../../../common/dataInterfaces";
+  IPropsClasses,
+  IPropsOuter,
+  IPropsInner,
+} from "../../../common/interfacesProps";
+import { Headings } from "../../../common/enums";
+import { IFeatureData } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
@@ -21,10 +21,13 @@ import { IFeatureData } from "../../../common/dataInterfaces";
 // COMPONENTS
 import TilesItem from "../../molecules/TilesItem/TilesItem";
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
+// CONFIG
+import { tilesConfig } from "../../../config/configData";
 
-export interface IProps extends Iouter, Iinner {
+export interface IProps extends IPropsOuter, IPropsInner {
   pushLeft?: boolean;
   data?: IFeatureData;
+  padding?: string;
 }
 
 export const DefaultProps: IProps = {
@@ -35,17 +38,14 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class FeaturesTiles<
-  P extends IProps = IProps,
-  S = {}
-> extends BaseClassesGetter<P, S> {
+class FeaturesTiles extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
-  public constructor(props: P) {
+  public constructor(props: IProps) {
     super(props);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const { pushLeft } = this.props;
     const classes = classNames(
       "tiles-wrap center-content",
@@ -58,12 +58,12 @@ class FeaturesTiles<
   public render(): JSX.Element {
     const { pushLeft, data, ...rest } = this.props;
 
-    const Items = data.items.map((item, i) => (
+    const Items = data.items.map((item, delay) => (
       <TilesItem
         key={Math.random()}
         item={item}
-        i={i}
-        settings={data.settings.items}
+        delay={delay}
+        config={tilesConfig.items}
       />
     ));
 
@@ -73,7 +73,7 @@ class FeaturesTiles<
         sectionName="features-tiles"
         sectionHeaderData={data.header}
         tag={Headings.h2}
-        settings={data.settings.header}
+        config={tilesConfig.header}
       >
         <div className={this.classes.classes}>{Items}</div>
       </SectionTemplate>

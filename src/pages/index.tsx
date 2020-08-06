@@ -6,7 +6,7 @@ import { GetStaticProps } from "next";
 // BASE CLASS
 
 // COMMON
-import { IinitialData, IPropsData } from "../common/dataInterfaces";
+import { IInitialData, IPropsData } from "../common/interfaces";
 // HELPERS
 import { readFile } from "../helpers/ReadFile";
 // UTILS
@@ -27,7 +27,7 @@ export default class HomePage extends Component<IPropsData> {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data: IinitialData = JSON.parse(readFile());
+  const data: IInitialData = JSON.parse(readFile());
 
   return {
     props: {

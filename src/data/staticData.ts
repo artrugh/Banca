@@ -1,13 +1,9 @@
-import {
-  InputTypes,
-  IPropsInput,
-  IPropsButton,
-  Reveal,
-} from "../common/interfaces";
+// COMMON
+import { IPropsInput, IPropsButton } from "../common/interfacesProps";
+import { InputTypes, Reveal } from "../common/enums";
+import { IHeader, IFeatureData } from "../common/interfaces";
 
-import { IHeader, IFeatureData } from "../common/dataInterfaces";
-
-interface Iforms {
+interface IForms {
   [key: string]: {
     reveal?: Reveal;
     inputs: IPropsInput[];
@@ -15,7 +11,7 @@ interface Iforms {
   };
 }
 
-export const forms: Iforms = {
+export const forms: IForms = {
   contact: {
     reveal: Reveal.bottom,
     inputs: [
@@ -24,11 +20,9 @@ export const forms: Iforms = {
         label: "",
         labelHidden: false,
         type: InputTypes.text,
-        name: undefined,
         status: "",
         disabled: false,
         required: false,
-        value: undefined,
         formGroup: null,
         hasIcon: null,
         size: "",
@@ -106,17 +100,12 @@ export const forms: Iforms = {
   },
 };
 
-export const contact: {
-  settings: { header: { title: number[]; paragraph: number[] } };
+interface IContact {
   header: IHeader;
   form: { inputs: IPropsInput[] };
-} = {
-  settings: {
-    header: {
-      title: [30],
-      paragraph: [200],
-    },
-  },
+}
+
+export const contact: IContact = {
   header: {
     title: "Contact",
     paragraph:
@@ -126,16 +115,6 @@ export const contact: {
 };
 
 export const tiles: IFeatureData = {
-  settings: {
-    header: {
-      title: [30],
-      paragraph: [200],
-    },
-    items: {
-      title: [20],
-      description: [150],
-    },
-  },
   header: {
     title: "Build up the whole picture",
     paragraph:

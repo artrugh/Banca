@@ -5,8 +5,9 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-import { IPropsInput, IPropsButton, Reveal } from "../../../common/interfaces";
-import { IFeatureData } from "../../../common/dataInterfaces";
+import { IPropsInput, IPropsButton } from "../../../common/interfacesProps";
+import { Reveal } from "../../../common/enums";
+import { IFeatureData } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
@@ -14,6 +15,8 @@ import { IFeatureData } from "../../../common/dataInterfaces";
 // COMPONENTS
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 import Form from "../../organisms/Form/Form";
+// CONFIG
+import { contactConfig } from "../../../config/configData";
 
 interface IData extends IFeatureData {
   form: { inputs: IPropsInput[]; buttons?: IPropsButton[]; reveal?: Reveal };
@@ -38,7 +41,7 @@ class Contact extends Component<IProps> {
         sectionHeaderData={data.header}
         containerSize="xs"
         bottomOuterDivider
-        settings={data.settings.header}
+        config={contactConfig.header}
       >
         <Form data={data.form} />
       </SectionTemplate>

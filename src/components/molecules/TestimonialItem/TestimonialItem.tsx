@@ -5,27 +5,35 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-import { Iitem } from "../../../common/dataInterfaces";
+import { IItem } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
 import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 
-class TestimonialItem extends Component<Iitem> {
-  public constructor(props: Iitem) {
+interface IProps extends IItem {
+  config: {
+    name: number[];
+    testimony: number[];
+    company: number[];
+  };
+}
+
+class TestimonialItem extends Component<IProps> {
+  public constructor(props: IProps) {
     super(props);
-    checkLenghPropsData.check(this.props.item, this.props.settings);
+    checkLenghPropsData.check(this.props.item, this.props.config);
   }
 
   public render(): JSX.Element {
     const { name, testimony, company } = this.props.item;
-    const { i } = this.props;
+    const { delay } = this.props;
 
     return (
       <div
         className="tiles-item reveal-from-right"
-        data-reveal-delay={`${i * 200}`}
+        data-reveal-delay={`${delay * 200}`}
       >
         <div className="tiles-item-inner">
           <div className="testimonial-item-content">

@@ -7,7 +7,7 @@ import { tiles } from "../../../data/staticData";
 // BASE CLASS
 
 // COMMON
-import { IPropsData } from "../../../common/dataInterfaces";
+import { IPropsData } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS

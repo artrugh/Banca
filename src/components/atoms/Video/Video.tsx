@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 
+// STYLE
+
+// BASE CLASS
+
+// COMMON
+import { VideoTag } from "../../../common/enums";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
+
 interface IProps {
-  videoTag?: string;
+  videoTag?: VideoTag;
   video?: string;
 }
 class Video extends Component<IProps> {
@@ -14,7 +26,7 @@ class Video extends Component<IProps> {
 
     return (
       <div className="responsive-video">
-        {videoTag === "iframe" ? (
+        {videoTag === VideoTag.iframe ? (
           <iframe title="video" src={video} frameBorder="0" allowFullScreen />
         ) : (
           <video v-else controls src={video}>

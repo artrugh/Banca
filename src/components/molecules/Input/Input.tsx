@@ -1,12 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
-import { InputTypes, Iclasses, IPropsInput } from "../../../common/interfaces";
+import { IPropsClasses, IPropsInput } from "../../../common/interfacesProps";
+import { InputTypes } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -20,12 +21,9 @@ const DefaultProps: IPropsInput = {
   label: "",
   labelHidden: false,
   type: InputTypes.text,
-  name: undefined,
   status: "",
   disabled: false,
   required: false,
-  reveal: undefined,
-  value: undefined,
   formGroup: null,
   hasIcon: null,
   size: "",
@@ -37,16 +35,13 @@ const DefaultProps: IPropsInput = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Input<
-  P extends IPropsInput = IPropsInput,
-  S = {}
-> extends BaseClassesGetter<P, S> {
+class Input extends Component<IPropsInput> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: P) {
+  public constructor(props: IPropsInput) {
     super(props);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const { formGroup, reveal, hasIcon, size, status, className } = this.props;
 
     const containerClasses = classNames(

@@ -1,16 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 import classNames from "classnames";
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
 import {
   IPropsButton,
   IPropsInput,
-  Iclasses,
-  Reveal,
-} from "../../../common/interfaces";
+  IPropsClasses,
+} from "../../../common/interfacesProps";
+import { Reveal } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -24,13 +24,12 @@ interface IProps {
   data: { inputs: IPropsInput[]; buttons?: IPropsButton[]; reveal?: Reveal };
 }
 
-class Form<P extends IProps = IProps, S = {}> extends BaseClassesGetter<P, S> {
-  // class Form extends Component<IProps> {
-  public constructor(props: P) {
+class Form extends Component<IProps> {
+  public constructor(props: IProps) {
     super(props);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const { reveal } = this.props.data;
     const classesForm = classNames("form", reveal && reveal);
 

@@ -1,12 +1,12 @@
-import React, { createElement } from "react";
+import React, { Component, createElement } from "react";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
-import { Iclasses, IPropsButton } from "../../../common/interfaces";
+import { IPropsClasses, IPropsButton } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -18,7 +18,6 @@ const DefaultProps: IPropsButton = {
   color: "",
   size: "",
   children: "click",
-  reveal: undefined,
   loading: false,
   wide: false,
   wideMobile: false,
@@ -28,17 +27,14 @@ const DefaultProps: IPropsButton = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Button<
-  P extends IPropsButton = IPropsButton,
-  S = {}
-> extends BaseClassesGetter<P, S> {
+class Button extends Component<IPropsButton> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
-  public constructor(props: P) {
+  public constructor(props: IPropsButton) {
     super(props);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const {
       color,
       size,

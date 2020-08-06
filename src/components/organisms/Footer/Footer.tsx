@@ -1,12 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
-import { Iclasses } from "../../../common/interfaces";
+import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -31,16 +31,13 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Footer<P extends IProps = IProps, S = {}> extends BaseClassesGetter<
-  P,
-  S
-> {
+class Footer extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
-  public constructor(props: P) {
+  public constructor(props: IProps) {
     super(props);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const { className, topOuterDivider, topDivider } = this.props;
     const outerClasses = classNames(
       "site-footer center-content-mobile",

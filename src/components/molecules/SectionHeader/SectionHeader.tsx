@@ -1,13 +1,14 @@
-import React, { ReactNode, createElement } from "react";
+import React, { Component, ReactNode, createElement } from "react";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
-import { Headings, Iclasses } from "../../../common/interfaces";
-import { IHeader } from "../../../common/dataInterfaces";
+import { IPropsClasses } from "../../../common/interfacesProps";
+import { Headings } from "../../../common/enums";
+import { IHeader } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
@@ -32,18 +33,15 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class SectionHeader<
-  P extends IProps = IProps,
-  S = {}
-> extends BaseClassesGetter<P, S> {
+class SectionHeader extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
-  public constructor(props: P) {
+  public constructor(props: IProps) {
     super(props);
     this.checkLenghPropsData(this.props.data);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const { data, className } = this.props;
     const containerClasses = classNames("section-header", className);
     const headingClasses = classNames(
@@ -85,7 +83,6 @@ class SectionHeader<
             <div className="container-xs">
               {children}
               {title && this.createReactElement(tag, props)}
-              {/* <C className={this.classes.headingClasses}>{data.title}</C> */}
               {paragraph && <p className="m-0">{paragraph}</p>}
             </div>
           </div>

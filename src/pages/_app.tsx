@@ -1,8 +1,6 @@
 import React, { createRef } from "react";
 import App, { AppProps } from "next/app";
 
-// import ReactGA from 'react-ga';
-
 // STYLE
 import "../assets/scss/style.scss";
 // BASE CLASS

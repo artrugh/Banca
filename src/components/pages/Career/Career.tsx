@@ -5,13 +5,15 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-import { IPropsData } from "../../../common/dataInterfaces";
+import { IPropsData } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
+// CONFIG
+import { careerConfig } from "../../../config/configData";
 
 class Career extends Component<IPropsData> {
   private constructor(props: IPropsData) {
@@ -27,7 +29,7 @@ class Career extends Component<IPropsData> {
         sectionName="career"
         sectionHeaderData={data.career.header}
         bottomOuterDivider
-        settings={data.career.settings.header}
+        config={careerConfig.header}
       >
         Children
       </SectionTemplate>

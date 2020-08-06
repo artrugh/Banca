@@ -1,13 +1,14 @@
-import React, { createRef, KeyboardEvent } from "react";
+import React, { Component, createRef, KeyboardEvent } from "react";
 import Link from "next/link";
 import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
-import BaseClassesGetter from "../../../helpers/BaseGetterClasses";
+
 // COMMON
-import { Iclasses, EventHandler } from "../../../common/interfaces";
+import { IPropsClasses } from "../../../common/interfacesProps";
+import { IEventHandler } from "../../../common/interfacesEvents";
 // HELPERS
 
 // UTILS
@@ -36,7 +37,7 @@ type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 type State = { isActive: boolean };
 
-class Header extends BaseClassesGetter<IProps, State> {
+class Header extends Component<IProps, State> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   private nav = createRef<HTMLElement>();
@@ -56,7 +57,7 @@ class Header extends BaseClassesGetter<IProps, State> {
     document.addEventListener("click", this.handleClickOutside);
   }
 
-  public get classes(): Iclasses {
+  public get classes(): IPropsClasses {
     const {
       bottomOuterDivider,
       bottomDivider,
@@ -98,7 +99,7 @@ class Header extends BaseClassesGetter<IProps, State> {
     this.setState({ isActive: false });
   };
 
-  private handleKeyPress: EventHandler<Event | KeyboardEvent> = (
+  private handleKeyPress: IEventHandler<Event | KeyboardEvent> = (
     e: KeyboardEvent
   ): void => {
     const { keyCode } = e;
@@ -108,7 +109,7 @@ class Header extends BaseClassesGetter<IProps, State> {
     }
   };
 
-  private handleClickOutside: EventHandler<Event> = (
+  private handleClickOutside: IEventHandler<Event> = (
     e: Event
   ): void | undefined => {
     if (!this.nav.current) {
@@ -174,6 +175,31 @@ class Header extends BaseClassesGetter<IProps, State> {
                             Contact
                           </a>
                         </Link>
+                      </li>
+                    </ul>
+                    <ul className={this.classes.ul}>
+                      <li>
+                        <input id="leng" type="checkbox" className="checkbox" />
+                        <label htmlFor="leng" className="leng__label">
+                          {"<"}
+                        </label>
+                        <style jsx>
+                          {`
+                            .checkbox {
+                              display: none;
+                            }
+
+                            .leng__label::after {
+                              content: "DE>";
+                              width: 200px;
+                              height: 200px;
+                            }
+
+                            .checkbox:checked ~ .leng__label::after {
+                              content: "EN>";
+                            }
+                          `}
+                        </style>
                       </li>
                     </ul>
                     {!hideSignin && (

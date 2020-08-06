@@ -15,9 +15,6 @@ export interface IProps {
 export const DefaultProps: IProps = {
   id: `${Math.random()}`,
   children: null,
-  name: undefined,
-  value: undefined,
-  rightLabel: undefined,
   disabled: false,
   checked: false,
 };
