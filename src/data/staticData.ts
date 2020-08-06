@@ -5,7 +5,7 @@ import {
   Reveal,
 } from "../common/interfaces";
 
-import { IHeader, ItileData } from "../common/dataInterfaces";
+import { IHeader, IFeatureData } from "../common/dataInterfaces";
 
 interface Iforms {
   [key: string]: {
@@ -106,7 +106,17 @@ export const forms: Iforms = {
   },
 };
 
-export const contact: { header: IHeader; form: { inputs: IPropsInput[] } } = {
+export const contact: {
+  settings: { header: { title: number[]; paragraph: number[] } };
+  header: IHeader;
+  form: { inputs: IPropsInput[] };
+} = {
+  settings: {
+    header: {
+      title: [30],
+      paragraph: [200],
+    },
+  },
   header: {
     title: "Contact",
     paragraph:
@@ -115,7 +125,7 @@ export const contact: { header: IHeader; form: { inputs: IPropsInput[] } } = {
   form: forms.contact,
 };
 
-export const tiles: ItileData = {
+export const tiles: IFeatureData = {
   settings: {
     header: {
       title: [30],

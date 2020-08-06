@@ -19,14 +19,15 @@ class Career extends Component<IPropsData> {
   }
 
   public render(): JSX.Element {
-    const { career, ...rest } = this.props.data;
+    const { data, ...rest } = this.props;
 
     return (
       <SectionTemplate
         {...rest}
         sectionName="career"
-        sectionHeaderData={career.header}
+        sectionHeaderData={data.career.header}
         bottomOuterDivider
+        settings={data.career.settings.header}
       >
         Children
       </SectionTemplate>

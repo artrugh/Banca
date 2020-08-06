@@ -13,7 +13,7 @@ import {
   Iinner,
   Iclasses,
 } from "../../../common/interfaces";
-import { ItestimonialData } from "../../../common/dataInterfaces";
+import { IFeatureData } from "../../../common/dataInterfaces";
 // HELPERS
 
 // UTILS
@@ -24,7 +24,7 @@ import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 
 export interface IProps extends Iouter, Iinner {
   pushLeft?: boolean;
-  data?: ItestimonialData;
+  data?: IFeatureData;
 }
 
 export const DefaultProps: IProps = {

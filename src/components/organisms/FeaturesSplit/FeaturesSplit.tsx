@@ -13,7 +13,7 @@ import {
   Iclasses,
   DefaultPropsClasses,
 } from "../../../common/interfaces";
-import { IsplitData } from "../../../common/dataInterfaces";
+import { IFeatureData } from "../../../common/dataInterfaces";
 // HELPERS
 
 // UTILS
@@ -27,7 +27,7 @@ export interface IProps extends Iouter, Iinner {
   invertDesktop?: boolean;
   alignTop?: boolean;
   imageFill?: boolean;
-  data?: IsplitData;
+  data?: IFeatureData;
 }
 
 export const DefaultProps: IProps = {

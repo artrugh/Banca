@@ -6,7 +6,7 @@ import React, { Component } from "react";
 
 // COMMON
 import { IPropsInput, IPropsButton, Reveal } from "../../../common/interfaces";
-import { IHeader } from "../../../common/dataInterfaces";
+import { IFeatureData } from "../../../common/dataInterfaces";
 // HELPERS
 
 // UTILS
@@ -15,11 +15,12 @@ import { IHeader } from "../../../common/dataInterfaces";
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 import Form from "../../organisms/Form/Form";
 
+interface IData extends IFeatureData {
+  form: { inputs: IPropsInput[]; buttons?: IPropsButton[]; reveal?: Reveal };
+}
+
 interface IProps {
-  data: {
-    header: IHeader;
-    form: { inputs: IPropsInput[]; buttons?: IPropsButton[]; reveal?: Reveal };
-  };
+  data: IData;
 }
 
 class Contact extends Component<IProps> {
@@ -37,6 +38,7 @@ class Contact extends Component<IProps> {
         sectionHeaderData={data.header}
         containerSize="xs"
         bottomOuterDivider
+        settings={data.settings.header}
       >
         <Form data={data.form} />
       </SectionTemplate>

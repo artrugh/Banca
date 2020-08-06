@@ -23,6 +23,13 @@ export interface Iitem {
   settings?: IitemSettings;
 }
 
+// // FEATURES
+export interface IFeatureData {
+  settings: { header: IheaderSettings; items?: IitemSettings };
+  header: IHeader;
+  items?: { [key: string]: string }[];
+}
+
 // CAREER
 
 interface ICareerSettings {
@@ -30,29 +37,6 @@ interface ICareerSettings {
   items: {};
 }
 
-// // FEATURES
-
-// TILE
-export interface ItileData {
-  settings: { header: IheaderSettings; items: IitemSettings };
-  header: IHeader;
-  items: { [key: string]: string }[];
-}
-// SPLIT
-export interface IsplitData {
-  settings: { header: IheaderSettings; items: IitemSettings };
-  header: IHeader;
-  items: { [key: string]: string }[];
-}
-
-// TESTIMONIAL
-export interface ItestimonialData {
-  settings: { header: IheaderSettings; items: IitemSettings };
-  header: IHeader;
-  items: { [key: string]: string }[];
-}
-
-// CAREER
 export interface IcareerData {
   settings: ICareerSettings;
   header: IHeader;
@@ -60,8 +44,8 @@ export interface IcareerData {
 }
 
 export interface IinitialData {
-  split: IsplitData;
-  testimonial: ItestimonialData;
+  split: IFeatureData;
+  testimonial: IFeatureData;
   career: IcareerData;
 }
 
