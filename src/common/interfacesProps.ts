@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { InputTypes, Reveal } from "./enums";
+import { InputTypes, Reveal, Sizes } from "./enums";
 
 export interface IPropsInput {
   children?: ReactNode;
@@ -13,7 +13,7 @@ export interface IPropsInput {
   value?: string;
   formGroup?: string;
   hasIcon?: string;
-  size?: string;
+  size?: Sizes;
   placeholder?: string;
   reveal?: Reveal;
   rows?: number;
@@ -25,7 +25,7 @@ export interface IPropsInput {
 export interface IPropsButton {
   readonly tag?: string;
   color?: string;
-  size?: string;
+  size?: Sizes;
   loading?: boolean;
   wide?: boolean;
   wideMobile?: boolean;

@@ -7,7 +7,7 @@ import Head from "next/head";
 // BASE CLASS
 
 // COMMON
-
+import { Sizes } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -15,6 +15,7 @@ import Head from "next/head";
 // COMPONENTS
 import Header from "../../organisms/Header/Header";
 import Footer from "../../organisms/Footer/Footer";
+import CookiesModal from "../../molecules/CookiesModal/CookiesModal";
 
 interface IProps {
   router: SingletonRouter;
@@ -37,7 +38,8 @@ class DefaultTemplate extends Component<IProps> {
         <Head>
           <title>Teclead {pageTitle ? `| ${pageTitle}` : ""}</title>
         </Head>
-        <Header navPosition="right" className="reveal-from-bottom" />
+        <CookiesModal />
+        <Header containerSize={Sizes.big} navPosition="right" scrollBg />
         <main className="site-content">{children}</main>
         <Footer pathname={pathname} />
       </>

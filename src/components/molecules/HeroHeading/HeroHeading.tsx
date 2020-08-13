@@ -19,9 +19,12 @@ class HeroHeading extends Component<{}> {
     super(props);
   }
 
+  public componentDidMount(): void {}
+
   public render(): JSX.Element {
     return (
       <>
+        <div id="scroll-behavior-header-bg" />
         <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
           Technical Expertise and{" "}
           <span className="text-color-primary">Cross-Industry</span>

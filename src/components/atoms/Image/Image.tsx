@@ -1,11 +1,25 @@
 import React, { Component, createRef } from "react";
+import classNames from "classnames";
+// STYLE
+
+// BASE CLASS
+
+// COMMON
+import { IPropsClasses } from "../../../common/interfacesProps";
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 
 interface IProps {
   src: string;
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
   alt?: string;
+  gradientBg?: boolean;
   className?: string;
+  containerClassName?: string;
 }
 
 class Image extends Component<IProps> {
@@ -18,6 +32,19 @@ class Image extends Component<IProps> {
   public componentDidMount(): void {
     const placeholderImage = document.createElement("img")! as HTMLImageElement;
     this.handlePlaceholder(this.image.current, placeholderImage);
+  }
+
+  public get classes(): IPropsClasses {
+    const { className, containerClassName, gradientBg } = this.props;
+
+    const container = classNames(
+      containerClassName && containerClassName,
+      "img-container",
+      gradientBg && "has-gradient"
+    );
+    const image = classNames(className && className);
+
+    return { image, container };
   }
 
   private placeholderSrc = (w: number, h: number): string => {
@@ -58,18 +85,29 @@ class Image extends Component<IProps> {
   };
 
   public render(): JSX.Element {
-    const { className, src, width, height, alt, ...rest } = this.props;
+    const {
+      className,
+      containerClassName,
+      gradientBg,
+      src,
+      width,
+      height,
+      alt,
+      ...rest
+    } = this.props;
 
     return (
-      <img
-        {...rest}
-        ref={this.image}
-        className={className}
-        src={src}
-        width={width}
-        height={height}
-        alt={alt}
-      />
+      <div className={this.classes.container}>
+        <img
+          {...rest}
+          ref={this.image}
+          className={this.classes.image}
+          src={src}
+          width={width}
+          height={height}
+          alt={alt}
+        />
+      </div>
     );
   }
 }

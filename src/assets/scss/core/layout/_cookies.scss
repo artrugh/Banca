@@ -1,0 +1,84 @@
+.cookies {
+  &__checkbox {
+    &__label {
+      padding: 1rem;
+      position: fixed;
+      // height: 60%;
+      width: 100%;
+      top: -100%;
+      z-index: 11;
+      background: color-bg(menu-mobile);
+      // background: color-bg(body);
+
+      transition: 0.5s all ease-out;
+      cursor: pointer;
+    }
+
+    &__button {
+      z-index: 2;
+      margin: 1rem;
+      float: right;
+    }
+
+    &__text {
+      width: 100%;
+    }
+
+    body.scroll-behaviour-cookies &__label {
+      top: 0;
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked~&__label {
+      top: -100%;
+    }
+
+    // re-postion the main header
+    // &:checked~.site-header {
+    //   top: 0;
+    // }
+  }
+}
+
+// @include media('>small') {
+//   .cookies {
+//     &__checkbox {
+//       &__label {
+//         padding: 1.5rem;
+//       }
+
+//       &__button {
+//         float: right;
+//       }
+
+//       &__text {
+//         width: 60%;
+//       }
+//     }
+//   }
+// }
+
+// @include media('>medium') {
+//   .cookies {
+//     &__checkbox {
+//       &__label {
+//         height: 50%;
+//         padding: 1.7rem;
+//       }
+//     }
+//   }
+// }
+
+// @include media('>large') {
+//   .cookies {
+//     &__checkbox {
+//       &__label {
+//         height: 25%;
+//         padding: 2rem;
+//       }
+//     }
+//   }
+// }

@@ -1,6 +1,18 @@
 import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
 
+// STYLE
+
+// BASE CLASS
+
+// COMMON
+
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
+
 interface IProps {
   children?: ReactNode;
   name?: string;

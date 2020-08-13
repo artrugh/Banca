@@ -4,6 +4,12 @@ export enum Headings {
   h3 = "h3",
 }
 
+export enum Sizes {
+  big = "big",
+  sm = "sm",
+  xs = "xs",
+}
+
 export enum VideoTag {
   iframe = "iframe",
   video = "video",

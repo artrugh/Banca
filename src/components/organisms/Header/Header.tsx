@@ -9,12 +9,14 @@ import classNames from "classnames";
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
 import { IEventHandler } from "../../../common/interfacesEvents";
+import { Sizes } from "../../../common/enums";
 // HELPERS
 
 // UTILS
-
+import { ScrollManagerDisplayer } from "../../../utils/ScrollManagerDisplayer";
 // COMPONENTS
 import Logo from "../../atoms/Logo/Logo";
+import ButtonLeng from "../../atoms/ButtonLeng/ButtonLeng";
 
 export interface IProps {
   navPosition?: string;
@@ -22,6 +24,8 @@ export interface IProps {
   hideSignin?: boolean;
   bottomOuterDivider?: boolean;
   bottomDivider?: boolean;
+  scrollBg?: boolean;
+  containerSize?: Sizes;
   [propName: string]: any;
 }
 
@@ -31,6 +35,7 @@ export const DefaultProps: IProps = {
   hideSignin: false,
   bottomOuterDivider: false,
   bottomDivider: false,
+  scrollBg: false,
 };
 
 type Props = {} & Partial<DefaultProps>;
@@ -53,6 +58,12 @@ class Header extends Component<IProps, State> {
       this.handleOpenMenu();
     }
 
+    if (this.props.scrollBg) {
+      ScrollManagerDisplayer("scroll-behavior-header-bg");
+    }
+
+    ScrollManagerDisplayer("scroll-behaviour-cookies");
+
     document.addEventListener("keydown", this.handleKeyPress);
     document.addEventListener("click", this.handleClickOutside);
   }
@@ -63,14 +74,22 @@ class Header extends Component<IProps, State> {
       bottomDivider,
       className,
       navPosition,
+      scrollBg,
+      containerSize,
     } = this.props;
 
     const header = classNames(
       "site-header",
+      scrollBg && "has-bg-transparent",
       bottomOuterDivider && "has-bottom-divider",
       className
     );
+
     const container = classNames(
+      containerSize ? `container-${containerSize}` : "container"
+    );
+
+    const inner = classNames(
       "site-header-inner",
       bottomDivider && "has-bottom-divider"
     );
@@ -80,7 +99,7 @@ class Header extends Component<IProps, State> {
       navPosition && `header-nav-${navPosition}`
     );
 
-    return { header, container, nav, ul };
+    return { header, container, inner, nav, ul };
   }
 
   private handleOpenMenu = (): void => {
@@ -131,17 +150,19 @@ class Header extends Component<IProps, State> {
     const {
       className,
       navPosition,
+      containerSize,
       hideNav,
       hideSignin,
       bottomOuterDivider,
       bottomDivider,
+      scrollBg,
       ...rest
     } = this.props;
 
     return (
       <header {...rest} className={this.classes.header}>
-        <div className="container">
-          <div className={this.classes.container}>
+        <div className={this.classes.container}>
+          <div className={this.classes.inner}>
             <Logo />
             {!hideNav && (
               <>
@@ -179,27 +200,7 @@ class Header extends Component<IProps, State> {
                     </ul>
                     <ul className={this.classes.ul}>
                       <li>
-                        <input id="leng" type="checkbox" className="checkbox" />
-                        <label htmlFor="leng" className="leng__label">
-                          {"<"}
-                        </label>
-                        <style jsx>
-                          {`
-                            .checkbox {
-                              display: none;
-                            }
-
-                            .leng__label::after {
-                              content: "DE>";
-                              width: 200px;
-                              height: 200px;
-                            }
-
-                            .checkbox:checked ~ .leng__label::after {
-                              content: "EN>";
-                            }
-                          `}
-                        </style>
+                        <ButtonLeng id="leng" />
                       </li>
                     </ul>
                     {!hideSignin && (

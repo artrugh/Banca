@@ -7,6 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses, IPropsButton } from "../../../common/interfacesProps";
+import { Sizes } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -16,7 +17,7 @@ import { IPropsClasses, IPropsButton } from "../../../common/interfacesProps";
 const DefaultProps: IPropsButton = {
   tag: "button",
   color: "",
-  size: "",
+  size: Sizes.sm,
   children: "click",
   loading: false,
   wide: false,

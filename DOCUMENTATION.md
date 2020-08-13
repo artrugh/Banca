@@ -1,3 +1,7 @@
+## General
+[scroll-html-css-animations](https://pqina.nl/blog/applying-styles-based-on-the-user-scroll-position-with-smart-css/)
+[code-pen-scrollfn](https://codepen.io/chriscoyier/pen/roJmbX?editors=0010)
+
 ## React
 
 [components](https://reactjs.org/docs/react-component.html)

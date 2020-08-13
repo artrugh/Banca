@@ -1,0 +1,91 @@
+.hero {
+
+    &-divider {
+        width: 100vw;
+        height: 50vh;
+    }
+
+    &-img {
+        height: 100vh;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(0, 0, 255, 0.5)),
+            url("https://media.nationalgeographic.org/assets/photos/000/266/26660.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &-statement {
+
+        position: sticky;
+        bottom: 2rem;
+        margin: 0 2rem;
+        width: auto;
+        z-index: 2;
+
+        .underline-has-animation {
+            animation: moveInLeft 1.5s ease-out;
+        }
+
+        &:hover hr {
+            width: 100%;
+        }
+
+        hr {
+            body.scroll-behavior-header-bg & {
+                background-color: get-color(primary, 3);
+                width: 70%;
+            }
+        }
+    }
+
+    &-about {
+
+        width: auto;
+        z-index: 1;
+        margin: 10vh 2rem 10rem 2rem;
+
+        &:hover hr {
+            width: 60%;
+            background-color: get-color(primary, 3);
+        }
+    }
+}
+
+@include media('>medium') {
+    .hero {
+
+        &-statement {
+            width: 50%;
+
+        }
+
+        &-about {
+            width: 75vw;
+            margin: 10vh auto 7rem 2rem;
+        }
+    }
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0.5;
+        transform: translateX(-20rem);
+        width: 0;
+    }
+
+    50% {
+        width: 20%;
+        transform: translateX(-5rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+        width: 60%;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        width: 50%;
+    }
+}

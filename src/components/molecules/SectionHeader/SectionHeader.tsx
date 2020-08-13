@@ -43,13 +43,10 @@ class SectionHeader extends Component<IProps> {
 
   public get classes(): IPropsClasses {
     const { data, className } = this.props;
-    const containerClasses = classNames("section-header", className);
-    const headingClasses = classNames(
-      "mt-0",
-      data.paragraph ? "mb-16" : "mb-0"
-    );
+    const container = classNames("section-header", className);
+    const heading = classNames("mt-0", data.paragraph ? "mb-16" : "mb-0");
 
-    return { containerClasses, headingClasses };
+    return { container, heading };
   }
 
   private checkLenghPropsData = (data: IHeader): void | never => {
@@ -71,7 +68,7 @@ class SectionHeader extends Component<IProps> {
     const { className, data, children, tag, ...rest } = this.props;
     const { title, paragraph } = this.props.data;
     const props = {
-      className: this.classes.headingClasses,
+      className: this.classes.heading,
       children: title,
       ...rest,
     };
@@ -79,7 +76,7 @@ class SectionHeader extends Component<IProps> {
     return (
       <>
         {(title || paragraph) && (
-          <div {...rest} className={this.classes.containerClasses}>
+          <div {...rest} className={this.classes.container}>
             <div className="container-xs">
               {children}
               {title && this.createReactElement(tag, props)}
