@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classNames from "classnames";
 
 // STYLE
 
@@ -6,13 +7,18 @@ import React, { Component } from "react";
 
 // COMMON
 import { IItem } from "../../../common/interfaces";
+import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
 import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
+import Image from "../../atoms/Image/Image";
 
 interface IProps extends IItem {
+  centerDivider?: boolean;
+  underline?: string;
+  quote?: boolean;
   config: {
     name: number[];
     testimony: number[];
@@ -26,20 +32,47 @@ class TestimonialItem extends Component<IProps> {
     checkLenghPropsData.check(this.props.item, this.props.config);
   }
 
+  public get classes(): IPropsClasses {
+    const { centerDivider, quote, underline } = this.props;
+
+    const image = classNames(
+      "testimonial-item-avatar-container",
+      underline && underline,
+      centerDivider && "has-center-divider"
+    );
+
+    const content = classNames(
+      "testimonial-item-content mt-12",
+      quote && "has-quote"
+    );
+
+    return { image, content };
+  }
+
   public render(): JSX.Element {
-    const { name, testimony, company } = this.props.item;
+    const { name, testimony, company, avatar } = this.props.item;
     const { delay } = this.props;
 
     return (
       <div
-        className="tiles-item reveal-from-right"
+        className="tiles-item testimonial-item reveal-from-right"
         data-reveal-delay={`${delay * 200}`}
       >
         <div className="tiles-item-inner">
-          <div className="testimonial-item-content">
+          {avatar && (
+            <Image
+              className="testimonial-item-avatar"
+              containerClassName={this.classes.image}
+              src={avatar}
+              alt={name}
+              width="27%"
+              height="27%"
+            />
+          )}
+          <div className={this.classes.content}>
             <p className="text-sm mb-0">{testimony}</p>
           </div>
-          <div className="testimonial-item-footer text-xs mt-32 mb-0 has-top-divider">
+          <div className="testimonial-item-footer text-xs mt-32 mb-0">
             <span className="testimonial-item-name text-color-high">
               {name}
             </span>

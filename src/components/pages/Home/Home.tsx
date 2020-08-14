@@ -42,14 +42,19 @@ export default class Home extends Component<IPropsData> {
         >
           We combine our tecnical expertise with know-how.
         </HeroScrollable>
-        <FeaturesTiles data={tiles} padding="pt-0" />
-        {/* <FeaturesSplit
+        <FeaturesTiles
+          data={tiles}
+          padding="pt-0"
+          underline="has-center-underline"
+        />
+        <FeaturesSplit
           invertMobile
           topDivider
           imageFill
           className="illustration-section-02"
           data={split}
-        /> */}
+          underline="has-center-underline"
+        />
         <FeaturesTestimonial data={testimonial} topDivider pushLeft />
         <Cta split />
       </>

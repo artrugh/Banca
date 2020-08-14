@@ -1,171 +1,298 @@
 // Font Family
 @mixin font-family($elem) {
-	font-family: get-font-family($elem);
+    font-family: get-font-family($elem);
 }
 
 // Font-size + Line-height + Kerning
 @mixin font-size($elem) {
-	font-size: get-font-size($elem);
-	line-height: get-line-height($elem);
-	letter-spacing: get-kerning($elem);
+    font-size: get-font-size($elem);
+    line-height: get-line-height($elem);
+    letter-spacing: get-kerning($elem);
 }
 
 // Font Weight
 @mixin font-weight($elem) {
-	font-weight: get-font-weight($elem);
+    font-weight: get-font-weight($elem);
 }
 
 // Anchor aspect
 @mixin anchor-aspect($type: 'main', $layout: false) {
-	@if ( $type == 'main' ) { // Base
-		@if ( $layout == 'inverse' ) {
-			color: color(link-inverse);
-		} @else {
-			color: color(link);
-		}
-		text-decoration: $link-main--decoration;
+    @if ($type=='main') {
 
-		&:hover,
-		&:active {
-			@if ( $layout == 'inverse' ) {
-				color: color(link-hover-inverse);
-			} @else {
-				color: color(link-hover);
-			}
-			outline: 0;
-			text-decoration: $link-main--decoration-hover;
-		}
-	} @else if ($type == 'header') {
-		@if ( $layout == 'inverse' ) {
-			color: color(header-link-inverse);
-		} @else {
-			color: color(header-link);
-		}
-		text-decoration: $link-header--decoration;
+        // Base
+        @if ($layout=='inverse') {
+            color: color(link-inverse);
+        }
 
-		&:hover,
-		&:active {
-			@if ( $layout == 'inverse' ) {
-				color: color(header-link-hover-inverse);
-			} @else {
-				color: color(header-link-hover);
-			}
-			text-decoration: $link-header--decoration-hover;
-		}
-	} @else if ($type == 'header-mobile') {
-		color: color(header-link-mobile);
+        @else {
+            color: color(link);
+        }
 
-		&:hover,
-		&:active {
-			color: color(header-link-mobile-hover);
-		}
-	} @else if ($type == 'footer') {
-		@if ( $layout == 'inverse' ) {
-			color: color(footer-link-inverse);
-		} @else {
-			color: color(footer-link);
-		}
-		text-decoration: $link-footer--decoration;
+        text-decoration: $link-main--decoration;
 
-		&:hover,
-		&:active {
-			@if ( $layout == 'inverse' ) {
-				color: color(footer-link-hover-inverse);
-			} @else {
-				color: color(footer-link-hover);
-			}
-			text-decoration: $link-footer--decoration-hover;
-		}
-	} @else if ($type == 'footer-block') {
-		@if ( $layout == 'inverse' ) {
-			color: color(footer-block-link-inverse);
-		} @else {
-			color: color(footer-block-link);
-		}
-		text-decoration: $link-footer-block--decoration;
+        &:hover,
+        &:active {
+            @if ($layout=='inverse') {
+                color: color(link-hover-inverse);
+            }
 
-		&:hover,
-		&:active {
-			@if ( $layout == 'inverse' ) {
-				color: color(footer-block-link-hover-inverse);
-			} @else {
-				color: color(footer-block-link-hover);
-			}
-			text-decoration: $link-footer-block--decoration-hover;
-		}
-	} @else if ($type == 'button-link') {
-		@if ( $layout == 'inverse' ) {
-			color: color(button-link-inverse);
-		} @else {
-			color: color(button-link);
-		}
-		text-decoration: $link-button--decoration;
+            @else {
+                color: color(link-hover);
+            }
 
-		&:hover,
-		&:active {
-			@if ( $layout == 'inverse' ) {
-				color: color(button-link-hover-inverse);
-			} @else {
-				color: color(button-link-hover);
-			}
-			text-decoration: $link-button--decoration-hover;
-		}
-	} @else if ($type == 'func-link') {
-		@if ( $layout == 'inverse' ) {
-			color: color(func-link-inverse);
-		} @else {
-			color: color(func-link);
-		}
-		text-decoration: $link-func--decoration;
+            outline: 0;
+            text-decoration: $link-main--decoration-hover;
+        }
+    }
 
-		&:hover,
-		&:active {
-			@if ( $layout == 'inverse' ) {
-				color: color(func-link-hover-inverse);
-			} @else {
-				color: color(func-link-hover);
-			}
-			text-decoration: $link-func--decoration-hover;
-		}
-	}
+    @else if ($type=='header') {
+        @if ($layout=='inverse') {
+            color: color(header-link-inverse);
+        }
+
+        @else {
+            color: color(header-link);
+        }
+
+        text-decoration: $link-header--decoration;
+
+        &:hover,
+        &:active {
+            @if ($layout=='inverse') {
+                color: color(header-link-hover-inverse);
+            }
+
+            @else {
+                color: color(header-link-hover);
+            }
+
+            text-decoration: $link-header--decoration-hover;
+        }
+    }
+
+    @else if ($type=='header-mobile') {
+        color: color(header-link-mobile);
+
+        &:hover,
+        &:active {
+            color: color(header-link-mobile-hover);
+        }
+    }
+
+    @else if ($type=='footer') {
+        @if ($layout=='inverse') {
+            color: color(footer-link-inverse);
+        }
+
+        @else {
+            color: color(footer-link);
+        }
+
+        text-decoration: $link-footer--decoration;
+
+        &:hover,
+        &:active {
+            @if ($layout=='inverse') {
+                color: color(footer-link-hover-inverse);
+            }
+
+            @else {
+                color: color(footer-link-hover);
+            }
+
+            text-decoration: $link-footer--decoration-hover;
+        }
+    }
+
+    @else if ($type=='footer-block') {
+        @if ($layout=='inverse') {
+            color: color(footer-block-link-inverse);
+        }
+
+        @else {
+            color: color(footer-block-link);
+        }
+
+        text-decoration: $link-footer-block--decoration;
+
+        &:hover,
+        &:active {
+            @if ($layout=='inverse') {
+                color: color(footer-block-link-hover-inverse);
+            }
+
+            @else {
+                color: color(footer-block-link-hover);
+            }
+
+            text-decoration: $link-footer-block--decoration-hover;
+        }
+    }
+
+    @else if ($type=='button-link') {
+        @if ($layout=='inverse') {
+            color: color(button-link-inverse);
+        }
+
+        @else {
+            color: color(button-link);
+        }
+
+        text-decoration: $link-button--decoration;
+
+        &:hover,
+        &:active {
+            @if ($layout=='inverse') {
+                color: color(button-link-hover-inverse);
+            }
+
+            @else {
+                color: color(button-link-hover);
+            }
+
+            text-decoration: $link-button--decoration-hover;
+        }
+    }
+
+    @else if ($type=='func-link') {
+        @if ($layout=='inverse') {
+            color: color(func-link-inverse);
+        }
+
+        @else {
+            color: color(func-link);
+        }
+
+        text-decoration: $link-func--decoration;
+
+        &:hover,
+        &:active {
+            @if ($layout=='inverse') {
+                color: color(func-link-hover-inverse);
+            }
+
+            @else {
+                color: color(func-link-hover);
+            }
+
+            text-decoration: $link-func--decoration-hover;
+        }
+    }
 }
 
 @mixin divider-mix($layout: false) {
-	display: block;
-	height: 1px;
-	@if ( $layout == 'inverse' ) {
-		background: color-border(divider-inverse);
-	} @else {
-		background: color-border(divider);
-	}
+    display: block;
+    height: 1px;
+
+    @if ($layout=='inverse') {
+        background: color-border(divider-inverse);
+    }
+
+    @else {
+        background: color-border(divider);
+    }
 }
 
 @mixin divider($type: false, $layout: false) {
-	@if ( $type == 'before' ) {
-		position: relative;
 
-		&::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			@include divider-mix($layout);
-		}
-	} @else if ($type == 'after') {
-		position: relative;
+    @if ($type=='before') {
+        position: relative;
 
-		&::after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			@include divider-mix($layout);
-		}
-	} @else {
-		@include divider-mix($layout);
-	}
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            @include divider-mix($layout);
+        }
+    }
+
+    @else if ($type=='after') {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            @include divider-mix($layout);
+        }
+    }
+
+    @else if ($type=='center') {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+            @include divider-mix($layout);
+        }
+    }
+
+    @else {
+        @include divider-mix($layout);
+    }
+}
+
+@mixin underline($type: "center", $layout: false) {
+
+    &:hover::after {
+        width: 40%
+    }
+
+    &::after {
+        content: "";
+        width: 20%;
+        padding-top: 0.4em;
+        transition: 1s all ease-in-out;
+
+        @include divider-mix($layout);
+    }
+
+    @if ($type=='left') {
+
+        &::after {
+            margin: 1em auto 1em 0;
+        }
+    }
+
+    @else if ($type=='right') {
+        &::after {
+            margin: 1em 0 1em auto;
+        }
+    }
+
+    @else if ($type=='center') {
+        &::after {
+            margin: 1em auto;
+        }
+    }
+
+    @else {
+        @include divider-mix($layout);
+    }
+}
+
+@mixin quote {
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 18px;
+        margin-top: 12px;
+        margin-bottom: 16px;
+        background-image: inline-svg('<svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 13.481c0-2.34.611-4.761 1.833-7.263C3.056 3.716 4.733 1.643 6.865 0L11 2.689C9.726 4.382 8.777 6.093 8.152 7.824c-.624 1.73-.936 3.578-.936 5.545V18H0v-4.519zm13 0c0-2.34.611-4.761 1.833-7.263 1.223-2.502 2.9-4.575 5.032-6.218L24 2.689c-1.274 1.693-2.223 3.404-2.848 5.135-.624 1.73-.936 3.578-.936 5.545V18H13v-4.519z" fill="'+ get-color(secondary, 3) + '" fill-rule="nonzero"/></svg>');
+        background-repeat: no-repeat;
+        transition: .5s all ease-out;
+    }
 }
 
 // Handles a scalabale background image related to a specific elements
@@ -176,46 +303,67 @@
 // $hoffset: horizontal offset
 // $voffset: vertical offset
 @mixin illustration($file, $width, $height, $vpos: null, $hoffset: null, $voffset: null) {
-	content: '';
-	position: absolute;
-	width: $width;
-	max-width: $width;
-	height: $height;
-	background-image: url(./../../../images/#{$file});
-	background-repeat: no-repeat;
-	@if( unit( $height ) == '%' ) {
-		background-size: contain;
-	} @else {
-		background-size: auto;
-	}
-	@if ( $hoffset ) {
-		left: calc(50% + #{$hoffset});
-	} @else {
-		left: 50%;
-	}
-	@if ( $vpos == 'top' ) {
-		@if ( $voffset ) {
-			top: #{$voffset};
-		} @else {
-			top: 0;
-		}
-		background-position: center top;
-		transform: translate(-50%);
-	} @else if ( $vpos == 'bottom' ) {
-		@if ( $voffset ) {
-			bottom: #{$voffset};
-		} @else {
-			bottom: 0;
-		}
-		background-position: center bottom;
-		transform: translate(-50%);
-	} @else {
-		background-position: center;
-		@if ( $voffset ) {
-			top: calc(50% + #{$voffset});
-		} @else {
-			top: 50%;
-		}
-		transform: translate(-50%, -50%);
-	}
+    content: '';
+    position: absolute;
+    width: $width;
+    max-width: $width;
+    height: $height;
+    background-image: url(./../../../images/#{$file});
+    background-repeat: no-repeat;
+
+    @if(unit($height)=='%') {
+        background-size: contain;
+    }
+
+    @else {
+        background-size: auto;
+    }
+
+    @if ($hoffset) {
+        left: calc(50% + #{$hoffset});
+    }
+
+    @else {
+        left: 50%;
+    }
+
+    @if ($vpos=='top') {
+        @if ($voffset) {
+            top: #{$voffset};
+        }
+
+        @else {
+            top: 0;
+        }
+
+        background-position: center top;
+        transform: translate(-50%);
+    }
+
+    @else if ($vpos=='bottom') {
+        @if ($voffset) {
+            bottom: #{$voffset};
+        }
+
+        @else {
+            bottom: 0;
+        }
+
+        background-position: center bottom;
+        transform: translate(-50%);
+    }
+
+    @else {
+        background-position: center;
+
+        @if ($voffset) {
+            top: calc(50% + #{$voffset});
+        }
+
+        @else {
+            top: 50%;
+        }
+
+        transform: translate(-50%, -50%);
+    }
 }

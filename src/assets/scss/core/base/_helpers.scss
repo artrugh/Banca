@@ -161,6 +161,10 @@ img.has-shadow,
   @include divider(after);
 }
 
+.has-center-divider {
+  @include divider(center);
+}
+
 .invert-color {
   .has-top-divider {
     @include divider(before, inverse);
@@ -169,6 +173,12 @@ img.has-shadow,
   .has-bottom-divider {
     @include divider(after, inverse);
   }
+}
+
+// Quote
+
+.has-quote {
+  @include quote;
 }
 
 // For centering content
@@ -206,19 +216,34 @@ img.has-shadow,
   }
 }
 
-// Underline Headings
+
+// Underline
+
+.has-right-underline {
+  @include underline(right);
+}
+
+.has-left-underline {
+  @include underline(left);
+}
+
+.has-center-underline {
+  @include underline(center);
+}
+
+// Underline Hr
 
 .underline--big {
   height: 1rem;
   width: 50%;
-  margin: calc(1rem * 2) auto 0 0; 
+  margin: calc(1rem * 3) auto 0 0;
   transition: all 0.5s ease-out;
 }
 
 .underline--sm {
   height: 0.7rem;
   width: 50%;
-  margin: calc(0.7rem * 2) auto 0 0; 
+  margin: calc(0.7rem * 3) auto 0 0;
   transition: all 0.5s ease-out;
 }
 

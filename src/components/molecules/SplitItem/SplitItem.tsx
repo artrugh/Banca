@@ -17,6 +17,7 @@ import Image from "../../atoms/Image/Image";
 
 interface IProps extends IItem {
   imageFill?: boolean;
+  underline?: string;
   config: {
     title: number[];
     subtitle: number[];
@@ -30,13 +31,21 @@ class SplitItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { imageFill } = this.props;
-    const classes = classNames(
+    const { imageFill, underline } = this.props;
+
+    const container = classNames("split-item");
+
+    const image = classNames(
       "split-item-image center-content-mobile reveal-from-bottom",
       imageFill && "split-item-image-fill"
     );
 
-    return { classes };
+    const description = classNames(
+      "split-item-content center-content-mobile reveal-from-left",
+      underline && underline
+    );
+
+    return { image, description, container };
   }
 
   public render(): JSX.Element {
@@ -44,9 +53,9 @@ class SplitItem extends Component<IProps> {
     const { delay } = this.props;
 
     return (
-      <div className="split-item">
+      <div className={this.classes.container}>
         <div
-          className="split-item-content center-content-mobile reveal-from-left"
+          className={this.classes.description}
           data-reveal-container=".split-item"
           data-reveal-delay={`${delay * 200}`}
         >
@@ -56,10 +65,7 @@ class SplitItem extends Component<IProps> {
           <h3 className="mt-0 mb-12">{title}</h3>
           <p className="m-0">{description}</p>
         </div>
-        <div
-          className={this.classes.classes}
-          data-reveal-container=".split-item"
-        >
+        <div className={this.classes.image} data-reveal-container=".split-item">
           <Image src={`./images/${image}`} alt={alt} width={528} height={396} />
         </div>
       </div>

@@ -9,8 +9,7 @@
       z-index: 11;
       background: color-bg(menu-mobile);
       // background: color-bg(body);
-
-      transition: 0.5s all ease-out;
+      transition: 1s all ease-out;
       cursor: pointer;
     }
 
@@ -18,6 +17,7 @@
       z-index: 2;
       margin: 1rem;
       float: right;
+      background: get-color(secondary, 3);
     }
 
     &__text {
@@ -35,50 +35,5 @@
     &:checked~&__label {
       top: -100%;
     }
-
-    // re-postion the main header
-    // &:checked~.site-header {
-    //   top: 0;
-    // }
   }
 }
-
-// @include media('>small') {
-//   .cookies {
-//     &__checkbox {
-//       &__label {
-//         padding: 1.5rem;
-//       }
-
-//       &__button {
-//         float: right;
-//       }
-
-//       &__text {
-//         width: 60%;
-//       }
-//     }
-//   }
-// }
-
-// @include media('>medium') {
-//   .cookies {
-//     &__checkbox {
-//       &__label {
-//         height: 50%;
-//         padding: 1.7rem;
-//       }
-//     }
-//   }
-// }
-
-// @include media('>large') {
-//   .cookies {
-//     &__checkbox {
-//       &__label {
-//         height: 25%;
-//         padding: 2rem;
-//       }
-//     }
-//   }
-// }

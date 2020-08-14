@@ -51,8 +51,9 @@ export default class HeroScrollable extends Component<IProps> {
     } = this.props;
 
     return (
-      <section {...rest} id="hero-scrollable">
-        <div {...rest} className="hero-content">
+      <section {...rest} className="hero-scrollable" id="hero">
+        <div {...rest} className="hero-content container-big">
+          {/* <div className="container-sm"> */}
           <div className="hero-scrollable-container">
             {/* <Image
               className={className}
@@ -62,9 +63,11 @@ export default class HeroScrollable extends Component<IProps> {
               gradientBg={gradientBg}
               containerClassName="hero-img-container"
             /> */}
-            <div className="hero-img" />
+            <div className={`hero-img ${className}`} />
             <div id="scroll-behavior-header-bg" />
+
             <div className="hero-divider" />
+
             <Heading
               underlineSize={Sizes.big}
               name="statement"

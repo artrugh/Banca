@@ -28,6 +28,7 @@ export interface IProps extends IPropsOuter, IPropsInner {
   pushLeft?: boolean;
   data?: IFeatureData;
   padding?: string;
+  underline?: string;
 }
 
 export const DefaultProps: IProps = {
@@ -56,7 +57,7 @@ class FeaturesTiles extends Component<IProps> {
   }
 
   public render(): JSX.Element {
-    const { pushLeft, data, ...rest } = this.props;
+    const { pushLeft, data, underline, ...rest } = this.props;
 
     const Items = data.items.map((item, delay) => (
       <TilesItem
@@ -64,6 +65,7 @@ class FeaturesTiles extends Component<IProps> {
         item={item}
         delay={delay}
         config={tilesConfig.items}
+        underline={underline}
       />
     ));
 

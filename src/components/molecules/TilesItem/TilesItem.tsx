@@ -14,6 +14,7 @@ import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 
 interface IProps extends IItem {
+  underline: string;
   config: {
     title: number[];
     description: number[];
@@ -28,7 +29,7 @@ class TilesItem extends Component<IProps> {
 
   public render(): JSX.Element {
     const { title, description, icon, alt } = this.props.item;
-    const { delay } = this.props;
+    const { delay, underline } = this.props;
 
     return (
       <div
@@ -47,7 +48,7 @@ class TilesItem extends Component<IProps> {
             </div>
           </div>
           <div className="features-tiles-item-content">
-            <h4 className="mt-0 mb-8">{title}</h4>
+            <h4 className={`mt-0 mb-8 ${underline && underline}`}>{title}</h4>
             <p className="m-0 text-sm">{description}</p>
           </div>
         </div>

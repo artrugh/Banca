@@ -29,6 +29,7 @@ export interface IProps extends IPropsOuter, IPropsInner {
   invertDesktop?: boolean;
   alignTop?: boolean;
   imageFill?: boolean;
+  underline?: string;
   data?: IFeatureData;
   className?: string;
 }
@@ -68,6 +69,7 @@ class FeaturesSplit extends Component<IProps> {
       invertMobile,
       invertDesktop,
       alignTop,
+      underline,
       imageFill,
       data,
       ...rest
@@ -80,6 +82,7 @@ class FeaturesSplit extends Component<IProps> {
         delay={delay}
         imageFill={imageFill}
         config={splitConfig.items}
+        underline={underline}
       />
     ));
 

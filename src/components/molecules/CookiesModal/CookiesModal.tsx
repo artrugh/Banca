@@ -60,7 +60,7 @@ class CookiesModal extends Component<Props, State> {
             </div>
             <Button
               tag="button"
-              color="primary"
+              color="secondary"
               className="cookies__checkbox__button"
               onClick={this.handlerLabel}
             >
