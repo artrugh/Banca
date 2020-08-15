@@ -7,15 +7,10 @@
   transition: 0.3s all linear;
   background-color: transparent;
 
-
-  +.site-content {
+  + .site-content {
     .section:first-of-type {
       padding-top: $header-height__mobile;
     }
-  }
-
-  .brand {
-    margin-right: $header-nav--padding-h;
   }
 
   body.scroll-behavior-header-bg & {
@@ -24,6 +19,23 @@
 
   body.off-nav-is-active & {
     background: color-bg(menu-mobile);
+  }
+}
+
+.brand {
+  margin-right: $header-nav--padding-h;
+
+  &-image {
+    background-image: url("./../../../../../public/images/logo-teclead-bk.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 120px;
+    height: 30px;
+    transition: 0.3s all linear;
+
+    body.scroll-behavior-header-bg & {
+      background-image: url("./../../../../../public/images/logo-teclead-wt.svg");
+    }
   }
 }
 
@@ -55,7 +67,7 @@
   }
 
   li {
-    +.header-button {
+    + .header-button {
       margin-left: $header-nav--padding-h;
     }
   }
@@ -85,7 +97,7 @@
 .header-nav-right {
   justify-content: flex-end;
 
-  +.header-nav-right {
+  + .header-nav-right {
     flex-grow: 0;
   }
 }
@@ -99,7 +111,7 @@
     display: block;
 
     // Header navigation when the hamburger is a previous sibling
-    +.header-nav {
+    + .header-nav {
       flex-direction: column;
       position: absolute;
       left: 0;
@@ -144,7 +156,7 @@
 
 @include media(">medium") {
   .site-header {
-    +.site-content {
+    + .site-content {
       .section:first-of-type {
         padding-top: $header-height__desktop;
       }

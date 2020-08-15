@@ -8,6 +8,8 @@ export const ScrollManagerDisplayer = (id: string): void => {
       (entries) => {
         if (entries[0].boundingClientRect.y < 0) {
           document.body.classList.add(id);
+          document.querySelector(`#${id}`).classList.remove("loaded-none");
+          document.querySelector(`#${id}`).classList.add("loaded");
         } else {
           document.body.classList.remove(id);
         }

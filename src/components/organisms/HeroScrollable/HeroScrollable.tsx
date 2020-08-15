@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classNames from "classnames";
 
 // STYLE
 
@@ -6,6 +7,7 @@ import React, { Component } from "react";
 
 // COMMON
 import { Sizes, Headings } from "../../../common/enums";
+import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -36,6 +38,15 @@ type DefaultProps = Readonly<typeof DefaultProps>;
 
 export default class HeroScrollable extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
+
+  public get classes(): IPropsClasses {
+    const { className } = this.props;
+
+    const image = classNames("hero-img", className && className);
+
+    return { image };
+  }
+
   public render(): JSX.Element {
     const {
       children,
@@ -52,8 +63,7 @@ export default class HeroScrollable extends Component<IProps> {
 
     return (
       <section {...rest} className="hero-scrollable" id="hero">
-        <div {...rest} className="hero-content container-big">
-          {/* <div className="container-sm"> */}
+        <div {...rest} className="hero-content">
           <div className="hero-scrollable-container">
             {/* <Image
               className={className}
@@ -63,31 +73,36 @@ export default class HeroScrollable extends Component<IProps> {
               gradientBg={gradientBg}
               containerClassName="hero-img-container"
             /> */}
-            <div className={`hero-img ${className}`} />
-            <div id="scroll-behavior-header-bg" />
+            <div
+              id="scroll-behavior-main-underline-bg"
+              className="loaded-none"
+            />
+            <div className={this.classes.image} />
+            <div id="scroll-behavior-header-bg" className="loaded-none" />
+            <div className="container-big">
+              <div className="hero-divider" />
 
-            <div className="hero-divider" />
-
-            <Heading
-              underlineSize={Sizes.big}
-              name="statement"
-              animation
-              classNameHeading="mt-0 mb-12"
-              tag={Headings.h1}
-            >
-              We combine our tecnical expertise with know-how.
-              <div id="scroll-behaviour-cookies" />
-            </Heading>
-            <Heading
-              underlineSize={Sizes.sm}
-              name="about"
-              classNameHeading="mt-0 mb-12"
-              tag={Headings.h2}
-            >
-              We combine our tech competence with our experiencies in different
-              fields leading our clients from concepts to successful IT
-              projects.
-            </Heading>
+              <Heading
+                underlineSize={Sizes.big}
+                name="statement"
+                animation
+                classNameHeading="mt-0 mb-12"
+                tag={Headings.h1}
+              >
+                We combine our tecnical expertise with know-how.
+                <div id="scroll-behaviour-cookies" />
+              </Heading>
+              <Heading
+                underlineSize={Sizes.big}
+                name="about"
+                classNameHeading="mt-0 mb-12"
+                tag={Headings.h2}
+              >
+                We combine our tech competence with our experiencies in
+                different fields leading our clients from concepts to successful
+                IT projects.
+              </Heading>
+            </div>
           </div>
         </div>
       </section>

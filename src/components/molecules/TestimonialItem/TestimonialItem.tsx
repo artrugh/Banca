@@ -35,7 +35,7 @@ class TestimonialItem extends Component<IProps> {
   public get classes(): IPropsClasses {
     const { centerDivider, quote, underline } = this.props;
 
-    const image = classNames(
+    const outer = classNames(
       "testimonial-item-avatar-container",
       underline && underline,
       centerDivider && "has-center-divider"
@@ -43,10 +43,11 @@ class TestimonialItem extends Component<IProps> {
 
     const content = classNames(
       "testimonial-item-content mt-12",
+      underline === "has-center-underline" && "ta-c",
       quote && "has-quote"
     );
 
-    return { image, content };
+    return { outer, content };
   }
 
   public render(): JSX.Element {
@@ -62,11 +63,11 @@ class TestimonialItem extends Component<IProps> {
           {avatar && (
             <Image
               className="testimonial-item-avatar"
-              containerClassName={this.classes.image}
+              containerClassName={this.classes.outer}
               src={avatar}
               alt={name}
-              width="27%"
-              height="27%"
+              width="32%"
+              height="32%"
             />
           )}
           <div className={this.classes.content}>

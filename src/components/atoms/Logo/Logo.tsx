@@ -35,17 +35,12 @@ class Logo extends Component<IProps> {
         <h1 className="m-0">
           {pathname === "/" ? (
             <SmoothScroll to="hero">
-              <Image src="/images/logo.svg" alt="Open" width={32} height={32} />
+              <div className="brand-image" />
             </SmoothScroll>
           ) : (
             <Link href="/">
               <a>
-                <Image
-                  src="/images/logo.svg"
-                  alt="Open"
-                  width={32}
-                  height={32}
-                />
+                <div className="brand-image" />
               </a>
             </Link>
           )}

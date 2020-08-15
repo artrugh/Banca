@@ -60,6 +60,7 @@ class Header extends Component<IProps, State> {
 
     if (this.props.scrollBg) {
       ScrollManagerDisplayer("scroll-behavior-header-bg");
+      ScrollManagerDisplayer("scroll-behavior-main-underline-bg");
     }
 
     ScrollManagerDisplayer("scroll-behaviour-cookies");

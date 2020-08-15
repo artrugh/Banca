@@ -13,7 +13,7 @@ import { IPropsClasses } from "../../../common/interfacesProps";
 // COMPONENTS
 
 interface IProps {
-  src: string;
+  src?: string;
   width?: number | string;
   height?: number | string;
   alt?: string;

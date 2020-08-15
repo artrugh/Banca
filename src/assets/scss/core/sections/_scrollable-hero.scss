@@ -1,69 +1,182 @@
-.hero {
+// Animations Main Heading
+#scroll-behavior-main-underline-bg.loaded~[class*="container"] .hero-statement .underline-has-animation {
+    opacity: 1;
+}
 
+
+#scroll-behavior-main-underline-bg.loaded-none~[class*="container"] .hero-statement .underline-has-animation {
+    opacity: 0;
+    animation: moveInLeft 1.5s 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+
+#scroll-behavior-main-underline-bg.loaded~[class*="container"] .hero-statement hr {
+
+    body:not(.scroll-behavior-header-bg) & {
+        width: 30%;
+        transition-delay: 0.5s;
+        animation: moveInLeftInvert 1.5s 0.5s ease-out;
+        animation-fill-mode: forwards;
+    }
+}
+
+// Statement
+
+#scroll-behavior-header-bg.loaded~[class*="container"] .hero-statement hr {
+    opacity: 1;
+    transform: translateX(50vw);
+
+    body.scroll-behavior-header-bg & {
+
+        @include inline-animation(2s) {
+            0% {
+                transform: translateX(0);
+                width: 50%;
+            }
+
+            50% {
+                width: 20%;
+                transform: translateX(5rem);
+            }
+
+            100% {
+                transform: translateX(50vw);
+                width: 30%;
+            }
+        }
+    }
+}
+
+// About
+
+#scroll-behavior-header-bg.loaded~[class*="container"] .hero-about hr {
+
+    @include inline-animation(2s, 2s) {
+        0% {
+            transform: translateX(0);
+            width: 50%;
+        }
+
+        50% {
+            width: 10%;
+            transform: translateX(5rem);
+        }
+
+        100% {
+            transform: translateX(50vw);
+            width: 30%;
+        }
+    }
+}
+
+.hero {
     &-divider {
         width: 100vw;
-        height: 50vh;
+        height: 160vh;
     }
 
     &-img {
+        position: absolute;
+        top: 0;
         height: 100vh;
-        // width: 100vw;
-        background-image: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(0, 0, 255, 0.5)),
-            url("https://media.nationalgeographic.org/assets/photos/000/266/26660.jpg");
+        width: 100vw;
+        background-image: linear-gradient(to bottom, rgba(#ffffff, 0.5), rgba(0, 0, 255, 0.5)),
+            url("../../../../../public/images/hero-1440-800.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
     }
 
     &-statement {
-
         position: sticky;
         bottom: 2rem;
         margin: 0 2rem;
         width: auto;
         z-index: 2;
 
-        .underline-has-animation {
-            animation: moveInLeft 1.5s ease-out;
-        }
-
-        &:hover hr {
-            width: 100%;
-        }
-
         hr {
+            transition: all 0.5s ease-out;
+            transform: translateX(0);
+
             body.scroll-behavior-header-bg & {
                 background-color: get-color(primary, 3);
-                width: 70%;
+                transform: translateX(50vw);
             }
         }
     }
 
     &-about {
-
         width: auto;
         z-index: 1;
         margin: 10vh 2rem 10rem 2rem;
 
-        &:hover hr {
-            width: 60%;
+        hr {
             background-color: get-color(primary, 3);
-
+            width: 60%;
         }
     }
 }
 
-@include media('>medium') {
-    .hero {
+@include media(">medium") {
 
+    #scroll-behavior-header-bg.loaded~[class*="container"] .hero-about hr {
+
+        @include inline-animation(2s, 2s) {
+            0% {
+                transform: translateX(0);
+                width: 50%;
+            }
+
+            50% {
+                width: 10%;
+                transform: translateX(5rem);
+            }
+
+            100% {
+                transform: translateX(39.5vw);
+                width: 30%;
+            }
+        }
+    }
+
+    .hero {
         &-statement {
             width: 50%;
-
         }
 
         &-about {
             width: 75%;
             margin: 10vh auto 7rem 2rem;
+        }
+    }
+}
+
+
+@include media(">large") {
+
+    #scroll-behavior-header-bg.loaded~[class*="container"] .hero-about hr {
+
+        @include inline-animation(2s, 2s) {
+            0% {
+                transform: translateX(0);
+                width: 50%;
+            }
+
+            50% {
+                width: 10%;
+                transform: translateX(5rem);
+            }
+
+            100% {
+                transform: translateX(42vw);
+                width: 30%;
+            }
+        }
+    }
+
+    .hero {
+        &-about {
+            width: 85%;
         }
     }
 }
@@ -89,5 +202,19 @@
         opacity: 1;
         transform: translateX(0);
         width: 50%;
+    }
+}
+
+@keyframes moveInLeftInvert {
+    0% {
+        transform: translateX(50vw);
+        width: 30%;
+        background-color: get-color(primary, 3);
+    }
+
+    100% {
+        transform: translateX(0);
+        width: 50%;
+        background-color: get-color(dark, 3);
     }
 }

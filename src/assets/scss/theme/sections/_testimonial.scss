@@ -1,14 +1,14 @@
 .testimonial {
-
     .tiles-item-inner {
         background: get-color(dark, 2);
-
-
     }
 }
 
 .testimonial-item:hover .testimonial-item-content::before {
-    background-image: inline-svg('<svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 13.481c0-2.34.611-4.761 1.833-7.263C3.056 3.716 4.733 1.643 6.865 0L11 2.689C9.726 4.382 8.777 6.093 8.152 7.824c-.624 1.73-.936 3.578-.936 5.545V18H0v-4.519zm13 0c0-2.34.611-4.761 1.833-7.263 1.223-2.502 2.9-4.575 5.032-6.218L24 2.689c-1.274 1.693-2.223 3.404-2.848 5.135-.624 1.73-.936 3.578-.936 5.545V18H13v-4.519z" fill="'+ get-color(secondary, 2) + '" fill-rule="nonzero"/></svg>');
+    background-image: inline-svg(
+        '<svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 13.481c0-2.34.611-4.761 1.833-7.263C3.056 3.716 4.733 1.643 6.865 0L11 2.689C9.726 4.382 8.777 6.093 8.152 7.824c-.624 1.73-.936 3.578-.936 5.545V18H0v-4.519zm13 0c0-2.34.611-4.761 1.833-7.263 1.223-2.502 2.9-4.575 5.032-6.218L24 2.689c-1.274 1.693-2.223 3.404-2.848 5.135-.624 1.73-.936 3.578-.936 5.545V18H13v-4.519z" fill="' +
+            get-color(secondary, 2) + '" fill-rule="nonzero"/></svg>'
+    );
 }
 
 .testimonial-item-footer {
@@ -16,7 +16,6 @@
     padding-top: 20px;
 
     &.has-top-divider {
-
         &::before {
             background: get-color(dark, 3);
         }
@@ -29,7 +28,7 @@
     a {
         color: get-color(secondary, 3);
         text-decoration: none;
-        transition: .5s all ease-out;
+        transition: 0.5s all ease-out;
 
         &:hover {
             color: get-color(secondary, 2);
@@ -42,14 +41,10 @@
 }
 
 .testimonial-item-avatar {
-    margin: 0 1rem 0 auto;
     border-radius: 50%;
-
 }
 
-
 .testimonial-item-avatar-container {
-
     &[class*="underline"]::after {
         width: 40%;
         background-color: get-color(secondary, 3);
@@ -59,13 +54,13 @@
         }
     }
 
-    &[class*="left-underline"]::after {
+    &[class*="left-underline"]::after,
+    &[class*="right-underline"]::after {
         position: relative;
         top: -50%;
     }
 
     &.has-center-divider {
-
         &::after {
             background: get-color(dark, 3);
         }
