@@ -32,17 +32,21 @@
     }
 
     .reveal-rotate-from-left {
-      transform: perspective(1000px) rotateY($scroll-reveal--rotate-from-left-amount);
+      transform: perspective(1000px)
+        rotateY($scroll-reveal--rotate-from-left-amount);
     }
 
     .reveal-rotate-from-right {
-      transform: perspective(1000px) rotateY($scroll-reveal--rotate-from-right-amount);
+      transform: perspective(1000px)
+        rotateY($scroll-reveal--rotate-from-right-amount);
     }
 
     &.is-loaded {
       [class*="reveal-"] {
-        transition: opacity $scroll-reveal--transition-duration $scroll-reveal--transition-timing,
-          transform $scroll-reveal--transition-duration $scroll-reveal--transition-timing;
+        transition: opacity $scroll-reveal--transition-duration
+            $scroll-reveal--transition-timing,
+          transform $scroll-reveal--transition-duration
+            $scroll-reveal--transition-timing;
 
         &.is-revealed {
           opacity: 1;

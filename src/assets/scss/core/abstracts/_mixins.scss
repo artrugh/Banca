@@ -239,6 +239,7 @@
     }
 }
 
+// Underline ::after an element
 @mixin underline($type: "center", $layout: false) {
     &:hover::after {
         width: 40%;
@@ -276,6 +277,7 @@
     }
 }
 
+// Underline hr element
 @mixin underlineHr($type: "sm", $width: 50%) {
     & {
         width: $width;
@@ -293,6 +295,55 @@
         & {
             height: 0.7rem;
             margin: calc(0.7rem * 3) auto 0 0;
+        }
+    }
+}
+
+// hr underline animation
+@mixin underline-left-right($final_width, $duration: 2.3s, $delay: 0) {
+    opacity: 1;
+    left: 0;
+    width: 50%;
+
+    body.scroll-behavior-header-bg & {
+        @include inline-animation($duration, $delay) {
+            0% {
+                left: 0;
+                width: 50%;
+            }
+
+            20% {
+                left: 5%;
+                width: 40%;
+            }
+
+            100% {
+                left: calc(#{$final_width} * 2 - #{$hero-underline--width--right-position});
+                width: $hero-underline--width--right-position;
+                background-color: get-color(primary, 3);
+            }
+        }
+    }
+}
+
+// hr underline animation
+@mixin underline-right-left($initial_width, $duration: 2s, $color: primary, $delay: 0) {
+    left: calc(#{$initial_width} * 2 - #{$hero-underline--width--right-position});
+    width: $hero-underline--width--right-position;
+    background-color: get-color(primary, 3);
+    animation-fill-mode: forwards;
+
+    @include inline-animation($duration, $delay) {
+        0% {
+            left: calc(#{$initial_width} * 2 - #{$hero-underline--width--right-position});
+            width: $hero-underline--width--right-position;
+            background-color: get-color(primary, 3);
+        }
+
+        100% {
+            left: 0;
+            width: 50%;
+            background-color: get-color($color, 3);
         }
     }
 }

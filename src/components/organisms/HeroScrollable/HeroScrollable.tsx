@@ -86,7 +86,7 @@ export default class HeroScrollable extends Component<IProps> {
                 underlineSize={Sizes.big}
                 name="statement"
                 animation
-                classNameHeading="mt-0 mb-12"
+                classNameHeading="mt-0 mb-0"
                 tag={Headings.h1}
               >
                 We combine our tecnical expertise with know-how.
@@ -95,7 +95,7 @@ export default class HeroScrollable extends Component<IProps> {
               <Heading
                 underlineSize={Sizes.big}
                 name="about"
-                classNameHeading="mt-0 mb-12"
+                classNameHeading="mt-0 mb-0"
                 tag={Headings.h2}
               >
                 We combine our tech competence with our experiencies in

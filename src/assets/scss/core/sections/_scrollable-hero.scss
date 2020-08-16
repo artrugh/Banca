@@ -1,220 +1,181 @@
-// Animations Main Heading
-#scroll-behavior-main-underline-bg.loaded~[class*="container"] .hero-statement .underline-has-animation {
-    opacity: 1;
+// Statement Initial Animation
+#scroll-behavior-main-underline-bg.loaded-none
+  ~ [class*="container"]
+  .hero-statement
+  .underline-has-animation {
+  animation: moveInLeft 1.5s 0.5s ease-out;
+  animation-fill-mode: forwards;
 }
 
-
-#scroll-behavior-main-underline-bg.loaded-none~[class*="container"] .hero-statement .underline-has-animation {
-    opacity: 0;
-    animation: moveInLeft 1.5s 0.5s ease-out;
-    animation-fill-mode: forwards;
+// Statement Animation from LEFT to RIGHT
+#scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement hr {
+  @include underline-left-right(50%);
 }
 
-#scroll-behavior-main-underline-bg.loaded~[class*="container"] .hero-statement hr {
-
-    body:not(.scroll-behavior-header-bg) & {
-        width: 30%;
-        transition-delay: 0.5s;
-        animation: moveInLeftInvert 1.5s 0.5s ease-out;
-        animation-fill-mode: forwards;
-    }
-}
-
-// Statement
-
-#scroll-behavior-header-bg.loaded~[class*="container"] .hero-statement hr {
-    opacity: 1;
-    transform: translateX(50vw);
-
-    body.scroll-behavior-header-bg & {
-
-        @include inline-animation(2s) {
-            0% {
-                transform: translateX(0);
-                width: 50%;
-            }
-
-            50% {
-                width: 20%;
-                transform: translateX(5rem);
-            }
-
-            100% {
-                transform: translateX(50vw);
-                width: 30%;
-            }
-        }
-    }
-}
-
-// About
-
-#scroll-behavior-header-bg.loaded~[class*="container"] .hero-about hr {
-
-    @include inline-animation(2s, 2s) {
-        0% {
-            transform: translateX(0);
-            width: 50%;
-        }
-
-        50% {
-            width: 10%;
-            transform: translateX(5rem);
-        }
-
-        100% {
-            transform: translateX(50vw);
-            width: 30%;
-        }
-    }
-}
-
-.hero {
-    &-divider {
-        width: 100vw;
-        height: 160vh;
-    }
-
-    &-img {
-        position: absolute;
-        top: 0;
-        height: 100vh;
-        width: 100vw;
-        background-image: linear-gradient(to bottom, rgba(#ffffff, 0.5), rgba(0, 0, 255, 0.5)),
-            url("../../../../../public/images/hero-1440-800.png");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    &-statement {
-        position: sticky;
-        bottom: 2rem;
-        margin: 0 2rem;
-        width: auto;
-        z-index: 2;
-
-        hr {
-            transition: all 0.5s ease-out;
-            transform: translateX(0);
-
-            body.scroll-behavior-header-bg & {
-                background-color: get-color(primary, 3);
-                transform: translateX(50vw);
-            }
-        }
-    }
-
-    &-about {
-        width: auto;
-        z-index: 1;
-        margin: 10vh 2rem 10rem 2rem;
-
-        hr {
-            background-color: get-color(primary, 3);
-            width: 60%;
-        }
-    }
+// Statement Animation from RIGHT to LEFT
+#scroll-behavior-main-underline-bg.loaded
+  ~ [class*="container"]
+  .hero-statement
+  hr {
+  body:not(.scroll-behavior-header-bg) & {
+    @include underline-right-left(50%, 2s, dark, 5ms);
+  }
 }
 
 @include media(">medium") {
+  // Statement Animation from LEFT to RIGHT
+  #scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement hr {
+    @include underline-left-right($hero-about--width__tablet);
+  }
 
-    #scroll-behavior-header-bg.loaded~[class*="container"] .hero-about hr {
-
-        @include inline-animation(2s, 2s) {
-            0% {
-                transform: translateX(0);
-                width: 50%;
-            }
-
-            50% {
-                width: 10%;
-                transform: translateX(5rem);
-            }
-
-            100% {
-                transform: translateX(39.5vw);
-                width: 30%;
-            }
-        }
+  // Statement Animation from RIGHT to LEFT
+  #scroll-behavior-main-underline-bg.loaded
+    ~ [class*="container"]
+    .hero-statement
+    hr {
+    body:not(.scroll-behavior-header-bg) & {
+      @include underline-right-left(50%, 2s, dark, 5ms);
     }
-
-    .hero {
-        &-statement {
-            width: 50%;
-        }
-
-        &-about {
-            width: 75%;
-            margin: 10vh auto 7rem 2rem;
-        }
-    }
+  }
 }
 
+@include media(">large") {
+  // Statement Animation from LEFT to RIGHT
+  #scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement hr {
+    @include underline-left-right($hero-about--width__desktop);
+  }
+
+  // Statement Animation from RIGHT to LEFT
+  #scroll-behavior-main-underline-bg.loaded
+    ~ [class*="container"]
+    .hero-statement
+    hr {
+    body:not(.scroll-behavior-header-bg) & {
+      @include underline-right-left($hero-about--width__desktop, 2s, dark, 5ms);
+    }
+  }
+}
+
+// About Animation from LEFT to RIGHT
+#scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-about hr {
+  @include underline-left-right(50%, 2s, 1s);
+}
+
+// About Animation from RIGHT to LEFT
+#scroll-behavior-main-underline-bg.loaded
+  ~ [class*="container"]
+  .hero-about
+  hr {
+  body:not(.scroll-behavior-header-bg) & {
+    @include underline-right-left(50%, 2s, dark, 5ms);
+  }
+}
+
+.hero {
+  &-divider {
+    width: 100vw;
+    height: 160vh;
+  }
+
+  &-img {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(#ffffff, 0.5),
+        rgba(0, 0, 255, 0.5)
+      ),
+      url("../../../../../public/images/hero-1440-800.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &-statement {
+    position: sticky;
+    bottom: 6rem;
+
+    margin: 0 2rem;
+    margin-bottom: calc(6 * #{$hero-underline--height});
+
+    width: $hero-statement--width__mobile;
+
+    z-index: 2;
+
+    hr {
+      opacity: 0;
+      position: absolute;
+    }
+  }
+
+  &-about {
+    position: relative;
+    margin: 0 2rem;
+    margin-bottom: calc(6 * #{$hero-underline--height});
+    width: $hero-about--width__mobile;
+
+    z-index: 1;
+
+    hr {
+      position: absolute;
+      background-color: get-color(primary, 3);
+
+      height: $hero-underline--height;
+      width: $hero-underline-about--width__mobile;
+    }
+  }
+}
+
+@include media(">medium") {
+  .hero {
+    &-statement {
+      width: $hero-statement--width__tablet;
+      margin-bottom: calc(8 * #{$hero-underline--height});
+    }
+
+    &-about {
+      width: $hero-about--width__tablet;
+      margin: $hero-about--margin__tablet;
+      margin-bottom: calc(8 * #{$hero-underline--height});
+    }
+  }
+}
 
 @include media(">large") {
-
-    #scroll-behavior-header-bg.loaded~[class*="container"] .hero-about hr {
-
-        @include inline-animation(2s, 2s) {
-            0% {
-                transform: translateX(0);
-                width: 50%;
-            }
-
-            50% {
-                width: 10%;
-                transform: translateX(5rem);
-            }
-
-            100% {
-                transform: translateX(42vw);
-                width: 30%;
-            }
-        }
+  .hero {
+    &-statement {
+      margin-bottom: calc(10 * #{$hero-underline--height});
     }
 
-    .hero {
-        &-about {
-            width: 85%;
-        }
+    &-about {
+      width: $hero-about--width__desktop;
+      margin-bottom: calc(10 * #{$hero-underline--height});
     }
+  }
 }
 
 @keyframes moveInLeft {
-    0% {
-        opacity: 0.5;
-        transform: translateX(-20rem);
-        width: 0;
-    }
+  0% {
+    opacity: 0.5;
+    transform: translateX(-20rem);
+    width: 0;
+  }
 
-    50% {
-        width: 20%;
-        transform: translateX(-5rem);
-    }
+  50% {
+    width: 20%;
+    transform: translateX(-5rem);
+  }
 
-    80% {
-        transform: translateX(1rem);
-        width: 60%;
-    }
+  80% {
+    transform: translateX(5rem);
+    width: 60%;
+  }
 
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-        width: 50%;
-    }
-}
-
-@keyframes moveInLeftInvert {
-    0% {
-        transform: translateX(50vw);
-        width: 30%;
-        background-color: get-color(primary, 3);
-    }
-
-    100% {
-        transform: translateX(0);
-        width: 50%;
-        background-color: get-color(dark, 3);
-    }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    width: 50%;
+  }
 }

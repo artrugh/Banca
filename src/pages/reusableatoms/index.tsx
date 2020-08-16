@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ReusableAtoms from "../../components/pages/ReusableAtoms/ReusableAtoms";
+
 class index extends Component {
-  render() {
+  public render(): JSX.Element {
     return <ReusableAtoms />;
   }
 }
