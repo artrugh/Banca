@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
-import { Sizes, Headings } from "../../../common/enums";
+import { Sizes, Headings, ScrollPosition } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -22,10 +22,12 @@ interface IProps {
   name?: string;
   animation?: boolean;
   tag?: Headings;
+  scrollPosition?: ScrollPosition;
   classNameHeading?: string;
 }
 
 const DefaultProps: IProps = {
+  scrollPosition: ScrollPosition.leftRight,
   children: "A title should we pass as a prop",
   tag: Headings.h1,
 };
@@ -46,6 +48,7 @@ class Heading extends Component<IProps> {
       className,
       name,
       animation,
+      scrollPosition,
       classNameHeading,
     } = this.props;
 
@@ -60,7 +63,8 @@ class Heading extends Component<IProps> {
     const underline = classNames(
       "underline",
       animation && "underline-has-animation",
-      underlineSize ? `underline--${underlineSize}` : ""
+      underlineSize ? `underline--${underlineSize}` : "",
+      scrollPosition
     );
 
     const heading = classNames(classNameHeading && classNameHeading);

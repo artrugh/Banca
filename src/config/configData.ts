@@ -27,7 +27,10 @@ export const careerConfig = {
     title: [30],
     paragraph: [200],
   },
-  items: {},
+  items: {
+    title: [20],
+    description: [150],
+  },
 };
 
 export const contactConfig = {

@@ -142,7 +142,11 @@ img.has-shadow,
 .has-gradient,
 [class*="has-gradient"] {
   position: relative;
-  background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 0, 0.5),
+    rgba(0, 0, 255, 0.5)
+  );
 }
 
 .has-gradient img {
@@ -234,6 +238,10 @@ img.has-shadow,
   }
 }
 
+.keyboard-item.has-center-underline {
+  @include underline(center, 100%, 80%, 0.5s);
+}
+
 .has-center-underline {
   @include underline(center);
 
@@ -245,11 +253,11 @@ img.has-shadow,
 // Underline Hr
 
 .underline--big {
-  @include underlineHr(big)
+  @include underlineHr(big);
 }
 
 .underline--sm {
-  @include underlineHr(sm)
+  @include underlineHr(sm);
 }
 
 // Spacing, margin

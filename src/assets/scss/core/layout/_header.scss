@@ -77,10 +77,16 @@
     @include anchor-aspect(header);
     @include font-weight(header-link);
     text-transform: $link-header--transform;
-    padding: 0 $header-nav--padding-h;
+    padding: 0 $header-nav--padding-h__tablet;
 
     .invert-color & {
       @include anchor-aspect(header, inverse);
+    }
+  }
+
+  @include media(">large") {
+    a:not(.button) {
+      padding: 0 $header-nav--padding-h;
     }
   }
 

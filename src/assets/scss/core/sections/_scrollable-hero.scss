@@ -1,3 +1,5 @@
+// =================  STATEMENT ================= //
+
 // Statement Initial Animation
 #scroll-behavior-main-underline-bg.loaded-none
   ~ [class*="container"]
@@ -7,8 +9,17 @@
   animation-fill-mode: forwards;
 }
 
+body.scroll-behavior-header-bg .underline-has-animation {
+  background-color: get-color(primary, 3);
+}
+
+// Left-Right
+
 // Statement Animation from LEFT to RIGHT
-#scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement hr {
+#scroll-behavior-header-bg.loaded
+  ~ [class*="container"]
+  .hero-statement
+  .left-right {
   @include underline-left-right(50%);
 }
 
@@ -16,7 +27,7 @@
 #scroll-behavior-main-underline-bg.loaded
   ~ [class*="container"]
   .hero-statement
-  hr {
+  .left-right {
   body:not(.scroll-behavior-header-bg) & {
     @include underline-right-left(50%, 2s, dark, 5ms);
   }
@@ -24,7 +35,10 @@
 
 @include media(">medium") {
   // Statement Animation from LEFT to RIGHT
-  #scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement hr {
+  #scroll-behavior-header-bg.loaded
+    ~ [class*="container"]
+    .hero-statement
+    .left-right {
     @include underline-left-right($hero-about--width__tablet);
   }
 
@@ -32,7 +46,7 @@
   #scroll-behavior-main-underline-bg.loaded
     ~ [class*="container"]
     .hero-statement
-    hr {
+    .left-right {
     body:not(.scroll-behavior-header-bg) & {
       @include underline-right-left(50%, 2s, dark, 5ms);
     }
@@ -41,7 +55,10 @@
 
 @include media(">large") {
   // Statement Animation from LEFT to RIGHT
-  #scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement hr {
+  #scroll-behavior-header-bg.loaded
+    ~ [class*="container"]
+    .hero-statement
+    .left-right {
     @include underline-left-right($hero-about--width__desktop);
   }
 
@@ -49,15 +66,22 @@
   #scroll-behavior-main-underline-bg.loaded
     ~ [class*="container"]
     .hero-statement
-    hr {
+    .left-right {
     body:not(.scroll-behavior-header-bg) & {
       @include underline-right-left($hero-about--width__desktop, 2s, dark, 5ms);
     }
   }
 }
 
+// =================  ABOUT ================= //
+
+// Left-Right
+
 // About Animation from LEFT to RIGHT
-#scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-about hr {
+#scroll-behavior-header-bg.loaded
+  ~ [class*="container"]
+  .hero-about
+  .left-right {
   @include underline-left-right(50%, 2s, 1s);
 }
 
@@ -65,9 +89,32 @@
 #scroll-behavior-main-underline-bg.loaded
   ~ [class*="container"]
   .hero-about
-  hr {
+  .left-right {
   body:not(.scroll-behavior-header-bg) & {
     @include underline-right-left(50%, 2s, dark, 5ms);
+  }
+}
+
+// Right-Left
+
+// About Animation from RIGHT to LEFT
+#scroll-behavior-header-bg.loaded
+  ~ [class*="container"]
+  .hero-about
+  .right-left {
+  body.scroll-behavior-header-bg & {
+    @include underline-right-left(50%, 2s, primary, 1s);
+  }
+}
+
+// About Animation from LEFT to RIGHT
+#scroll-behavior-main-underline-bg.loaded
+  ~ [class*="container"]
+  .hero-about
+  .right-left {
+  body:not(.scroll-behavior-header-bg) & {
+    left: calc(100% - #{$hero-underline--width--right-position});
+    width: $hero-underline--width--right-position;
   }
 }
 
@@ -91,6 +138,13 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  &-illustration {
+    position: absolute !important;
+    width: 100vw;
+    height: 100vh;
+    bottom: -100vh;
   }
 
   &-statement {
@@ -124,6 +178,11 @@
 
       height: $hero-underline--height;
       width: $hero-underline-about--width__mobile;
+    }
+
+    .right-left {
+      left: calc(100% - #{$hero-underline--width--right-position});
+      width: $hero-underline--width--right-position;
     }
   }
 }

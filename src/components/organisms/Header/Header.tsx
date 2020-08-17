@@ -69,6 +69,13 @@ class Header extends Component<IProps, State> {
     document.addEventListener("click", this.handleClickOutside);
   }
 
+  public componentDidUpdate(): void {
+    if (this.props.scrollBg) {
+      ScrollManagerDisplayer("scroll-behavior-header-bg");
+      ScrollManagerDisplayer("scroll-behavior-main-underline-bg");
+    }
+  }
+
   public get classes(): IPropsClasses {
     const {
       bottomOuterDivider,
@@ -198,10 +205,47 @@ class Header extends Component<IProps, State> {
                           </a>
                         </Link>
                       </li>
-                    </ul>
-                    <ul className={this.classes.ul}>
                       <li>
-                        <ButtonLeng id="leng" />
+                        <Link href="/career">
+                          <a
+                            role="button"
+                            onKeyDown={this.handleCloseMenu}
+                            onClick={this.handleCloseMenu}
+                            tabIndex={0}
+                          >
+                            Career
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/">
+                          <a
+                            role="button"
+                            onKeyDown={this.handleCloseMenu}
+                            onClick={this.handleCloseMenu}
+                            tabIndex={0}
+                          >
+                            Products
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/">
+                          <a
+                            role="button"
+                            onKeyDown={this.handleCloseMenu}
+                            onClick={this.handleCloseMenu}
+                            tabIndex={0}
+                          >
+                            Tec
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <ButtonLeng
+                          id="leng"
+                          className="button button-primary button-wide-mobile button-sm"
+                        />
                       </li>
                     </ul>
                     {!hideSignin && (

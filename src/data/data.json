@@ -59,6 +59,12 @@
       "title": "Career",
       "paragraph": "Don't waste your time, join the Team!"
     },
-    "items": []
+    "items": [
+      { "title": "FrontendDev" },
+      { "title": "BackendDev" },
+      { "title": "WorkingStudent" },
+      { "title": "DevOpsIng" },
+      { "title": "UX-AIDesigner" }
+    ]
   }
 }

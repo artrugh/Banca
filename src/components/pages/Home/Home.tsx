@@ -19,6 +19,7 @@ import HeroScrollable from "../../organisms/HeroScrollable/HeroScrollable";
 import FeaturesTiles from "../../organisms/FeaturesTiles/FeaturesTiles";
 import FeaturesSplit from "../../organisms/FeaturesSplit/FeaturesSplit";
 import FeaturesTestimonial from "../../organisms/FeaturesTestimonial/FeaturesTestimonial";
+import FeaturesKeyboard from "../../organisms/FeaturesKeyboard/FeaturesKeyboard";
 import Cta from "../../organisms/Cta/Cta";
 
 export default class Home extends Component<IPropsData> {
@@ -27,7 +28,7 @@ export default class Home extends Component<IPropsData> {
   }
 
   public render(): JSX.Element {
-    const { split, testimonial } = this.props.data;
+    const { split, testimonial, career } = this.props.data;
 
     return (
       <>
@@ -57,6 +58,11 @@ export default class Home extends Component<IPropsData> {
         />
         <FeaturesTestimonial data={testimonial} topDivider pushLeft />
         <Cta split />
+        <FeaturesKeyboard
+          className="illustration-section-02"
+          data={career}
+          underline="has-center-underline"
+        />
       </>
     );
   }

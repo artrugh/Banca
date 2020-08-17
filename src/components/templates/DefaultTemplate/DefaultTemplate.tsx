@@ -39,7 +39,12 @@ class DefaultTemplate extends Component<IProps> {
           <title>Teclead {pageTitle ? `| ${pageTitle}` : ""}</title>
         </Head>
         <CookiesModal />
-        <Header containerSize={Sizes.big} navPosition="right" scrollBg />
+        <Header
+          containerSize={Sizes.big}
+          navPosition="right"
+          scrollBg
+          hideSignin
+        />
         <main className="site-content">{children}</main>
         <Footer pathname={pathname} />
       </>

@@ -143,6 +143,8 @@
   display: none;
 
   &-label {
+    padding: 5px 10px;
+    display: inline;
     cursor: pointer;
 
     &::after {

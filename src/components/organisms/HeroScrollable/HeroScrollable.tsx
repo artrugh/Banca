@@ -6,7 +6,7 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { Sizes, Headings } from "../../../common/enums";
+import { Sizes, Headings, ScrollPosition } from "../../../common/enums";
 import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
@@ -81,7 +81,7 @@ export default class HeroScrollable extends Component<IProps> {
             <div id="scroll-behavior-header-bg" className="loaded-none" />
             <div className="container-big">
               <div className="hero-divider" />
-
+              <div className="hero-illustration illustration-section-01" />
               <Heading
                 underlineSize={Sizes.big}
                 name="statement"
@@ -97,6 +97,7 @@ export default class HeroScrollable extends Component<IProps> {
                 name="about"
                 classNameHeading="mt-0 mb-0"
                 tag={Headings.h2}
+                scrollPosition={ScrollPosition.rightLeft}
               >
                 We combine our tech competence with our experiencies in
                 different fields leading our clients from concepts to successful

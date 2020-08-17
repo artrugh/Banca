@@ -59,8 +59,7 @@ class FeaturesTestimonial extends Component<IProps> {
         item={item}
         delay={delay}
         config={testimonialConfig.items}
-        // quote
-        underline="has-left-underline"
+        underline="has-center-underline"
       />
     ));
 

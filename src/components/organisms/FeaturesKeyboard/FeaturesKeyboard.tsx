@@ -19,10 +19,10 @@ import { IFeatureData } from "../../../common/interfaces";
 // UTILS
 
 // COMPONENTS
-import TilesItem from "../../molecules/TilesItem/TilesItem";
+import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
 import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
 // CONFIG
-import { tilesConfig } from "../../../config/configData";
+import { careerConfig } from "../../../config/configData";
 
 export interface IProps extends IPropsOuter, IPropsInner {
   pushLeft?: boolean;
@@ -40,7 +40,7 @@ export const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class FeaturesTiles extends Component<IProps> {
+class FeaturesKeyboard extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   public constructor(props: IProps) {
@@ -61,11 +61,11 @@ class FeaturesTiles extends Component<IProps> {
     const { pushLeft, data, underline, ...rest } = this.props;
 
     const Items = data.items.map((item, delay) => (
-      <TilesItem
+      <KeyboardItem
         key={Math.random()}
         item={item}
         delay={delay}
-        config={tilesConfig.items}
+        config={careerConfig.items}
         underline={underline}
       />
     ));
@@ -76,7 +76,7 @@ class FeaturesTiles extends Component<IProps> {
         sectionName="features-tiles"
         sectionHeaderData={data.header}
         tag={Headings.h2}
-        config={tilesConfig.header}
+        config={careerConfig.header}
       >
         <div className={this.classes.classes}>{Items}</div>
       </SectionTemplate>
@@ -84,4 +84,4 @@ class FeaturesTiles extends Component<IProps> {
   }
 }
 
-export default FeaturesTiles;
+export default FeaturesKeyboard;

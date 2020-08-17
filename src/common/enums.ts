@@ -37,3 +37,8 @@ export enum InputTypes {
   datetimeLocal = "datetime-local",
   checkbox = "checkbox",
 }
+
+export enum ScrollPosition {
+  rightLeft = "right-left",
+  leftRight = "left-right",
+}
