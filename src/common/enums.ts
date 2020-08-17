@@ -10,6 +10,13 @@ export enum Sizes {
   xs = "xs",
 }
 
+export enum Positions {
+  right = "right",
+  left = "left",
+  up = "up",
+  down = "down",
+}
+
 export enum VideoTag {
   iframe = "iframe",
   video = "video",
@@ -47,4 +54,10 @@ export enum ItemType {
   tilesItem = "tiles-item",
   keyboardItem = "keyboard-item",
   imagesItem = "images-item",
+}
+
+export enum Env {
+  dev = "development",
+  prod = "production",
+  test = "test",
 }

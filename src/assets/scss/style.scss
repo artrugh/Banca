@@ -6,7 +6,7 @@
 # Variables, functions and mixins
 --------------------------------------------------------------*/
 @import "core/abstracts/functions", "settings/settings", "core/abstracts/mixins",
-  "core/abstracts/include-media";
+"core/abstracts/include-media";
 
 /*--------------------------------------------------------------
 # Normalize
@@ -41,6 +41,11 @@
 @import "core/base/typography";
 
 /*--------------------------------------------------------------
+# Illustrations
+--------------------------------------------------------------*/
+@import "core/illustrations/illustrations";
+
+/*--------------------------------------------------------------
 # Containers
 --------------------------------------------------------------*/
 @import "core/elements/containers";
@@ -49,6 +54,11 @@
 # Buttons
 --------------------------------------------------------------*/
 @import "core/elements/buttons";
+
+/*--------------------------------------------------------------
+# Arrow
+--------------------------------------------------------------*/
+@import "core/elements/arrow";
 
 /*--------------------------------------------------------------
 # Forms
@@ -106,9 +116,9 @@
 @import "core/sections/hero";
 
 /*--------------------------------------------------------------
-# ScrollableHero
+# Hero Scrollable
 --------------------------------------------------------------*/
-@import "core/sections/scrollable-hero";
+@import "core/sections/hero-scrollable";
 
 /*--------------------------------------------------------------
 # Features split

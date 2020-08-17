@@ -7,6 +7,7 @@ import Link from "next/link";
 
 // COMMON
 import { IItem } from "../../../common/interfaces";
+import { Env } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -21,7 +22,10 @@ interface IProps extends IItem {
 class KeyboardItem extends Component<IProps> {
   public constructor(props: IProps) {
     super(props);
-    checkLenghPropsData.check(this.props.item, this.props.config);
+
+    if (process.env.NODE_ENV === Env.prod) {
+      checkLenghPropsData.check(this.props.item, this.props.config);
+    }
   }
 
   public render(): JSX.Element {

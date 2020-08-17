@@ -8,6 +8,7 @@ import classNames from "classnames";
 // COMMON
 import { IItem } from "../../../common/interfaces";
 import { IPropsClasses } from "../../../common/interfacesProps";
+import { Env } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -29,7 +30,10 @@ interface IProps extends IItem {
 class TestimonialItem extends Component<IProps> {
   public constructor(props: IProps) {
     super(props);
-    checkLenghPropsData.check(this.props.item, this.props.config);
+
+    if (process.env.NODE_ENV === Env.prod) {
+      checkLenghPropsData.check(this.props.item, this.props.config);
+    }
   }
 
   public get classes(): IPropsClasses {

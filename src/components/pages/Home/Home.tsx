@@ -13,12 +13,9 @@ import { Sizes, ItemType } from "../../../common/enums";
 
 // COMPONENTS
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
-import Hero from "../../organisms/Hero/Hero";
 import HeroScrollable from "../../organisms/HeroScrollable/HeroScrollable";
-import FeaturesTiles from "../../organisms/FeaturesTiles/FeaturesTiles";
 import FeaturesSplit from "../../organisms/FeaturesSplit/FeaturesSplit";
 import FeaturesTestimonial from "../../organisms/FeaturesTestimonial/FeaturesTestimonial";
-import FeaturesKeyboard from "../../organisms/FeaturesKeyboard/FeaturesKeyboard";
 import Cta from "../../organisms/Cta/Cta";
 // DATA
 import { client, tec, tiles } from "../../../data/staticData";
@@ -52,9 +49,9 @@ export default class Home extends Component<IPropsData> {
           We combine our tecnical expertise with know-how.
         </HeroScrollable>
         <FeatureTilesTemplate
+          topDivider
           data={tiles}
           config={tilesConfig}
-          padding="pt-0"
           underline="has-center-underline"
           itemType={ItemType.tilesItem}
         />
@@ -80,12 +77,14 @@ export default class Home extends Component<IPropsData> {
           data={career}
           itemType={ItemType.keyboardItem}
           underline="has-center-underline"
+          topDivider
         />
         <FeatureTilesTemplate
           data={tec}
           config={tecConfig}
           itemType={ItemType.imagesItem}
           sectionHeaderPaddingMargin="p-0"
+          topDivider
         />
       </>
     );

@@ -1,11 +1,17 @@
 .features-tiles-item-image {
   display: inline-flex;
   border-radius: 50%;
-  background-color: get-color(primary, 3);
+  background-color: get-color(dark, 2);
 }
 
-.features-tiles-item-content {
+// .features-tiles-item-content {
+//   [class*="underline"]::after {
+//     background-color: get-color(dark, 3);
+//   }
+// }
+
+.tiles-item:hover {
   [class*="underline"]::after {
-    background-color: get-color(primary, 3);
+    background-color: get-color(dark, 3);
   }
 }

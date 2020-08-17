@@ -6,7 +6,12 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { Sizes, Headings, ScrollPosition } from "../../../common/enums";
+import {
+  Sizes,
+  Headings,
+  ScrollPosition,
+  Positions,
+} from "../../../common/enums";
 import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
@@ -14,7 +19,8 @@ import { IPropsClasses } from "../../../common/interfacesProps";
 
 // COMPONENTS
 import Heading from "../../atoms/Heading/Heading";
-// import Image from "../../atoms/Image/Image";
+import Arrow from "../../atoms/Arrow/Arrow";
+import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
 interface IProps {
   children?: string;
@@ -77,8 +83,19 @@ export default class HeroScrollable extends Component<IProps> {
               id="scroll-behavior-main-underline-bg"
               className="loaded-none"
             />
-            <div className={this.classes.image} />
+            <div className={this.classes.image}>
+              <SmoothScroll to="scroll-smooth-position">
+                <Arrow
+                  className="hero-arrow"
+                  containerClass="hero-arrow-container"
+                  containerSize={Sizes.sm}
+                  position={Positions.down}
+                />
+              </SmoothScroll>
+            </div>
+
             <div id="scroll-behavior-header-bg" className="loaded-none" />
+            <div id="scroll-smooth-position" className="loaded-none" />
             <div className="container-big">
               <div className="hero-divider" />
               <div className="hero-illustration illustration-section-01" />

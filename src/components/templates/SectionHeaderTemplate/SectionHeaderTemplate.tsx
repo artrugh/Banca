@@ -12,7 +12,7 @@ import {
   IPropsOuter,
   IPropsInner,
 } from "../../../common/interfacesProps";
-import { Headings } from "../../../common/enums";
+import { Headings, Env } from "../../../common/enums";
 import { IHeader } from "../../../common/interfaces";
 // HELPERS
 
@@ -51,7 +51,13 @@ class SectionTemplate extends Component<IProps> {
 
   public constructor(props: IProps) {
     super(props);
-    checkLenghPropsData.check(this.props.sectionHeaderData, this.props.config);
+
+    if (process.env.NODE_ENV === Env.prod) {
+      checkLenghPropsData.check(
+        this.props.sectionHeaderData,
+        this.props.config
+      );
+    }
   }
 
   public get classes(): IPropsClasses {

@@ -88,7 +88,7 @@ class Cta extends Component<IProps> {
         <div className="container">
           <div className={this.classes.innerClasses}>
             <div className="cta-slogan">
-              <h3 className="m-0">For previewing layouts and visual?</h3>
+              <h3 className="m-0">Contact us to work on it!</h3>
             </div>
             <div className="cta-action">
               <Input

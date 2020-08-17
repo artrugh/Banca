@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Image from "../../atoms/Image/Image";
+import classNames from "classnames";
 
 // STYLE
 
@@ -7,11 +7,14 @@ import Image from "../../atoms/Image/Image";
 
 // COMMON
 import { IItem } from "../../../common/interfaces";
+import { Env } from "../../../common/enums";
+import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
 import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
+import Image from "../../atoms/Image/Image";
 
 interface IProps extends IItem {
   underline: string;
@@ -21,12 +24,22 @@ interface IProps extends IItem {
 class TilesItem extends Component<IProps> {
   public constructor(props: IProps) {
     super(props);
-    checkLenghPropsData.check(this.props.item, this.props.config);
+
+    if (process.env.NODE_ENV === Env.prod) {
+      checkLenghPropsData.check(this.props.item, this.props.config);
+    }
+  }
+
+  public get classes(): IPropsClasses {
+    const { underline } = this.props;
+    const heading = classNames("mt-0 mb-8", underline && underline);
+
+    return { heading };
   }
 
   public render(): JSX.Element {
     const { title, description, icon, alt } = this.props.item;
-    const { delay, underline } = this.props;
+    const { delay } = this.props;
 
     return (
       <div
@@ -45,7 +58,7 @@ class TilesItem extends Component<IProps> {
             </div>
           </div>
           <div className="features-tiles-item-content">
-            <h4 className={`mt-0 mb-8 ${underline && underline}`}>{title}</h4>
+            <h4 className={this.classes.heading}>{title}</h4>
             <p className="m-0 text-sm">{description}</p>
           </div>
         </div>

@@ -80,7 +80,9 @@ $icon--color: (
   // accordion icon
     social-inverse: null,
   // social icons
-    social-hover-inverse: null // social icons (:hover),
+    social-hover-inverse: null, // social icons (:hover),,,,,
+    // arrow
+    arrow: get-color(light, 2),
 );
 
 // Misc elements: background color
