@@ -13,7 +13,7 @@ import { IFeatureData } from "../../../common/interfaces";
 // UTILS
 
 // COMPONENTS
-import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
+import SectionTemplate from "../../templates/SectionHeaderTemplate/SectionHeaderTemplate";
 import Form from "../../organisms/Form/Form";
 // CONFIG
 import { contactConfig } from "../../../config/configData";

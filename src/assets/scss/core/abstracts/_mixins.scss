@@ -143,6 +143,8 @@
   }
 }
 
+// Divider
+// Add a line divider to a section container
 @mixin divider-mix($layout: false) {
   display: block;
   height: 1px;
@@ -195,6 +197,7 @@
 }
 
 // Underline ::after an element
+// add underline to an existing html element
 @mixin underline(
   $type: "center",
   $width: 20%,
@@ -235,6 +238,7 @@
 }
 
 // Underline hr element
+// Style an Hr element
 @mixin underlineHr($type: "sm", $width: 50%) {
   & {
     width: $width;
@@ -255,6 +259,7 @@
 }
 
 // hr underline animation
+// Handler the heroscrollable liner movement from  left to right
 @mixin underline-left-right($final_width, $duration: 2.3s, $delay: 0) {
   opacity: 1;
   left: 0;
@@ -284,6 +289,7 @@
 }
 
 // hr underline animation
+// Handler the heroscrollable liner movement from right to left
 @mixin underline-right-left(
   $initial_width,
   $duration: 2s,
@@ -312,6 +318,8 @@
   }
 }
 
+// Quote
+// Add quote in TestimonialItem
 @mixin quote {
   position: relative;
 

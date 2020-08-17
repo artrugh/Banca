@@ -20,6 +20,7 @@ interface IProps {
   children?: Partial<ReactNode>;
   tag: Headings;
   className?: string;
+  sectionHeaderPaddingMargin?: string;
 }
 
 const DefaultProps: IProps = {
@@ -42,8 +43,12 @@ class SectionHeader extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { data, className } = this.props;
-    const container = classNames("section-header", className);
+    const { data, className, sectionHeaderPaddingMargin } = this.props;
+    const container = classNames(
+      "section-header",
+      className && className,
+      sectionHeaderPaddingMargin && sectionHeaderPaddingMargin
+    );
     const heading = classNames("mt-0", data.paragraph ? "mb-16" : "mb-0");
 
     return { container, heading };
@@ -65,7 +70,14 @@ class SectionHeader extends Component<IProps> {
   };
 
   public render(): JSX.Element {
-    const { className, data, children, tag, ...rest } = this.props;
+    const {
+      className,
+      data,
+      children,
+      sectionHeaderPaddingMargin,
+      tag,
+      ...rest
+    } = this.props;
     const { title, paragraph } = this.props.data;
     const props = {
       className: this.classes.heading,

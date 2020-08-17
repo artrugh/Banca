@@ -15,10 +15,7 @@ import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 
 interface IProps extends IItem {
   underline: string;
-  config: {
-    title: number[];
-    description: number[];
-  };
+  config: { [key: string]: number[] };
 }
 
 class TilesItem extends Component<IProps> {

@@ -151,3 +151,82 @@ export const tiles: IFeatureData = {
     },
   ],
 };
+
+export const client: IFeatureData = {
+  header: {
+    title: "Referenzen",
+    paragraph:
+      "Ein Auszug von Firmen welche auf die Expertise unserer Teams setzen",
+  },
+  items: [
+    {
+      src: "/images/logo-audi.jpg",
+      alt: "audi-logo",
+      width: "170",
+      height: "100",
+    },
+    {
+      src: "/images/logo-audi.jpg",
+      alt: "audi-logo",
+      width: "170",
+      height: "100",
+    },
+    {
+      src: "/images/logo-audi.jpg",
+      alt: "audi-logo",
+      width: "170",
+      height: "100",
+    },
+    {
+      src: "/images/logo-audi.jpg",
+      alt: "audi-logo",
+      width: "170",
+      height: "100",
+    },
+  ],
+};
+
+export const tec: IFeatureData = {
+  header: {
+    title: "Unsere Tec Tools",
+    paragraph: "Flexibility and fast results for your digital business model",
+  },
+  items: [
+    {
+      src: "/images/logo-nodejs.jpg",
+      alt: "audi-logo",
+      width: "130",
+      height: "130",
+    },
+    {
+      src: "/images/logo-nodejs.jpg",
+      alt: "audi-logo",
+      width: "130",
+      height: "130",
+    },
+    {
+      src: "/images/logo-nodejs.jpg",
+      alt: "audi-logo",
+      width: "130",
+      height: "130",
+    },
+    {
+      src: "/images/logo-nodejs.jpg",
+      alt: "audi-logo",
+      width: "130",
+      height: "130",
+    },
+    {
+      src: "/images/logo-nodejs.jpg",
+      alt: "audi-logo",
+      width: "130",
+      height: "130",
+    },
+    {
+      src: "/images/logo-nodejs.jpg",
+      alt: "audi-logo",
+      width: "130",
+      height: "130",
+    },
+  ],
+};

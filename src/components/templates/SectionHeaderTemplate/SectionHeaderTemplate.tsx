@@ -29,7 +29,8 @@ export interface IProps extends IPropsOuter, IPropsInner {
   padding?: string;
   tag?: Headings;
   className?: string;
-  config?: { title: number[]; paragraph: number[] };
+  sectionHeaderPaddingMargin?: string;
+  config?: { title: number[]; paragraph?: number[] };
 }
 
 export const DefaultProps: IProps = {
@@ -59,6 +60,7 @@ class SectionTemplate extends Component<IProps> {
 
       sectionName,
       className,
+      sectionHeaderPaddingMargin,
       topOuterDivider,
       bottomOuterDivider,
       hasBgColor,
@@ -78,8 +80,7 @@ class SectionTemplate extends Component<IProps> {
       topOuterDivider && "has-top-divider",
       bottomOuterDivider && "has-bottom-divider",
       hasBgColor && "has-bg-color",
-      invertColor && "invert-color",
-      className
+      invertColor && "invert-color"
     );
 
     const innerClasses = classNames(
@@ -89,7 +90,9 @@ class SectionTemplate extends Component<IProps> {
       bottomDivider && "has-bottom-divider"
     );
 
-    return { outerClasses, innerClasses, containerClasses };
+    const sectionHeader = classNames("center-content", className && className);
+
+    return { outerClasses, innerClasses, containerClasses, sectionHeader };
   }
 
   public render(): JSX.Element {
@@ -97,6 +100,7 @@ class SectionTemplate extends Component<IProps> {
       containerSize,
       sectionName,
       className,
+      sectionHeaderPaddingMargin,
       topOuterDivider,
       bottomOuterDivider,
       topDivider,
@@ -118,7 +122,8 @@ class SectionTemplate extends Component<IProps> {
             <SectionHeader
               tag={tag}
               data={sectionHeaderData}
-              className="center-content"
+              className={this.classes.sectionHeader}
+              sectionHeaderPaddingMargin={sectionHeaderPaddingMargin}
             />
             {children}
           </div>

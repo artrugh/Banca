@@ -20,7 +20,7 @@ import { IFeatureData } from "../../../common/interfaces";
 
 // COMPONENTS
 import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
-import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
+import SectionTemplate from "../../templates/SectionHeaderTemplate/SectionHeaderTemplate";
 // CONFIG
 import { careerConfig } from "../../../config/configData";
 

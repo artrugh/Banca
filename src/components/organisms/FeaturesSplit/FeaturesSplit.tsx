@@ -19,7 +19,7 @@ import { IFeatureData } from "../../../common/interfaces";
 // UTILS
 
 // COMPONENTS
-import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
+import SectionTemplate from "../../templates/SectionHeaderTemplate/SectionHeaderTemplate";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
 // CONFIG
 import { splitConfig } from "../../../config/configData";

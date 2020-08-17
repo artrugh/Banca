@@ -20,7 +20,7 @@ import { IFeatureData } from "../../../common/interfaces";
 
 // COMPONENTS
 import TilesItem from "../../molecules/TilesItem/TilesItem";
-import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
+import SectionTemplate from "../../templates/SectionHeaderTemplate/SectionHeaderTemplate";
 // CONFIG
 import { tilesConfig } from "../../../config/configData";
 

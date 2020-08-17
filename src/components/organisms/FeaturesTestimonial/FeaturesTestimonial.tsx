@@ -20,7 +20,7 @@ import { IFeatureData } from "../../../common/interfaces";
 
 // COMPONENTS
 import TestimonialItem from "../../molecules/TestimonialItem/TestimonialItem";
-import SectionTemplate from "../../templates/SectionTemplate/SectionTemplate";
+import SectionTemplate from "../../templates/SectionHeaderTemplate/SectionHeaderTemplate";
 // CONFIG
 import { testimonialConfig } from "../../../config/configData";
 

@@ -89,6 +89,7 @@ class Heading extends Component<IProps> {
       className,
       name,
       classNameHeading,
+      scrollPosition,
       ...rest
     } = this.props;
 

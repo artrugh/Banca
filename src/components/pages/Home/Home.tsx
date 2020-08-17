@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 
-// DATA
-import { tiles } from "../../../data/staticData";
 // STYLE
 
 // BASE CLASS
 
 // COMMON
 import { IPropsData } from "../../../common/interfaces";
-import { Sizes } from "../../../common/enums";
+import { Sizes, ItemType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
+import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import Hero from "../../organisms/Hero/Hero";
 import HeroScrollable from "../../organisms/HeroScrollable/HeroScrollable";
 import FeaturesTiles from "../../organisms/FeaturesTiles/FeaturesTiles";
@@ -21,6 +20,15 @@ import FeaturesSplit from "../../organisms/FeaturesSplit/FeaturesSplit";
 import FeaturesTestimonial from "../../organisms/FeaturesTestimonial/FeaturesTestimonial";
 import FeaturesKeyboard from "../../organisms/FeaturesKeyboard/FeaturesKeyboard";
 import Cta from "../../organisms/Cta/Cta";
+// DATA
+import { client, tec, tiles } from "../../../data/staticData";
+// CONFIG_DATA
+import {
+  careerConfig,
+  tilesConfig,
+  clientsConfig,
+  tecConfig,
+} from "../../../config/configData";
 
 export default class Home extends Component<IPropsData> {
   private constructor(public readonly props: IPropsData) {
@@ -43,10 +51,12 @@ export default class Home extends Component<IPropsData> {
         >
           We combine our tecnical expertise with know-how.
         </HeroScrollable>
-        <FeaturesTiles
+        <FeatureTilesTemplate
           data={tiles}
+          config={tilesConfig}
           padding="pt-0"
           underline="has-center-underline"
+          itemType={ItemType.tilesItem}
         />
         <FeaturesSplit
           invertMobile
@@ -58,10 +68,24 @@ export default class Home extends Component<IPropsData> {
         />
         <FeaturesTestimonial data={testimonial} topDivider pushLeft />
         <Cta split />
-        <FeaturesKeyboard
+        <FeatureTilesTemplate
+          data={client}
+          config={clientsConfig}
+          itemType={ItemType.imagesItem}
+          sectionHeaderPaddingMargin="p-0"
+        />
+        <FeatureTilesTemplate
           className="illustration-section-02"
+          config={careerConfig}
           data={career}
+          itemType={ItemType.keyboardItem}
           underline="has-center-underline"
+        />
+        <FeatureTilesTemplate
+          data={tec}
+          config={tecConfig}
+          itemType={ItemType.imagesItem}
+          sectionHeaderPaddingMargin="p-0"
         />
       </>
     );

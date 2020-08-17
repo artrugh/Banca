@@ -50,3 +50,25 @@ export const tilesConfig = {
     description: [150],
   },
 };
+
+export const clientsConfig = {
+  header: {
+    title: [30],
+    paragraph: [200],
+  },
+  items: {
+    src: [200],
+    alt: [20],
+  },
+};
+
+export const tecConfig = {
+  header: {
+    title: [30],
+    paragraph: [200],
+  },
+  items: {
+    src: [200],
+    alt: [20],
+  },
+};

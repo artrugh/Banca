@@ -42,3 +42,9 @@ export enum ScrollPosition {
   rightLeft = "right-left",
   leftRight = "left-right",
 }
+
+export enum ItemType {
+  tilesItem = "tiles-item",
+  keyboardItem = "keyboard-item",
+  imagesItem = "images-item",
+}
