@@ -74,12 +74,8 @@ class Footer extends Component<IProps> {
               <FooterNav />
               <div className="footer-copyright">
                 Made by{" "}
-                <a
-                  href="https://artrugh.github.io/portfolio/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  ArturoRugh
+                <a href="/" target="_blank" rel="noreferrer">
+                  SomePeople
                 </a>
                 . All right reserved
               </div>
