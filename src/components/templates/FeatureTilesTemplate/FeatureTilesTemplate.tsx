@@ -7,10 +7,9 @@ import classNames from "classnames";
 
 // COMMON
 import {
-  DefaultPropsClasses,
+  DefaultP,
   IPropsClasses,
-  IPropsOuter,
-  IPropsInner,
+  IPropsFeatureItem,
 } from "../../../common/interfacesProps";
 import { Headings, ItemType } from "../../../common/enums";
 import { IFeatureData } from "../../../common/interfaces";
@@ -25,15 +24,8 @@ import TestimonialItem from "../../molecules/TestimonialItem/TestimonialItem";
 import SectionTemplate from "../SectionHeaderTemplate/SectionHeaderTemplate";
 import Image from "../../atoms/Image/Image";
 
-export interface IProps extends IPropsOuter, IPropsInner {
-  pushLeft?: boolean;
+export interface IProps extends IPropsFeatureItem {
   data?: IFeatureData;
-  padding?: string;
-  underline?: string;
-  className?: string;
-  sectionHeaderPaddingMargin?: string;
-  itemType?: Partial<ItemType>;
-  itemBgDark?: boolean;
   config?: {
     header: { title: number[]; paragraph?: number[] };
     items: { [key: string]: number[] };
@@ -41,7 +33,7 @@ export interface IProps extends IPropsOuter, IPropsInner {
 }
 
 export const DefaultProps: IProps = {
-  ...DefaultPropsClasses,
+  ...DefaultP,
   pushLeft: false,
   itemType: undefined,
 };

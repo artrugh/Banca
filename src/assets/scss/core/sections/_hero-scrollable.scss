@@ -87,6 +87,7 @@
     &-arrow {
       right: $hero-arrow--right-position__table;
     }
+
     &-statement {
       width: $hero-statement--width__tablet;
       margin-bottom: calc(8 * #{$hero-underline--height});
@@ -105,6 +106,7 @@
     &-arrow {
       right: $hero-arrow--right-position__desktop;
     }
+
     &-statement {
       margin-bottom: calc(10 * #{$hero-underline--height});
     }
@@ -143,7 +145,7 @@
 // =================  STATEMENT ================= //
 
 // Statement Initial Animation
-#scroll-behavior-main-underline-bg.loaded-none ~ [class*="container"] .hero-statement .underline-has-animation {
+#scroll-behavior-main-underline-bg.loaded-none~[class*="container"] .hero-statement .underline-has-animation {
   animation: moveInLeft 1.5s 0.5s ease-out;
   animation-fill-mode: forwards;
 }
@@ -166,25 +168,26 @@ body:not(.scroll-behavior-hero-statement-color) .hero-statement h1 {
 // Left-Right
 
 // Statement Animation from LEFT to RIGHT
-#scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement .left-right {
+#scroll-behavior-header-bg.loaded~[class*="container"] .hero-statement .left-right {
   @include underline-left-right(50%);
 }
 
 // Statement Animation from RIGHT to LEFT
-#scroll-behavior-main-underline-bg.loaded ~ [class*="container"] .hero-statement .left-right {
+#scroll-behavior-main-underline-bg.loaded~[class*="container"] .hero-statement .left-right {
   body:not(.scroll-behavior-header-bg) & {
     @include underline-right-left(50%, 2s, dark, 5ms);
   }
 }
 
 @include media(">medium") {
+
   // Statement Animation from LEFT to RIGHT
-  #scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement .left-right {
+  #scroll-behavior-header-bg.loaded~[class*="container"] .hero-statement .left-right {
     @include underline-left-right($hero-about--width__tablet);
   }
 
   // Statement Animation from RIGHT to LEFT
-  #scroll-behavior-main-underline-bg.loaded ~ [class*="container"] .hero-statement .left-right {
+  #scroll-behavior-main-underline-bg.loaded~[class*="container"] .hero-statement .left-right {
     body:not(.scroll-behavior-header-bg) & {
       @include underline-right-left(50%, 2s, dark, 5ms);
     }
@@ -192,13 +195,14 @@ body:not(.scroll-behavior-hero-statement-color) .hero-statement h1 {
 }
 
 @include media(">large") {
+
   // Statement Animation from LEFT to RIGHT
-  #scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement .left-right {
+  #scroll-behavior-header-bg.loaded~[class*="container"] .hero-statement .left-right {
     @include underline-left-right($hero-about--width__desktop);
   }
 
   // Statement Animation from RIGHT to LEFT
-  #scroll-behavior-main-underline-bg.loaded ~ [class*="container"] .hero-statement .left-right {
+  #scroll-behavior-main-underline-bg.loaded~[class*="container"] .hero-statement .left-right {
     body:not(.scroll-behavior-header-bg) & {
       @include underline-right-left($hero-about--width__desktop, 2s, dark, 5ms);
     }
@@ -210,12 +214,12 @@ body:not(.scroll-behavior-hero-statement-color) .hero-statement h1 {
 // Left-Right
 
 // About Animation from LEFT to RIGHT
-#scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-about .left-right {
+#scroll-behavior-header-bg.loaded~[class*="container"] .hero-about .left-right {
   @include underline-left-right(50%, 2s, 1s);
 }
 
 // About Animation from RIGHT to LEFT
-#scroll-behavior-main-underline-bg.loaded ~ [class*="container"] .hero-about .left-right {
+#scroll-behavior-main-underline-bg.loaded~[class*="container"] .hero-about .left-right {
   body:not(.scroll-behavior-header-bg) & {
     @include underline-right-left(50%, 2s, dark, 5ms);
   }
@@ -224,14 +228,14 @@ body:not(.scroll-behavior-hero-statement-color) .hero-statement h1 {
 // Right-Left
 
 // About Animation from RIGHT to LEFT
-#scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-about .right-left {
+#scroll-behavior-header-bg.loaded~[class*="container"] .hero-about .right-left {
   body.scroll-behavior-header-bg & {
     @include underline-right-left(50%, 2s, primary, 1s);
   }
 }
 
 // About Animation from LEFT to RIGHT
-#scroll-behavior-main-underline-bg.loaded ~ [class*="container"] .hero-about .right-left {
+#scroll-behavior-main-underline-bg.loaded~[class*="container"] .hero-about .right-left {
   body:not(.scroll-behavior-header-bg) & {
     left: calc(100% - #{$hero-underline--width--right-position});
     width: $hero-underline--width--right-position;

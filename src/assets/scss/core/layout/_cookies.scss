@@ -4,13 +4,12 @@
       padding: $cookies-label--padding;
       width: $cookies-label--width;
 
-      position: fixed;
+      position: fixed !important;
       top: -100%;
-      background: color-bg(cookies);
 
       transition: 1s all ease-out;
       cursor: pointer;
-      z-index: 11;
+      z-index: 1000 !important;
     }
 
     &__button {
@@ -32,7 +31,7 @@
   &__checkbox {
     display: none;
 
-    &:checked ~ &__label {
+    &:checked~&__label {
       top: -100%;
     }
   }

@@ -7,10 +7,9 @@ import classNames from "classnames";
 
 // COMMON
 import {
-  IPropsOuter,
-  IPropsInner,
+  IPropsOuterInner,
   IPropsClasses,
-  DefaultPropsClasses,
+  DefaultP,
 } from "../../../common/interfacesProps";
 import { Headings } from "../../../common/enums";
 import { IFeatureData } from "../../../common/interfaces";
@@ -24,7 +23,7 @@ import SplitItem from "../../molecules/SplitItem/SplitItem";
 // CONFIG
 import { splitConfig } from "../../../config/configData";
 
-export interface IProps extends IPropsOuter, IPropsInner {
+interface IProps extends IPropsOuterInner {
   invertMobile?: boolean;
   invertDesktop?: boolean;
   alignTop?: boolean;
@@ -34,8 +33,8 @@ export interface IProps extends IPropsOuter, IPropsInner {
   className?: string;
 }
 
-export const DefaultProps: IProps = {
-  ...DefaultPropsClasses,
+const DefaultProps: IProps = {
+  ...DefaultP,
   invertMobile: false,
   invertDesktop: false,
   alignTop: false,

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { InputTypes, Reveal, Sizes } from "./enums";
+import { InputTypes, Reveal, Sizes, ItemBgDark, ItemType } from "./enums";
 
 export interface IPropsInput {
   children?: ReactNode;
@@ -51,16 +51,28 @@ export interface IPropsInner {
   bottomDivider?: boolean;
 }
 
+export interface IPropsOuterInner extends IPropsOuter, IPropsInner {}
+
 // SECCION + CONTAINER
-export interface IProps extends IPropsOuter, IPropsInner {
+export interface IPropsItem {
+  itemBgDark?: ItemBgDark;
+  pushLeft?: boolean;
+  padding?: string;
+  underline?: string;
+  className?: string;
+  sectionHeaderPaddingMargin?: string;
+  itemType?: Partial<ItemType>;
+  delay?: number;
   [propName: string]: any;
 }
+
+export interface IPropsFeatureItem extends IPropsItem, IPropsOuterInner {}
 
 export interface IPropsClasses {
   [key: string]: string;
 }
 
-export const DefaultPropsClasses: IProps = {
+export const DefaultP: IPropsOuterInner = {
   topOuterDivider: false,
   bottomOuterDivider: false,
   topDivider: false,

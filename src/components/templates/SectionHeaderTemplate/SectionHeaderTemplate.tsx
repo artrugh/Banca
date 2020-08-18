@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import {
-  DefaultPropsClasses,
+  DefaultP,
   IPropsClasses,
   IPropsOuter,
   IPropsInner,
@@ -34,7 +34,7 @@ export interface IProps extends IPropsOuter, IPropsInner {
 }
 
 export const DefaultProps: IProps = {
-  ...DefaultPropsClasses,
+  ...DefaultP,
   sectionName: "section",
   sectionHeaderData: {
     title: "Hey You, write a title here!",

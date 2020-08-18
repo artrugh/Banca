@@ -7,12 +7,11 @@ import classNames from "classnames";
 
 // COMMON
 import {
-  DefaultPropsClasses,
+  DefaultP,
   IPropsClasses,
-  IPropsOuter,
-  IPropsInner,
+  IPropsFeatureItem,
 } from "../../../common/interfacesProps";
-import { InputTypes } from "../../../common/enums";
+import { InputTypes, ItemBgDark } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -21,16 +20,14 @@ import { InputTypes } from "../../../common/enums";
 import Input from "../../molecules/Input/Input";
 import ButtonAnchor from "../../atoms/ButtonAnchor/ButtonAnchor";
 
-export interface IProps extends IPropsOuter, IPropsInner {
+export interface IProps extends IPropsFeatureItem {
   split: boolean;
   color?: string;
   input?: boolean;
-  itemBgDark?: boolean;
-  className?: string;
 }
 
 export const DefaultProps: IProps = {
-  ...DefaultPropsClasses,
+  ...DefaultP,
   split: false,
 };
 
@@ -70,7 +67,9 @@ class Cta extends Component<IProps> {
       topDivider && "has-top-divider",
       bottomDivider && "has-bottom-divider",
       split && "cta-split",
-      itemBgDark && "has-bg-dark"
+      itemBgDark === ItemBgDark.heigh && "has-bg-dark-heigh",
+      itemBgDark === ItemBgDark.medium && "has-bg-dark-medium",
+      itemBgDark === ItemBgDark.low && "has-bg-dark-low"
     );
 
     return { outerClasses, innerClasses };

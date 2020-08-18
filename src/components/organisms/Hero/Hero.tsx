@@ -7,8 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import {
-  IProps,
-  DefaultPropsClasses,
+  IPropsOuterInner,
   IPropsClasses,
 } from "../../../common/interfacesProps";
 import { IEventHandler } from "../../../common/interfacesEvents";
@@ -22,13 +21,12 @@ import HeroVideo from "../../molecules/HeroVideo/HeroVideo";
 import HeroHeading from "../../molecules/HeroHeading/HeroHeading";
 import Modal from "../../molecules/Modal/Modal";
 
-type Props = {} & Partial<DefaultProps>;
+interface IProps extends IPropsOuterInner {
+  className?: string;
+}
 type State = { videoModalActive: boolean };
-type DefaultProps = Readonly<typeof DefaultPropsClasses>;
 
 class Hero extends Component<IProps, State> {
-  public static defaultProps: Partial<Props> = DefaultPropsClasses;
-
   public constructor(props: Readonly<IProps>, public state: State) {
     super(props);
     this.state = { videoModalActive: false };

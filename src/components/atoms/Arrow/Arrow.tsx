@@ -6,7 +6,7 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses, IPropsButton } from "../../../common/interfacesProps";
+import { IPropsClasses } from "../../../common/interfacesProps";
 import { Sizes, Positions } from "../../../common/enums";
 // HELPERS
 

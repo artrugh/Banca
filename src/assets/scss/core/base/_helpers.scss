@@ -122,10 +122,21 @@
   z-index: 0;
 }
 
-.has-bg-dark {
-  position: relative;
+.has-bg-dark-heigh {
   z-index: 0;
-  background-color: color-bg(item-dark);
+  background-color: color-bg(item-dark-heigh);
+  border-radius: $img-radius;
+}
+
+.has-bg-dark-medium {
+  z-index: 0;
+  background-color: color-bg(item-dark-medium);
+  border-radius: $img-radius;
+}
+
+.has-bg-dark-low {
+  z-index: 0;
+  background-color: color-bg(item-dark-low);
   border-radius: $img-radius;
 }
 

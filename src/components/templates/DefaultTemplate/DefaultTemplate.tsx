@@ -7,7 +7,7 @@ import Head from "next/head";
 // BASE CLASS
 
 // COMMON
-import { Sizes } from "../../../common/enums";
+import { Sizes, ItemBgDark } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -38,7 +38,7 @@ class DefaultTemplate extends Component<IProps> {
         <Head>
           <title>Teclead {pageTitle ? `| ${pageTitle}` : ""}</title>
         </Head>
-        <CookiesModal />
+        <CookiesModal itemBgDark={ItemBgDark.medium} />
         <Header
           containerSize={Sizes.big}
           navPosition="right"

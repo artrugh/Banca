@@ -6,9 +6,8 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { IItem } from "../../../common/interfaces";
-import { IPropsClasses } from "../../../common/interfacesProps";
-import { Env } from "../../../common/enums";
+import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
+import { Env, ItemBgDark } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -16,10 +15,8 @@ import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 import Image from "../../atoms/Image/Image";
 
-interface IProps extends IItem {
+interface IProps extends IPropsItem {
   centerDivider?: boolean;
-  underline?: string;
-  itemBgDark: boolean;
   quote?: boolean;
   config: { [key: string]: number[] };
 }
@@ -36,15 +33,17 @@ class TestimonialItem extends Component<IProps> {
   public get classes(): IPropsClasses {
     const { centerDivider, quote, underline, itemBgDark } = this.props;
 
-    const container = classNames(
-      "tiles-item testimonial-item reveal-from-right",
-      itemBgDark && "has-bg-dark m-24"
-    );
-
     const outer = classNames(
       "testimonial-item-avatar-container",
       underline && underline,
       centerDivider && "has-center-divider"
+    );
+
+    const container = classNames(
+      "tiles-item testimonial-item reveal-from-right",
+      itemBgDark === ItemBgDark.heigh && "has-bg-dark-heigh m-24",
+      itemBgDark === ItemBgDark.medium && "has-bg-dark-medium m-24",
+      itemBgDark === ItemBgDark.low && "has-bg-dark-low m-24"
     );
 
     const content = classNames(

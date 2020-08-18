@@ -62,3 +62,9 @@ export enum Env {
   prod = "production",
   test = "test",
 }
+
+export enum ItemBgDark {
+  heigh = "heigh",
+  medium = "medium",
+  low = "low",
+}

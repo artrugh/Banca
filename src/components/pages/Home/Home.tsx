@@ -6,7 +6,7 @@ import React, { Component } from "react";
 
 // COMMON
 import { IPropsData } from "../../../common/interfaces";
-import { Sizes, ItemType } from "../../../common/enums";
+import { Sizes, ItemType, ItemBgDark } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -69,7 +69,7 @@ export default class Home extends Component<IPropsData> {
           underline="has-center-underline"
           hasBgColor
           pushLeft
-          itemBgDark
+          itemBgDark={ItemBgDark.medium}
         />
         <FeatureTilesTemplate
           data={client}
@@ -77,7 +77,7 @@ export default class Home extends Component<IPropsData> {
           itemType={ItemType.imagesItem}
           sectionHeaderPaddingMargin="p-0"
         />
-        <Cta split itemBgDark color="secondary" />
+        <Cta split itemBgDark={ItemBgDark.medium} color="secondary" />
         <FeatureTilesTemplate
           className="illustration-section-02"
           config={careerConfig}

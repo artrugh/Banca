@@ -6,13 +6,6 @@ export interface IHeader {
   paragraph?: string;
 }
 
-// // SETTINGS
-
-export interface IItem {
-  item?: { [propName: string]: string };
-  delay?: number;
-}
-
 // // FEATURES
 export interface IFeatureData {
   header: IHeader;

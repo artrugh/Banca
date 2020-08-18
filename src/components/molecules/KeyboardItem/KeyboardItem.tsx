@@ -7,19 +7,17 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { IItem } from "../../../common/interfaces";
-import { Env } from "../../../common/enums";
-import { IPropsClasses } from "../../../common/interfacesProps";
+import { Env, ItemBgDark } from "../../../common/enums";
+import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
 import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 
-interface IProps extends IItem {
+interface IProps extends IPropsItem {
   underline: string;
   config: { [key: string]: number[] };
-  itemBgDark?: boolean;
 }
 
 class KeyboardItem extends Component<IProps> {
@@ -33,14 +31,18 @@ class KeyboardItem extends Component<IProps> {
 
   public get classes(): IPropsClasses {
     const { underline, itemBgDark } = this.props;
+
+    const container = classNames(
+      "tiles-item reveal-from-bottom",
+      itemBgDark === ItemBgDark.heigh && "has-bg-dark-heigh m-24",
+      itemBgDark === ItemBgDark.medium && "has-bg-dark-medium m-24",
+      itemBgDark === ItemBgDark.low && "has-bg-dark-low m-24"
+    );
+
     const heading = classNames(
       "mt-0 mb-8 keyboard-item",
       underline && underline,
       itemBgDark && "text-color-high"
-    );
-    const container = classNames(
-      "tiles-item reveal-from-bottom",
-      itemBgDark && "has-bg-dark m-24"
     );
 
     const parragraph = classNames(

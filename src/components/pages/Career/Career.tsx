@@ -6,12 +6,14 @@ import React, { Component } from "react";
 
 // COMMON
 import { IPropsData } from "../../../common/interfaces";
+import { ItemType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
-import SectionTemplate from "../../templates/SectionHeaderTemplate/SectionHeaderTemplate";
+import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
+
 // CONFIG
 import { careerConfig } from "../../../config/configData";
 
@@ -21,18 +23,16 @@ class Career extends Component<IPropsData> {
   }
 
   public render(): JSX.Element {
-    const { data, ...rest } = this.props;
+    const { career } = this.props.data;
 
     return (
-      <SectionTemplate
-        {...rest}
-        sectionName="career"
-        sectionHeaderData={data.career.header}
-        bottomOuterDivider
-        config={careerConfig.header}
-      >
-        Children
-      </SectionTemplate>
+      <FeatureTilesTemplate
+        className="illustration-section-02"
+        config={careerConfig}
+        data={career}
+        itemType={ItemType.keyboardItem}
+        underline="has-center-underline"
+      />
     );
   }
 }

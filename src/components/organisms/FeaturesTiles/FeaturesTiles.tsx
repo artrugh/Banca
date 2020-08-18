@@ -7,10 +7,9 @@ import classNames from "classnames";
 
 // COMMON
 import {
-  DefaultPropsClasses,
+  DefaultP,
   IPropsClasses,
-  IPropsOuter,
-  IPropsInner,
+  IPropsItem,
 } from "../../../common/interfacesProps";
 import { Headings } from "../../../common/enums";
 import { IFeatureData } from "../../../common/interfaces";
@@ -24,16 +23,12 @@ import SectionTemplate from "../../templates/SectionHeaderTemplate/SectionHeader
 // CONFIG
 import { tilesConfig } from "../../../config/configData";
 
-export interface IProps extends IPropsOuter, IPropsInner {
-  pushLeft?: boolean;
+interface IProps extends IPropsItem {
   data?: IFeatureData;
-  padding?: string;
-  underline?: string;
-  className?: string;
 }
 
 export const DefaultProps: IProps = {
-  ...DefaultPropsClasses,
+  ...DefaultP,
   pushLeft: false,
 };
 

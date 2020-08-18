@@ -1,11 +1,13 @@
 import React, { Component, createElement } from "react";
+import classNames from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-
+import { ItemBgDark } from "../../../common/enums";
+import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -14,12 +16,27 @@ import React, { Component, createElement } from "react";
 import Button from "../../atoms/Button/Button";
 
 type State = { checked: boolean };
-type Props = {};
+type Props = {
+  itemBgDark?: ItemBgDark;
+};
 
 class CookiesModal extends Component<Props, State> {
   public constructor(props: Readonly<Props>, public state: State) {
     super(props);
     this.state = { checked: false };
+  }
+
+  public get classes(): IPropsClasses {
+    const { itemBgDark } = this.props;
+
+    const label = classNames(
+      "cookies__checkbox__label",
+      itemBgDark === ItemBgDark.heigh && "has-bg-dark-heigh",
+      itemBgDark === ItemBgDark.medium && "has-bg-dark-medium",
+      itemBgDark === ItemBgDark.low && "has-bg-dark-low"
+    );
+
+    return { label };
   }
 
   public handlerLabel = (): void => {
@@ -53,7 +70,7 @@ class CookiesModal extends Component<Props, State> {
           defaultChecked={this.state.checked}
           onChange={this.handlerLabel}
         />
-        <label className="cookies__checkbox__label" htmlFor="cookies__checkbox">
+        <label className={this.classes.label} htmlFor="cookies__checkbox">
           <div className="container-sm">
             <div className="cookies__checkbox__text">
               <p className="m-0 text-sm text-color-high">{description}</p>

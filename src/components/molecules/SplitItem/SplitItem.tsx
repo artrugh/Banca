@@ -6,8 +6,7 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
-import { IItem } from "../../../common/interfaces";
+import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
 import { Env } from "../../../common/enums";
 // HELPERS
 
@@ -16,9 +15,8 @@ import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 import Image from "../../atoms/Image/Image";
 
-interface IProps extends IItem {
+interface IProps extends IPropsItem {
   imageFill?: boolean;
-  underline?: string;
   config: {
     title: number[];
     subtitle: number[];
