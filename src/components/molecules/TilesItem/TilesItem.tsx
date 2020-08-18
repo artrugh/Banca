@@ -19,6 +19,7 @@ import Image from "../../atoms/Image/Image";
 interface IProps extends IItem {
   underline: string;
   config: { [key: string]: number[] };
+  itemBgDark?: boolean;
 }
 
 class TilesItem extends Component<IProps> {
@@ -31,10 +32,23 @@ class TilesItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { underline } = this.props;
-    const heading = classNames("mt-0 mb-8", underline && underline);
+    const { underline, itemBgDark } = this.props;
+    const heading = classNames(
+      "mt-0 mb-8",
+      underline && underline,
+      itemBgDark && "text-color-high"
+    );
+    const container = classNames(
+      "tiles-item reveal-from-bottom",
+      itemBgDark && "has-bg-dark m-24"
+    );
 
-    return { heading };
+    const parragraph = classNames(
+      "m-0 text-sm",
+      itemBgDark && "text-color-high"
+    );
+
+    return { heading, container, parragraph };
   }
 
   public render(): JSX.Element {
@@ -43,7 +57,7 @@ class TilesItem extends Component<IProps> {
 
     return (
       <div
-        className="tiles-item reveal-from-bottom"
+        className={this.classes.container}
         data-reveal-delay={`${delay * 200}`}
       >
         <div className="tiles-item-inner">
@@ -59,7 +73,7 @@ class TilesItem extends Component<IProps> {
           </div>
           <div className="features-tiles-item-content">
             <h4 className={this.classes.heading}>{title}</h4>
-            <p className="m-0 text-sm">{description}</p>
+            <p className={this.classes.parragraph}>{description}</p>
           </div>
         </div>
       </div>

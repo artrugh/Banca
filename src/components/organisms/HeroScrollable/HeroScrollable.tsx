@@ -95,6 +95,10 @@ export default class HeroScrollable extends Component<IProps> {
             </div>
 
             <div id="scroll-behavior-header-bg" className="loaded-none" />
+            <div
+              id="scroll-behavior-hero-statement-color"
+              className="loaded-none"
+            />
             <div id="scroll-smooth-position" className="loaded-none" />
             <div className="container-big">
               <div className="hero-divider" />

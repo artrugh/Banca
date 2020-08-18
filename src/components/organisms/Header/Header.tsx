@@ -64,6 +64,7 @@ class Header extends Component<IProps, State> {
     }
 
     ScrollManagerDisplayer("scroll-behaviour-cookies");
+    ScrollManagerDisplayer("scroll-behavior-hero-statement-color");
 
     document.addEventListener("keydown", this.handleKeyPress);
     document.addEventListener("click", this.handleClickOutside);
@@ -73,6 +74,7 @@ class Header extends Component<IProps, State> {
     if (this.props.scrollBg) {
       ScrollManagerDisplayer("scroll-behavior-header-bg");
       ScrollManagerDisplayer("scroll-behavior-main-underline-bg");
+      ScrollManagerDisplayer("scroll-behavior-hero-statement-color");
     }
   }
 
@@ -244,7 +246,7 @@ class Header extends Component<IProps, State> {
                       <li>
                         <ButtonLeng
                           id="leng"
-                          className="button button-primary button-wide-mobile button-sm"
+                          className="button button-dark button-wide-mobile button-sm"
                         />
                       </li>
                     </ul>

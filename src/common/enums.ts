@@ -54,6 +54,7 @@ export enum ItemType {
   tilesItem = "tiles-item",
   keyboardItem = "keyboard-item",
   imagesItem = "images-item",
+  testimonialItem = "testimonial-item",
 }
 
 export enum Env {

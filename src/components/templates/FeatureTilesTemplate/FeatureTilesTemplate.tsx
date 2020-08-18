@@ -21,6 +21,7 @@ import { IFeatureData } from "../../../common/interfaces";
 // COMPONENTS
 import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
 import TilesItem from "../../molecules/TilesItem/TilesItem";
+import TestimonialItem from "../../molecules/TestimonialItem/TestimonialItem";
 import SectionTemplate from "../SectionHeaderTemplate/SectionHeaderTemplate";
 import Image from "../../atoms/Image/Image";
 
@@ -31,11 +32,12 @@ export interface IProps extends IPropsOuter, IPropsInner {
   underline?: string;
   className?: string;
   sectionHeaderPaddingMargin?: string;
+  itemType?: Partial<ItemType>;
+  itemBgDark?: boolean;
   config?: {
     header: { title: number[]; paragraph?: number[] };
     items: { [key: string]: number[] };
   };
-  itemType: Partial<ItemType>;
 }
 
 export const DefaultProps: IProps = {
@@ -72,6 +74,7 @@ class FeaturesTilesTemplate extends Component<IProps> {
       sectionHeaderPaddingMargin,
       className,
       itemType,
+      itemBgDark,
       config,
       ...rest
     } = this.props;
@@ -86,6 +89,7 @@ class FeaturesTilesTemplate extends Component<IProps> {
           delay={delay}
           config={config.items}
           underline={underline}
+          itemBgDark={itemBgDark}
         />
       ));
     } else if (itemType === ItemType.tilesItem) {
@@ -96,6 +100,7 @@ class FeaturesTilesTemplate extends Component<IProps> {
           delay={delay}
           config={config.items}
           underline={underline}
+          itemBgDark={itemBgDark}
         />
       ));
     } else if (itemType === ItemType.imagesItem) {
@@ -106,8 +111,19 @@ class FeaturesTilesTemplate extends Component<IProps> {
           alt={item.alt}
           width={item.width}
           height={item.height}
-          className="p-24"
+          className="p-32"
           containerClassName="images-item-container p-32"
+        />
+      ));
+    } else if (itemType === ItemType.testimonialItem) {
+      Items = data.items.map((item, delay) => (
+        <TestimonialItem
+          key={Math.random()}
+          item={item}
+          delay={delay}
+          config={config.items}
+          underline={underline}
+          itemBgDark={itemBgDark}
         />
       ));
     }

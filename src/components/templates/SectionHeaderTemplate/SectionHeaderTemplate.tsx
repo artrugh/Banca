@@ -66,7 +66,6 @@ class SectionTemplate extends Component<IProps> {
 
       sectionName,
       className,
-      sectionHeaderPaddingMargin,
       topOuterDivider,
       bottomOuterDivider,
       hasBgColor,

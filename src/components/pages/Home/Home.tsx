@@ -15,7 +15,6 @@ import { Sizes, ItemType } from "../../../common/enums";
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import HeroScrollable from "../../organisms/HeroScrollable/HeroScrollable";
 import FeaturesSplit from "../../organisms/FeaturesSplit/FeaturesSplit";
-import FeaturesTestimonial from "../../organisms/FeaturesTestimonial/FeaturesTestimonial";
 import Cta from "../../organisms/Cta/Cta";
 // DATA
 import { client, tec, tiles } from "../../../data/staticData";
@@ -25,6 +24,7 @@ import {
   tilesConfig,
   clientsConfig,
   tecConfig,
+  testimonialConfig,
 } from "../../../config/configData";
 
 export default class Home extends Component<IPropsData> {
@@ -49,7 +49,7 @@ export default class Home extends Component<IPropsData> {
           We combine our tecnical expertise with know-how.
         </HeroScrollable>
         <FeatureTilesTemplate
-          topDivider
+          hasBgColor
           data={tiles}
           config={tilesConfig}
           underline="has-center-underline"
@@ -57,34 +57,40 @@ export default class Home extends Component<IPropsData> {
         />
         <FeaturesSplit
           invertMobile
-          topDivider
           imageFill
           className="illustration-section-02"
           data={split}
           underline="has-center-underline"
         />
-        <FeaturesTestimonial data={testimonial} topDivider pushLeft />
-        <Cta split />
+        <FeatureTilesTemplate
+          data={testimonial}
+          config={testimonialConfig}
+          itemType={ItemType.testimonialItem}
+          underline="has-center-underline"
+          hasBgColor
+          pushLeft
+          itemBgDark
+        />
         <FeatureTilesTemplate
           data={client}
           config={clientsConfig}
           itemType={ItemType.imagesItem}
           sectionHeaderPaddingMargin="p-0"
         />
+        <Cta split itemBgDark color="secondary" />
         <FeatureTilesTemplate
           className="illustration-section-02"
           config={careerConfig}
           data={career}
           itemType={ItemType.keyboardItem}
           underline="has-center-underline"
-          topDivider
         />
         <FeatureTilesTemplate
           data={tec}
           config={tecConfig}
           itemType={ItemType.imagesItem}
           sectionHeaderPaddingMargin="p-0"
-          topDivider
+          hasBgColor
         />
       </>
     );

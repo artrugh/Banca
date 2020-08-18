@@ -37,7 +37,7 @@ class SplitItem extends Component<IProps> {
   public get classes(): IPropsClasses {
     const { imageFill, underline } = this.props;
 
-    const container = classNames("split-item");
+    const container = classNames("split-item mb-0");
 
     const image = classNames(
       "split-item-image center-content-mobile reveal-from-bottom",

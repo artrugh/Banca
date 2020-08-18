@@ -19,9 +19,13 @@ import { InputTypes } from "../../../common/enums";
 
 // COMPONENTS
 import Input from "../../molecules/Input/Input";
+import ButtonAnchor from "../../atoms/ButtonAnchor/ButtonAnchor";
 
 export interface IProps extends IPropsOuter, IPropsInner {
   split: boolean;
+  color?: string;
+  input?: boolean;
+  itemBgDark?: boolean;
   className?: string;
 }
 
@@ -45,6 +49,7 @@ class Cta extends Component<IProps> {
       topOuterDivider,
       bottomOuterDivider,
       topDivider,
+      itemBgDark,
       bottomDivider,
       hasBgColor,
       invertColor,
@@ -64,7 +69,8 @@ class Cta extends Component<IProps> {
       "cta-inner section-inner",
       topDivider && "has-top-divider",
       bottomDivider && "has-bottom-divider",
-      split && "cta-split"
+      split && "cta-split",
+      itemBgDark && "has-bg-dark"
     );
 
     return { outerClasses, innerClasses };
@@ -78,7 +84,10 @@ class Cta extends Component<IProps> {
       topDivider,
       bottomDivider,
       hasBgColor,
+      color,
       invertColor,
+      itemBgDark,
+      input,
       split,
       ...rest
     } = this.props;
@@ -88,24 +97,32 @@ class Cta extends Component<IProps> {
         <div className="container">
           <div className={this.classes.innerClasses}>
             <div className="cta-slogan">
-              <h3 className="m-0">Contact us to work on it!</h3>
+              <h3 className="m-0 text-color-high">Contact us to work on it!</h3>
             </div>
             <div className="cta-action">
-              <Input
-                id="newsletter"
-                type={InputTypes.email}
-                label="Subscribe"
-                labelHidden
-                hasIcon="right"
-                placeholder="Your best email"
-              >
-                <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z"
-                    fill="#376DF9"
-                  />
-                </svg>
-              </Input>
+              {input ? (
+                <Input
+                  id="newsletter"
+                  type={InputTypes.email}
+                  label="Subscribe"
+                  labelHidden
+                  hasIcon="right"
+                  placeholder="Your best email"
+                >
+                  <svg
+                    width="16"
+                    height="12"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z"
+                      fill="#376DF9"
+                    />
+                  </svg>
+                </Input>
+              ) : (
+                <ButtonAnchor href="/contact" color={color} />
+              )}
             </div>
           </div>
         </div>

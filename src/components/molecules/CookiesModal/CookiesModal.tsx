@@ -56,7 +56,7 @@ class CookiesModal extends Component<Props, State> {
         <label className="cookies__checkbox__label" htmlFor="cookies__checkbox">
           <div className="container-sm">
             <div className="cookies__checkbox__text">
-              <p className="m-0 text-sm">{description}</p>
+              <p className="m-0 text-sm text-color-high">{description}</p>
             </div>
             <Button
               tag="button"

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
+import classNames from "classnames";
 
 // STYLE
 
@@ -8,6 +9,7 @@ import Link from "next/link";
 // COMMON
 import { IItem } from "../../../common/interfaces";
 import { Env } from "../../../common/enums";
+import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -17,6 +19,7 @@ import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 interface IProps extends IItem {
   underline: string;
   config: { [key: string]: number[] };
+  itemBgDark?: boolean;
 }
 
 class KeyboardItem extends Component<IProps> {
@@ -28,26 +31,40 @@ class KeyboardItem extends Component<IProps> {
     }
   }
 
+  public get classes(): IPropsClasses {
+    const { underline, itemBgDark } = this.props;
+    const heading = classNames(
+      "mt-0 mb-8 keyboard-item",
+      underline && underline,
+      itemBgDark && "text-color-high"
+    );
+    const container = classNames(
+      "tiles-item reveal-from-bottom",
+      itemBgDark && "has-bg-dark m-24"
+    );
+
+    const parragraph = classNames(
+      "m-0 text-sm",
+      itemBgDark && "text-color-high"
+    );
+
+    return { heading, container, parragraph };
+  }
+
   public render(): JSX.Element {
     const { title } = this.props.item;
-    const { delay, underline } = this.props;
+    const { delay } = this.props;
 
     return (
       <div
-        className="tiles-item reveal-from-bottom"
+        className={this.classes.container}
         data-reveal-delay={`${delay * 200}`}
       >
         <div className="tiles-item-inner">
           <div className="features-tiles-item-content">
             <Link href={`/career/#${title.toLowerCase()}`}>
               <a>
-                <h4
-                  className={`mt-0 mb-8 keyboard-item ${
-                    underline && underline
-                  }`}
-                >
-                  {title}
-                </h4>
+                <h4 className={this.classes.heading}>{title}</h4>
               </a>
             </Link>
           </div>

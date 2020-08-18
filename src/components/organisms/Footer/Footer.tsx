@@ -73,8 +73,15 @@ class Footer extends Component<IProps> {
             <div className="footer-bottom space-between text-xxs invert-order-desktop">
               <FooterNav />
               <div className="footer-copyright">
-                Made by <a href="https://cruip.com">Cruip</a>. All right
-                reserved
+                Made by{" "}
+                <a
+                  href="https://artrugh.github.io/portfolio/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  ArturoRugh
+                </a>
+                . All right reserved
               </div>
             </div>
           </div>

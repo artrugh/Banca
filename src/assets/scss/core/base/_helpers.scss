@@ -122,6 +122,13 @@
   z-index: 0;
 }
 
+.has-bg-dark {
+  position: relative;
+  z-index: 0;
+  background-color: color-bg(item-dark);
+  border-radius: $img-radius;
+}
+
 .has-bg-transparent {
   background-color: transparent;
   will-change: scroll-position;
@@ -142,11 +149,7 @@ img.has-shadow,
 .has-gradient,
 [class*="has-gradient"] {
   position: relative;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 0, 0.5),
-    rgba(0, 0, 255, 0.5)
-  );
+  background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
 }
 
 .has-gradient img {

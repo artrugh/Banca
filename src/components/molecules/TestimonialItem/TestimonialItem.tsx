@@ -19,12 +19,9 @@ import Image from "../../atoms/Image/Image";
 interface IProps extends IItem {
   centerDivider?: boolean;
   underline?: string;
+  itemBgDark: boolean;
   quote?: boolean;
-  config: {
-    name: number[];
-    testimony: number[];
-    company: number[];
-  };
+  config: { [key: string]: number[] };
 }
 
 class TestimonialItem extends Component<IProps> {
@@ -37,7 +34,12 @@ class TestimonialItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { centerDivider, quote, underline } = this.props;
+    const { centerDivider, quote, underline, itemBgDark } = this.props;
+
+    const container = classNames(
+      "tiles-item testimonial-item reveal-from-right",
+      itemBgDark && "has-bg-dark m-24"
+    );
 
     const outer = classNames(
       "testimonial-item-avatar-container",
@@ -51,7 +53,17 @@ class TestimonialItem extends Component<IProps> {
       quote && "has-quote"
     );
 
-    return { outer, content };
+    const parragraph = classNames(
+      "text-sm mb-0",
+      itemBgDark && "text-color-high"
+    );
+
+    const name = classNames(
+      "testimonial-item-name",
+      itemBgDark ? "text-color-high" : "text-color-low"
+    );
+
+    return { container, outer, content, parragraph, name };
   }
 
   public render(): JSX.Element {
@@ -60,7 +72,7 @@ class TestimonialItem extends Component<IProps> {
 
     return (
       <div
-        className="tiles-item testimonial-item reveal-from-right"
+        className={this.classes.container}
         data-reveal-delay={`${delay * 200}`}
       >
         <div className="tiles-item-inner">
@@ -75,12 +87,10 @@ class TestimonialItem extends Component<IProps> {
             />
           )}
           <div className={this.classes.content}>
-            <p className="text-sm mb-0">{testimony}</p>
+            <p className={this.classes.parragraph}>{testimony}</p>
           </div>
           <div className="testimonial-item-footer text-xs mt-32 mb-0">
-            <span className="testimonial-item-name text-color-high">
-              {name}
-            </span>
+            <span className={this.classes.name}>{name}</span>
             <span className="text-color-low"> / </span>
             <span className="testimonial-item-link">
               <a href="#0">{company}</a>
