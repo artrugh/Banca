@@ -1,5 +1,12 @@
 import { ReactNode } from "react";
-import { InputTypes, Reveal, Sizes, ItemBgDark, ItemType } from "./enums";
+import {
+  InputTypes,
+  Reveal,
+  Sizes,
+  ItemBgDark,
+  ItemType,
+  Underline,
+} from "./enums";
 
 export interface IPropsInput {
   children?: ReactNode;
@@ -58,7 +65,7 @@ export interface IPropsItem {
   itemBgDark?: ItemBgDark;
   pushLeft?: boolean;
   padding?: string;
-  underline?: string;
+  underline?: Underline;
   className?: string;
   sectionHeaderPaddingMargin?: string;
   itemType?: Partial<ItemType>;

@@ -3,7 +3,6 @@
   top: 0;
   width: 100%;
   z-index: 10;
-  //   background: color-bg(header);
   transition: 0.3s all linear;
   background-color: transparent;
 
@@ -11,14 +10,6 @@
     .section:first-of-type {
       padding-top: $header-height__mobile;
     }
-  }
-
-  body.scroll-behavior-header-bg & {
-    background: color-bg(menu-mobile);
-  }
-
-  body.off-nav-is-active & {
-    background: color-bg(menu-mobile);
   }
 }
 
@@ -32,10 +23,6 @@
     width: 120px;
     height: 30px;
     transition: 0.3s all linear;
-
-    body.scroll-behavior-header-bg & {
-      background-image: url("./../../../../../public/images/logo-teclead-wt.svg");
-    }
   }
 }
 
@@ -79,6 +66,24 @@
     text-transform: $link-header--transform;
     padding: 0 $header-nav--padding-h__tablet;
 
+    &::after {
+      margin-top: 0.22em;
+      margin-bottom: 0.3em;
+      padding-top: 0.31em;
+      width: 12px;
+    }
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &.active-link {
+      &::after {
+        width: 100%;
+        background-color: color-bg(button-primary-hover);
+      }
+    }
     .invert-color & {
       @include anchor-aspect(header, inverse);
     }
@@ -174,6 +179,7 @@
   }
 }
 
+// HOME
 // Statement Color
 body.scroll-behavior-hero-statement-color .header-nav a:not(.button) {
   transition-duration: 2s;
@@ -183,4 +189,30 @@ body.scroll-behavior-hero-statement-color .header-nav a:not(.button) {
 body:not(.scroll-behavior-hero-statement-color) .header-nav a:not(.button) {
   transition-duration: 2s;
   color: color(heading);
+}
+
+body.scroll-behavior-header-bg .site-header {
+  background: color-bg(menu-mobile);
+}
+
+body.off-nav-is-active .site-header {
+  background: color-bg(menu-mobile);
+}
+
+body.scroll-behavior-header-bg .brand-image {
+  background-image: url("./../../../../../public/images/logo-teclead-wt.svg");
+}
+
+// PAGES
+body.scroll-behavior-hero-statement-color-pages .site-header {
+  background: color-bg(menu-mobile);
+}
+
+body.scroll-behavior-hero-statement-color-pages .header-nav a:not(.button) {
+  transition-duration: 2s;
+  color: color-bg(bg-color);
+}
+
+body.scroll-behavior-hero-statement-color-pages .brand-image {
+  background-image: url("./../../../../../public/images/logo-teclead-wt.svg");
 }

@@ -68,3 +68,9 @@ export enum ItemBgDark {
   medium = "medium",
   low = "low",
 }
+
+export enum Underline {
+  rightUnderline = "has-right-underline",
+  leftUnderline = "has-left-underline",
+  centerUnderline = "has-center-underline",
+}

@@ -13,18 +13,13 @@ import { ItemType, Underline } from "../../../common/enums";
 
 // COMPONENTS
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
+// DATA
+import { tec } from "../../../data/staticData";
+// DATA_CONFIG
+import { tecConfig } from "../../../config/configData";
 
-// CONFIG
-import { careerConfig } from "../../../config/configData";
-
-class Career extends Component<IPropsData> {
-  private constructor(props: IPropsData) {
-    super(props);
-  }
-
+class Tec extends Component {
   public render(): JSX.Element {
-    const { career } = this.props.data;
-
     return (
       <>
         <div
@@ -32,15 +27,15 @@ class Career extends Component<IPropsData> {
           className="loaded-none"
         />
         <FeatureTilesTemplate
-          className="illustration-section-02"
-          config={careerConfig}
-          data={career}
-          itemType={ItemType.keyboardItem}
-          underline={Underline.centerUnderline}
+          data={tec}
+          config={tecConfig}
+          itemType={ItemType.imagesItem}
+          sectionHeaderPaddingMargin="p-0"
+          hasBgColor
         />
       </>
     );
   }
 }
 
-export default Career;
+export default Tec;

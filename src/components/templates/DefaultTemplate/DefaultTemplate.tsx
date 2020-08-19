@@ -7,7 +7,7 @@ import Head from "next/head";
 // BASE CLASS
 
 // COMMON
-import { Sizes, ItemBgDark } from "../../../common/enums";
+import { Sizes, ItemBgDark, Underline } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -44,6 +44,7 @@ class DefaultTemplate extends Component<IProps> {
           navPosition="right"
           scrollBg
           hideSignin
+          underline={Underline.leftUnderline}
         />
         <main className="site-content">{children}</main>
         <Footer pathname={pathname} />

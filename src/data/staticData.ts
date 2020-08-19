@@ -166,13 +166,13 @@ export const client: IFeatureData = {
       height: "100",
     },
     {
-      src: "/images/logo-audi.jpg",
+      src: "/images/logo-nodejs.jpg",
       alt: "audi-logo",
       width: "170",
       height: "100",
     },
     {
-      src: "/images/logo-audi.jpg",
+      src: "/images/logo-teclead-bk.svg",
       alt: "audi-logo",
       width: "170",
       height: "100",

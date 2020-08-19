@@ -6,7 +6,7 @@ import React, { Component } from "react";
 
 // COMMON
 import { IPropsData } from "../../../common/interfaces";
-import { Sizes, ItemType, ItemBgDark } from "../../../common/enums";
+import { Sizes, ItemType, ItemBgDark, Underline } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -25,6 +25,7 @@ import {
   clientsConfig,
   tecConfig,
   testimonialConfig,
+  splitConfig,
 } from "../../../config/configData";
 
 export default class Home extends Component<IPropsData> {
@@ -52,7 +53,7 @@ export default class Home extends Component<IPropsData> {
           hasBgColor
           data={tiles}
           config={tilesConfig}
-          underline="has-center-underline"
+          underline={Underline.centerUnderline}
           itemType={ItemType.tilesItem}
         />
         <FeaturesSplit
@@ -60,13 +61,14 @@ export default class Home extends Component<IPropsData> {
           imageFill
           className="illustration-section-02"
           data={split}
-          underline="has-center-underline"
+          config={splitConfig}
+          underline={Underline.centerUnderline}
         />
         <FeatureTilesTemplate
           data={testimonial}
           config={testimonialConfig}
           itemType={ItemType.testimonialItem}
-          underline="has-center-underline"
+          underline={Underline.centerUnderline}
           hasBgColor
           pushLeft
           itemBgDark={ItemBgDark.medium}
@@ -83,7 +85,7 @@ export default class Home extends Component<IPropsData> {
           config={careerConfig}
           data={career}
           itemType={ItemType.keyboardItem}
-          underline="has-center-underline"
+          underline={Underline.centerUnderline}
         />
         <FeatureTilesTemplate
           data={tec}

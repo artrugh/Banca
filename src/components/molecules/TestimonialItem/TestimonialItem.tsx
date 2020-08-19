@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
-import { Env, ItemBgDark } from "../../../common/enums";
+import { Env, ItemBgDark, Underline } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -35,7 +35,9 @@ class TestimonialItem extends Component<IProps> {
 
     const outer = classNames(
       "testimonial-item-avatar-container",
-      underline && underline,
+      underline === Underline.centerUnderline && "has-center-underline",
+      underline === Underline.rightUnderline && "has-right-underline",
+      underline === Underline.leftUnderline && "has-left-underline",
       centerDivider && "has-center-divider"
     );
 

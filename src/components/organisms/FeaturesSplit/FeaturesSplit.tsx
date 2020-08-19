@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import {
-  IPropsOuterInner,
+  IPropsFeatureItem,
   IPropsClasses,
   DefaultP,
 } from "../../../common/interfacesProps";
@@ -20,17 +20,17 @@ import { IFeatureData } from "../../../common/interfaces";
 // COMPONENTS
 import SectionTemplate from "../../templates/SectionHeaderTemplate/SectionHeaderTemplate";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
-// CONFIG
-import { splitConfig } from "../../../config/configData";
 
-interface IProps extends IPropsOuterInner {
+interface IProps extends IPropsFeatureItem {
   invertMobile?: boolean;
   invertDesktop?: boolean;
   alignTop?: boolean;
   imageFill?: boolean;
-  underline?: string;
   data?: IFeatureData;
-  className?: string;
+  config?: {
+    header: { title: number[]; paragraph?: number[] };
+    items: { [key: string]: number[] };
+  };
 }
 
 const DefaultProps: IProps = {
@@ -71,6 +71,7 @@ class FeaturesSplit extends Component<IProps> {
       underline,
       imageFill,
       data,
+      config,
       ...rest
     } = this.props;
 
@@ -80,7 +81,7 @@ class FeaturesSplit extends Component<IProps> {
         item={item}
         delay={delay}
         imageFill={imageFill}
-        config={splitConfig.items}
+        config={config.items}
         underline={underline}
       />
     ));
@@ -91,7 +92,7 @@ class FeaturesSplit extends Component<IProps> {
         sectionName="features-split"
         sectionHeaderData={data.header}
         tag={Headings.h2}
-        config={splitConfig.header}
+        config={config.header}
       >
         <div className={this.classes.classes}>{Items}</div>
       </SectionTemplate>

@@ -6,7 +6,7 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { Env, ItemBgDark } from "../../../common/enums";
+import { Env, ItemBgDark, Underline } from "../../../common/enums";
 import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
 // HELPERS
 
@@ -40,7 +40,9 @@ class TilesItem extends Component<IProps> {
 
     const heading = classNames(
       "mt-0 mb-8",
-      underline && underline,
+      underline === Underline.centerUnderline && "has-center-underline",
+      underline === Underline.rightUnderline && "has-right-underline",
+      underline === Underline.leftUnderline && "has-left-underline",
       itemBgDark && "text-color-high"
     );
 

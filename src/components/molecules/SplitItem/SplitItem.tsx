@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
-import { Env } from "../../../common/enums";
+import { Env, Underline } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -17,11 +17,7 @@ import Image from "../../atoms/Image/Image";
 
 interface IProps extends IPropsItem {
   imageFill?: boolean;
-  config: {
-    title: number[];
-    subtitle: number[];
-    description: number[];
-  };
+  config: { [key: string]: number[] };
 }
 class SplitItem extends Component<IProps> {
   public constructor(public props: IProps) {
@@ -44,7 +40,9 @@ class SplitItem extends Component<IProps> {
 
     const description = classNames(
       "split-item-content center-content-mobile reveal-from-left",
-      underline && underline
+      underline === Underline.centerUnderline && "has-center-underline",
+      underline === Underline.rightUnderline && "has-right-underline",
+      underline === Underline.leftUnderline && "has-left-underline"
     );
 
     return { image, description, container };

@@ -35,16 +35,22 @@ class Contact extends Component<IProps> {
     const { data, ...rest } = this.props;
 
     return (
-      <SectionTemplate
-        {...rest}
-        sectionName="contact"
-        sectionHeaderData={data.header}
-        containerSize="xs"
-        bottomOuterDivider
-        config={contactConfig.header}
-      >
-        <Form data={data.form} />
-      </SectionTemplate>
+      <>
+        <div
+          id="scroll-behavior-hero-statement-color-pages"
+          className="loaded-none"
+        />
+        <SectionTemplate
+          {...rest}
+          sectionName="contact"
+          sectionHeaderData={data.header}
+          containerSize="xs"
+          bottomOuterDivider
+          config={contactConfig.header}
+        >
+          <Form data={data.form} />
+        </SectionTemplate>
+      </>
     );
   }
 }

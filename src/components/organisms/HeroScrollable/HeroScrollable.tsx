@@ -71,14 +71,6 @@ export default class HeroScrollable extends Component<IProps> {
       <section {...rest} className="hero-scrollable" id="hero">
         <div {...rest} className="hero-content">
           <div className="hero-scrollable-container">
-            {/* <Image
-              className={className}
-              src={src}
-              alt={alt}
-              height={height}
-              gradientBg={gradientBg}
-              containerClassName="hero-img-container"
-            /> */}
             <div
               id="scroll-behavior-main-underline-bg"
               className="loaded-none"
@@ -93,7 +85,6 @@ export default class HeroScrollable extends Component<IProps> {
                 />
               </SmoothScroll>
             </div>
-
             <div id="scroll-behavior-header-bg" className="loaded-none" />
             <div
               id="scroll-behavior-hero-statement-color"
