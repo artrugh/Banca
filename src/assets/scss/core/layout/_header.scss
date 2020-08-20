@@ -57,6 +57,8 @@
     + .header-button {
       margin-left: $header-nav--padding-h;
     }
+    position: relative;
+    bottom: -2px;
   }
 
   a:not(.button) {
@@ -149,7 +151,7 @@
         text-align: center;
 
         a:not(.button) {
-          display: inline-flex;
+          // display: inline-flex;
           @include anchor-aspect(header-mobile);
           padding-top: $header-nav--padding-v__mobile / 2;
           padding-bottom: $header-nav--padding-v__mobile / 2;
@@ -180,39 +182,50 @@
 }
 
 // HOME
-// Statement Color
+// change color header_nav_li light
 body.scroll-behavior-hero-statement-color .header-nav a:not(.button) {
   transition-duration: 2s;
   color: color-bg(bg-color);
 }
-
+// change color header_nav_li dark
 body:not(.scroll-behavior-hero-statement-color) .header-nav a:not(.button) {
   transition-duration: 2s;
   color: color(heading);
 }
-
-body.scroll-behavior-header-bg .site-header {
-  background: color-bg(menu-mobile);
-}
-
-body.off-nav-is-active .site-header {
-  background: color-bg(menu-mobile);
-}
-
+// change header_logo light
 body.scroll-behavior-header-bg .brand-image {
   background-image: url("./../../../../../public/images/logo-teclead-wt.svg");
 }
-
-// PAGES
-body.scroll-behavior-hero-statement-color-pages .site-header {
+// change bg header background dark
+body.scroll-behavior-header-bg .site-header {
   background: color-bg(menu-mobile);
 }
-
-body.scroll-behavior-hero-statement-color-pages .header-nav a:not(.button) {
+// change bg header background dark
+body.off-nav-is-active .site-header {
+  background: color-bg(menu-mobile);
+}
+// change color header_nav_li light
+body.off-nav-is-active .header-nav a:not(.button) {
   transition-duration: 2s;
   color: color-bg(bg-color);
 }
 
+// change header_logo light
+body.off-nav-is-active .brand-image {
+  background-image: url("./../../../../../public/images/logo-teclead-wt.svg");
+}
+
+// PAGES
+// change bg header background dark
+body.scroll-behavior-hero-statement-color-pages .site-header {
+  background: color-bg(menu-mobile);
+}
+// change color header_nav_li light
+body.scroll-behavior-hero-statement-color-pages .header-nav a:not(.button) {
+  transition-duration: 2s;
+  color: color-bg(bg-color);
+}
+// change header_logo light
 body.scroll-behavior-hero-statement-color-pages .brand-image {
   background-image: url("./../../../../../public/images/logo-teclead-wt.svg");
 }

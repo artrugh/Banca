@@ -108,7 +108,9 @@ class Header extends Component<IProps, State> {
       "site-header-inner",
       bottomDivider && "has-bottom-divider"
     );
+
     const nav = classNames("header-nav", this.state.isActive && "is-active");
+
     const ul = classNames(
       "list-reset text-xs",
       navPosition && `header-nav-${navPosition}`
@@ -192,7 +194,7 @@ class Header extends Component<IProps, State> {
                   type="button"
                   tabIndex={0}
                   ref={this.hamburger}
-                  className={this.classes.anchor}
+                  className="header-nav-toggle"
                   onClick={
                     this.state.isActive
                       ? this.handleCloseMenu

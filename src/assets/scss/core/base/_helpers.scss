@@ -18,6 +18,11 @@
   li {
     margin: 0;
   }
+
+  @include media("<=medium") {
+    margin: 0 auto;
+    width: fit-content;
+  }
 }
 
 // Text alignment
