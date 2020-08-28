@@ -40,8 +40,6 @@ export default class Home extends Component<IPropsData> {
       <>
         {/* <Hero className="illustration-section-01" /> */}
         <HeroScrollable
-          src="https://media.nationalgeographic.org/assets/photos/000/266/26660.jpg"
-          alt="mountains"
           className="reveal-scale-down"
           containerSize={Sizes.big}
           underlineSize={Sizes.big}

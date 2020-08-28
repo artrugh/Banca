@@ -182,11 +182,18 @@
 }
 
 // HOME
-// change color header_nav_li light
+// change color header_nav_li light to white
 body.scroll-behavior-hero-statement-color .header-nav a:not(.button) {
   transition-duration: 2s;
   color: color-bg(bg-color);
+
+  // change color header_nav_li underline light to primary color
+  &::after {
+    transition-duration: 2s;
+    background-color: color-bg(primary);
+  }
 }
+
 // change color header_nav_li dark
 body:not(.scroll-behavior-hero-statement-color) .header-nav a:not(.button) {
   transition-duration: 2s;
@@ -224,6 +231,12 @@ body.scroll-behavior-hero-statement-color-pages .site-header {
 body.scroll-behavior-hero-statement-color-pages .header-nav a:not(.button) {
   transition-duration: 2s;
   color: color-bg(bg-color);
+
+   // change color header_nav_li underline light to primary color
+   &::after {
+    transition-duration: 2s;
+    background-color: color-bg(primary);
+  }
 }
 // change header_logo light
 body.scroll-behavior-hero-statement-color-pages .brand-image {

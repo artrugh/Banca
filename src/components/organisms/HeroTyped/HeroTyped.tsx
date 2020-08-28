@@ -42,7 +42,7 @@ const DefaultProps: IProps = {
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-export default class HeroScrollable extends Component<IProps> {
+export default class HeroTyped extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   public get classes(): IPropsClasses {

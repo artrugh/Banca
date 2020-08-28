@@ -16,6 +16,12 @@ interface IProps {
 
 type IRef = { init(): void };
 
+interface IhandleListeners {
+  (scroll: () => void | undefined, reveal: () => void | undefined):
+    | void
+    | undefined;
+}
+
 const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
   const [viewportHeight, setViewportheight] = useState<number>(0);
   const [revealEl, setRevealel] = useState<NodeListOf<Element> | []>([]);
@@ -40,7 +46,7 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
   };
 
   const revealElements = (): void => {
-    // if the revealEl.length <= nodeElements return undefined
+    // check if the proccess has already been completed
     if (checkComplete()) {
       return;
     }
@@ -85,11 +91,6 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
       setRevealel(elementArray);
     },
   }));
-  interface IhandleListeners {
-    (scroll: () => void | undefined, reveal: () => void | undefined):
-      | void
-      | undefined;
-  }
 
   const handleListeners: IhandleListeners = (
     scroll,

@@ -6,7 +6,7 @@ interface IProps {
   children?: ReactNode;
   to: string;
   duration?: number;
-  onLinkClick?: () => void;
+  onLinkClick?: Function;
 }
 
 class SmoothScroll extends Component<IProps> {
@@ -14,7 +14,7 @@ class SmoothScroll extends Component<IProps> {
     super(props);
   }
 
-  private easeInOutQuad = (t): number => {
+  private easeInOutQuad = (t: number): number => {
     return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
   };
 

@@ -198,7 +198,14 @@
 
 // Underline ::after an element
 // add underline to an existing html element
-@mixin underline($type: "center", $width: 20%, $width-hover: 40%, $duration: 1s, $color: primary, $layout: false) {
+@mixin underline(
+  $type: "center",
+  $width: 20%,
+  $width-hover: 40%,
+  $duration: 1s,
+  $color: primary,
+  $layout: false
+) {
   &:hover::after {
     width: $width-hover;
     background-color: color-bg(button-primary-hover);
@@ -272,7 +279,9 @@
       }
 
       100% {
-        left: calc(#{$final_width} * 2 - #{$hero-underline--width--right-position});
+        left: calc(
+          #{$final_width} * 2 - #{$hero-underline--width--right-position}
+        );
         width: $hero-underline--width--right-position;
         background-color: get-color(primary, 3);
       }
@@ -282,7 +291,12 @@
 
 // hr underline animation
 // Handler the heroscrollable liner movement from right to left
-@mixin underline-right-left($initial_width, $duration: 2s, $color: primary, $delay: 0) {
+@mixin underline-right-left(
+  $initial_width,
+  $duration: 2s,
+  $color: primary,
+  $delay: 0
+) {
   left: calc(#{$initial_width} * 2 - #{$hero-underline--width--right-position});
   width: $hero-underline--width--right-position;
   background-color: get-color(primary, 3);
@@ -290,7 +304,9 @@
 
   @include inline-animation($duration, $delay) {
     0% {
-      left: calc(#{$initial_width} * 2 - #{$hero-underline--width--right-position});
+      left: calc(
+        #{$initial_width} * 2 - #{$hero-underline--width--right-position}
+      );
       width: $hero-underline--width--right-position;
       background-color: get-color(primary, 3);
     }
@@ -331,7 +347,14 @@
 // $vpos: illustration is centered by default, allowed values: top or bottom
 // $hoffset: horizontal offset
 // $voffset: vertical offset
-@mixin illustration($file, $width, $height, $vpos: null, $hoffset: null, $voffset: null) {
+@mixin illustration(
+  $file,
+  $width,
+  $height,
+  $vpos: null,
+  $hoffset: null,
+  $voffset: null
+) {
   content: "";
   position: absolute;
   width: $width;
@@ -395,4 +418,93 @@
   animation-duration: $duration;
   animation-delay: $delay;
   animation-fill-mode: forwards;
+}
+
+// Typed-animations
+// loop through a string and create animations
+@mixin loop-str-length-keyframes($string) {
+  $string-lenght: str-length($string);
+  @for $index from 1 through $string-lenght {
+    $name: inline-#{$index};
+    @keyframes #{$name} {
+      100% {
+        content: str-slice($string, 0, $index);
+      }
+    }
+  }
+}
+
+@mixin add-typed-animation($type) {
+  &[data-str-typed] {
+      $content: $type;
+
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+      @include loop-str-length-keyframes($content);
+
+      @extend .has-type-sign;
+
+      &:not([data-str-typed-delay]) {
+          $delay: 0;
+          &[data-str-typed-speed="slow"] {
+              $speed: 200;
+              &::before {
+                  content: " ";
+                  animation: list-of-typed-animations($content, $speed);
+                  animation-fill-mode: forwards;
+              }
+          }
+
+          &[data-str-typed-speed="fast"] {
+              $speed: 100;
+              &::before {
+                  content: " ";
+                  animation: list-of-typed-animations($content, $speed);
+                  animation-fill-mode: forwards;
+              }
+          }
+      }
+      &[data-str-typed-delay="1s"] {
+          $delay: 100;
+          &[data-str-typed-speed="slow"] {
+              $speed: 200;
+              &::before {
+                  content: " ";
+                  animation: list-of-typed-animations($content, $speed, $delay);
+                  animation-fill-mode: forwards;
+              }
+          }
+
+          &[data-str-typed-speed="fast"] {
+              $speed: 100;
+              &::before {
+                  content: " ";
+                  animation: list-of-typed-animations($content, $speed, $delay);
+                  animation-fill-mode: forwards;
+              }
+          }
+      }
+
+      &[data-str-typed-delay="2s"] {
+          $delay: 200;
+          &[data-str-typed-speed="slow"] {
+              $speed: 200;
+              &::before {
+                  content: " ";
+                  animation: list-of-typed-animations($content, $speed, $delay);
+                  animation-fill-mode: forwards;
+              }
+          }
+
+          &[data-str-typed-speed="fast"] {
+              $speed: 100;
+              &::before {
+                  content: " ";
+                  animation: list-of-typed-animations($content, $speed, $delay);
+                  animation-fill-mode: forwards;
+              }
+          }
+      }
+  }
 }
