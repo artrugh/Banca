@@ -23,6 +23,7 @@ import SectionHeader from "../../molecules/SectionHeader/SectionHeader";
 
 export interface IProps extends IPropsOuter, IPropsInner {
   children?: ReactNode;
+  id?: string;
   sectionName: string;
   sectionHeaderData: IHeader;
   containerSize?: string;
@@ -63,14 +64,12 @@ class SectionTemplate extends Component<IProps> {
   public get classes(): IPropsClasses {
     const {
       containerSize,
-
       sectionName,
       className,
       topOuterDivider,
       bottomOuterDivider,
       hasBgColor,
       invertColor,
-
       topDivider,
       bottomDivider,
       padding,
@@ -116,12 +115,12 @@ class SectionTemplate extends Component<IProps> {
       sectionHeaderData,
       children,
       tag,
-
+      id,
       ...rest
     } = this.props;
 
     return (
-      <section {...rest} className={this.classes.outerClasses}>
+      <section {...rest} className={this.classes.outerClasses} id={id}>
         <div className={this.classes.containerClasses}>
           <div className={this.classes.innerClasses}>
             <SectionHeader

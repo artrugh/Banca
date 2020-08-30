@@ -1,6 +1,6 @@
 // COMMON
 import { IPropsInput, IPropsButton } from "../common/interfacesProps";
-import { InputTypes, Reveal, Sizes } from "../common/enums";
+import { InputTypes, Reveal, Size, Color } from "../common/enums";
 import { IHeader, IFeatureData } from "../common/interfaces";
 
 interface IForms {
@@ -25,7 +25,7 @@ export const forms: IForms = {
         required: false,
         formGroup: null,
         hasIcon: null,
-        size: Sizes.sm,
+        size: Size.sm,
         placeholder: "",
         rows: 3,
         hint: null,
@@ -38,7 +38,7 @@ export const forms: IForms = {
         placeholder: "Your email",
         hint: "Some Err",
         status: "error",
-        size: Sizes.sm,
+        size: Size.sm,
         formGroup: "vhvn",
         required: true,
         children:
@@ -77,21 +77,21 @@ export const forms: IForms = {
     buttons: [
       {
         tag: "a",
-        color: "primary",
+        color: Color.primary,
         wide: true,
         href: "https://cruip.com/",
         children: "WIDE props",
       },
       {
         tag: "a",
-        color: "primary",
+        color: Color.primary,
         href: "https://cruip.com/",
         wideMobile: true,
         children: "SEND EMAIL / wideMobile",
       },
       {
-        color: "secondary",
-        size: Sizes.sm,
+        color: Color.secondary,
+        size: Size.sm,
         href: "https://cruip.com/",
         wideMobile: true,
         children: "SEND EMAIL / size= sm",

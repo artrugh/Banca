@@ -10,7 +10,7 @@ import {
   IPropsInput,
   IPropsClasses,
 } from "../../../common/interfacesProps";
-import { Reveal } from "../../../common/enums";
+import { Reveal, Color } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -94,7 +94,7 @@ class Form extends Component<IProps> {
       Buttons.push(
         <Button
           tag="a"
-          color="primary"
+          color={Color.primary}
           wideMobile
           href="https://cruip.com/"
           key={Math.random()}

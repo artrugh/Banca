@@ -98,10 +98,8 @@
 
 .footer-social {
   ul {
-    margin-right: -($footer-social--inner-padding +
-          $footer-social--outer-padding-h);
-    margin-left: -($footer-social--inner-padding +
-          $footer-social--outer-padding-h);
+    margin-right: -($footer-social--inner-padding + $footer-social--outer-padding-h);
+    margin-left: -($footer-social--inner-padding + $footer-social--outer-padding-h);
   }
 
   li {
@@ -154,6 +152,11 @@
     > *:not(:last-child) {
       margin-bottom: $footer-inner--padding-v;
     }
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-around;
   }
 }
 

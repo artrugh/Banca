@@ -165,11 +165,7 @@ img.has-shadow,
 .has-gradient,
 [class*="has-gradient"] {
   position: relative;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 0, 0.5),
-    rgba(0, 0, 255, 0.5)
-  );
+  background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
 }
 
 .has-gradient img {
@@ -288,10 +284,9 @@ img.has-shadow,
 .has-type-sign::after {
   content: "|";
   animation: beat 0.7s ease infinite;
-  font-size: 1.5rem;
   padding-left: 0.5px;
-  position: relative;
-  bottom: -3px;
+  // position: relative;
+  // bottom: -3px;
   overflow: visible;
 
   @keyframes beat {
@@ -306,13 +301,13 @@ img.has-shadow,
 
 // Typed-animation
 
-.has-typed--statement {
+.typed--statement {
   @include add-typed-animation(get-str-typed(statement));
 }
 
-.has-typed--about {
-  @include add-typed-animation(get-str-typed(about));
-}
+// .typed--about.is-typed {
+//   @include add-typed-animation(get-str-typed(about));
+// }
 
 // Spacing, margin
 .m-0 {

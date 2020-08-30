@@ -6,16 +6,23 @@ import React, { Component } from "react";
 
 // COMMON
 import { IPropsData } from "../../../common/interfaces";
-import { Sizes, ItemType, ItemBgDark, Underline } from "../../../common/enums";
+import { Size, ItemBgDark, Underline, Color } from "../../../common/enums";
+import SplitItem from "../../molecules/SplitItem/SplitItem";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
-import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import HeroScrollable from "../../organisms/HeroScrollable/HeroScrollable";
-import FeaturesSplit from "../../organisms/FeaturesSplit/FeaturesSplit";
+import HeroTyped from "../../organisms/HeroTyped/HeroTyped";
+import Hero from "../../organisms/Hero/Hero";
+import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import Cta from "../../organisms/Cta/Cta";
+// ITEMS
+import TilesItem from "../../molecules/TilesItem/TilesItem";
+import TestimonialItem from "../../molecules/TestimonialItem/TestimonialItem";
+import Image from "../../atoms/Image/Image";
+import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
 // DATA
 import { client, tec, tiles } from "../../../data/staticData";
 // CONFIG_DATA
@@ -39,59 +46,91 @@ export default class Home extends Component<IPropsData> {
     return (
       <>
         {/* <Hero className="illustration-section-01" /> */}
+        {/* <HeroTyped hasCleaner /> */}
         <HeroScrollable
           className="reveal-scale-down"
-          containerSize={Sizes.big}
-          underlineSize={Sizes.big}
+          containerSize={Size.big}
+          underlineSize={Size.big}
           height="100vh"
-        >
-          We combine our tecnical expertise with know-how.
-        </HeroScrollable>
+        />
         <FeatureTilesTemplate
           hasBgColor
           data={tiles}
-          config={tilesConfig}
-          underline={Underline.centerUnderline}
-          itemType={ItemType.tilesItem}
-        />
-        <FeaturesSplit
+          config={tilesConfig.header}
+          id="tiles"
+        >
+          <TilesItem
+            config={tilesConfig.items}
+            underline={Underline.centerUnderline}
+            delay={0}
+          />
+        </FeatureTilesTemplate>
+        <FeatureTilesTemplate
           invertMobile
-          imageFill
           className="illustration-section-02"
           data={split}
-          config={splitConfig}
-          underline={Underline.centerUnderline}
-        />
+          config={splitConfig.header}
+          wrapName="split-wrap"
+          id="products"
+        >
+          <SplitItem
+            delay={0}
+            imageFill
+            config={splitConfig.items}
+            underline={Underline.centerUnderline}
+          />
+        </FeatureTilesTemplate>
+
         <FeatureTilesTemplate
           data={testimonial}
-          config={testimonialConfig}
-          itemType={ItemType.testimonialItem}
-          underline={Underline.centerUnderline}
+          config={testimonialConfig.header}
           hasBgColor
           pushLeft
-          itemBgDark={ItemBgDark.medium}
-        />
+          id="testimonies"
+        >
+          <TestimonialItem
+            underline={Underline.centerUnderline}
+            config={testimonialConfig.items}
+            itemBgDark={ItemBgDark.medium}
+            delay={0}
+          />
+        </FeatureTilesTemplate>
         <FeatureTilesTemplate
           data={client}
-          config={clientsConfig}
-          itemType={ItemType.imagesItem}
+          config={clientsConfig.header}
           sectionHeaderPaddingMargin="p-0"
-        />
-        <Cta split itemBgDark={ItemBgDark.medium} color="secondary" />
+          id="clients"
+        >
+          <Image
+            className="p-32"
+            containerClassName="images-item-container p-32"
+          />
+        </FeatureTilesTemplate>
+        <Cta split itemBgDark={ItemBgDark.medium} color={Color.secondary} />
         <FeatureTilesTemplate
           className="illustration-section-02"
-          config={careerConfig}
+          config={careerConfig.header}
           data={career}
-          itemType={ItemType.keyboardItem}
-          underline={Underline.centerUnderline}
-        />
+          id="careers"
+        >
+          <KeyboardItem
+            config={careerConfig.items}
+            underline={Underline.centerUnderline}
+            delay={0}
+          />
+        </FeatureTilesTemplate>
         <FeatureTilesTemplate
           data={tec}
-          config={tecConfig}
-          itemType={ItemType.imagesItem}
+          config={tecConfig.header}
           sectionHeaderPaddingMargin="p-0"
           hasBgColor
-        />
+          id="tec"
+        >
+          <Image
+            className="p-32"
+            containerClassName="images-item-container p-32"
+          />
+        </FeatureTilesTemplate>
       </>
     );
   }

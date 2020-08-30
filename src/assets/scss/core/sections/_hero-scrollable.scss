@@ -1,122 +1,122 @@
-.hero {
-  &-divider {
-    width: 100vw;
-    height: 160vh;
-  }
-
-  &-arrow-container {
-    position: relative;
-    margin-top: 90vh;
-    z-index: -1;
-    display: none;
-    opacity: 1;
-    transform: translateY(0);
-    transition: all .5s;
-  }
-
-  &-arrow {
-    position: absolute;
-    bottom: 0;
-
-    border-width: 0 0.7rem 0.7rem 0;
-    padding: 0.7rem;
-  }
-
-  &-img {
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    background-image: linear-gradient(to bottom, rgba(#ffffff, 0.5), rgba(2, 50, 182, 0.5)),
-      url("../../../../../public/images/hero-1440-800.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  &-illustration {
-    position: absolute !important;
-    width: 100vw;
-    height: 100vh;
-    bottom: -100vh;
-  }
-
-  &-statement {
-    position: sticky;
-    bottom: 6rem;
-
-    margin: 0 2rem;
-    margin-bottom: calc(6 * #{$hero-underline--height});
-
-    width: $hero-statement--width__mobile;
-
-    z-index: 2;
-
-    hr {
-      opacity: 0;
-      position: absolute;
-    }
-  }
-
-  &-about {
-    position: relative;
-    margin: 0 2rem;
-    margin-bottom: calc(6 * #{$hero-underline--height});
-    width: $hero-about--width__mobile;
-
-    z-index: 1;
-
-    hr {
-      position: absolute;
-      background-color: get-color(primary, 3);
-
-      height: $hero-underline--height;
-      width: $hero-underline-about--width__mobile;
-    }
-
-    .right-left {
-      left: calc(100% - #{$hero-underline--width--right-position});
-      width: $hero-underline--width--right-position;
-    }
-  }
-}
-
-@include media(">medium") {
+.hero-scrollable {
   .hero {
+    &-divider {
+      width: 100vw;
+      height: 160vh;
+    }
+
     &-arrow-container {
-      display: block;
+      position: relative;
+      margin-top: 90vh;
+      z-index: -1;
+      display: none;
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s;
     }
 
     &-arrow {
-      right: $hero-arrow--right-position__table;
+      position: absolute;
+      bottom: 0;
+      padding: 0.7rem;
+    }
+
+    &-img {
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      background-image: linear-gradient(to bottom, rgba(#ffffff, 0.5), rgba(2, 50, 182, 0.5)),
+        url("../../../../../public/images/hero-1440-800.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &-illustration {
+      position: absolute !important;
+      width: 100vw;
+      height: 100vh;
+      bottom: -100vh;
     }
 
     &-statement {
-      width: $hero-statement--width__tablet;
-      margin-bottom: calc(8 * #{$hero-underline--height});
+      position: sticky;
+      bottom: 6rem;
+
+      margin: 0 2rem;
+      margin-bottom: calc(6 * #{$hero-underline--height});
+
+      width: $hero-statement--width__mobile;
+
+      z-index: 2;
+
+      hr {
+        opacity: 0;
+        position: absolute;
+      }
     }
 
     &-about {
-      width: $hero-about--width__tablet;
-      margin: $hero-about--margin__tablet;
-      margin-bottom: calc(8 * #{$hero-underline--height});
+      position: relative;
+      margin: 0 2rem;
+      margin-bottom: calc(6 * #{$hero-underline--height});
+      width: $hero-about--width__mobile;
+
+      z-index: 1;
+
+      hr {
+        position: absolute;
+        background-color: get-color(primary, 3);
+
+        height: $hero-underline--height;
+        width: $hero-underline-about--width__mobile;
+      }
+
+      .right-left {
+        left: calc(100% - #{$hero-underline--width--right-position});
+        width: $hero-underline--width--right-position;
+      }
     }
   }
-}
 
-@include media(">large") {
-  .hero {
-    &-arrow {
-      right: $hero-arrow--right-position__desktop;
+  @include media(">medium") {
+    .hero {
+      &-arrow-container {
+        display: block;
+      }
+
+      &-arrow {
+        right: $hero-arrow--right-position__table;
+      }
+
+      &-statement {
+        width: $hero-statement--width__tablet;
+        margin-bottom: calc(8 * #{$hero-underline--height});
+      }
+
+      &-about {
+        width: $hero-about--width__tablet;
+        margin: $hero-about--margin__tablet;
+        margin-bottom: calc(8 * #{$hero-underline--height});
+      }
     }
+  }
 
-    &-statement {
-      margin-bottom: calc(10 * #{$hero-underline--height});
-    }
+  @include media(">large") {
+    .hero {
+      &-arrow {
+        right: $hero-arrow--right-position__desktop;
+      }
 
-    &-about {
-      width: $hero-about--width__desktop;
-      margin-bottom: calc(10 * #{$hero-underline--height});
+      &-statement {
+        margin-bottom: calc(10 * #{$hero-underline--height});
+      }
+
+      &-about {
+        width: $hero-about--width__desktop;
+        margin-bottom: calc(10 * #{$hero-underline--height});
+      }
     }
   }
 }
@@ -142,109 +142,5 @@
     opacity: 1;
     transform: translateX(0);
     width: 50%;
-  }
-}
-
-// =================  STATEMENT ================= //
-
-// Statement Initial Animation
-#scroll-behavior-main-underline-bg.loaded-none ~ [class*="container"] .hero-statement .underline-has-animation {
-  animation: moveInLeft 1.5s 0.5s ease-out;
-  animation-fill-mode: forwards;
-}
-
-body.scroll-behavior-header-bg .underline-has-animation {
-  background-color: get-color(primary, 3);
-}
-
-// Statement Color
-body.scroll-behavior-hero-statement-color .hero-statement h1 {
-  transition-duration: 0.5s;
-  color: color(heading);
-}
-
-body.scroll-behavior-hero-statement-color .hero-content .arrow-container {
-  transition: all .5s;
-  transform: translateY(-400px);
-  opacity: 0;
-}
-
-body:not(.scroll-behavior-hero-statement-color) .hero-statement h1 {
-  transition-duration: 0.5s;
-  color: color-bg(bg-color);
-}
-
-// Left-Right
-
-// Statement Animation from LEFT to RIGHT
-#scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement .left-right {
-  @include underline-left-right(50%);
-}
-
-// Statement Animation from RIGHT to LEFT
-#scroll-behavior-main-underline-bg.loaded ~ [class*="container"] .hero-statement .left-right {
-  body:not(.scroll-behavior-header-bg) & {
-    @include underline-right-left(50%, 2s, dark, 5ms);
-  }
-}
-
-@include media(">medium") {
-  // Statement Animation from LEFT to RIGHT
-  #scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement .left-right {
-    @include underline-left-right($hero-about--width__tablet);
-  }
-
-  // Statement Animation from RIGHT to LEFT
-  #scroll-behavior-main-underline-bg.loaded ~ [class*="container"] .hero-statement .left-right {
-    body:not(.scroll-behavior-header-bg) & {
-      @include underline-right-left(50%, 2s, dark, 5ms);
-    }
-  }
-}
-
-@include media(">large") {
-  // Statement Animation from LEFT to RIGHT
-  #scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-statement .left-right {
-    @include underline-left-right($hero-about--width__desktop);
-  }
-
-  // Statement Animation from RIGHT to LEFT
-  #scroll-behavior-main-underline-bg.loaded ~ [class*="container"] .hero-statement .left-right {
-    body:not(.scroll-behavior-header-bg) & {
-      @include underline-right-left($hero-about--width__desktop, 2s, dark, 5ms);
-    }
-  }
-}
-
-// =================  ABOUT ================= //
-
-// Left-Right
-
-// About Animation from LEFT to RIGHT
-#scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-about .left-right {
-  @include underline-left-right(50%, 2s, 1s);
-}
-
-// About Animation from RIGHT to LEFT
-#scroll-behavior-main-underline-bg.loaded ~ [class*="container"] .hero-about .left-right {
-  body:not(.scroll-behavior-header-bg) & {
-    @include underline-right-left(50%, 2s, dark, 5ms);
-  }
-}
-
-// Right-Left
-
-// About Animation from RIGHT to LEFT
-#scroll-behavior-header-bg.loaded ~ [class*="container"] .hero-about .right-left {
-  body.scroll-behavior-header-bg & {
-    @include underline-right-left(50%, 2s, primary, 1s);
-  }
-}
-
-// About Animation from LEFT to RIGHT
-#scroll-behavior-main-underline-bg.loaded ~ [class*="container"] .hero-about .right-left {
-  body:not(.scroll-behavior-header-bg) & {
-    left: calc(100% - #{$hero-underline--width--right-position});
-    width: $hero-underline--width--right-position;
   }
 }

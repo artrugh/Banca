@@ -6,7 +6,7 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { ItemBgDark } from "../../../common/enums";
+import { ItemBgDark, Color } from "../../../common/enums";
 import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
@@ -77,7 +77,7 @@ class CookiesModal extends Component<Props, State> {
             </div>
             <Button
               tag="button"
-              color="secondary"
+              color={Color.secondary}
               className="cookies__checkbox__button"
               onClick={this.handlerLabel}
             >

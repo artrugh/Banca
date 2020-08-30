@@ -7,119 +7,101 @@ import classNames from "classnames";
 
 // COMMON
 import {
-  Sizes,
+  Size,
   Headings,
-  ScrollPosition,
+  DataTypedSpeed,
   Positions,
 } from "../../../common/enums";
-import { IPropsClasses } from "../../../common/interfacesProps";
+import {
+  IPropsClasses,
+  IPropsOuterInner,
+} from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
-import Heading from "../../atoms/Heading/Heading";
+import HeadingTyped from "../../atoms/HeadingTyped/HeadingTyped";
 import Arrow from "../../atoms/Arrow/Arrow";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
-interface IProps {
-  children?: string;
-  containerSize?: string;
-  underlineSize?: string;
-  src?: string;
-  width?: number | string;
-  height?: number | string;
-  alt?: string;
-  gradientBg?: boolean;
+interface IProps extends IPropsOuterInner {
+  hasCleaner?: boolean;
   className?: string;
 }
 
-const DefaultProps: IProps = {
-  children: "Add title to the Hero",
-  gradientBg: true,
-};
-
-type Props = {} & Partial<DefaultProps>;
-type DefaultProps = Readonly<typeof DefaultProps>;
-
 export default class HeroTyped extends Component<IProps> {
-  public static defaultProps: Partial<Props> = DefaultProps;
-
   public get classes(): IPropsClasses {
-    const { className } = this.props;
+    const {
+      topOuterDivider,
+      bottomOuterDivider,
+      topDivider,
+      bottomDivider,
+      hasBgColor,
+      invertColor,
+      className,
+    } = this.props;
 
-    const image = classNames("hero-img", className && className);
+    const outerClasses = classNames(
+      "hero-typed section",
+      topOuterDivider && "has-top-divider",
+      bottomOuterDivider && "has-bottom-divider",
+      hasBgColor && "has-bg-color",
+      invertColor && "invert-color",
+      className
+    );
 
-    return { image };
+    const innerClasses = classNames(
+      "hero-inner section-inner",
+      topDivider && "has-top-divider",
+      bottomDivider && "has-bottom-divider"
+    );
+
+    return { outerClasses, innerClasses };
   }
 
   public render(): JSX.Element {
     const {
-      children,
-      containerSize,
-      underlineSize,
-      src,
-      width,
-      height,
-      alt,
-      gradientBg,
+      topOuterDivider,
+      bottomOuterDivider,
+      topDivider,
+      bottomDivider,
+      hasBgColor,
+      invertColor,
+      hasCleaner,
       className,
       ...rest
     } = this.props;
 
     return (
-      <section
-        {...rest}
-        className="hero-scrollable"
-        id="hero"
-        data-color="green"
-      >
-        <div {...rest} className="hero-content">
-          <div className="hero-scrollable-container">
-            <div
-              id="scroll-behavior-main-underline-bg"
-              className="loaded-none"
-            />
-            <div className={this.classes.image}>
-              <SmoothScroll to="scroll-smooth-position">
-                <Arrow
-                  className="hero-arrow"
-                  containerClass="hero-arrow-container"
-                  containerSize={Sizes.sm}
-                  position={Positions.down}
-                />
-              </SmoothScroll>
-            </div>
-            <div id="scroll-behavior-header-bg" className="loaded-none" />
-            <div
-              id="scroll-behavior-hero-statement-color"
-              className="loaded-none"
-            />
-            <div id="scroll-smooth-position" className="loaded-none" />
-            <div className="container-big">
-              <div className="hero-divider" />
-              <div className="hero-illustration illustration-section-01" />
-              <Heading
-                underlineSize={Sizes.big}
-                name="statement"
-                animation
-                classNameHeading="mt-0 mb-0"
+      <section {...rest} className={this.classes.outerClasses} id="hero">
+        <div className="container-sm">
+          <div id="scroll-behavior-header-bg" className="loaded-none hero" />
+          <div
+            id="scroll-behavior-hero-statement-color"
+            className="loaded-none hero"
+          />
+          <div className={this.classes.innerClasses}>
+            <div className="hero-content">
+              <HeadingTyped
+                classNameHeading="mt-0 mb-16 hero-statement typed--statement"
                 tag={Headings.h1}
+                isTyped
+                dataTypedSpeed={DataTypedSpeed.fast}
+                dataStr="We combine our tecnical expertise with know-how."
+                dataTypedDelay={500}
+                hasCleaner={hasCleaner}
               >
-                We combine our tecnical expertise with know-how.
-                <div id="scroll-behaviour-cookies" />
-              </Heading>
-              <Heading
-                underlineSize={Sizes.big}
-                name="about"
-                classNameHeading="mt-0 mb-0"
-                tag={Headings.h2}
-                scrollPosition={ScrollPosition.rightLeft}
-              >
-                We combine our tech competence with our experiencies in
-                different fields leading our clients from concepts to successful
-                IT projects.
-              </Heading>
+                <SmoothScroll to="tiles">
+                  <Arrow
+                    className="hero-arrow"
+                    containerClass="hero-arrow-container"
+                    // color={Color.dark}
+                    containerSize={Size.sm}
+                    position={Positions.down}
+                  />
+                </SmoothScroll>
+              </HeadingTyped>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ import Head from "next/head";
 // BASE CLASS
 
 // COMMON
-import { Sizes, ItemBgDark, Underline } from "../../../common/enums";
+import { Size, ItemBgDark, Underline } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -40,7 +40,7 @@ class DefaultTemplate extends Component<IProps> {
         </Head>
         <CookiesModal itemBgDark={ItemBgDark.medium} />
         <Header
-          containerSize={Sizes.big}
+          containerSize={Size.big}
           navPosition="right"
           scrollBg
           hideSignin

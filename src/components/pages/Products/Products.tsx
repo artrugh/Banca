@@ -13,7 +13,8 @@ import { Underline } from "../../../common/enums";
 
 // COMPONENTS
 
-import FeaturesSplit from "../../organisms/FeaturesSplit/FeaturesSplit";
+import FeaturesTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
+import SplitItem from "../../molecules/SplitItem/SplitItem";
 
 // DATA
 
@@ -34,14 +35,20 @@ class Products extends Component<IPropsData> {
           id="scroll-behavior-hero-statement-color-pages"
           className="loaded-none"
         />
-        <FeaturesSplit
+        <FeaturesTilesTemplate
           invertMobile
-          imageFill
           className="illustration-section-02"
           data={split}
-          config={splitConfig}
-          underline={Underline.centerUnderline}
-        />
+          config={splitConfig.header}
+          wrapName="split-wrap"
+        >
+          <SplitItem
+            delay={0}
+            imageFill
+            config={splitConfig.items}
+            underline={Underline.centerUnderline}
+          />
+        </FeaturesTilesTemplate>
       </>
     );
   }

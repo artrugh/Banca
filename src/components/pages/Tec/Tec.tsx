@@ -5,14 +5,14 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-import { IPropsData } from "../../../common/interfaces";
-import { ItemType, Underline } from "../../../common/enums";
+
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
+import Image from "../../atoms/Image/Image";
 // DATA
 import { tec } from "../../../data/staticData";
 // DATA_CONFIG
@@ -28,11 +28,15 @@ class Tec extends Component {
         />
         <FeatureTilesTemplate
           data={tec}
-          config={tecConfig}
-          itemType={ItemType.imagesItem}
+          config={tecConfig.header}
           sectionHeaderPaddingMargin="p-0"
           hasBgColor
-        />
+        >
+          <Image
+            className="p-32"
+            containerClassName="images-item-container p-32"
+          />
+        </FeatureTilesTemplate>
       </>
     );
   }

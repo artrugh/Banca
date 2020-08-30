@@ -126,11 +126,7 @@
   $index: str-index($string, $search);
   @if $index {
     @return str-slice($string, 1, $index - 1) + $replace +
-      str-replace(
-        str-slice($string, $index + str-length($search)),
-        $search,
-        $replace
-      );
+      str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
   }
   @return $string;
 }
@@ -176,13 +172,12 @@
 // Output list of animation divided by , ------------------------------
 // Usage: list-of-typed-animations("whatever string you want to type", number, number: 0)
 // --------------------------------------------------------------------
-@function list-of-typed-animations($string, $speed, $delay: 0) {
+@function list-of-typed-animations($string, $speed) {
   $string-lenght: str-length($string);
-  $list-of-typed-animations: null;
-  @for $index from 1 through $string-lenght {
+  $list-of-typed-animations: inline-1 0ms ease 0ms;
+  @for $index from 2 through $string-lenght {
     $name: inline-#{$index};
-    $list-of-typed-animations: $list-of-typed-animations,
-      $name calc(#{$delay} * 100ms) ease calc(#{$index} * #{$speed} * 1ms);
+    $list-of-typed-animations: $list-of-typed-animations, $name 0ms ease calc(#{$index} * #{$speed} * 1ms);
   }
   @return $list-of-typed-animations;
 }
@@ -194,9 +189,9 @@
 @function get-str-typed($string-type) {
   @if ($string-type == statement) {
     @return $str-typed--statement;
-  } @else if ($string-type == about) {
-    @return $str-typed--about;
-  } @else {
-    @return $str-typed;
   }
+  @else if ($string-type == about) {
+    @return $str-typed--about;
+  } 
+  @return $str-typed;
 }

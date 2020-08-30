@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses, IPropsInput } from "../../../common/interfacesProps";
-import { InputTypes, Sizes } from "../../../common/enums";
+import { InputTypes, Size } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -26,7 +26,7 @@ const DefaultProps: IPropsInput = {
   required: false,
   formGroup: null,
   hasIcon: null,
-  size: Sizes.sm,
+  size: Size.sm,
   placeholder: "",
   rows: 3,
   hint: null,

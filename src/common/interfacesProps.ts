@@ -2,10 +2,10 @@ import { ReactNode } from "react";
 import {
   InputTypes,
   Reveal,
-  Sizes,
+  Size,
   ItemBgDark,
-  ItemType,
   Underline,
+  Color,
 } from "./enums";
 
 export interface IPropsInput {
@@ -20,7 +20,7 @@ export interface IPropsInput {
   value?: string;
   formGroup?: string;
   hasIcon?: string;
-  size?: Sizes;
+  size?: Size;
   placeholder?: string;
   reveal?: Reveal;
   rows?: number;
@@ -31,8 +31,8 @@ export interface IPropsInput {
 
 export interface IPropsButton {
   readonly tag?: string;
-  color?: string;
-  size?: Sizes;
+  color?: Color;
+  size?: Size;
   loading?: boolean;
   wide?: boolean;
   wideMobile?: boolean;
@@ -63,17 +63,23 @@ export interface IPropsOuterInner extends IPropsOuter, IPropsInner {}
 // SECCION + CONTAINER
 export interface IPropsItem {
   itemBgDark?: ItemBgDark;
-  pushLeft?: boolean;
   padding?: string;
   underline?: Underline;
   className?: string;
-  sectionHeaderPaddingMargin?: string;
-  itemType?: Partial<ItemType>;
   delay?: number;
   [propName: string]: any;
 }
 
-export interface IPropsFeatureItem extends IPropsItem, IPropsOuterInner {}
+export interface IPropsFeatureItem extends IPropsOuterInner {
+  wrapName: string;
+  invertMobile?: boolean;
+  invertDesktop?: boolean;
+  alignTop?: boolean;
+  sectionHeaderPaddingMargin?: string;
+  className?: string;
+  pushLeft?: boolean;
+  id?: string;
+}
 
 export interface IPropsClasses {
   [key: string]: string;

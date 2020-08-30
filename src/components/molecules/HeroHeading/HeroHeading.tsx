@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-
+import { Color } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -39,7 +39,7 @@ class HeroHeading extends Component<{}> {
             <ButtonGroup>
               <Button
                 tag="a"
-                color="primary"
+                color={Color.primary}
                 wideMobile
                 href="https://cruip.com/"
               >
@@ -47,7 +47,7 @@ class HeroHeading extends Component<{}> {
               </Button>
               <Button
                 tag="a"
-                color="dark"
+                color={Color.primary}
                 wideMobile
                 href="https://github.com/cruip/open-react-template/"
               >

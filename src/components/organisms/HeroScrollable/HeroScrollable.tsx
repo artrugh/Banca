@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import {
-  Sizes,
+  Size,
   Headings,
   ScrollPosition,
   Positions,
@@ -85,23 +85,26 @@ export default class HeroScrollable extends Component<IProps> {
                 <Arrow
                   className="hero-arrow"
                   containerClass="hero-arrow-container"
-                  containerSize={Sizes.sm}
+                  containerSize={Size.sm}
                   position={Positions.down}
                 />
               </SmoothScroll>
             </div>
-            <div id="scroll-behavior-header-bg" className="loaded-none" />
+            <div
+              id="scroll-behavior-header-bg"
+              className="hero-scrollable loaded-none"
+            />
             <div
               id="scroll-behavior-hero-statement-color"
-              className="loaded-none"
+              className="loaded-none hero-scrollable"
             />
             <div id="scroll-smooth-position" className="loaded-none" />
             <div className="container-big">
               <div className="hero-divider" />
               <div className="hero-illustration illustration-section-01" />
               <Heading
-                underlineSize={Sizes.big}
-                name="statement"
+                underlineSize={Size.big}
+                classNameContainer="hero-statement"
                 animation
                 classNameHeading="mt-0 mb-0"
                 tag={Headings.h1}
@@ -110,8 +113,8 @@ export default class HeroScrollable extends Component<IProps> {
                 <div id="scroll-behaviour-cookies" />
               </Heading>
               <Heading
-                underlineSize={Sizes.big}
-                name="about"
+                underlineSize={Size.big}
+                classNameContainer="hero-about"
                 classNameHeading="mt-0 mb-0"
                 tag={Headings.h2}
                 scrollPosition={ScrollPosition.rightLeft}

@@ -1,9 +1,9 @@
 .arrow {
-  border: solid color-icon(arrow);
-  border-width: 0 3px 3px 0;
+  border-style: solid;
+  border-width: $arrow-border-width;
   display: inline-block;
   padding: 3px;
-  border-radius: 3px;
+  border-radius: $arrow-border-radius;
   cursor: pointer;
 }
 
@@ -25,4 +25,36 @@
 .arrow.down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.arrow-primary {
+  border-color: color-border(arrow-primary);
+
+  &:hover {
+    border-color: color-border(arrow-primary-hover);
+  }
+}
+
+.arrow-secondary {
+  border-color: color-border(arrow-secondary);
+
+  &:hover {
+    border-color: color-border(arrow-secondary-hover);
+  }
+}
+
+.arrow-dark {
+  border-color: color-border(arrow-dark);
+
+  &:hover {
+    border-color: color-border(arrow-dark-hover);
+  }
+}
+
+.arrow-light {
+  border-color: color-border(arrow-light);
+
+  &:hover {
+    border-color: color-border(arrow-light-hover);
+  }
 }

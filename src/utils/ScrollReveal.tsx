@@ -17,22 +17,30 @@ interface IProps {
 type IRef = { init(): void };
 
 interface IhandleListeners {
-  (scroll: () => void | undefined, reveal: () => void | undefined):
-    | void
-    | undefined;
+  (scroll: () => void, reveal: () => void): void | undefined;
 }
 
 const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
   const [viewportHeight, setViewportheight] = useState<number>(0);
   const [revealEl, setRevealel] = useState<NodeListOf<Element> | []>([]);
+  const [typedEl, setTypedel] = useState<NodeListOf<Element> | []>([]);
 
   // get all the nodeElements and return if the revealEl.length <= nodeElements
-  const checkComplete = (): boolean => {
+  const checkCompleteReveal = (): boolean => {
     const elementArray = document.querySelectorAll(
       "[class*=reveal-].is-revealed"
     )! as NodeListOf<Element>;
 
     return revealEl.length <= elementArray.length;
+  };
+
+  // get all the nodeElements and return if the revealEl.length <= nodeElements
+  const checkCompleteTyped = (): boolean => {
+    const elementArray = document.querySelectorAll(
+      "[class*=typed-].is-typed"
+    )! as NodeListOf<Element>;
+
+    return typedEl.length <= elementArray.length;
   };
 
   const elementIsVisible = (el: Element, offset: number): boolean => {
@@ -47,7 +55,7 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
 
   const revealElements = (): void => {
     // check if the proccess has already been completed
-    if (checkComplete()) {
+    if (checkCompleteReveal()) {
       return;
     }
 
@@ -83,12 +91,66 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
     }
   };
 
+  const typedElements = (): void => {
+    // check if the proccess has already been completed
+    if (checkCompleteTyped()) {
+      return;
+    }
+
+    // map revealEl array
+    for (let i = 0; i < typedEl.length; i++) {
+      const el: Element = typedEl[i];
+
+      // store the data-reveal-delay
+      const typedDelay: null | string = el.getAttribute("data-typed-delay");
+
+      const cleanDelay: null | number = el.getAttribute("data-str")
+        ? el.getAttribute("data-str").length *
+            +el.getAttribute("data-typed-speed") +
+          1800
+        : null;
+
+      // if there is a value, store it otherwise set it in 200
+      const revealOffset: string = el.getAttribute("data-reveal-offset")
+        ? el.getAttribute("data-reveal-offset")
+        : "200";
+
+      // if tit has data-reveal-container return it, otherwise return the closest element
+      const listenedEl: Element = el.getAttribute("data-typed-container")
+        ? el.closest(el.getAttribute("data-typed-container"))
+        : el;
+
+      if (
+        elementIsVisible(listenedEl, +revealOffset) &&
+        !el.classList.contains("is-revealed")
+      ) {
+        if (typedDelay && +typedDelay !== 0) {
+          setTimeout((): void => {
+            el.classList.add("is-typed");
+          }, +typedDelay);
+
+          setTimeout((): void => {
+            el.classList.add("clean-typed");
+          }, +cleanDelay);
+        } else {
+          el.classList.add("is-typed");
+        }
+      }
+    }
+  };
+
   useImperativeHandle(ref, () => ({
     init: () => {
-      const elementArray = document.querySelectorAll(
+      const elementsRevealArray = document.querySelectorAll(
         "[class*=reveal-]"
       )! as NodeListOf<Element>;
-      setRevealel(elementArray);
+
+      const elementsTypedArray = document.querySelectorAll(
+        "[class*=typed-]"
+      )! as NodeListOf<Element>;
+
+      setRevealel(elementsRevealArray);
+      setTypedel(elementsTypedArray);
     },
   }));
 
@@ -96,7 +158,11 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
     scroll,
     resize
   ): void | undefined => {
-    if (!checkComplete()) {
+    if (!checkCompleteReveal()) {
+      return;
+    }
+
+    if (!checkCompleteTyped()) {
       return;
     }
 
@@ -111,23 +177,26 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
   const handleScroll = throttle(() => {
     handleListeners(handleScroll, handleResize);
     revealElements();
+    typedElements();
   }, 30);
 
   useEffect(() => setViewportheight(window.innerHeight), []);
   useEffect(() => {
     if (typeof revealEl !== "undefined" && revealEl.length > 0) {
-      if (!checkComplete()) {
+      if (!checkCompleteReveal()) {
         window.addEventListener("scroll", handleScroll);
         window.addEventListener("resize", handleResize);
       }
 
       revealElements();
+      typedElements();
     }
   }, [revealEl]);
 
   useEffect(() => {
     handleListeners(handleScroll, handleResize);
     revealElements();
+    typedElements();
   }, [viewportHeight]);
 
   return <>{props.children}</>;

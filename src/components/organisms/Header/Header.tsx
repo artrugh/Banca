@@ -9,7 +9,7 @@ import classNames from "classnames";
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
 import { IEventHandler } from "../../../common/interfacesEvents";
-import { Sizes, Underline } from "../../../common/enums";
+import { Size, Underline } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -27,7 +27,7 @@ export interface IProps {
   bottomOuterDivider?: boolean;
   bottomDivider?: boolean;
   scrollBg?: boolean;
-  containerSize?: Sizes;
+  containerSize?: Size;
   [propName: string]: any;
 }
 
@@ -152,9 +152,7 @@ class Header extends Component<IProps, State> {
     }
   };
 
-  private handleClickOutside: IEventHandler<Event> = (
-    e: Event
-  ): void | undefined => {
+  private handleClickOutside: IEventHandler<Event> = (e: Event): void => {
     if (!this.nav.current) {
       return;
     }
@@ -261,7 +259,7 @@ class Header extends Component<IProps, State> {
                           </a>
                         </Link>
                       </li>
-                      <li className="button-leng">
+                      <li className="button-lang">
                         <ButtonLeng
                           id="leng"
                           className="button button-dark button-wide-mobile button-sm"

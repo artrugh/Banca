@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
-import { Sizes, Positions } from "../../../common/enums";
+import { Size, Positions, Color } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -17,12 +17,14 @@ import { Sizes, Positions } from "../../../common/enums";
 interface IProps {
   className?: string;
   containerClass?: string;
-  containerSize?: Sizes;
+  color?: Color;
+  containerSize?: Size;
   position?: Positions;
 }
 
 const DefaultProps: IProps = {
   position: Positions.right,
+  color: Color.light,
 };
 
 type Props = {} & Partial<DefaultProps>;
@@ -36,7 +38,13 @@ export default class Arrow extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { className, containerClass, containerSize, position } = this.props;
+    const {
+      className,
+      containerClass,
+      containerSize,
+      position,
+      color,
+    } = this.props;
 
     const container = classNames(
       "arrow-container",
@@ -44,7 +52,12 @@ export default class Arrow extends Component<IProps> {
       containerClass && containerClass
     );
 
-    const arrow = classNames(className && className, "arrow", position);
+    const arrow = classNames(
+      className && className,
+      color && `arrow-${color}`,
+      "arrow",
+      position
+    );
 
     return { container, arrow };
   }

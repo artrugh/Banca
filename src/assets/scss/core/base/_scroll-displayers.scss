@@ -1,6 +1,13 @@
 #scroll-behavior-header-bg {
   position: absolute;
-  bottom: 80px;
+
+  &.hero-scrollable {
+    bottom: 80px;
+  }
+
+  &.hero {
+    top: 2vh;
+  }
 }
 
 #scroll-behavior-main-underline-bg {
@@ -15,5 +22,10 @@
 
 #scroll-behavior-hero-statement-color {
   position: absolute;
-  top: 20vh;
+  &.hero-scrollable {
+    top: 20vh;
+  }
+  &.hero {
+    top: 0vh;
+  }
 }

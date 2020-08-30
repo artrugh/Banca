@@ -19,7 +19,16 @@ interface IProps extends IPropsItem {
   imageFill?: boolean;
   config: { [key: string]: number[] };
 }
+
+const DefaultProps: IProps = {
+  imageFill: false,
+  config: { title: [25] },
+};
+
+type Props = {} & Partial<DefaultProps>;
+type DefaultProps = Readonly<typeof DefaultProps>;
 class SplitItem extends Component<IProps> {
+  public static defaultProps: Partial<Props> = DefaultProps;
   public constructor(public props: IProps) {
     super(props);
 

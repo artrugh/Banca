@@ -11,7 +11,7 @@ import {
   IPropsClasses,
   IPropsFeatureItem,
 } from "../../../common/interfacesProps";
-import { InputTypes, ItemBgDark } from "../../../common/enums";
+import { InputTypes, ItemBgDark, Color } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -21,13 +21,15 @@ import Input from "../../molecules/Input/Input";
 import ButtonAnchor from "../../atoms/ButtonAnchor/ButtonAnchor";
 
 export interface IProps extends IPropsFeatureItem {
+  itemBgDark?: ItemBgDark;
   split: boolean;
-  color?: string;
+  color?: Color;
   input?: boolean;
 }
 
 export const DefaultProps: IProps = {
   ...DefaultP,
+  wrapName: "cta-inner section-inner",
   split: false,
 };
 
@@ -43,6 +45,7 @@ class Cta extends Component<IProps> {
   public get classes(): IPropsClasses {
     const {
       className,
+      wrapName,
       topOuterDivider,
       bottomOuterDivider,
       topDivider,
@@ -63,7 +66,7 @@ class Cta extends Component<IProps> {
     );
 
     const innerClasses = classNames(
-      "cta-inner section-inner",
+      wrapName,
       topDivider && "has-top-divider",
       bottomDivider && "has-bottom-divider",
       split && "cta-split",
@@ -78,6 +81,7 @@ class Cta extends Component<IProps> {
   public render(): JSX.Element {
     const {
       className,
+      wrapName,
       topOuterDivider,
       bottomOuterDivider,
       topDivider,

@@ -6,13 +6,14 @@ import React, { Component } from "react";
 
 // COMMON
 import { IPropsData } from "../../../common/interfaces";
-import { ItemType, Underline } from "../../../common/enums";
+import { Underline } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
+import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
 
 // CONFIG
 import { careerConfig } from "../../../config/configData";
@@ -33,11 +34,15 @@ class Career extends Component<IPropsData> {
         />
         <FeatureTilesTemplate
           className="illustration-section-02"
-          config={careerConfig}
+          config={careerConfig.header}
           data={career}
-          itemType={ItemType.keyboardItem}
-          underline={Underline.centerUnderline}
-        />
+        >
+          <KeyboardItem
+            config={careerConfig.items}
+            underline={Underline.centerUnderline}
+            delay={0}
+          />
+        </FeatureTilesTemplate>
       </>
     );
   }

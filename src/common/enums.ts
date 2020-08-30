@@ -4,7 +4,12 @@ export enum Headings {
   h3 = "h3",
 }
 
-export enum Sizes {
+export enum DataTypedSpeed {
+  fast = "100",
+  slow = "200",
+}
+
+export enum Size {
   big = "big",
   sm = "sm",
   xs = "xs",
@@ -50,13 +55,6 @@ export enum ScrollPosition {
   leftRight = "left-right",
 }
 
-export enum ItemType {
-  tilesItem = "tiles-item",
-  keyboardItem = "keyboard-item",
-  imagesItem = "images-item",
-  testimonialItem = "testimonial-item",
-}
-
 export enum Env {
   dev = "development",
   prod = "production",
@@ -73,4 +71,11 @@ export enum Underline {
   rightUnderline = "has-right-underline",
   leftUnderline = "has-left-underline",
   centerUnderline = "has-center-underline",
+}
+
+export enum Color {
+  dark = "dark",
+  light = "light",
+  primary = "primary",
+  secondary = "secondary",
 }

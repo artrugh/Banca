@@ -7,7 +7,12 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
-import { Size, Headings, ScrollPosition } from "../../../common/enums";
+import {
+  Size,
+  Headings,
+  ScrollPosition,
+  DataTypedSpeed,
+} from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -19,25 +24,28 @@ interface IProps {
   containerSize?: Size;
   underlineSize?: Size;
   className?: string;
-  name?: string;
   animation?: boolean;
   tag?: Headings;
   scrollPosition?: ScrollPosition;
   classNameHeading?: string;
-  classNameContainer?: string;
+  dataTypedSpeed?: DataTypedSpeed;
+  dataStr?: string;
+  dataTypedDelay?: number;
+  isTyped?: boolean;
+  hasCleaner?: boolean;
 }
 
 const DefaultProps: IProps = {
   scrollPosition: ScrollPosition.leftRight,
-  children: "A title should we pass as a prop",
-  classNameContainer: "hero",
+  isTyped: false,
+  hasCleaner: false,
   tag: Headings.h1,
 };
 
 type Props = {} & Partial<DefaultProps>;
 type DefaultProps = Readonly<typeof DefaultProps>;
 
-class Heading extends Component<IProps> {
+class HeadingTyped extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
   public constructor(public props: IProps) {
     super(props);
@@ -51,11 +59,10 @@ class Heading extends Component<IProps> {
       animation,
       scrollPosition,
       classNameHeading,
-      classNameContainer,
+      hasCleaner,
     } = this.props;
 
     const container = classNames(
-      classNameContainer && classNameContainer,
       className && className,
       containerSize && `container-${containerSize}`
     );
@@ -67,7 +74,10 @@ class Heading extends Component<IProps> {
       scrollPosition
     );
 
-    const heading = classNames(classNameHeading && classNameHeading);
+    const heading = classNames(
+      classNameHeading && classNameHeading,
+      hasCleaner && "has-cleaner"
+    );
 
     return { container, underline, heading };
   }
@@ -88,23 +98,31 @@ class Heading extends Component<IProps> {
       underlineSize,
       className,
       classNameHeading,
-      classNameContainer,
       scrollPosition,
+      dataTypedSpeed,
+      dataStr,
+      dataTypedDelay,
+      isTyped,
+      hasCleaner,
       ...rest
     } = this.props;
 
     const props = {
       className: this.classes.heading,
-      children,
+      "data-typed-speed": dataTypedSpeed,
+      "data-str": dataStr,
+      "data-typed-delay": dataTypedDelay,
+      children: isTyped ? "" : children,
     };
 
     return (
       <div {...rest} className={this.classes.container}>
         {this.createReactElement(tag, props)}
         {underlineSize && <hr className={this.classes.underline} />}
+        {children}
       </div>
     );
   }
 }
 
-export default Heading;
+export default HeadingTyped;
