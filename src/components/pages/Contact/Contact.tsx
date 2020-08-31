@@ -29,11 +29,11 @@ class Contact extends Component<{}> {
           className="loaded-none"
         />
         <SectionTemplate
-          sectionName="contact"
           sectionHeaderData={contactHeading}
           containerSize="xs"
           bottomOuterDivider
           config={contactConfig.heading}
+          id="contact"
         >
           <Form data={contactForm} />
         </SectionTemplate>

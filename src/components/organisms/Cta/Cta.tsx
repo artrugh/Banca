@@ -31,6 +31,7 @@ export const DefaultProps: IProps = {
   ...DefaultP,
   wrapName: "cta-inner section-inner",
   split: false,
+  id: "",
 };
 
 type Props = {} & Partial<DefaultProps>;
@@ -80,6 +81,7 @@ class Cta extends Component<IProps> {
 
   public render(): JSX.Element {
     const {
+      id,
       className,
       wrapName,
       topOuterDivider,
@@ -96,7 +98,7 @@ class Cta extends Component<IProps> {
     } = this.props;
 
     return (
-      <section {...rest} className={this.classes.outerClasses}>
+      <section {...rest} className={this.classes.outerClasses} id={id}>
         <div className="container">
           <div className={this.classes.innerClasses}>
             <div className="cta-slogan">

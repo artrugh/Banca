@@ -57,8 +57,66 @@ class SplitItem extends Component<IProps> {
     return { image, description, container };
   }
 
+  private anchorElement(
+    obj: { [key: string]: string },
+    textColor: string
+  ): JSX.Element | null {
+    if (Object.values(obj)[0] === undefined) {
+      return null;
+    }
+
+    const anchorClassName = `text-xxs text-color-${textColor} fw-600 tt-u`;
+    const anchor = (
+      <div className="mb-8">
+        <a href={Object.values(obj)[0]} target="_blank" rel="noreferrer">
+          <span className={anchorClassName}>{Object.keys(obj)[0]}</span>
+        </a>
+      </div>
+    );
+
+    return anchor;
+  }
+
+  private divElement(
+    obj: { [key: string]: string | boolean },
+    textColor: string
+  ): JSX.Element | null {
+    if (Object.values(obj)[0] === undefined) {
+      return null;
+    }
+
+    const divClassName = `mb-8 text-xxs text-color-${textColor} fw-600 tt-u`;
+    let div: JSX.Element;
+
+    if (Object.values(obj)[0] === false) {
+      div = <div className={divClassName}>in progress</div>;
+
+      return div;
+    }
+
+    if (Object.values(obj)[0] === true) {
+      div = <div className={divClassName}>launched</div>;
+
+      return div;
+    }
+
+    div = <div className={divClassName}>{Object.values(obj)[0]}</div>;
+
+    return div;
+  }
+
   public render(): JSX.Element {
-    const { title, subtitle, description, image, alt } = this.props.item;
+    const {
+      title,
+      subtitle,
+      description,
+      image,
+      alt,
+      status,
+      link,
+      repository,
+    } = this.props.item;
+
     const { delay } = this.props;
 
     return (
@@ -68,10 +126,11 @@ class SplitItem extends Component<IProps> {
           data-reveal-container=".split-item"
           data-reveal-delay={`${delay * 200}`}
         >
-          <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-            {subtitle}
-          </div>
-          <h3 className="mt-0 mb-12">{title}</h3>
+          {this.divElement({ status }, "high")}
+          {this.divElement({ subtitle }, "primary")}
+          {this.anchorElement({ link }, "primary")}
+          {this.anchorElement({ repository }, "primary")}
+          <h3 className="mt-12 mb-12">{title}</h3>
           <p className="m-0">{description}</p>
         </div>
         <div className={this.classes.image} data-reveal-container=".split-item">

@@ -33,6 +33,7 @@ class Tec extends Component {
           config={tecConfig.heading}
           sectionHeadingPaddingMargin="p-0"
           hasBgColor
+          id="tec-tools"
         >
           <Image
             className="p-32"

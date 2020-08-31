@@ -40,6 +40,7 @@ export const DefaultProps: IProps = {
   pushLeft: false,
   wrapName: "tiles-wrap center-content",
   data: [],
+  id: "",
 };
 
 type Props = {} & Partial<DefaultProps>;
@@ -102,7 +103,6 @@ class FeaturesTilesTemplate extends Component<IProps> {
     return (
       <SectionTemplate
         {...rest}
-        sectionName="features-tiles"
         sectionHeaderData={heading}
         tag={Headings.h2}
         config={config}

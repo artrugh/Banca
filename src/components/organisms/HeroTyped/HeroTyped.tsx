@@ -11,6 +11,7 @@ import {
   Headings,
   DataTypedSpeed,
   Positions,
+  Color,
 } from "../../../common/enums";
 import {
   IPropsClasses,
@@ -26,6 +27,7 @@ import Arrow from "../../atoms/Arrow/Arrow";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
 interface IProps extends IPropsOuterInner {
+  colorArrow?: Color;
   hasCleaner?: boolean;
   className?: string;
 }
@@ -69,6 +71,7 @@ export default class HeroTyped extends Component<IProps> {
       hasBgColor,
       invertColor,
       hasCleaner,
+      colorArrow,
       className,
       ...rest
     } = this.props;
@@ -92,11 +95,11 @@ export default class HeroTyped extends Component<IProps> {
                 dataTypedDelay={500}
                 hasCleaner={hasCleaner}
               >
-                <SmoothScroll to="tiles">
+                <SmoothScroll to="features-tiles">
                   <Arrow
                     className="hero-arrow"
                     containerClass="hero-arrow-container"
-                    // color={Color.dark}
+                    color={colorArrow}
                     containerSize={Size.sm}
                     position={Positions.down}
                   />

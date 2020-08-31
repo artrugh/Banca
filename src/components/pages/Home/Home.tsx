@@ -54,19 +54,19 @@ export default class Home extends Component<IData> {
     return (
       <>
         {/* <Hero className="illustration-section-01" /> */}
-        {/* <HeroTyped hasCleaner /> */}
-        <HeroScrollable
+        <HeroTyped hasCleaner colorArrow={Color.primary} />
+        {/* <HeroScrollable
           className="reveal-scale-down"
           containerSize={Size.big}
           underlineSize={Size.big}
           height="100vh"
-        />
+        /> */}
         <FeatureTilesTemplate
           hasBgColor
           data={tiles}
           heading={tileHeading}
           config={tilesConfig.heading}
-          id="tiles"
+          id="features-tiles"
         >
           <TilesItem
             config={tilesConfig.items}
@@ -96,8 +96,7 @@ export default class Home extends Component<IData> {
           heading={testimonialHeading}
           config={testimonialConfig.heading}
           hasBgColor
-          pushLeft
-          id="testimonies"
+          id="testimonial"
         >
           <TestimonialItem
             underline={Underline.centerUnderline}
@@ -118,7 +117,12 @@ export default class Home extends Component<IData> {
             containerClassName="images-item-container p-32"
           />
         </FeatureTilesTemplate>
-        <Cta split itemBgDark={ItemBgDark.medium} color={Color.secondary} />
+        <Cta
+          split
+          itemBgDark={ItemBgDark.medium}
+          color={Color.secondary}
+          id="cta"
+        />
         <FeatureTilesTemplate
           data={career}
           heading={careerHeading}

@@ -7,10 +7,13 @@ export interface ITile {
 // // Products
 export interface IProduct {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   description: string;
   image: string;
   alt: string;
+  status?: boolean;
+  link?: string;
+  repository?: string;
 }
 // // Career
 export interface ICareer {

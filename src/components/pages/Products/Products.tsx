@@ -43,6 +43,7 @@ class Products extends Component<IProps> {
           invertMobile
           className="illustration-section-02"
           wrapName="split-wrap"
+          id="products"
         >
           <SplitItem
             delay={0}

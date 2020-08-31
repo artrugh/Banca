@@ -82,7 +82,7 @@ export interface IPropsFeatureItem extends IPropsOuterInner {
   alignTop?: boolean;
   className?: string;
   pushLeft?: boolean;
-  id?: string;
+  id: string;
 }
 
 export interface IPropsClasses {
