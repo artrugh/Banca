@@ -105,7 +105,7 @@ export default class Home extends Component<IData> {
             delay={0}
           />
         </FeatureTilesTemplate>
-        <FeatureTilesTemplate
+        {/* <FeatureTilesTemplate
           data={client}
           heading={clientHeading}
           config={clientsConfig.heading}
@@ -116,7 +116,7 @@ export default class Home extends Component<IData> {
             className="p-32"
             containerClassName="images-item-container p-32"
           />
-        </FeatureTilesTemplate>
+        </FeatureTilesTemplate> */}
         <Cta
           split
           itemBgDark={ItemBgDark.medium}

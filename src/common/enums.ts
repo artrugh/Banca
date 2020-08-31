@@ -79,3 +79,21 @@ export enum Color {
   primary = "primary",
   secondary = "secondary",
 }
+
+export enum TecTools {
+  nodejs = "nodejs",
+  js = "js",
+  ts = "ts",
+  html = "html",
+  css = "css",
+  sass = "sass",
+  react = "react",
+  nextjs = "nextjs",
+  express = "express",
+  mongodb = "mongodb",
+  pug = "pug",
+  stripe = "stripe",
+  figma = "figma",
+  ai = "ai",
+  ps = "ps",
+}

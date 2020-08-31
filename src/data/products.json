@@ -1,12 +1,13 @@
 [
   {
-    "title": "AEM Dialog Generator",
-    "description": "Mithilfe des Dialog-Generators kann Ihr Entwicklerteam schneller, zuverlässiger und dynamischer sowohl Classic-UI als auch Touch-UI Dialoge erstellen. Durch die Benutzung des Dialog-Generators können.",
+    "title": "Subiendo al Sur - App",
+    "description": "This is the SuAlSur-App. Find your new adventure and share your experiences. The goal of this NGO program is for young people from various countries and disciplines to travel to rural communities and interact on a social and cultural level.",
     "image": "features-split-image-01.png",
-    "alt": "Features split 01",
-    "status": false,
-    "link": "https://www.youtube.com/",
-    "repository": "https://github.com/artrugh/sualsur"
+    "alt": "SubiendoAlSur",
+    "status": true,
+    "link": "http://subiendoalsur.herokuapp.com/",
+    "repository": "https://github.com/artrugh/sualsur",
+    "tec-tools": []
   },
   {
     "title": "AEM Custom Dialoge",
@@ -15,7 +16,8 @@
     "image": "features-split-image-02.png",
     "alt": "Features split 01",
     "status": true,
-    "link": "https://www.youtube.com/"
+    "link": "https://www.youtube.com/",
+    "tec-tools": []
   },
   {
     "title": "React Integration mit SSR",
@@ -24,6 +26,7 @@
     "alt": "Features split 01",
     "status": false,
     "link": "https://www.youtube.com/",
-    "repository": "https://github.com/artrugh/sualsur"
+    "repository": "https://github.com/artrugh/sualsur",
+    "tec-tools": []
   }
 ]

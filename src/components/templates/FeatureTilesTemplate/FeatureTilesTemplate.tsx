@@ -37,6 +37,7 @@ export interface IProps extends IPropsFeatureItem {
 
 export const DefaultProps: IProps = {
   ...DefaultP,
+  colorLogo: "dark",
   pushLeft: false,
   wrapName: "tiles-wrap center-content",
   data: [],
@@ -84,6 +85,7 @@ class FeaturesTilesTemplate extends Component<IProps> {
       invertMobile,
       invertDesktop,
       alignTop,
+      colorLogo,
       pushLeft,
       children,
       config,
@@ -94,7 +96,8 @@ class FeaturesTilesTemplate extends Component<IProps> {
       cloneElement(children, {
         item,
         key: Math.random(),
-        src: item.src,
+        src: `${item.src}${item.name}-${colorLogo}.svg`,
+        alt: "logo-" + item.name,
         width: item.width,
         height: item.height,
       })

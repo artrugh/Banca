@@ -82,6 +82,7 @@ export interface IPropsFeatureItem extends IPropsOuterInner {
   alignTop?: boolean;
   className?: string;
   pushLeft?: boolean;
+  colorLogo?: "dark" | "light";
   id: string;
 }
 
