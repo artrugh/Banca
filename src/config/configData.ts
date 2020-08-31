@@ -1,5 +1,5 @@
 export const splitConfig = {
-  header: {
+  heading: {
     title: [30],
     paragraph: [200],
   },
@@ -11,7 +11,7 @@ export const splitConfig = {
 };
 
 export const testimonialConfig = {
-  header: {
+  heading: {
     title: [30],
     paragraph: [200],
   },
@@ -23,7 +23,7 @@ export const testimonialConfig = {
 };
 
 export const careerConfig = {
-  header: {
+  heading: {
     title: [30],
     paragraph: [200],
   },
@@ -34,14 +34,14 @@ export const careerConfig = {
 };
 
 export const contactConfig = {
-  header: {
+  heading: {
     title: [30],
     paragraph: [200],
   },
 };
 
 export const tilesConfig = {
-  header: {
+  heading: {
     title: [30],
     paragraph: [200],
   },
@@ -52,7 +52,7 @@ export const tilesConfig = {
 };
 
 export const clientsConfig = {
-  header: {
+  heading: {
     title: [30],
     paragraph: [200],
   },
@@ -63,7 +63,7 @@ export const clientsConfig = {
 };
 
 export const tecConfig = {
-  header: {
+  heading: {
     title: [30],
     paragraph: [200],
   },

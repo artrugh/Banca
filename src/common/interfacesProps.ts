@@ -71,11 +71,15 @@ export interface IPropsItem {
 }
 
 export interface IPropsFeatureItem extends IPropsOuterInner {
+  heading?: {
+    title: string;
+    paragraph: string;
+  };
+  sectionHeadingPaddingMargin?: string;
   wrapName: string;
   invertMobile?: boolean;
   invertDesktop?: boolean;
   alignTop?: boolean;
-  sectionHeaderPaddingMargin?: string;
   className?: string;
   pushLeft?: boolean;
   id?: string;

@@ -12,7 +12,13 @@ import {
   IPropsFeatureItem,
 } from "../../../common/interfacesProps";
 import { Headings } from "../../../common/enums";
-import { IFeatureData } from "../../../common/interfaces";
+import {
+  IProduct,
+  ICareer,
+  ITestimonial,
+  IImageLogo,
+  ITile,
+} from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
@@ -22,7 +28,7 @@ import SectionTemplate from "../SectionHeaderTemplate/SectionHeaderTemplate";
 
 export interface IProps extends IPropsFeatureItem {
   children?: ReactElement;
-  data?: IFeatureData;
+  data: Array<IProduct | ITestimonial | ICareer | IImageLogo | ITile | []>;
   config?: {
     title: number[];
     paragraph?: number[];
@@ -33,6 +39,7 @@ export const DefaultProps: IProps = {
   ...DefaultP,
   pushLeft: false,
   wrapName: "tiles-wrap center-content",
+  data: [],
 };
 
 type Props = {} & Partial<DefaultProps>;
@@ -68,8 +75,9 @@ class FeaturesTilesTemplate extends Component<IProps> {
     const {
       id,
       data,
+      heading,
       hasBgColor,
-      sectionHeaderPaddingMargin,
+      sectionHeadingPaddingMargin,
       className,
       wrapName,
       invertMobile,
@@ -81,7 +89,7 @@ class FeaturesTilesTemplate extends Component<IProps> {
       ...rest
     } = this.props;
 
-    const Items: JSX.Element[] = data.items.map((item, delay) =>
+    const Items: JSX.Element[] = data.map((item: { [key: string]: any }) =>
       cloneElement(children, {
         item,
         key: Math.random(),
@@ -95,12 +103,12 @@ class FeaturesTilesTemplate extends Component<IProps> {
       <SectionTemplate
         {...rest}
         sectionName="features-tiles"
-        sectionHeaderData={data.header}
+        sectionHeaderData={heading}
         tag={Headings.h2}
         config={config}
         className={className}
         hasBgColor={hasBgColor}
-        sectionHeaderPaddingMargin={sectionHeaderPaddingMargin}
+        sectionHeadingPaddingMargin={sectionHeadingPaddingMargin}
         id={id}
       >
         <div className={this.classes.classes}>{Items}</div>

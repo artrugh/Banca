@@ -1,25 +1,41 @@
-// // // INITIAL DATA
-
-// // HEADER
-export interface IHeader {
+export interface ITile {
   title: string;
-  paragraph?: string;
+  description: string;
+  icon: string;
+  alt: string;
+}
+// // Products
+export interface IProduct {
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  alt: string;
+}
+// // Career
+export interface ICareer {
+  title: string;
 }
 
-// // FEATURES
-export interface IFeatureData {
-  header: IHeader;
-  items?: { [key: string]: string }[];
+// // Testimonial
+export interface ITestimonial {
+  name: string;
+  testimony: string;
+  company: string;
+  avatar: string;
 }
 
-// CAREER
-
-export interface IInitialData {
-  split: IFeatureData;
-  testimonial: IFeatureData;
-  career: IFeatureData;
+// // Image Logo
+export interface IImageLogo {
+  src: string;
+  alt: string;
+  width: string;
+  height: string;
 }
 
-export interface IPropsData {
-  data: IInitialData;
+// Initial Data
+export interface IData {
+  products: Array<IProduct> | [];
+  career: Array<ICareer> | [];
+  testimonial: Array<ITestimonial> | [];
 }

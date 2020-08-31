@@ -5,29 +5,30 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-import { IPropsData } from "../../../common/interfaces";
+import { IProduct } from "../../../common/interfaces";
 import { Underline } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
-
 import FeaturesTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
-
 // DATA
-
+import { productsHeading } from "../../../data/staticDataHeadings";
 // CONFIG_DATA
 import { splitConfig } from "../../../config/configData";
 
-class Products extends Component<IPropsData> {
-  private constructor(public readonly props: IPropsData) {
+interface IProps {
+  products: Array<IProduct> | [];
+}
+class Products extends Component<IProps> {
+  private constructor(public readonly props: IProps) {
     super(props);
   }
 
   public render(): JSX.Element {
-    const { split } = this.props.data;
+    const { products } = this.props;
 
     return (
       <>
@@ -36,10 +37,11 @@ class Products extends Component<IPropsData> {
           className="loaded-none"
         />
         <FeaturesTilesTemplate
+          data={products}
+          heading={productsHeading}
+          config={splitConfig.heading}
           invertMobile
           className="illustration-section-02"
-          data={split}
-          config={splitConfig.header}
           wrapName="split-wrap"
         >
           <SplitItem

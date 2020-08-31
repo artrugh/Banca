@@ -8,7 +8,6 @@ import classNames from "classnames";
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
 import { Headings } from "../../../common/enums";
-import { IHeader } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
@@ -16,11 +15,14 @@ import { IHeader } from "../../../common/interfaces";
 // COMPONENTS
 
 interface IProps {
-  data: IHeader;
+  data: {
+    title: string;
+    paragraph: string;
+  };
   children?: Partial<ReactNode>;
   tag: Headings;
   className?: string;
-  sectionHeaderPaddingMargin?: string;
+  sectionHeadingPaddingMargin?: string;
 }
 
 const DefaultProps: IProps = {
@@ -43,18 +45,21 @@ class SectionHeader extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { data, className, sectionHeaderPaddingMargin } = this.props;
+    const { data, className, sectionHeadingPaddingMargin } = this.props;
     const container = classNames(
       "section-header",
       className && className,
-      sectionHeaderPaddingMargin && sectionHeaderPaddingMargin
+      sectionHeadingPaddingMargin && sectionHeadingPaddingMargin
     );
     const heading = classNames("mt-0", data.paragraph ? "mb-16" : "mb-0");
 
     return { container, heading };
   }
 
-  private checkLenghPropsData = (data: IHeader): void | never => {
+  private checkLenghPropsData = (data: {
+    title: string;
+    paragraph: string;
+  }): void | never => {
     const { title, paragraph } = data;
 
     if (title.length < 4 || paragraph.length < 20) {
@@ -74,7 +79,7 @@ class SectionHeader extends Component<IProps> {
       className,
       data,
       children,
-      sectionHeaderPaddingMargin,
+      sectionHeadingPaddingMargin,
       tag,
       ...rest
     } = this.props;

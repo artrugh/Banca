@@ -13,7 +13,6 @@ import {
   IPropsInner,
 } from "../../../common/interfacesProps";
 import { Headings, Env } from "../../../common/enums";
-import { IHeader } from "../../../common/interfaces";
 // HELPERS
 
 // UTILS
@@ -25,12 +24,12 @@ export interface IProps extends IPropsOuter, IPropsInner {
   children?: ReactNode;
   id?: string;
   sectionName: string;
-  sectionHeaderData: IHeader;
+  sectionHeaderData: { title: string; paragraph: string };
   containerSize?: string;
   padding?: string;
   tag?: Headings;
   className?: string;
-  sectionHeaderPaddingMargin?: string;
+  sectionHeadingPaddingMargin?: string;
   config?: { title: number[]; paragraph?: number[] };
 }
 
@@ -68,6 +67,7 @@ class SectionTemplate extends Component<IProps> {
       className,
       topOuterDivider,
       bottomOuterDivider,
+      sectionHeadingPaddingMargin,
       hasBgColor,
       invertColor,
       topDivider,
@@ -104,7 +104,7 @@ class SectionTemplate extends Component<IProps> {
       containerSize,
       sectionName,
       className,
-      sectionHeaderPaddingMargin,
+      sectionHeadingPaddingMargin,
       topOuterDivider,
       bottomOuterDivider,
       topDivider,
@@ -127,7 +127,7 @@ class SectionTemplate extends Component<IProps> {
               tag={tag}
               data={sectionHeaderData}
               className={this.classes.sectionHeader}
-              sectionHeaderPaddingMargin={sectionHeaderPaddingMargin}
+              sectionHeadingPaddingMargin={sectionHeadingPaddingMargin}
             />
             {children}
           </div>

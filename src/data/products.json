@@ -1,0 +1,23 @@
+[
+  {
+    "title": "AEM Dialog Generator",
+    "subtitle": "Lightning fast workflow",
+    "description": "Mithilfe des Dialog-Generators kann Ihr Entwicklerteam schneller, zuverlässiger und dynamischer sowohl Classic-UI als auch Touch-UI Dialoge erstellen. Durch die Benutzung des Dialog-Generators können außerdem Ihre Frontend-Developer ohne AEM Erfahrung extrem schnell und zuverlässig AEM Komponenten",
+    "image": "features-split-image-01.png",
+    "alt": "Features split 01"
+  },
+  {
+    "title": "AEM Custom Dialoge",
+    "subtitle": "Lightning fast workflo",
+    "description": "AEM Custom-Dialoge erleichtert die Arbeit Ihrer Content-Autoren durch die Erweiterung der klassischen AEM-Dialoge um Custom-Funktionalitäten, die durch AEM nicht ermöglicht werden. Ein sehr gutes Beispiel ist der Icon-Picker: Die Content-Autoren haben eine Auswahl von Icons.",
+    "image": "features-split-image-02.png",
+    "alt": "Features split 01"
+  },
+  {
+    "title": "React Integration mit SSR",
+    "subtitle": "Decoupled React-Component",
+    "description": "Durch die Verwendung des Integrationsansatzes “Decoupled React-Components” ist der Aufwand an Entwicklung direkt im AEM minimal. Es müssen keine Java-Klassen für jede Komponente geschrieben werden, die Generierung der XML-Files übernimmt der Dialog Generator.",
+    "image": "features-split-image-03.png",
+    "alt": "Features split 01"
+  }
+]

@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-import { IPropsData } from "../../../common/interfaces";
+import { ICareer } from "../../../common/interfaces";
 import { Underline } from "../../../common/enums";
 // HELPERS
 
@@ -14,17 +14,22 @@ import { Underline } from "../../../common/enums";
 // COMPONENTS
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
-
+// DATA_CONFIG
+import { careerHeading } from "../../../data/staticDataHeadings";
 // CONFIG
 import { careerConfig } from "../../../config/configData";
 
-class Career extends Component<IPropsData> {
-  private constructor(props: IPropsData) {
+interface IProps {
+  careers: Array<ICareer> | [];
+}
+
+class Career extends Component<IProps> {
+  private constructor(props: IProps) {
     super(props);
   }
 
   public render(): JSX.Element {
-    const { career } = this.props.data;
+    const { careers } = this.props;
 
     return (
       <>
@@ -33,9 +38,10 @@ class Career extends Component<IPropsData> {
           className="loaded-none"
         />
         <FeatureTilesTemplate
+          config={careerConfig.heading}
+          data={careers}
+          heading={careerHeading}
           className="illustration-section-02"
-          config={careerConfig.header}
-          data={career}
         >
           <KeyboardItem
             config={careerConfig.items}

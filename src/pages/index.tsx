@@ -6,7 +6,7 @@ import { GetStaticProps } from "next";
 // BASE CLASS
 
 // COMMON
-import { IInitialData, IPropsData } from "../common/interfaces";
+import { IProduct, ICareer, ITestimonial, IData } from "../common/interfaces";
 // HELPERS
 import { readFile } from "../helpers/ReadFile";
 // UTILS
@@ -14,24 +14,28 @@ import { readFile } from "../helpers/ReadFile";
 // COMPONENTS
 import Home from "../components/pages/Home/Home";
 
-export default class HomePage extends Component<IPropsData> {
-  public constructor(props: IPropsData) {
+export default class HomePage extends Component<IData> {
+  public constructor(props: IData) {
     super(props);
   }
 
   public render(): JSX.Element {
-    const { data, ...rest } = this.props;
-
-    return <Home {...rest} data={data} />;
+    return <Home {...this.props} />;
   }
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data: IInitialData = JSON.parse(readFile());
+  const products: Array<IProduct> | [] = await JSON.parse(readFile("products"));
+  const career: Array<ICareer> | [] = await JSON.parse(readFile("career"));
+  const testimonial: Array<ITestimonial> | [] = await JSON.parse(
+    readFile("testimonial")
+  );
 
   return {
     props: {
-      data,
+      products,
+      career,
+      testimonial,
     },
   };
 };

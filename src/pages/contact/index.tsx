@@ -14,7 +14,6 @@ import Head from "next/head";
 // COMPONENTS
 import Contact from "../../components/pages/Contact/Contact";
 // DATA
-import { contact } from "../../data/staticData";
 
 class ContactPage extends Component<{}> {
   private constructor(props: {}) {
@@ -27,7 +26,7 @@ class ContactPage extends Component<{}> {
         <Head>
           <title>Contact</title>
         </Head>
-        <Contact data={contact} />
+        <Contact />
       </>
     );
   }

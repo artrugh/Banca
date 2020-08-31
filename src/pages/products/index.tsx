@@ -6,7 +6,7 @@ import { GetStaticProps } from "next";
 // BASE CLASS
 
 // COMMON
-import { IInitialData, IPropsData } from "../../common/interfaces";
+import { IProduct } from "../../common/interfaces";
 // HELPERS
 import { readFile } from "../../helpers/ReadFile";
 // UTILS
@@ -14,24 +14,26 @@ import { readFile } from "../../helpers/ReadFile";
 // COMPONENTS
 import Products from "../../components/pages/Products/Products";
 
-export default class ProductPage extends Component<IPropsData> {
-  public constructor(props: IPropsData) {
+interface IProps {
+  products: Array<IProduct> | [];
+}
+
+export default class ProductPage extends Component<IProps> {
+  public constructor(props: IProps) {
     super(props);
   }
 
   public render(): JSX.Element {
-    const { data, ...rest } = this.props;
-
-    return <Products {...rest} data={data} />;
+    return <Products {...this.props} />;
   }
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data: IInitialData = JSON.parse(readFile());
+  const products: Array<IProduct> | [] = JSON.parse(readFile("products"));
 
   return {
     props: {
-      data,
+      products,
     },
   };
 };

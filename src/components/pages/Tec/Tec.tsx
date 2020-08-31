@@ -15,6 +15,7 @@ import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTi
 import Image from "../../atoms/Image/Image";
 // DATA
 import { tec } from "../../../data/staticData";
+import { tecHeading } from "../../../data/staticDataHeadings";
 // DATA_CONFIG
 import { tecConfig } from "../../../config/configData";
 
@@ -28,8 +29,9 @@ class Tec extends Component {
         />
         <FeatureTilesTemplate
           data={tec}
-          config={tecConfig.header}
-          sectionHeaderPaddingMargin="p-0"
+          heading={tecHeading}
+          config={tecConfig.heading}
+          sectionHeadingPaddingMargin="p-0"
           hasBgColor
         >
           <Image

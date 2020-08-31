@@ -5,9 +5,7 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-import { IPropsInput, IPropsButton } from "../../../common/interfacesProps";
-import { Reveal } from "../../../common/enums";
-import { IFeatureData } from "../../../common/interfaces";
+
 // HELPERS
 
 // UTILS
@@ -15,25 +13,15 @@ import { IFeatureData } from "../../../common/interfaces";
 // COMPONENTS
 import SectionTemplate from "../../templates/SectionHeaderTemplate/SectionHeaderTemplate";
 import Form from "../../organisms/Form/Form";
+// DATA_CONFIG
+import { contactForm } from "../../../data/staticData";
+import { contactHeading } from "../../../data/staticDataHeadings";
+
 // CONFIG
 import { contactConfig } from "../../../config/configData";
 
-interface IData extends IFeatureData {
-  form: { inputs: IPropsInput[]; buttons?: IPropsButton[]; reveal?: Reveal };
-}
-
-interface IProps {
-  data: IData;
-}
-
-class Contact extends Component<IProps> {
-  private constructor(props: IProps) {
-    super(props);
-  }
-
+class Contact extends Component<{}> {
   public render(): JSX.Element {
-    const { data, ...rest } = this.props;
-
     return (
       <>
         <div
@@ -41,14 +29,13 @@ class Contact extends Component<IProps> {
           className="loaded-none"
         />
         <SectionTemplate
-          {...rest}
           sectionName="contact"
-          sectionHeaderData={data.header}
+          sectionHeaderData={contactHeading}
           containerSize="xs"
           bottomOuterDivider
-          config={contactConfig.header}
+          config={contactConfig.heading}
         >
-          <Form data={data.form} />
+          <Form data={contactForm} />
         </SectionTemplate>
       </>
     );

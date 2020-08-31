@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-import { IPropsData } from "../../../common/interfaces";
+import { IData } from "../../../common/interfaces";
 import { Size, ItemBgDark, Underline, Color } from "../../../common/enums";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
 // HELPERS
@@ -25,6 +25,14 @@ import Image from "../../atoms/Image/Image";
 import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
 // DATA
 import { client, tec, tiles } from "../../../data/staticData";
+import {
+  productsHeading,
+  testimonialHeading,
+  clientHeading,
+  careerHeading,
+  tecHeading,
+  tileHeading,
+} from "../../../data/staticDataHeadings";
 // CONFIG_DATA
 import {
   careerConfig,
@@ -35,13 +43,13 @@ import {
   splitConfig,
 } from "../../../config/configData";
 
-export default class Home extends Component<IPropsData> {
-  private constructor(public readonly props: IPropsData) {
+export default class Home extends Component<IData> {
+  private constructor(public readonly props: IData) {
     super(props);
   }
 
   public render(): JSX.Element {
-    const { split, testimonial, career } = this.props.data;
+    const { products, testimonial, career } = this.props;
 
     return (
       <>
@@ -56,7 +64,8 @@ export default class Home extends Component<IPropsData> {
         <FeatureTilesTemplate
           hasBgColor
           data={tiles}
-          config={tilesConfig.header}
+          heading={tileHeading}
+          config={tilesConfig.heading}
           id="tiles"
         >
           <TilesItem
@@ -66,10 +75,11 @@ export default class Home extends Component<IPropsData> {
           />
         </FeatureTilesTemplate>
         <FeatureTilesTemplate
+          data={products}
+          heading={productsHeading}
           invertMobile
           className="illustration-section-02"
-          data={split}
-          config={splitConfig.header}
+          config={splitConfig.heading}
           wrapName="split-wrap"
           id="products"
         >
@@ -83,7 +93,8 @@ export default class Home extends Component<IPropsData> {
 
         <FeatureTilesTemplate
           data={testimonial}
-          config={testimonialConfig.header}
+          heading={testimonialHeading}
+          config={testimonialConfig.heading}
           hasBgColor
           pushLeft
           id="testimonies"
@@ -97,8 +108,9 @@ export default class Home extends Component<IPropsData> {
         </FeatureTilesTemplate>
         <FeatureTilesTemplate
           data={client}
-          config={clientsConfig.header}
-          sectionHeaderPaddingMargin="p-0"
+          heading={clientHeading}
+          config={clientsConfig.heading}
+          sectionHeadingPaddingMargin="p-0"
           id="clients"
         >
           <Image
@@ -108,9 +120,10 @@ export default class Home extends Component<IPropsData> {
         </FeatureTilesTemplate>
         <Cta split itemBgDark={ItemBgDark.medium} color={Color.secondary} />
         <FeatureTilesTemplate
-          className="illustration-section-02"
-          config={careerConfig.header}
           data={career}
+          heading={careerHeading}
+          className="illustration-section-02"
+          config={careerConfig.heading}
           id="careers"
         >
           <KeyboardItem
@@ -121,8 +134,9 @@ export default class Home extends Component<IPropsData> {
         </FeatureTilesTemplate>
         <FeatureTilesTemplate
           data={tec}
-          config={tecConfig.header}
-          sectionHeaderPaddingMargin="p-0"
+          heading={tecHeading}
+          config={tecConfig.heading}
+          sectionHeadingPaddingMargin="p-0"
           hasBgColor
           id="tec"
         >

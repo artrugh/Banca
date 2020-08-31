@@ -6,7 +6,7 @@ import { GetStaticProps } from "next";
 // BASE CLASS
 
 // COMMON
-import { IInitialData, IPropsData } from "../../common/interfaces";
+import { ICareer } from "../../common/interfaces";
 // HELPERS
 import { readFile } from "../../helpers/ReadFile";
 // UTILS
@@ -14,24 +14,25 @@ import { readFile } from "../../helpers/ReadFile";
 // COMPONENTS
 import Career from "../../components/pages/Career/Career";
 
-export default class CareerPage extends Component<IPropsData> {
-  private constructor(props: IPropsData) {
+interface IProps {
+  careers: Array<ICareer> | [];
+}
+export default class CareerPage extends Component<IProps> {
+  private constructor(props: IProps) {
     super(props);
   }
 
   public render(): JSX.Element {
-    const { data } = this.props;
-
-    return <Career data={data} />;
+    return <Career {...this.props} />;
   }
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data: IInitialData = JSON.parse(readFile());
+  const careers: Array<ICareer> | [] = JSON.parse(readFile("career"));
 
   return {
     props: {
-      data,
+      careers,
     },
   };
 };
