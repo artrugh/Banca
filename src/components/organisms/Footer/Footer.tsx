@@ -75,9 +75,9 @@ class Footer extends Component<IProps> {
               <div className="footer-copyright">
                 Made by{" "}
                 <a href="/" target="_blank" rel="noreferrer">
-                  Arturo&Federico
+                  Arturo
                 </a>
-                {` © TecLead`}
+                {` ©`}
               </div>
             </div>
           </div>

@@ -32,8 +32,8 @@ export interface ITestimonial {
 export interface IImageLogo {
   src: string;
   alt: string;
-  width: string;
-  height: string;
+  width?: string;
+  height?: string;
 }
 
 // Initial Data
