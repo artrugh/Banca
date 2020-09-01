@@ -36,7 +36,7 @@ class Tec extends Component {
           id="tec-tools"
         >
           <Image
-            className="p-32"
+            className="m-48"
             containerClassName="images-item-container p-32"
           />
         </FeatureTilesTemplate>
