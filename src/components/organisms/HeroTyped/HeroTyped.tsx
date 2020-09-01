@@ -87,12 +87,12 @@ export default class HeroTyped extends Component<IProps> {
           <div className={this.classes.innerClasses}>
             <div className="hero-content">
               <HeadingTyped
-                classNameHeading="mt-0 mb-16 hero-statement typed--statement"
+                classNameHeading="mt-0 mb-16 hero-statement typed--statement has-type-sign"
                 tag={Headings.h1}
                 isTyped
                 dataTypedSpeed={DataTypedSpeed.fast}
                 dataStr="We combine our tecnical expertise with know-how."
-                dataTypedDelay={500}
+                dataTypedDelay={1000}
                 hasCleaner={hasCleaner}
               >
                 <SmoothScroll to="features-tiles">

@@ -2,14 +2,6 @@
   position: relative; // To always display inner elements above pseudo decorative stuff
   padding-top: $section--padding__mobile;
   padding-bottom: $section--padding__mobile;
-
-  .images-item-container {
-    transition-duration: .8s;
-
-    &:hover {
-      transform: translateY(-8px);
-    }
-  }
 }
 
 .section-header {

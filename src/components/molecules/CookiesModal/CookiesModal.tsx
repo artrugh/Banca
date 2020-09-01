@@ -31,6 +31,7 @@ class CookiesModal extends Component<Props, State> {
 
     const label = classNames(
       "cookies__checkbox__label",
+      "p-24",
       itemBgDark === ItemBgDark.heigh && "has-bg-dark-heigh",
       itemBgDark === ItemBgDark.medium && "has-bg-dark-medium",
       itemBgDark === ItemBgDark.low && "has-bg-dark-low"
@@ -78,7 +79,7 @@ class CookiesModal extends Component<Props, State> {
             <Button
               tag="button"
               color={Color.secondary}
-              className="cookies__checkbox__button"
+              className="cookies__checkbox__button m-12"
               onClick={this.handlerLabel}
             >
               agree

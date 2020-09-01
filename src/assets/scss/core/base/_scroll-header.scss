@@ -1,19 +1,22 @@
 // HOME
 // change color header_nav_li light to white
 body.scroll-behavior-hero-statement-color .header-nav a:not(.button) {
-    transition-duration: 2s;
+    @include vendor-prefix(transition-duration, 2s);
+
     color: color-bg(bg-color);
 
     // change color header_nav_li underline light to primary color
     &::after {
-        transition-duration: 2s;
+        @include vendor-prefix(transition-duration, 2s);
+
         background-color: color-bg(primary);
     }
 }
 
 // change color header_nav_li dark
 body:not(.scroll-behavior-hero-statement-color) .header-nav a:not(.button) {
-    transition-duration: 2s;
+    @include vendor-prefix(transition-duration, 2s);
+
     color: color(heading);
 }
 
@@ -39,7 +42,7 @@ body.off-nav-is-active .button-lang {
 
 // change color header_nav_li light
 body.off-nav-is-active .header-nav a:not(.button) {
-    transition-duration: 2s;
+    @include vendor-prefix(transition-duration, 2s);
     color: color-bg(bg-color);
 }
 
@@ -56,12 +59,14 @@ body.scroll-behavior-hero-statement-color-pages .site-header {
 
 // change color header_nav_li light
 body.scroll-behavior-hero-statement-color-pages .header-nav a:not(.button) {
-    transition-duration: 2s;
+    @include vendor-prefix(transition-duration, 2s);
+
     color: color-bg(bg-color);
 
     // change color header_nav_li underline light to primary color
     &::after {
-        transition-duration: 2s;
+        @include vendor-prefix(transition-duration, 2s);
+
         background-color: color-bg(primary);
     }
 }

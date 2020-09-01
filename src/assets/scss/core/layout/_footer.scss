@@ -110,13 +110,13 @@
     padding: $footer-social--inner-padding;
 
     svg {
-  fill: color-icon(social);
-  transition: fill 0.15s ease;
+      fill: color-icon(social);
+      @include vendor-prefix(transition, fill 0.15s ease);
 
-  .invert-color & {
-    fill: color-icon(social-inverse);
-  }
-}
+      .invert-color & {
+        fill: color-icon(social-inverse);
+      }
+    }
 
     &:hover {
       svg {

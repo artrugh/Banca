@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
 
 // STYLE
@@ -16,12 +16,14 @@ import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 import Image from "../../atoms/Image/Image";
 
 interface IProps extends IPropsItem {
+  animationHover?: boolean;
   imageFill?: boolean;
   config: { [key: string]: number[] };
 }
 
 const DefaultProps: IProps = {
   imageFill: false,
+  animationHover: false,
   config: { title: [25] },
 };
 
@@ -38,9 +40,9 @@ class SplitItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { imageFill, underline } = this.props;
+    const { imageFill, underline, animationHover } = this.props;
 
-    const container = classNames("split-item mb-0");
+    const container = classNames("split-item mb-32");
 
     const image = classNames(
       "split-item-image center-content-mobile reveal-from-bottom",
@@ -54,7 +56,13 @@ class SplitItem extends Component<IProps> {
       underline === Underline.leftUnderline && "has-left-underline"
     );
 
-    return { image, description, container };
+    const imageContainer = classNames(
+      animationHover && "has-animation-hover",
+      "logo-tec-container mr-12 mt-32",
+      "has-inline-flex"
+    );
+
+    return { image, description, container, imageContainer };
   }
 
   private anchorElement(
@@ -115,9 +123,22 @@ class SplitItem extends Component<IProps> {
       status,
       link,
       repository,
+      tectools,
     } = this.props.item;
 
     const { delay } = this.props;
+
+    const listTectools: ReactNode[] | [] = tectools.map((tool: string) => (
+      <Image
+        src={`/images/logo-tec/logo_tec-${tool}-light.svg`}
+        alt={`logo-${tool}`}
+        width="30px"
+        height="30px"
+        key={Math.random()}
+        containerClassName={this.classes.imageContainer}
+        className="logo-tec-icon"
+      />
+    ));
 
     return (
       <div className={this.classes.container}>
@@ -131,10 +152,11 @@ class SplitItem extends Component<IProps> {
           {this.anchorElement({ link }, "primary")}
           {this.anchorElement({ repository }, "primary")}
           <h3 className="mt-12 mb-12">{title}</h3>
-          <p className="m-0">{description}</p>
+          <p className="m-0 mb-32">{description}</p>
+          <div className="logo-tec-box">{listTectools}</div>
         </div>
         <div className={this.classes.image} data-reveal-container=".split-item">
-          <Image src={`./images/${image}`} alt={alt} width={528} height={396} />
+          <Image src={`./images/products/${image}`} alt={alt} width={528} />
         </div>
       </div>
     );

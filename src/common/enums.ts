@@ -97,3 +97,12 @@ export enum TecTools {
   ai = "ai",
   ps = "ps",
 }
+
+export enum ClientName {
+  audi = "audi",
+}
+
+export enum ColorLogo {
+  light = "light",
+  dark = "dark",
+}

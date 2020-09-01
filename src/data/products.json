@@ -2,31 +2,31 @@
   {
     "title": "Subiendo al Sur - App",
     "description": "This is the SuAlSur-App. Find your new adventure and share your experiences. The goal of this NGO program is for young people from various countries and disciplines to travel to rural communities and interact on a social and cultural level.",
-    "image": "features-split-image-01.png",
+    "image": "sualsur-01.png",
     "alt": "SubiendoAlSur",
     "status": true,
     "link": "http://subiendoalsur.herokuapp.com/",
     "repository": "https://github.com/artrugh/sualsur",
-    "tec-tools": []
+    "tectools": ["nodejs", "js", "express", "mongodb", "sass", "pug", "stripe"]
   },
   {
     "title": "AEM Custom Dialoge",
     "subtitle": "Lightning fast workflo",
     "description": "AEM Custom-Dialoge erleichtert die Arbeit Ihrer Content-Autoren durch die Erweiterung der klassischen AEM-Dialoge um Custom-Funktionalitäten, die durch AEM nicht ermöglicht werden. Ein sehr gutes Beispiel ist der Icon-Picker.",
-    "image": "features-split-image-02.png",
+    "image": "sualsur-02.png",
     "alt": "Features split 01",
     "status": true,
     "link": "https://www.youtube.com/",
-    "tec-tools": []
+    "tectools": ["nodejs", "js", "express", "mongodb", "sass", "pug", "stripe"]
   },
   {
     "title": "React Integration mit SSR",
     "description": "Durch die Verwendung des Integrationsansatzes “Decoupled React-Components” ist der Aufwand an Entwicklung direkt im AEM minimal. Es müssen keine Java-Klassen für jede Komponente geschrieben werden.",
-    "image": "products-01.png",
+    "image": "features-split-image-01.png",
     "alt": "Features split 01",
     "status": false,
     "link": "https://www.youtube.com/",
     "repository": "https://github.com/artrugh/sualsur",
-    "tec-tools": []
+    "tectools": ["nodejs", "js", "express", "mongodb", "sass", "pug", "stripe"]
   }
 ]

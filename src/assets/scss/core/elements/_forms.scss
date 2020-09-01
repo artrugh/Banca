@@ -62,12 +62,7 @@ fieldset {
   display: block;
   @include font-size(input);
   @include font-weight(input);
-  padding: (
-      (
-          $button-form--height - get-line-height(input) -
-            ($button-form--border-width * 2)
-        ) / 2
-    )
+  padding: (($button-form--height - get-line-height(input) - ($button-form--border-width * 2)) / 2)
     ($form--padding-h - $button-form--border-width);
   height: $button-form--height;
   border-radius: $form--radius;
@@ -98,26 +93,19 @@ textarea.form-input {
     '<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 11.4L2.6 6 4 4.6l4 4 4-4L13.4 6 8 11.4z" fill="' +
       color-icon(select-arrow) + '" fill-rule="evenodd"/></svg>'
   );
-  background-position: right ($form--padding-h - $button-form--border-width)
-    center;
+  background-position: right ($form--padding-h - $button-form--border-width) center;
   background-repeat: no-repeat;
   background-size: 16px 16px;
 }
 
 .form-select-sm {
   padding-right: ($form-sm--padding-h - $button-form--border-width) * 2 + 16;
-  background-position: right ($form-sm--padding-h - $button-form--border-width)
-    center;
+  background-position: right ($form-sm--padding-h - $button-form--border-width) center;
 }
 
 .form-select-sm,
 .form-input-sm {
-  padding: (
-      (
-          $button-form-sm--height - get-line-height(input) -
-            ($button-form--border-width * 2)
-        ) / 2
-    )
+  padding: (($button-form-sm--height - get-line-height(input) - ($button-form--border-width * 2)) / 2)
     ($form-sm--padding-h - $button-form--border-width);
   height: $button-form-sm--height;
 }
@@ -130,7 +118,7 @@ textarea.form-input {
     pointer-events: none;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    @include vendor-prefix(transform, translateY(-50%));
   }
 }
 
@@ -263,7 +251,8 @@ textarea.form-input {
       height: 28px;
       border-radius: 14px;
       background: get-color(light, 1);
-      transition: all 0.15s ease-out;
+
+      @include vendor-prefix(transition, all 0.15s all ease-out);
     }
   }
 

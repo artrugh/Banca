@@ -6,7 +6,13 @@ import React, { Component } from "react";
 
 // COMMON
 import { IData } from "../../../common/interfaces";
-import { Size, ItemBgDark, Underline, Color } from "../../../common/enums";
+import {
+  Size,
+  ItemBgDark,
+  Underline,
+  Color,
+  ColorLogo,
+} from "../../../common/enums";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
 // HELPERS
 
@@ -24,7 +30,10 @@ import TestimonialItem from "../../molecules/TestimonialItem/TestimonialItem";
 import Image from "../../atoms/Image/Image";
 import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
 // DATA
-import { client, tec, tiles } from "../../../data/staticData";
+import { clients } from "../../../data/staticData/staticDataClients";
+import { tec } from "../../../data/staticData/staticDataTec";
+import { tiles } from "../../../data/staticData/staticDataTiles";
+
 import {
   productsHeading,
   testimonialHeading,
@@ -32,7 +41,7 @@ import {
   careerHeading,
   tecHeading,
   tileHeading,
-} from "../../../data/staticDataHeadings";
+} from "../../../data/staticData/staticDataHeadings";
 // CONFIG_DATA
 import {
   careerConfig,
@@ -53,14 +62,14 @@ export default class Home extends Component<IData> {
 
     return (
       <>
-        {/* <Hero className="illustration-section-01" />
-        <HeroTyped hasCleaner colorArrow={Color.primary} /> */}
-        <HeroScrollable
+        {/* <Hero className="illustration-section-01" /> */}
+        <HeroTyped hasCleaner colorArrow={Color.primary} />
+        {/* <HeroScrollable
           className="reveal-scale-down"
           containerSize={Size.big}
           underlineSize={Size.big}
           height="100vh"
-        />
+        /> */}
         <FeatureTilesTemplate
           hasBgColor
           data={tiles}
@@ -88,6 +97,7 @@ export default class Home extends Component<IData> {
             imageFill
             config={splitConfig.items}
             underline={Underline.centerUnderline}
+            animationHover
           />
         </FeatureTilesTemplate>
 
@@ -105,18 +115,19 @@ export default class Home extends Component<IData> {
             delay={0}
           />
         </FeatureTilesTemplate>
-        {/* <FeatureTilesTemplate
-          data={client}
+        <FeatureTilesTemplate
+          data={clients}
           heading={clientHeading}
           config={clientsConfig.heading}
           sectionHeadingPaddingMargin="p-0"
           id="clients"
+          colorLogo={ColorLogo.light}
         >
           <Image
             className="p-32"
             containerClassName="images-item-container p-32"
           />
-        </FeatureTilesTemplate> */}
+        </FeatureTilesTemplate>
         <Cta
           split
           itemBgDark={ItemBgDark.medium}
@@ -145,8 +156,9 @@ export default class Home extends Component<IData> {
           id="tec"
         >
           <Image
-            className="p-32"
+            className="m-48"
             containerClassName="images-item-container p-32"
+            animationHover
           />
         </FeatureTilesTemplate>
       </>

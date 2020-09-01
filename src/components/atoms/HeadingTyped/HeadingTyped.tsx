@@ -64,7 +64,7 @@ class HeadingTyped extends Component<IProps> {
 
     const container = classNames(
       className && className,
-      containerSize && `container-${containerSize}`
+      containerSize ? `container-${containerSize}` : "container"
     );
 
     const underline = classNames(

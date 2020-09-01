@@ -104,7 +104,7 @@
 
 // Text transform
 .tt-u {
-  text-transform: uppercase;
+  @include vendor-prefix(text-transform, uppercase);
 }
 
 // Images
@@ -115,7 +115,7 @@
 .image-larger {
   position: relative;
   left: 50%;
-  transform: translateX(-50%);
+  @include vendor-prefix(transform, translateX(-50%));
   width: calc(100% + #{$image-larger--extra-width * 2});
   max-width: 100vw;
 }
@@ -239,12 +239,31 @@ img.has-shadow,
   }
 }
 
+// Animation Image Hover
+
+.has-animation-hover {
+  @include vendor-prefix(transition-duration, 0.8s);
+
+  &:hover {
+    @include vendor-prefix(transform, translateY(-8px));
+  }
+}
+
+// Has Inline Flex
+.has-inline-flex {
+  display: inline-flex;
+
+  & *:first-child {
+    display: inherit;
+  }
+}
+
 // Underline
 
 .has-right-underline {
   @include underline(right);
 
-  img {
+  img:not(.logo-tec-icon) {
     margin: 0 auto 0 0;
   }
 }
@@ -252,7 +271,7 @@ img.has-shadow,
 .has-left-underline {
   @include underline(left);
 
-  img {
+  img:not(.logo-tec-icon) {
     margin: 0 0.7rem 0 auto;
   }
 }
@@ -264,7 +283,7 @@ img.has-shadow,
 .has-center-underline {
   @include underline(center);
 
-  img {
+  img:not(.logo-tec-icon) {
     margin: 0 auto 1.5rem auto;
   }
 }
@@ -283,26 +302,26 @@ img.has-shadow,
 
 .has-type-sign::after {
   content: "|";
-  animation: beat 0.7s ease infinite;
+
+  @include vendor-prefix(animation, beat 0.9s ease infinite);
   padding-left: 0.5px;
-  // position: relative;
-  // bottom: -3px;
   overflow: visible;
 
-  @keyframes beat {
+  @include keyframes-vendor-prefix(beat) {
     0% {
       content: "|";
+      opacity: 1;
     }
-    100% {
+
+    10% {
+      opacity: 0;
       content: "";
     }
+
+    100% {
+      opacity: 1;
+    }
   }
-}
-
-// Typed-animation
-
-.typed--statement {
-  @include add-typed-animation(get-str-typed(statement));
 }
 
 // .typed--about.is-typed {
@@ -311,317 +330,401 @@ img.has-shadow,
 
 // Spacing, margin
 .m-0 {
-  margin: 0;
+  margin: 0 !important;
 }
 
 .mt-0 {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 .mr-0 {
-  margin-right: 0;
+  margin-right: 0 !important;
 }
 
 .mb-0 {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 .ml-0 {
-  margin-left: 0;
+  margin-left: 0 !important;
 }
 
 .m-4 {
-  margin: 4px;
+  margin: 4px !important;
 }
 
 .mt-4 {
-  margin-top: 4px;
+  margin-top: 4px !important;
 }
 
 .mr-4 {
-  margin-right: 4px;
+  margin-right: 4px !important;
 }
 
 .mb-4 {
-  margin-bottom: 4px;
+  margin-bottom: 4px !important;
 }
 
 .ml-4 {
-  margin-left: 4px;
+  margin-left: 4px !important;
 }
 
 .m-8 {
-  margin: 8px;
+  margin: 8px !important;
 }
 
 .mt-8 {
-  margin-top: 8px;
+  margin-top: 8px !important;
 }
 
 .mr-8 {
-  margin-right: 8px;
+  margin-right: 8px !important;
 }
 
 .mb-8 {
-  margin-bottom: 8px;
+  margin-bottom: 8px !important;
 }
 
 .ml-8 {
-  margin-left: 8px;
+  margin-left: 8px !important;
 }
 
 .m-12 {
-  margin: 12px;
+  margin: 12px !important;
 }
 
 .mt-12 {
-  margin-top: 12px;
+  margin-top: 12px !important;
 }
 
 .mr-12 {
-  margin-right: 12px;
+  margin-right: 12px !important;
 }
 
 .mb-12 {
-  margin-bottom: 12px;
+  margin-bottom: 12px !important;
 }
 
 .ml-12 {
-  margin-left: 12px;
+  margin-left: 12px !important;
 }
 
 .m-16 {
-  margin: 16px;
+  margin: 16px !important;
 }
 
 .mt-16 {
-  margin-top: 16px;
+  margin-top: 16px !important;
 }
 
 .mr-16 {
-  margin-right: 16px;
+  margin-right: 16px !important;
 }
 
 .mb-16 {
-  margin-bottom: 16px;
+  margin-bottom: 16px !important;
 }
 
 .ml-16 {
-  margin-left: 16px;
+  margin-left: 16px !important;
 }
 
 .m-24 {
-  margin: 24px;
+  margin: 24px !important;
 }
 
 .mt-24 {
-  margin-top: 24px;
+  margin-top: 24px !important;
 }
 
 .mr-24 {
-  margin-right: 24px;
+  margin-right: 24px !important;
 }
 
 .mb-24 {
-  margin-bottom: 24px;
+  margin-bottom: 24px !important;
 }
 
 .ml-24 {
-  margin-left: 24px;
+  margin-left: 24px !important;
 }
 
 .m-32 {
-  margin: 32px;
+  margin: 32px !important;
 }
 
 .mt-32 {
-  margin-top: 32px;
+  margin-top: 32px !important;
 }
 
 .mr-32 {
-  margin-right: 32px;
+  margin-right: 32px !important;
 }
 
 .mb-32 {
-  margin-bottom: 32px;
+  margin-bottom: 32px !important;
 }
 
 .ml-32 {
-  margin-left: 32px;
+  margin-left: 32px !important;
+}
+
+.m-40 {
+  margin: 40px !important;
+}
+
+.mt-40 {
+  margin-top: 40px !important;
+}
+
+.mr-40 {
+  margin-right: 40px !important;
+}
+
+.mb-40 {
+  margin-bottom: 40px !important;
+}
+
+.ml-40 {
+  margin-left: 40px !important;
+}
+
+.m-48 {
+  margin: 48px !important;
+}
+
+.mt-48 {
+  margin-top: 48px !important;
+}
+
+.mr-48 {
+  margin-right: 48px !important;
+}
+
+.mb-48 {
+  margin-bottom: 48px !important;
+}
+
+.ml-48 {
+  margin-left: 48px !important;
 }
 
 // Spacing, padding
 .p-0 {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .pt-0 {
-  padding-top: 0;
+  padding-top: 0 !important;
 }
 
 .pr-0 {
-  padding-right: 0;
+  padding-right: 0 !important;
 }
 
 .pb-0 {
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
 }
 
 .pl-0 {
-  padding-left: 0;
+  padding-left: 0 !important;
 }
 
 .p-4 {
-  padding: 4px;
+  padding: 4px !important;
 }
 
 .pt-4 {
-  padding-top: 4px;
+  padding-top: 4px !important;
 }
 
 .pr-4 {
-  padding-right: 4px;
+  padding-right: 4px !important;
 }
 
 .pb-4 {
-  padding-bottom: 4px;
+  padding-bottom: 4px !important;
 }
 
 .pl-4 {
-  padding-left: 4px;
+  padding-left: 4px !important;
 }
 
 .p-8 {
-  padding: 8px;
+  padding: 8px !important;
 }
 
 .pt-8 {
-  padding-top: 8px;
+  padding-top: 8px !important;
 }
 
 .pr-8 {
-  padding-right: 8px;
+  padding-right: 8px !important;
 }
 
 .pb-8 {
-  padding-bottom: 8px;
+  padding-bottom: 8px !important;
 }
 
 .pl-8 {
-  padding-left: 8px;
+  padding-left: 8px !important;
 }
 
 .p-12 {
-  padding: 12px;
+  padding: 12px !important;
 }
 
 .pt-12 {
-  padding-top: 12px;
+  padding-top: 12px !important;
 }
 
 .pr-12 {
-  padding-right: 12px;
+  padding-right: 12px !important;
 }
 
 .pb-12 {
-  padding-bottom: 12px;
+  padding-bottom: 12px !important;
 }
 
 .pl-12 {
-  padding-left: 12px;
+  padding-left: 12px !important;
 }
 
 .p-16 {
-  padding: 16px;
+  padding: 16px !important;
 }
 
 .pt-16 {
-  padding-top: 16px;
+  padding-top: 16px !important;
 }
 
 .pr-16 {
-  padding-right: 16px;
+  padding-right: 16px !important;
 }
 
 .pb-16 {
-  padding-bottom: 16px;
+  padding-bottom: 16px !important;
 }
 
 .pl-16 {
-  padding-left: 16px;
+  padding-left: 16px !important;
 }
 
 .p-24 {
-  padding: 24px;
+  padding: 24px !important;
 }
 
 .pt-24 {
-  padding-top: 24px;
+  padding-top: 24px !important;
 }
 
 .pr-24 {
-  padding-right: 24px;
+  padding-right: 24px !important;
 }
 
 .pb-24 {
-  padding-bottom: 24px;
+  padding-bottom: 24px !important;
 }
 
 .pl-24 {
-  padding-left: 24px;
+  padding-left: 24px !important;
 }
 
 .p-32 {
-  padding: 32px;
+  padding: 32px !important;
 }
 
 .pt-32 {
-  padding-top: 32px;
+  padding-top: 32px !important;
 }
 
 .pr-32 {
-  padding-right: 32px;
+  padding-right: 32px !important;
 }
 
 .pb-32 {
-  padding-bottom: 32px;
+  padding-bottom: 32px !important;
 }
 
 .pl-32 {
-  padding-left: 32px;
+  padding-left: 32px !important;
+}
+
+.p-40 {
+  padding: 40px !important;
+}
+
+.pt-40 {
+  padding-top: 40px !important;
+}
+
+.pr-40 {
+  padding-right: 40px !important;
+}
+
+.pb-40 {
+  padding-bottom: 40px !important;
+}
+
+.pl-40 {
+  padding-left: 40px !important;
+}
+
+.p-48 {
+  padding: 48px !important;
+}
+
+.pt-48 {
+  padding-top: 48px !important;
+}
+
+.pr-48 {
+  padding-right: 48px !important;
+}
+
+.pb-48 {
+  padding-bottom: 48px !important;
+}
+
+.pl-48 {
+  padding-left: 48px !important;
 }
 
 // Spacing, spacers
 .spacer-4 {
-  padding-top: 4px;
+  padding-top: 4px !important;
 }
 
 .spacer-8 {
-  padding-top: 8px;
+  padding-top: 8px !important;
 }
 
 .spacer-12 {
-  padding-top: 12px;
+  padding-top: 12px !important;
 }
 
 .spacer-16 {
-  padding-top: 16px;
+  padding-top: 16px !important;
 }
 
 .spacer-24 {
-  padding-top: 24px;
+  padding-top: 24px !important;
 }
 
 .spacer-32 {
-  padding-top: 32px;
+  padding-top: 32px !important;
+}
+
+.spacer-40 {
+  padding-top: 40px !important;
 }
 
 .spacer-48 {
-  padding-top: 48px;
+  padding-top: 48px !important;
 }
 
 .spacer-64 {
-  padding-top: 64px;
+  padding-top: 64px !important;
 }
 
 @include media("<=medium") {

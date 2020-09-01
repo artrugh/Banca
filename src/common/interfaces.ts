@@ -1,4 +1,4 @@
-import { TecTools } from "./enums";
+import { TecTools, ClientName, ColorLogo } from "./enums";
 
 export interface ITile {
   title: string;
@@ -16,7 +16,7 @@ export interface IProduct {
   status?: boolean;
   link?: string;
   repository?: string;
-  tecTools: TecTools[];
+  tectools: TecTools[];
 }
 // // Career
 export interface ICareer {
@@ -32,8 +32,15 @@ export interface ITestimonial {
 }
 
 // // Image Logo
-export interface IImageLogo {
+export interface ITec {
   name: TecTools;
+  src: string;
+  width?: string;
+  height?: string;
+}
+
+export interface IClient {
+  name: ClientName;
   src: string;
   width?: string;
   height?: string;

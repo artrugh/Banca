@@ -14,8 +14,8 @@ import React, { Component } from "react";
 import SectionTemplate from "../../templates/SectionHeaderTemplate/SectionHeaderTemplate";
 import Form from "../../organisms/Form/Form";
 // DATA_CONFIG
-import { contactForm } from "../../../data/staticData";
-import { contactHeading } from "../../../data/staticDataHeadings";
+import { contactForm } from "../../../data/staticData/staticDataContact";
+import { contactHeading } from "../../../data/staticData/staticDataHeadings";
 
 // CONFIG
 import { contactConfig } from "../../../config/configData";

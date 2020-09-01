@@ -8,49 +8,57 @@
     }
 
     .reveal-from-top {
-      transform: translateY($scroll-reveal--from-top-amount);
+      @include vendor-prefix(transform, translateY($scroll-reveal--from-top-amount));
     }
 
     .reveal-from-bottom {
-      transform: translateY($scroll-reveal--from-bottom-amount);
+      @include vendor-prefix(transform, translateY($scroll-reveal--from-bottom-amount));
     }
 
     .reveal-from-left {
-      transform: translateX($scroll-reveal--from-left-amount);
+      @include vendor-prefix(transform, translateX($scroll-reveal--from-left-amount));
     }
 
     .reveal-from-right {
-      transform: translateX($scroll-reveal--from-right-amount);
+      @include vendor-prefix(transform, translateX($scroll-reveal--from-right-amount));
     }
 
     .reveal-scale-up {
-      transform: scale($scroll-reveal--scale-up-amount);
+      @include vendor-prefix(transform, scale($scroll-reveal--scale-up-amount));
     }
 
     .reveal-scale-down {
-      transform: scale($scroll-reveal--scale-down-amount);
+      @include vendor-prefix(transform, scale($scroll-reveal--scale-down-amount));
     }
 
     .reveal-rotate-from-left {
-      transform: perspective(1000px)
-        rotateY($scroll-reveal--rotate-from-left-amount);
+      @include vendor-prefix(transform, perspective(1000px) rotateY($scroll-reveal--rotate-from-left-amount));
     }
 
     .reveal-rotate-from-right {
-      transform: perspective(1000px)
-        rotateY($scroll-reveal--rotate-from-right-amount);
+      @include vendor-prefix(transform, perspective(1000px) rotateY($scroll-reveal--rotate-from-right-amount));
     }
 
     &.is-loaded {
       [class*="reveal-"] {
-        transition: opacity $scroll-reveal--transition-duration
-            $scroll-reveal--transition-timing,
-          transform $scroll-reveal--transition-duration
-            $scroll-reveal--transition-timing;
+        -webkit-transition: opacity $scroll-reveal--transition-duration $scroll-reveal--transition-timing,
+          transform $scroll-reveal--transition-duration $scroll-reveal--transition-timing;
+
+        -moz-transition: opacity $scroll-reveal--transition-duration $scroll-reveal--transition-timing,
+          transform $scroll-reveal--transition-duration $scroll-reveal--transition-timing;
+
+        -ms-transition: opacity $scroll-reveal--transition-duration $scroll-reveal--transition-timing,
+          transform $scroll-reveal--transition-duration $scroll-reveal--transition-timing;
+
+        -o-transition: opacity $scroll-reveal--transition-duration $scroll-reveal--transition-timing,
+          transform $scroll-reveal--transition-duration $scroll-reveal--transition-timing;
+
+        transition: opacity $scroll-reveal--transition-duration $scroll-reveal--transition-timing,
+          transform $scroll-reveal--transition-duration $scroll-reveal--transition-timing;
 
         &.is-revealed {
           opacity: 1;
-          transform: translate(0);
+          @include vendor-prefix(transform, translate(0));
         }
       }
     }

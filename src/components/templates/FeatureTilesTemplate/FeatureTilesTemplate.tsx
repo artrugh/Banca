@@ -11,13 +11,14 @@ import {
   IPropsClasses,
   IPropsFeatureItem,
 } from "../../../common/interfacesProps";
-import { Headings } from "../../../common/enums";
+import { Headings, ColorLogo } from "../../../common/enums";
 import {
   IProduct,
   ICareer,
   ITestimonial,
-  IImageLogo,
+  ITec,
   ITile,
+  IClient,
 } from "../../../common/interfaces";
 // HELPERS
 
@@ -28,7 +29,7 @@ import SectionTemplate from "../SectionHeaderTemplate/SectionHeaderTemplate";
 
 export interface IProps extends IPropsFeatureItem {
   children?: ReactElement;
-  data: Array<IProduct | ITestimonial | ICareer | IImageLogo | ITile | []>;
+  data: Array<IProduct | ITestimonial | ICareer | ITec | ITile | IClient | []>;
   config?: {
     title: number[];
     paragraph?: number[];
@@ -37,7 +38,7 @@ export interface IProps extends IPropsFeatureItem {
 
 export const DefaultProps: IProps = {
   ...DefaultP,
-  colorLogo: "dark",
+  colorLogo: ColorLogo.dark,
   pushLeft: false,
   wrapName: "tiles-wrap center-content",
   data: [],

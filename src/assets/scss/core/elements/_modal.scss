@@ -42,11 +42,11 @@
     }
 
     .modal-inner {
-      animation: slideUpInModal 0.15s ease-in-out both;
+      @include vendor-prefix(animation, slideUpInModal 0.15s ease-in-out both);
     }
 
     &::before {
-      animation: slideUpInModalBg 0.15s ease-in-out both;
+      @include vendor-prefix(animation, slideUpInModalBg 0.15s ease-in-out both);
     }
   }
 }
@@ -95,11 +95,11 @@
   }
 
   &::before {
-    transform: rotate(225deg);
+    @include vendor-prefix(transform, rotate(225deg));
   }
 
   &::after {
-    transform: rotate(-45deg);
+    @include vendor-prefix(transform, rotate(-45deg));
   }
 
   &:hover {
@@ -124,19 +124,19 @@
   }
 }
 
-@keyframes slideUpInModal {
+@include keyframes-vendor-prefix(slideUpInModal) {
   0% {
     opacity: 0;
-    transform: translateY(-24px);
+    @include vendor-prefix(transform, translateY(-24px));
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+    @include vendor-prefix(transform, translateY(0));
   }
 }
 
-@keyframes slideUpInModalBg {
+@include keyframes-vendor-prefix(slideUpInModalBg) {
   0% {
     opacity: 0;
   }

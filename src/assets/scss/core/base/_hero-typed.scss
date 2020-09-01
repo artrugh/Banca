@@ -1,0 +1,21 @@
+// this animation is applied in screens bigger than 640px _width-and-spacing.scss
+
+// Typed-animation
+.has-animations {
+    .typed--statement::before {
+        content: get-str-typed(statement);
+    }
+}
+
+
+@include media(">medium") {
+    .has-animations {
+        .typed--statement::before {
+            content: ""
+        }
+
+        .typed--statement.is-typed {
+            @include add-typed-animation(get-str-typed(statement));
+        }
+    }
+}

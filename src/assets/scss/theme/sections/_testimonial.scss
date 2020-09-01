@@ -22,8 +22,8 @@
   a {
     color: get-color(primary, 2);
     text-decoration: none;
-    transition: 0.5s all ease-out;
-    transition-duration: 0.7s;
+    @include vendor-prefix(transition, 0.5s all ease-out);
+    @include vendor-prefix(transition-duration, 0.7s);
 
     &:hover {
       color: get-color(primary, 3);
@@ -43,7 +43,7 @@
   &[class*="underline"]::after {
     width: 40%;
     background-color: get-color(primary, 2);
-    transition-duration: 0.7s;
+    @include vendor-prefix(transition-duration, 0.7s);
 
     .testimonial-item:hover & {
       background-color: get-color(primary, 3);

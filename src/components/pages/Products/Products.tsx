@@ -15,7 +15,7 @@ import { Underline } from "../../../common/enums";
 import FeaturesTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
 // DATA
-import { productsHeading } from "../../../data/staticDataHeadings";
+import { productsHeading } from "../../../data/staticData/staticDataHeadings";
 // CONFIG_DATA
 import { splitConfig } from "../../../config/configData";
 

@@ -14,8 +14,8 @@ import React, { Component } from "react";
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import Image from "../../atoms/Image/Image";
 // DATA
-import { tec } from "../../../data/staticData";
-import { tecHeading } from "../../../data/staticDataHeadings";
+import { tec } from "../../../data/staticData/staticDataTec";
+import { tecHeading } from "../../../data/staticData/staticDataHeadings";
 // DATA_CONFIG
 import { tecConfig } from "../../../config/configData";
 

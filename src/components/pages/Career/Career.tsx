@@ -15,7 +15,7 @@ import { Underline } from "../../../common/enums";
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
 // DATA_CONFIG
-import { careerHeading } from "../../../data/staticDataHeadings";
+import { careerHeading } from "../../../data/staticData/staticDataHeadings";
 // CONFIG
 import { careerConfig } from "../../../config/configData";
 

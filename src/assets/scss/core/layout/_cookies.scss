@@ -1,26 +1,17 @@
 .cookies {
   &__checkbox {
     &__label {
-      padding: $cookies-label--padding;
-      width: $cookies-label--width;
-
       position: fixed !important;
       top: -100%;
 
-      transition: 1s all ease-out;
+      @include vendor-prefix(transition, 1s all ease-out);
       cursor: pointer;
       z-index: 1000 !important;
     }
 
     &__button {
       z-index: 2;
-      margin: 1rem;
       float: right;
-      background: get-color(secondary, 3);
-    }
-
-    &__text {
-      width: $cookies-text--width;
     }
 
     body.scroll-behaviour-cookies &__label {
@@ -31,7 +22,7 @@
   &__checkbox {
     display: none;
 
-    &:checked~&__label {
+    &:checked ~ &__label {
       top: -100%;
     }
   }

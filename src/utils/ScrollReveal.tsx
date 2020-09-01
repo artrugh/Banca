@@ -107,7 +107,7 @@ const ScrollReveal: ForwardRefRenderFunction<IRef, IProps> = (props, ref) => {
       const cleanDelay: null | number = el.getAttribute("data-str")
         ? el.getAttribute("data-str").length *
             +el.getAttribute("data-typed-speed") +
-          1800
+          3000
         : null;
 
       // if there is a value, store it otherwise set it in 200

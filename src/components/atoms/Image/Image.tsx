@@ -20,6 +20,7 @@ interface IProps {
   gradientBg?: boolean;
   className?: string;
   containerClassName?: string;
+  animationHover?: boolean;
 }
 
 class Image extends Component<IProps> {
@@ -35,12 +36,18 @@ class Image extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { className, containerClassName, gradientBg } = this.props;
+    const {
+      className,
+      containerClassName,
+      gradientBg,
+      animationHover,
+    } = this.props;
 
     const container = classNames(
       containerClassName && containerClassName,
       "img-container",
-      gradientBg && "has-gradient"
+      gradientBg && "has-gradient",
+      animationHover && "has-animation-hover"
     );
     const image = classNames(className && className);
 
@@ -88,6 +95,7 @@ class Image extends Component<IProps> {
     const {
       className,
       containerClassName,
+      animationHover,
       gradientBg,
       src,
       width,
@@ -103,8 +111,7 @@ class Image extends Component<IProps> {
           ref={this.image}
           className={this.classes.image}
           src={src}
-          width={width}
-          height={height}
+          style={{ width, height }}
           alt={alt}
         />
       </div>
