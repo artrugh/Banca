@@ -1,4 +1,4 @@
-import React, { Component, createRef, KeyboardEvent } from "react";
+import React, { Component, createRef, KeyboardEvent, ReactNode } from "react";
 // import Link from "next/link";
 import classNames from "classnames";
 
@@ -8,16 +8,20 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
+import { IHeader } from "../../../common/interfaces";
 import { IEventHandler } from "../../../common/interfacesEvents";
-import { Size, Underline } from "../../../common/enums";
+import { Size, Underline, HeaderItemType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 import { ScrollManagerDisplayer } from "../../../utils/ScrollManagerDisplayer";
 // COMPONENTS
 import Logo from "../../atoms/Logo/Logo";
-import ButtonLeng from "../../atoms/ButtonLeng/ButtonLeng";
+import ButtonLanguage from "../../atoms/ButtonLanguage/ButtonLanguage";
 import Link from "../../atoms/Link/Link";
+import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
+// DATA
+import { headerData } from "../../../data/staticData/staticDataHeader";
 
 export interface IProps {
   navPosition?: string;
@@ -26,7 +30,7 @@ export interface IProps {
   hideSignin?: boolean;
   bottomOuterDivider?: boolean;
   bottomDivider?: boolean;
-  scrollBg?: boolean;
+  bgTransparent?: boolean;
   containerSize?: Size;
   [propName: string]: any;
 }
@@ -37,7 +41,7 @@ export const DefaultProps: IProps = {
   hideSignin: false,
   bottomOuterDivider: false,
   bottomDivider: false,
-  scrollBg: false,
+  bgTransparent: false,
 };
 
 type Props = {} & Partial<DefaultProps>;
@@ -60,7 +64,7 @@ class Header extends Component<IProps, State> {
       this.handleOpenMenu();
     }
 
-    if (this.props.scrollBg) {
+    if (this.props.bgTransparent) {
       ScrollManagerDisplayer("scroll-behavior-header-bg");
       ScrollManagerDisplayer("scroll-behavior-main-underline-bg");
     }
@@ -74,7 +78,7 @@ class Header extends Component<IProps, State> {
   }
 
   public componentDidUpdate(): void {
-    if (this.props.scrollBg) {
+    if (this.props.bgTransparent) {
       ScrollManagerDisplayer("scroll-behavior-header-bg");
       ScrollManagerDisplayer("scroll-behavior-main-underline-bg");
       ScrollManagerDisplayer("scroll-behavior-hero-statement-color");
@@ -89,13 +93,13 @@ class Header extends Component<IProps, State> {
       className,
       underline,
       navPosition,
-      scrollBg,
+      bgTransparent,
       containerSize,
     } = this.props;
 
     const header = classNames(
       "site-header",
-      scrollBg && "has-bg-transparent",
+      bgTransparent && "has-bg-transparent",
       bottomOuterDivider && "has-bottom-divider",
       className
     );
@@ -177,9 +181,60 @@ class Header extends Component<IProps, State> {
       hideSignin,
       bottomOuterDivider,
       bottomDivider,
-      scrollBg,
+      bgTransparent,
       ...rest
     } = this.props;
+
+    const listItems: Array<ReactNode> | void = headerData.map((li: any) => {
+      let item: ReactNode;
+
+      if (li.role === HeaderItemType.button) {
+        item = (
+          <li>
+            <Link href={`/${li.title}`} activeClassName="active-link">
+              <a
+                role="button"
+                onKeyDown={this.handleCloseMenu}
+                onClick={this.handleCloseMenu}
+                tabIndex={0}
+                className={this.classes.anchor}
+              >
+                {li.title}
+              </a>
+            </Link>
+          </li>
+        );
+      } else if (li.role === HeaderItemType.anchor) {
+        item = (
+          <li>
+            <SmoothScroll className="header-smooth-scroll" to={li.title}>
+              <a
+                role="button"
+                onKeyDown={this.handleCloseMenu}
+                onClick={this.handleCloseMenu}
+                tabIndex={0}
+                className={this.classes.anchor}
+              >
+                {li.title}
+              </a>
+            </SmoothScroll>
+          </li>
+        );
+      } else if (li.role === HeaderItemType.checkbox) {
+        item = (
+          <li className="button-lang">
+            <ButtonLanguage
+              id="button-language"
+              className="button button-dark button-wide-mobile button-sm"
+              dataOn={li.on}
+              dataOff={li.off}
+            />
+          </li>
+        );
+      }
+
+      return item;
+    });
 
     return (
       <header {...rest} className={this.classes.header}>
@@ -207,7 +262,8 @@ class Header extends Component<IProps, State> {
                 <nav ref={this.nav} className={this.classes.nav}>
                   <div className="header-nav-inner">
                     <ul className={this.classes.ul}>
-                      <li>
+                      {listItems}
+                      {/* <li>
                         <Link href="/contact" activeClassName="active-link">
                           <a
                             role="button"
@@ -260,16 +316,16 @@ class Header extends Component<IProps, State> {
                         </Link>
                       </li>
                       <li className="button-lang">
-                        <ButtonLeng
-                          id="leng"
+                        <ButtonLanguage
+                          id="button-language"
                           className="button button-dark button-wide-mobile button-sm"
                         />
-                      </li>
+                      </li> */}
                     </ul>
                     {!hideSignin && (
                       <ul className="list-reset header-nav-right">
                         <li>
-                          <Link href="/career" activeClassName="active">
+                          <Link href="/signup" activeClassName="active">
                             <a
                               role="button"
                               className="button button-primary button-wide-mobile button-sm"
@@ -277,7 +333,7 @@ class Header extends Component<IProps, State> {
                               onKeyDown={this.handleCloseMenu}
                               tabIndex={0}
                             >
-                              Career
+                              signup
                             </a>
                           </Link>
                         </li>

@@ -2,7 +2,12 @@
   display: inline-flex;
   @include font-size(button);
   @include font-weight(button);
-  padding: (($button-form--height - get-line-height(button) - ($button-form--border-width * 2)) / 2)
+  padding: (
+      (
+          $button-form--height - get-line-height(button) -
+            ($button-form--border-width * 2)
+        ) / 2
+    )
     ($button--padding-h - $button-form--border-width);
   height: $button-form--height;
   text-decoration: none !important;
@@ -70,7 +75,12 @@
 }
 
 .button-sm {
-  padding: (($button-form-sm--height - get-line-height(button) - ($button-form--border-width * 2)) / 2)
+  padding: (
+      (
+          $button-form-sm--height - get-line-height(button) -
+            ($button-form--border-width * 2)
+        ) / 2
+    )
     ($button-sm--padding-h - $button-form--border-width);
   height: $button-form-sm--height;
 }
@@ -142,14 +152,14 @@
     @include vendor-prefix(transition, 0.7s all ease-in-out);
 
     &::after {
-      content: "DE>";
+      content: attr(data-off);
       width: 200px;
       height: 200px;
     }
   }
 
   &:checked ~ &-label::after {
-    content: "EN>";
+    content: attr(data-on);
   }
 }
 

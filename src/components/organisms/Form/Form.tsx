@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
 // STYLE
 
@@ -38,7 +38,7 @@ class Form extends Component<IProps> {
 
   public render(): JSX.Element {
     const { inputs, buttons } = this.props.data;
-    const Inputs = inputs.map((input) => {
+    const Inputs: ReactNode[] = inputs.map((input) => {
       const {
         id,
         className,

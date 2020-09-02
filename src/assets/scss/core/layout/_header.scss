@@ -81,7 +81,7 @@
     }
   }
 
-  a:not(.button) {
+  a:not(.header-smooth-scroll) {
     display: block;
     @include anchor-aspect(header);
     @include font-weight(header-link);

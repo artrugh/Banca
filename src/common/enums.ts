@@ -106,3 +106,9 @@ export enum ColorLogo {
   light = "light",
   dark = "dark",
 }
+
+export enum HeaderItemType {
+  button = "button",
+  checkbox = "checkbox",
+  anchor = "anchor",
+}

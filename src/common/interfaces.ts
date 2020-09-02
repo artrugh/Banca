@@ -1,4 +1,4 @@
-import { TecTools, ClientName, ColorLogo } from "./enums";
+import { TecTools, ClientName, HeaderItemType } from "./enums";
 
 export interface ITile {
   title: string;
@@ -44,6 +44,13 @@ export interface IClient {
   src: string;
   width?: string;
   height?: string;
+}
+
+export interface IHeader {
+  title: string;
+  role: HeaderItemType;
+  on?: string;
+  off?: string;
 }
 
 // Initial Data
