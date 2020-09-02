@@ -1,12 +1,23 @@
 import React, { Component, ReactNode, MouseEvent } from "react";
-import classNames from "classnames";
+
+// STYLE
+
+// BASE CLASS
+
+// COMMON
+
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 
 interface IProps {
   className?: string;
   children?: ReactNode;
   to: string;
   duration?: number;
-  onLinkClick?: Function;
+  handlerOnClick?(): void;
 }
 
 class SmoothScroll extends Component<IProps> {
@@ -51,7 +62,7 @@ class SmoothScroll extends Component<IProps> {
     e: MouseEvent<HTMLAnchorElement>,
     to: string,
     duration: number,
-    onLinkClick: Function
+    EventListener: Function
   ): void => {
     e.preventDefault();
 
@@ -63,8 +74,8 @@ class SmoothScroll extends Component<IProps> {
       return;
     }
 
-    if (onLinkClick) {
-      onLinkClick();
+    if (EventListener) {
+      EventListener();
     }
 
     window.requestAnimationFrame((timestamp: number) => {
@@ -90,7 +101,7 @@ class SmoothScroll extends Component<IProps> {
       children,
       to,
       duration,
-      onLinkClick,
+      handlerOnClick,
       ...rest
     } = this.props;
 
@@ -99,10 +110,9 @@ class SmoothScroll extends Component<IProps> {
         {...rest}
         tabIndex={0}
         role="button"
-        className={classNames(className)}
+        className={className}
         href={"#" + to}
-        // onKeyDown={(e) => this.smoothScroll(e, to, duration, onLinkClick)}
-        onClick={(e) => this.smoothScroll(e, to, duration, onLinkClick)}
+        onClick={(e) => this.smoothScroll(e, to, duration, handlerOnClick)}
       >
         {children}
       </a>

@@ -1,4 +1,4 @@
-import { TecTools, ClientName, HeaderItemType } from "./enums";
+import { TecTools, ClientName, HeaderItemType, Social } from "./enums";
 
 export interface ITile {
   title: string;
@@ -53,9 +53,14 @@ export interface IHeader {
   off?: string;
 }
 
+export interface ISocial {
+  title: Social;
+  link: string;
+}
+
 // Initial Data
 export interface IData {
   products: Array<IProduct> | [];
-  career: Array<ICareer> | [];
+  careers: Array<ICareer> | [];
   testimonial: Array<ITestimonial> | [];
 }

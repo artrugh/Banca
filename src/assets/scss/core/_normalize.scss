@@ -17,13 +17,6 @@ section {
   display: block;
 }
 
-section {
-  &:last-of-type {
-    margin-bottom: 0;
-    padding-bottom: $section--padding__desktop;
-  }
-}
-
 h1 {
   font-size: 2em;
   margin: 0.67em 0;

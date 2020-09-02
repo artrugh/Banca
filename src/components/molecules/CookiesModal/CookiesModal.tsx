@@ -6,7 +6,7 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { ItemBgDark, Color } from "../../../common/enums";
+import { BgColor, Color } from "../../../common/enums";
 import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
@@ -17,7 +17,7 @@ import Button from "../../atoms/Button/Button";
 
 type State = { checked: boolean };
 type Props = {
-  itemBgDark?: ItemBgDark;
+  bgColor?: BgColor;
 };
 
 class CookiesModal extends Component<Props, State> {
@@ -27,14 +27,12 @@ class CookiesModal extends Component<Props, State> {
   }
 
   public get classes(): IPropsClasses {
-    const { itemBgDark } = this.props;
+    const { bgColor } = this.props;
 
     const label = classNames(
       "cookies__checkbox__label",
       "p-24",
-      itemBgDark === ItemBgDark.heigh && "has-bg-dark-heigh",
-      itemBgDark === ItemBgDark.medium && "has-bg-dark-medium",
-      itemBgDark === ItemBgDark.low && "has-bg-dark-low"
+      bgColor && bgColor
     );
 
     return { label };
@@ -45,18 +43,18 @@ class CookiesModal extends Component<Props, State> {
   };
 
   // alternatibely
-  private createReactCheckbox = (): JSX.Element => {
-    const e = createElement;
-    const attr = {
-      className: "cookies__input__checkbox",
-      type: "checkbox",
-      defaultChecked: false,
-      id: "cookies__input__checkbox",
-    };
-    const el: JSX.Element = e("input", attr);
+  // private createReactCheckbox = (): JSX.Element => {
+  //   const e = createElement;
+  //   const attr = {
+  //     className: "cookies__input__checkbox",
+  //     type: "checkbox",
+  //     defaultChecked: false,
+  //     id: "cookies__input__checkbox",
+  //   };
+  //   const el: JSX.Element = e("input", attr);
 
-    return el;
-  };
+  //   return el;
+  // };
 
   public render(): JSX.Element {
     const description =

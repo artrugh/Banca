@@ -6,7 +6,7 @@ import React, { Component } from "react";
 
 // COMMON
 import { ICareer } from "../../../common/interfaces";
-import { Underline } from "../../../common/enums";
+import { Underline, BgColor } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -38,10 +38,12 @@ class Career extends Component<IProps> {
           className="loaded-none"
         />
         <FeatureTilesTemplate
-          config={careerConfig.heading}
           data={careers}
           heading={careerHeading}
           className="illustration-section-02"
+          config={careerConfig.heading}
+          id="careers"
+          bgColor={BgColor.lightHeigh}
         >
           <KeyboardItem
             config={careerConfig.items}

@@ -26,7 +26,7 @@ export default class HomePage extends Component<IData> {
 
 export const getStaticProps: GetStaticProps = async () => {
   const products: Array<IProduct> | [] = await JSON.parse(readFile("products"));
-  const career: Array<ICareer> | [] = await JSON.parse(readFile("career"));
+  const careers: Array<ICareer> | [] = await JSON.parse(readFile("career"));
   const testimonial: Array<ITestimonial> | [] = await JSON.parse(
     readFile("testimonial")
   );
@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       products,
-      career,
+      careers,
       testimonial,
     },
   };

@@ -34,13 +34,17 @@ interface IProps extends IPropsOuterInner {
 }
 
 export default class HeroTyped extends Component<IProps> {
+  public constructor(props: IProps) {
+    super(props);
+  }
+
   public get classes(): IPropsClasses {
     const {
       topOuterDivider,
       bottomOuterDivider,
       topDivider,
       bottomDivider,
-      hasBgColor,
+      bgColor,
       invertColor,
       className,
     } = this.props;
@@ -49,7 +53,7 @@ export default class HeroTyped extends Component<IProps> {
       "hero-typed section",
       topOuterDivider && "has-top-divider",
       bottomOuterDivider && "has-bottom-divider",
-      hasBgColor && "has-bg-color",
+      bgColor && bgColor,
       invertColor && "invert-color",
       className
     );
@@ -69,7 +73,7 @@ export default class HeroTyped extends Component<IProps> {
       bottomOuterDivider,
       topDivider,
       bottomDivider,
-      hasBgColor,
+      bgColor,
       invertColor,
       hasCleaner,
       colorArrow,
@@ -78,7 +82,7 @@ export default class HeroTyped extends Component<IProps> {
     } = this.props;
 
     return (
-      <section {...rest} className={this.classes.outerClasses} id="hero">
+      <section {...rest} className={this.classes.outerClasses}>
         <div className="container-sm">
           <div id="scroll-behavior-header-bg" className="loaded-none hero" />
           <div
@@ -100,7 +104,6 @@ export default class HeroTyped extends Component<IProps> {
                   classNameContainer="hero-about mt-48"
                   classNameHeading="mt-0 mb-0"
                   tag={Headings.h3}
-                  // scrollPosition={ScrollPosition.rightLeft}
                 >
                   - combining technical expertise, cross-industry, know-how to
                   lead you to success -

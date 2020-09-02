@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
-import { Env, Underline } from "../../../common/enums";
+import { Env, BgColor } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -40,9 +40,9 @@ class SplitItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { imageFill, underline, animationHover } = this.props;
+    const { imageFill, underline, animationHover, bgColor } = this.props;
 
-    const container = classNames("split-item mb-32");
+    const container = classNames("split-item mb-32", bgColor && bgColor);
 
     const image = classNames(
       "split-item-image center-content-mobile reveal-from-bottom",
@@ -51,9 +51,7 @@ class SplitItem extends Component<IProps> {
 
     const description = classNames(
       "split-item-content center-content-mobile reveal-from-left",
-      underline === Underline.centerUnderline && "has-center-underline",
-      underline === Underline.rightUnderline && "has-right-underline",
-      underline === Underline.leftUnderline && "has-left-underline"
+      underline && underline
     );
 
     const imageContainer = classNames(
@@ -63,6 +61,37 @@ class SplitItem extends Component<IProps> {
     );
 
     return { image, description, container, imageContainer };
+  }
+
+  public get listTectools(): ReactNode[] {
+    const { tectools } = this.props.item;
+    const { bgColor } = this.props;
+
+    let bgColorLogo: string;
+
+    if (
+      bgColor === BgColor.darkHeigh ||
+      bgColor === BgColor.darkMedium ||
+      bgColor === BgColor.darkLow
+    ) {
+      bgColorLogo = "light";
+    } else {
+      bgColorLogo = "dark";
+    }
+
+    const listTectools: ReactNode[] | [] = tectools.map((tool: string) => (
+      <Image
+        src={`/images/logo-tec/logo_tec-${tool}-${bgColorLogo}.svg`}
+        alt={`logo-${tool}`}
+        width="30px"
+        height="30px"
+        key={Math.random()}
+        containerClassName={this.classes.imageContainer}
+        className="logo-tec-icon"
+      />
+    ));
+
+    return listTectools;
   }
 
   private anchorElement(
@@ -128,17 +157,17 @@ class SplitItem extends Component<IProps> {
 
     const { delay } = this.props;
 
-    const listTectools: ReactNode[] | [] = tectools.map((tool: string) => (
-      <Image
-        src={`/images/logo-tec/logo_tec-${tool}-light.svg`}
-        alt={`logo-${tool}`}
-        width="30px"
-        height="30px"
-        key={Math.random()}
-        containerClassName={this.classes.imageContainer}
-        className="logo-tec-icon"
-      />
-    ));
+    // const listTectools: ReactNode[] | [] = tectools.map((tool: string) => (
+    //   <Image
+    //     src={`/images/logo-tec/logo_tec-${tool}-light.svg`}
+    //     alt={`logo-${tool}`}
+    //     width="30px"
+    //     height="30px"
+    //     key={Math.random()}
+    //     containerClassName={this.classes.imageContainer}
+    //     className="logo-tec-icon"
+    //   />
+    // ));
 
     return (
       <div className={this.classes.container}>
@@ -153,9 +182,9 @@ class SplitItem extends Component<IProps> {
             {this.anchorElement({ repository }, "secondary")}
           </div>
           {this.pElement({ subtitle }, "high")}
-          <h3 className="mt-12 mb-12">{title}</h3>
+          <h3 className="mt-12 mb-12 heading">{title}</h3>
           <p className="m-0 mb-32">{description}</p>
-          <div className="logo-tec-box">{listTectools}</div>
+          <div className="logo-tec-box">{this.listTectools}</div>
         </div>
         <div className={this.classes.image} data-reveal-container=".split-item">
           <a href={link} target="_blank" rel="noreferrer">

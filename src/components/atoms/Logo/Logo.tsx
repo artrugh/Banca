@@ -17,6 +17,7 @@ import Image from "../Image/Image";
 import SmoothScroll from "../SmoothScroll/SmoothScroll";
 
 interface IProps {
+  footer?: boolean;
   pathname?: string;
   className?: string;
   [propName: string]: any;
@@ -28,12 +29,12 @@ class Logo extends Component<IProps> {
   }
 
   public render(): JSX.Element {
-    const { pathname, className, ...rest } = this.props;
+    const { pathname, footer, className, ...rest } = this.props;
 
     return (
       <div {...rest} className={classNames("brand", className)}>
-        {pathname === "/" ? (
-          <SmoothScroll to="hero">
+        {footer ? (
+          <SmoothScroll to="main">
             <svg
               width="32"
               height="32"

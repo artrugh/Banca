@@ -13,14 +13,14 @@ import { IPropsClasses } from "../../../common/interfacesProps";
 
 // COMPONENTS
 
-export interface IProps {
+interface IProps {
   children: Partial<ReactNode>;
   labelHidden?: boolean;
   readonly id: string | null;
   className?: string;
 }
 
-export const DefaultProps: IProps = {
+const DefaultProps: IProps = {
   children: null,
   labelHidden: false,
   id: `${Math.random()}`,

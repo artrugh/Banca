@@ -7,7 +7,7 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { Env, ItemBgDark, Underline } from "../../../common/enums";
+import { Env } from "../../../common/enums";
 import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
 // HELPERS
 
@@ -29,27 +29,21 @@ class KeyboardItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { underline, itemBgDark } = this.props;
+    const { underline, bgColor } = this.props;
 
     const container = classNames(
       "tiles-item reveal-from-bottom",
-      itemBgDark === ItemBgDark.heigh && "has-bg-dark-heigh m-24",
-      itemBgDark === ItemBgDark.medium && "has-bg-dark-medium m-24",
-      itemBgDark === ItemBgDark.low && "has-bg-dark-low m-24"
+      bgColor && bgColor,
+      "m-24"
     );
 
     const heading = classNames(
+      "heading",
       "mt-0 mb-8 keyboard-item",
-      underline === Underline.centerUnderline && "has-center-underline",
-      underline === Underline.rightUnderline && "has-right-underline",
-      underline === Underline.leftUnderline && "has-left-underline",
-      itemBgDark && "text-color-high"
+      underline && underline
     );
 
-    const parragraph = classNames(
-      "m-0 text-sm",
-      itemBgDark && "text-color-high"
-    );
+    const parragraph = classNames("m-0 text-sm");
 
     return { heading, container, parragraph };
   }

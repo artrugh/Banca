@@ -51,7 +51,11 @@ class SectionHeader extends Component<IProps> {
       className && className,
       sectionHeadingPaddingMargin && sectionHeadingPaddingMargin
     );
-    const heading = classNames("mt-0", data.paragraph ? "mb-16" : "mb-0");
+    const heading = classNames(
+      "heading",
+      "mt-0",
+      data.paragraph ? "mb-16" : "mb-0"
+    );
 
     return { container, heading };
   }

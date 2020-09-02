@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
 
-export interface IProps {
+interface IProps {
   children?: ReactNode;
   id?: string;
   name?: string;
@@ -12,7 +12,7 @@ export interface IProps {
   className?: string;
   [propName: string]: any;
 }
-export const DefaultProps: IProps = {
+const DefaultProps: IProps = {
   id: `${Math.random()}`,
   children: null,
   disabled: false,

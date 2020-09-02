@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
-import { Env, ItemBgDark, Underline } from "../../../common/enums";
+import { Env } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -31,21 +31,18 @@ class TestimonialItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { centerDivider, quote, underline, itemBgDark } = this.props;
+    const { centerDivider, quote, underline, bgColor } = this.props;
 
     const outer = classNames(
       "testimonial-item-avatar-container",
-      underline === Underline.centerUnderline && "has-center-underline",
-      underline === Underline.rightUnderline && "has-right-underline",
-      underline === Underline.leftUnderline && "has-left-underline",
+      underline && underline,
       centerDivider && "has-center-divider"
     );
 
     const container = classNames(
       "tiles-item testimonial-item reveal-from-right",
-      itemBgDark === ItemBgDark.heigh && "has-bg-dark-heigh m-24",
-      itemBgDark === ItemBgDark.medium && "has-bg-dark-medium m-24",
-      itemBgDark === ItemBgDark.low && "has-bg-dark-low m-24"
+      bgColor && bgColor,
+      "m-24"
     );
 
     const content = classNames(
@@ -54,15 +51,9 @@ class TestimonialItem extends Component<IProps> {
       quote && "has-quote"
     );
 
-    const parragraph = classNames(
-      "text-sm mb-0",
-      itemBgDark && "text-color-high"
-    );
+    const parragraph = classNames("text-sm mb-0");
 
-    const name = classNames(
-      "testimonial-item-name",
-      itemBgDark ? "text-color-high" : "text-color-low"
-    );
+    const name = classNames("testimonial-item-name");
 
     return { container, outer, content, parragraph, name };
   }

@@ -11,7 +11,7 @@ import {
   IPropsClasses,
   IPropsFeatureItem,
 } from "../../../common/interfacesProps";
-import { Headings, ColorLogo } from "../../../common/enums";
+import { Headings, BgColor } from "../../../common/enums";
 import {
   IProduct,
   ICareer,
@@ -27,7 +27,7 @@ import {
 // COMPONENTS
 import SectionTemplate from "../SectionHeaderTemplate/SectionHeaderTemplate";
 
-export interface IProps extends IPropsFeatureItem {
+interface IProps extends IPropsFeatureItem {
   children?: ReactElement;
   data: Array<IProduct | ITestimonial | ICareer | ITec | ITile | IClient | []>;
   config?: {
@@ -36,9 +36,8 @@ export interface IProps extends IPropsFeatureItem {
   };
 }
 
-export const DefaultProps: IProps = {
+const DefaultProps: IProps = {
   ...DefaultP,
-  colorLogo: ColorLogo.dark,
   pushLeft: false,
   wrapName: "tiles-wrap center-content",
   data: [],
@@ -74,12 +73,41 @@ class FeaturesTilesTemplate extends Component<IProps> {
     return { classes };
   }
 
+  public get Items(): JSX.Element[] {
+    const { bgColor, data, children } = this.props;
+
+    let bgColorLogo: string;
+
+    if (
+      bgColor === BgColor.darkHeigh ||
+      bgColor === BgColor.darkMedium ||
+      bgColor === BgColor.darkLow
+    ) {
+      bgColorLogo = "light";
+    } else {
+      bgColorLogo = "dark";
+    }
+
+    const Items: JSX.Element[] = data.map((item: { [key: string]: any }) => {
+      return cloneElement(children, {
+        item,
+        key: Math.random(),
+        src: `${item.src}${item.name}-${bgColorLogo}.svg`,
+        alt: "logo-" + item.name,
+        width: item.width,
+        height: item.height,
+      });
+    });
+
+    return Items;
+  }
+
   public render(): JSX.Element {
     const {
       id,
       data,
       heading,
-      hasBgColor,
+      bgColor,
       sectionHeadingPaddingMargin,
       className,
       wrapName,
@@ -93,16 +121,30 @@ class FeaturesTilesTemplate extends Component<IProps> {
       ...rest
     } = this.props;
 
-    const Items: JSX.Element[] = data.map((item: { [key: string]: any }) =>
-      cloneElement(children, {
-        item,
-        key: Math.random(),
-        src: `${item.src}${item.name}-${colorLogo}.svg`,
-        alt: "logo-" + item.name,
-        width: item.width,
-        height: item.height,
-      })
-    );
+    // const Items: JSX.Element[] = data.map((item: { [key: string]: any }) => {
+    //   const { bgColor } = this.props;
+
+    //   let logoColor: string;
+
+    //   if (
+    //     bgColor === BgColor.darkHeigh ||
+    //     bgColor === BgColor.darkMedium ||
+    //     bgColor === BgColor.darkLow
+    //   ) {
+    //     logoColor = "light";
+    //   } else {
+    //     logoColor = "dark";
+    //   }
+
+    //   return cloneElement(children, {
+    //     item,
+    //     key: Math.random(),
+    //     src: `${item.src}${item.name}-${colorLogo}.svg`,
+    //     alt: "logo-" + item.name,
+    //     width: item.width,
+    //     height: item.height,
+    //   });
+    // });
 
     return (
       <SectionTemplate
@@ -111,11 +153,11 @@ class FeaturesTilesTemplate extends Component<IProps> {
         tag={Headings.h2}
         config={config}
         className={className}
-        hasBgColor={hasBgColor}
+        bgColor={bgColor}
         sectionHeadingPaddingMargin={sectionHeadingPaddingMargin}
         id={id}
       >
-        <div className={this.classes.classes}>{Items}</div>
+        <div className={this.classes.classes}>{this.Items}</div>
       </SectionTemplate>
     );
   }

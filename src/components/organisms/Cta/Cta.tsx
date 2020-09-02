@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
 
 // STYLE
@@ -11,7 +11,12 @@ import {
   IPropsClasses,
   IPropsFeatureItem,
 } from "../../../common/interfacesProps";
-import { InputTypes, ItemBgDark, Color } from "../../../common/enums";
+import {
+  InputTypes,
+  BgColor,
+  Color,
+  CtaButtonType,
+} from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -19,16 +24,19 @@ import { InputTypes, ItemBgDark, Color } from "../../../common/enums";
 // COMPONENTS
 import Input from "../../molecules/Input/Input";
 import ButtonAnchor from "../../atoms/ButtonAnchor/ButtonAnchor";
+import Button from "../../atoms/Button/Button";
 
-export interface IProps extends IPropsFeatureItem {
-  itemBgDark?: ItemBgDark;
+interface IProps extends IPropsFeatureItem {
+  bgColorBox?: BgColor;
   split: boolean;
   color?: Color;
-  input?: boolean;
+  buttonType: CtaButtonType;
+  mail?: string;
 }
 
-export const DefaultProps: IProps = {
+const DefaultProps: IProps = {
   ...DefaultP,
+  buttonType: CtaButtonType.link,
   wrapName: "cta-inner section-inner",
   split: false,
   id: "",
@@ -50,37 +58,75 @@ class Cta extends Component<IProps> {
       topOuterDivider,
       bottomOuterDivider,
       topDivider,
-      itemBgDark,
+      bgColor,
       bottomDivider,
-      hasBgColor,
+      bgColorBox,
       invertColor,
       split,
     } = this.props;
 
     const outerClasses = classNames(
-      "cta section center-content-mobile reveal-from-bottom",
+      "cta section center-content-mobile",
       topOuterDivider && "has-top-divider",
       bottomOuterDivider && "has-bottom-divider",
-      hasBgColor && "has-bg-color",
+      bgColor && bgColor,
       invertColor && "invert-color",
       className
     );
 
     const innerClasses = classNames(
+      "reveal-from-bottom",
       wrapName,
       topDivider && "has-top-divider",
       bottomDivider && "has-bottom-divider",
       split && "cta-split",
-      itemBgDark === ItemBgDark.heigh && "has-bg-dark-heigh",
-      itemBgDark === ItemBgDark.medium && "has-bg-dark-medium",
-      itemBgDark === ItemBgDark.low && "has-bg-dark-low"
+      bgColorBox && bgColorBox
     );
 
     return { outerClasses, innerClasses };
   }
 
+  private get button(): ReactNode {
+    const { buttonType, color, mail } = this.props;
+
+    if (buttonType === CtaButtonType.input) {
+      return (
+        <Input
+          id="newsletter"
+          type={InputTypes.email}
+          label="Subscribe"
+          labelHidden
+          hasIcon="right"
+          placeholder="Your best email"
+        >
+          <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z"
+              fill="#376DF9"
+            />
+          </svg>
+        </Input>
+      );
+    }
+
+    if (buttonType === CtaButtonType.link) {
+      return <ButtonAnchor href="/contact" color={color} />;
+    }
+
+    if (buttonType === CtaButtonType.mail) {
+      return (
+        <a href={`mailto:${mail}`}>
+          <Button color={color} />
+        </a>
+      );
+    }
+
+    return null;
+  }
+
   public render(): JSX.Element {
     const {
+      children,
       id,
       className,
       wrapName,
@@ -88,11 +134,11 @@ class Cta extends Component<IProps> {
       bottomOuterDivider,
       topDivider,
       bottomDivider,
-      hasBgColor,
+      bgColorBox,
       color,
       invertColor,
-      itemBgDark,
-      input,
+      bgColor,
+      buttonType,
       split,
       ...rest
     } = this.props;
@@ -100,34 +146,12 @@ class Cta extends Component<IProps> {
     return (
       <section {...rest} className={this.classes.outerClasses} id={id}>
         <div className="container">
-          <div className={this.classes.innerClasses}>
-            <div className="cta-slogan">
-              <h3 className="m-0 text-color-high">Contact us to work on it!</h3>
-            </div>
-            <div className="cta-action">
-              {input ? (
-                <Input
-                  id="newsletter"
-                  type={InputTypes.email}
-                  label="Subscribe"
-                  labelHidden
-                  hasIcon="right"
-                  placeholder="Your best email"
-                >
-                  <svg
-                    width="16"
-                    height="12"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z"
-                      fill="#376DF9"
-                    />
-                  </svg>
-                </Input>
-              ) : (
-                <ButtonAnchor href="/contact" color={color} />
-              )}
+          <div className="section-inner">
+            <div className={this.classes.innerClasses}>
+              <div className="cta-slogan">
+                <h3 className="m-0 text-color-high">{children}</h3>
+              </div>
+              <div className="cta-action">{this.button}</div>
             </div>
           </div>
         </div>

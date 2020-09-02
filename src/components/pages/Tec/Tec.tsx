@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-
+import { BgColor } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -27,17 +27,31 @@ class Tec extends Component {
           id="scroll-behavior-hero-statement-color-pages"
           className="loaded-none"
         />
-        <FeatureTilesTemplate
+        {/* <FeatureTilesTemplate
           data={tec}
           heading={tecHeading}
           config={tecConfig.heading}
           sectionHeadingPaddingMargin="p-0"
-          hasBgColor
+          bgColor={BgColor.lightHeigh}
           id="tec-tools"
         >
           <Image
             className="m-48"
             containerClassName="images-item-container p-32"
+          />
+        </FeatureTilesTemplate> */}
+        <FeatureTilesTemplate
+          data={tec}
+          heading={tecHeading}
+          config={tecConfig.heading}
+          sectionHeadingPaddingMargin="p-0"
+          bgColor={BgColor.lightHeigh}
+          id="tec"
+        >
+          <Image
+            className="m-32"
+            containerClassName="images-item-container p-32"
+            animationHover
           />
         </FeatureTilesTemplate>
       </>

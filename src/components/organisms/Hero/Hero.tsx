@@ -38,7 +38,7 @@ class Hero extends Component<IProps, State> {
       bottomOuterDivider,
       topDivider,
       bottomDivider,
-      hasBgColor,
+      bgColor,
       invertColor,
       className,
     } = this.props;
@@ -47,7 +47,7 @@ class Hero extends Component<IProps, State> {
       "hero section center-content",
       topOuterDivider && "has-top-divider",
       bottomOuterDivider && "has-bottom-divider",
-      hasBgColor && "has-bg-color",
+      bgColor && bgColor,
       invertColor && "invert-color",
       className
     );
@@ -91,7 +91,7 @@ class Hero extends Component<IProps, State> {
       bottomOuterDivider,
       topDivider,
       bottomDivider,
-      hasBgColor,
+      bgColor,
       invertColor,
       className,
       ...rest

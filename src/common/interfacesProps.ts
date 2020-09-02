@@ -1,12 +1,5 @@
 import { ReactNode } from "react";
-import {
-  InputTypes,
-  Reveal,
-  Size,
-  ItemBgDark,
-  Underline,
-  Color,
-} from "./enums";
+import { InputTypes, Reveal, Size, BgColor, Underline, Color } from "./enums";
 
 export interface IPropsInput {
   children?: ReactNode;
@@ -38,7 +31,7 @@ export interface IPropsButton {
   wideMobile?: boolean;
   reveal?: Reveal;
   disabled?: boolean;
-  children?: string;
+  children?: ReactNode;
   className?: string;
   href?: string;
   [index: string]: any;
@@ -48,7 +41,7 @@ export interface IPropsButton {
 export interface IPropsOuter {
   topOuterDivider?: boolean;
   bottomOuterDivider?: boolean;
-  hasBgColor?: boolean;
+  bgColor?: BgColor;
   invertColor?: boolean;
 }
 
@@ -62,7 +55,7 @@ export interface IPropsOuterInner extends IPropsOuter, IPropsInner {}
 
 // SECCION + CONTAINER
 export interface IPropsItem {
-  itemBgDark?: ItemBgDark;
+  bgColor?: BgColor;
   padding?: string;
   underline?: Underline;
   className?: string;
@@ -71,6 +64,7 @@ export interface IPropsItem {
 }
 
 export interface IPropsFeatureItem extends IPropsOuterInner {
+  children?: ReactNode;
   heading?: {
     title: string;
     paragraph: string;
@@ -83,6 +77,7 @@ export interface IPropsFeatureItem extends IPropsOuterInner {
   className?: string;
   pushLeft?: boolean;
   colorLogo?: "dark" | "light";
+  bgColor?: BgColor;
   id: string;
 }
 
@@ -95,6 +90,5 @@ export const DefaultP: IPropsOuterInner = {
   bottomOuterDivider: false,
   topDivider: false,
   bottomDivider: false,
-  hasBgColor: false,
   invertColor: false,
 };

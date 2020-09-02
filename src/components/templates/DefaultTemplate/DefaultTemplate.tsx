@@ -7,7 +7,7 @@ import Head from "next/head";
 // BASE CLASS
 
 // COMMON
-import { Size, ItemBgDark, Underline } from "../../../common/enums";
+import { Size, BgColor, Underline } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -38,14 +38,16 @@ class DefaultTemplate extends Component<IProps> {
         <Head>
           <title>ArturoRugh {pageTitle ? `| ${pageTitle}` : ""}</title>
         </Head>
-        <CookiesModal itemBgDark={ItemBgDark.medium} />
+        <CookiesModal bgColor={BgColor.darkMedium} />
         <Header
           containerSize={Size.big}
           navPosition="right"
           hideSignin
           underline={Underline.leftUnderline}
         />
-        <main className="site-content">{children}</main>
+        <main id="main" className="site-content">
+          {children}
+        </main>
         <Footer pathname={pathname} />
       </>
     );

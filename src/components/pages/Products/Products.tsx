@@ -6,13 +6,13 @@ import React, { Component } from "react";
 
 // COMMON
 import { IProduct } from "../../../common/interfaces";
-import { Underline } from "../../../common/enums";
+import { Underline, BgColor } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
-import FeaturesTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
+import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
 // DATA
 import { productsHeading } from "../../../data/staticData/staticDataHeadings";
@@ -36,22 +36,25 @@ class Products extends Component<IProps> {
           id="scroll-behavior-hero-statement-color-pages"
           className="loaded-none"
         />
-        <FeaturesTilesTemplate
+        <FeatureTilesTemplate
           data={products}
           heading={productsHeading}
-          config={splitConfig.heading}
           invertMobile
           className="illustration-section-02"
+          config={splitConfig.heading}
           wrapName="split-wrap"
           id="products"
+          bgColor={BgColor.darkLow}
         >
           <SplitItem
             delay={0}
             imageFill
             config={splitConfig.items}
             underline={Underline.centerUnderline}
+            animationHover
+            bgColor={BgColor.darkLow}
           />
-        </FeaturesTilesTemplate>
+        </FeatureTilesTemplate>
       </>
     );
   }

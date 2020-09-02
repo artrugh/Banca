@@ -13,8 +13,8 @@ import { IPropsClasses } from "../../../common/interfacesProps";
 
 // COMPONENTS
 import Logo from "../../atoms/Logo/Logo";
-import FooterNav from "../../molecules/FooterNav/FooterNav";
 import FooterSocial from "../../molecules/FooterSocial/FooterSocial";
+import Nav from "../../molecules/Nav/Nav";
 
 interface IProps {
   pathname?: string;
@@ -67,11 +67,15 @@ class Footer extends Component<IProps> {
         <div className="container">
           <div className={this.classes.innerClasses}>
             <div className="footer-top space-between text-xxs">
-              <Logo pathname={pathname} />
+              <Logo pathname={pathname} footer />
               <FooterSocial />
             </div>
             <div className="footer-bottom space-between text-xxs invert-order-desktop">
-              <FooterNav />
+              <nav className="footer-nav">
+                <ul className="list-reset">
+                  <Nav />
+                </ul>
+              </nav>
               <div className="footer-copyright">
                 Made by{" "}
                 <a
@@ -81,7 +85,7 @@ class Footer extends Component<IProps> {
                 >
                   Arturo Rugh
                 </a>
-                {` ©`}
+                {` © 2020`}
               </div>
             </div>
           </div>

@@ -8,10 +8,10 @@ import React, { Component } from "react";
 import { IData } from "../../../common/interfaces";
 import {
   Size,
-  ItemBgDark,
+  BgColor,
   Underline,
   Color,
-  ColorLogo,
+  CtaButtonType,
 } from "../../../common/enums";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
 // HELPERS
@@ -58,12 +58,16 @@ export default class Home extends Component<IData> {
   }
 
   public render(): JSX.Element {
-    const { products, testimonial, career } = this.props;
+    const { products, testimonial, careers } = this.props;
 
     return (
       <>
         {/* <Hero className="illustration-section-01" /> */}
-        <HeroTyped hasCleaner colorArrow={Color.primary} />
+        <HeroTyped
+          bgColor={BgColor.darkHeigh}
+          hasCleaner
+          colorArrow={Color.primary}
+        />
         {/* <HeroScrollable
           className="reveal-scale-down"
           containerSize={Size.big}
@@ -71,7 +75,7 @@ export default class Home extends Component<IData> {
           height="100vh"
         /> */}
         <FeatureTilesTemplate
-          hasBgColor
+          bgColor={BgColor.lightHeigh}
           data={tiles}
           heading={tileHeading}
           config={tilesConfig.heading}
@@ -91,6 +95,7 @@ export default class Home extends Component<IData> {
           config={splitConfig.heading}
           wrapName="split-wrap"
           id="products"
+          bgColor={BgColor.darkHeigh}
         >
           <SplitItem
             delay={0}
@@ -101,52 +106,53 @@ export default class Home extends Component<IData> {
           />
         </FeatureTilesTemplate>
 
-        {/* <FeatureTilesTemplate
+        <FeatureTilesTemplate
           data={testimonial}
           heading={testimonialHeading}
           config={testimonialConfig.heading}
-          hasBgColor
+          bgColor={BgColor.lightHeigh}
           id="testimonial"
         >
           <TestimonialItem
             underline={Underline.centerUnderline}
             config={testimonialConfig.items}
-            itemBgDark={ItemBgDark.medium}
+            bgColor={BgColor.darkMedium}
             delay={0}
           />
-        </FeatureTilesTemplate> */}
-        {/* <FeatureTilesTemplate
+        </FeatureTilesTemplate>
+        <FeatureTilesTemplate
           data={clients}
           heading={clientHeading}
           config={clientsConfig.heading}
           sectionHeadingPaddingMargin="p-0"
           id="clients"
-          colorLogo={ColorLogo.light}
+          bgColor={BgColor.darkHeigh}
         >
           <Image
             className="p-32"
             containerClassName="images-item-container p-32"
           />
-        </FeatureTilesTemplate> */}
-        {/* <FeatureTilesTemplate
-          data={career}
+        </FeatureTilesTemplate>
+        <FeatureTilesTemplate
+          data={careers}
           heading={careerHeading}
           className="illustration-section-02"
           config={careerConfig.heading}
           id="careers"
+          bgColor={BgColor.lightHeigh}
         >
           <KeyboardItem
             config={careerConfig.items}
             underline={Underline.centerUnderline}
             delay={0}
           />
-        </FeatureTilesTemplate> */}
+        </FeatureTilesTemplate>
         <FeatureTilesTemplate
           data={tec}
           heading={tecHeading}
           config={tecConfig.heading}
           sectionHeadingPaddingMargin="p-0"
-          hasBgColor
+          bgColor={BgColor.lightHeigh}
           id="tec"
         >
           <Image
@@ -157,11 +163,15 @@ export default class Home extends Component<IData> {
         </FeatureTilesTemplate>
         <Cta
           split
-          hasBgColor
-          itemBgDark={ItemBgDark.medium}
+          bgColor={BgColor.lightHeigh}
+          bgColorBox={BgColor.darkMedium}
           color={Color.secondary}
+          buttonType={CtaButtonType.mail}
+          mail="arturo.rugh@gmail.com"
           id="cta"
-        />
+        >
+          Get in contact to work together!
+        </Cta>
       </>
     );
   }

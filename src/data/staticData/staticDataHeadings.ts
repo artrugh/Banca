@@ -27,13 +27,13 @@ export const careerHeading: IHeading = {
 };
 
 export const clientHeading: IHeading = {
-  title: "Referenzen",
+  title: "Clients",
   paragraph:
     "Ein Auszug von Firmen welche auf die Expertise unserer Teams setzen",
 };
 
 export const tecHeading: IHeading = {
-  title: "Unsere Tec Tools",
+  title: "Tec-Tools",
   paragraph: "Flexibility and fast results for your digital business model",
 };
 

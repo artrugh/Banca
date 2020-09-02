@@ -37,6 +37,7 @@
 
   .tiles-item {
     flex-basis: $testimonial-item--width;
+    border-radius: $img-radius;
     // max-width: $testimonial-item--width;
     @if ($testimonial-items--padding__mobile != null) {
       padding: $testimonial-items--padding__mobile / 2;

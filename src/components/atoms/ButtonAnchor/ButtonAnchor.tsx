@@ -47,7 +47,6 @@ class ButtonAnchor extends Component<IPropsButton> {
       className,
       children,
       href,
-      ...rest
     } = this.props;
 
     return (

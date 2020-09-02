@@ -1,5 +1,4 @@
-import React, { Component, createRef, KeyboardEvent, ReactNode } from "react";
-// import Link from "next/link";
+import React, { Component, createRef, KeyboardEvent } from "react";
 import classNames from "classnames";
 
 // STYLE
@@ -8,22 +7,20 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
-import { IHeader } from "../../../common/interfaces";
 import { IEventHandler } from "../../../common/interfacesEvents";
-import { Size, Underline, HeaderItemType } from "../../../common/enums";
+import { Size, Underline } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 import { ScrollManagerDisplayer } from "../../../utils/ScrollManagerDisplayer";
 // COMPONENTS
+import Nav from "../../molecules/Nav/Nav";
 import Logo from "../../atoms/Logo/Logo";
-import ButtonLanguage from "../../atoms/ButtonLanguage/ButtonLanguage";
 import Link from "../../atoms/Link/Link";
-import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 // DATA
 import { headerData } from "../../../data/staticData/staticDataHeader";
 
-export interface IProps {
+interface IProps {
   navPosition?: string;
   underline?: Underline;
   hideNav?: boolean;
@@ -35,7 +32,7 @@ export interface IProps {
   [propName: string]: any;
 }
 
-export const DefaultProps: IProps = {
+const DefaultProps: IProps = {
   navPosition: "",
   hideNav: false,
   hideSignin: false,
@@ -54,7 +51,7 @@ class Header extends Component<IProps, State> {
   private nav = createRef<HTMLElement>();
   private hamburger = createRef<HTMLButtonElement>();
 
-  public constructor(props: Readonly<IProps>, public state: State) {
+  public constructor(props: IProps, public state: State) {
     super(props);
     this.state = { isActive: false };
   }
@@ -73,7 +70,7 @@ class Header extends Component<IProps, State> {
     ScrollManagerDisplayer("scroll-behaviour-cookies");
     ScrollManagerDisplayer("scroll-behavior-hero-statement-color");
 
-    document.addEventListener("keydown", this.handleKeyPress);
+    document.addEventListener("keydown", this.handlerKeyPress);
     document.addEventListener("click", this.handleClickOutside);
   }
 
@@ -120,12 +117,7 @@ class Header extends Component<IProps, State> {
       navPosition && `header-nav-${navPosition}`
     );
 
-    const anchor = classNames(
-      "header-nav-toggle",
-      underline === Underline.centerUnderline && "has-center-underline",
-      underline === Underline.rightUnderline && "has-right-underline",
-      underline === Underline.leftUnderline && "has-left-underline"
-    );
+    const anchor = classNames("header-nav-toggle", underline && underline);
 
     return { header, container, inner, nav, ul, anchor };
   }
@@ -146,7 +138,7 @@ class Header extends Component<IProps, State> {
     this.setState({ isActive: false });
   };
 
-  private handleKeyPress: IEventHandler<Event | KeyboardEvent> = (
+  private handlerKeyPress: IEventHandler<Event | KeyboardEvent> = (
     e: KeyboardEvent
   ): void => {
     const { keyCode } = e;
@@ -185,60 +177,9 @@ class Header extends Component<IProps, State> {
       ...rest
     } = this.props;
 
-    const listItems: Array<ReactNode> | void = headerData.map((li: any) => {
-      let item: ReactNode;
-
-      if (li.role === HeaderItemType.button) {
-        item = (
-          <li>
-            <Link href={`/${li.title}`} activeClassName="active-link">
-              <a
-                role="button"
-                onKeyDown={this.handleCloseMenu}
-                onClick={this.handleCloseMenu}
-                tabIndex={0}
-                className={this.classes.anchor}
-              >
-                {li.title}
-              </a>
-            </Link>
-          </li>
-        );
-      } else if (li.role === HeaderItemType.anchor) {
-        item = (
-          <li>
-            <SmoothScroll className="header-smooth-scroll" to={li.title}>
-              <a
-                role="button"
-                onKeyDown={this.handleCloseMenu}
-                onClick={this.handleCloseMenu}
-                tabIndex={0}
-                className={this.classes.anchor}
-              >
-                {li.title}
-              </a>
-            </SmoothScroll>
-          </li>
-        );
-      } else if (li.role === HeaderItemType.checkbox) {
-        item = (
-          <li className="button-lang">
-            <ButtonLanguage
-              id="button-language"
-              className="button button-dark button-wide-mobile button-sm"
-              dataOn={li.on}
-              dataOff={li.off}
-            />
-          </li>
-        );
-      }
-
-      return item;
-    });
-
     return (
       <header {...rest} className={this.classes.header}>
-        <div className={this.classes.container}>
+        <div className={this.classes.container} id="header">
           <div className={this.classes.inner}>
             <Logo />
             {!hideNav && (
@@ -262,65 +203,11 @@ class Header extends Component<IProps, State> {
                 <nav ref={this.nav} className={this.classes.nav}>
                   <div className="header-nav-inner">
                     <ul className={this.classes.ul}>
-                      {listItems}
-                      {/* <li>
-                        <Link href="/contact" activeClassName="active-link">
-                          <a
-                            role="button"
-                            onKeyDown={this.handleCloseMenu}
-                            onClick={this.handleCloseMenu}
-                            tabIndex={0}
-                            className={this.classes.anchor}
-                          >
-                            Contact
-                          </a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/career" activeClassName="active-link">
-                          <a
-                            role="button"
-                            onKeyDown={this.handleCloseMenu}
-                            onClick={this.handleCloseMenu}
-                            tabIndex={0}
-                            className={this.classes.anchor}
-                          >
-                            Career
-                          </a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/products" activeClassName="active-link">
-                          <a
-                            role="button"
-                            onKeyDown={this.handleCloseMenu}
-                            onClick={this.handleCloseMenu}
-                            tabIndex={0}
-                            className={this.classes.anchor}
-                          >
-                            Products
-                          </a>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/tec" activeClassName="active-link">
-                          <a
-                            role="button"
-                            onKeyDown={this.handleCloseMenu}
-                            onClick={this.handleCloseMenu}
-                            tabIndex={0}
-                            className={this.classes.anchor}
-                          >
-                            Tec
-                          </a>
-                        </Link>
-                      </li>
-                      <li className="button-lang">
-                        <ButtonLanguage
-                          id="button-language"
-                          className="button button-dark button-wide-mobile button-sm"
-                        />
-                      </li> */}
+                      <Nav
+                        classesAnchor={this.classes.anchor}
+                        handlerOnClick={this.handleCloseMenu}
+                        withLeng
+                      />
                     </ul>
                     {!hideSignin && (
                       <ul className="list-reset header-nav-right">

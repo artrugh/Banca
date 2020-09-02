@@ -20,7 +20,7 @@ import checkLenghPropsData from "../../../utils/checkLenghPropsData";
 // COMPONENTS
 import SectionHeader from "../../molecules/SectionHeader/SectionHeader";
 
-export interface IProps extends IPropsOuter, IPropsInner {
+interface IProps extends IPropsOuter, IPropsInner {
   children?: ReactNode;
   id: string;
   sectionHeaderData: { title: string; paragraph: string };
@@ -32,7 +32,7 @@ export interface IProps extends IPropsOuter, IPropsInner {
   config?: { title: number[]; paragraph?: number[] };
 }
 
-export const DefaultProps: IProps = {
+const DefaultProps: IProps = {
   ...DefaultP,
   sectionHeaderData: {
     title: "Hey You, write a title here!",
@@ -66,8 +66,7 @@ class SectionTemplate extends Component<IProps> {
       className,
       topOuterDivider,
       bottomOuterDivider,
-      sectionHeadingPaddingMargin,
-      hasBgColor,
+      bgColor,
       invertColor,
       topDivider,
       bottomDivider,
@@ -82,7 +81,7 @@ class SectionTemplate extends Component<IProps> {
       `${id} section`,
       topOuterDivider && "has-top-divider",
       bottomOuterDivider && "has-bottom-divider",
-      hasBgColor && "has-bg-color",
+      bgColor && bgColor,
       invertColor && "invert-color"
     );
 
@@ -107,7 +106,7 @@ class SectionTemplate extends Component<IProps> {
       bottomOuterDivider,
       topDivider,
       bottomDivider,
-      hasBgColor,
+      bgColor,
       invertColor,
       padding,
       sectionHeaderData,

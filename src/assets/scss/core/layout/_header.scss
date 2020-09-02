@@ -177,7 +177,6 @@
         text-align: center;
 
         a:not(.button) {
-          // display: inline-flex;
           @include anchor-aspect(header-mobile);
           padding-top: $header-nav--padding-v__mobile / 2;
           padding-bottom: $header-nav--padding-v__mobile / 2;

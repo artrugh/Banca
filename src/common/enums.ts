@@ -50,6 +50,12 @@ export enum InputTypes {
   checkbox = "checkbox",
 }
 
+export enum CtaButtonType {
+  input = "input",
+  mail = "mail",
+  link = "link",
+}
+
 export enum ScrollPosition {
   rightLeft = "right-left",
   leftRight = "left-right",
@@ -61,10 +67,14 @@ export enum Env {
   test = "test",
 }
 
-export enum ItemBgDark {
-  heigh = "heigh",
-  medium = "medium",
-  low = "low",
+export enum BgColor {
+  darkHeigh = "has-bg-dark-heigh",
+  darkMedium = "has-bg-dark-medium",
+  darkLow = "has-bg-dark-low",
+  lightHeigh = "has-bg-light-heigh",
+  lightMedium = "has-bg-light-medium",
+  lightLow = "has-bg-light-low",
+  transparent = "has-bg-transparent",
 }
 
 export enum Underline {
@@ -102,13 +112,14 @@ export enum ClientName {
   audi = "audi",
 }
 
-export enum ColorLogo {
-  light = "light",
-  dark = "dark",
-}
-
 export enum HeaderItemType {
   button = "button",
   checkbox = "checkbox",
   anchor = "anchor",
+}
+
+export enum Social {
+  vimeo = "vimeo",
+  gitHub = "github",
+  linkedIn = "linkedin",
 }
