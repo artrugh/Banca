@@ -101,7 +101,7 @@ export default class Home extends Component<IData> {
           />
         </FeatureTilesTemplate>
 
-        <FeatureTilesTemplate
+        {/* <FeatureTilesTemplate
           data={testimonial}
           heading={testimonialHeading}
           config={testimonialConfig.heading}
@@ -114,8 +114,8 @@ export default class Home extends Component<IData> {
             itemBgDark={ItemBgDark.medium}
             delay={0}
           />
-        </FeatureTilesTemplate>
-        <FeatureTilesTemplate
+        </FeatureTilesTemplate> */}
+        {/* <FeatureTilesTemplate
           data={clients}
           heading={clientHeading}
           config={clientsConfig.heading}
@@ -127,14 +127,8 @@ export default class Home extends Component<IData> {
             className="p-32"
             containerClassName="images-item-container p-32"
           />
-        </FeatureTilesTemplate>
-        <Cta
-          split
-          itemBgDark={ItemBgDark.medium}
-          color={Color.secondary}
-          id="cta"
-        />
-        <FeatureTilesTemplate
+        </FeatureTilesTemplate> */}
+        {/* <FeatureTilesTemplate
           data={career}
           heading={careerHeading}
           className="illustration-section-02"
@@ -146,7 +140,7 @@ export default class Home extends Component<IData> {
             underline={Underline.centerUnderline}
             delay={0}
           />
-        </FeatureTilesTemplate>
+        </FeatureTilesTemplate> */}
         <FeatureTilesTemplate
           data={tec}
           heading={tecHeading}
@@ -156,11 +150,18 @@ export default class Home extends Component<IData> {
           id="tec"
         >
           <Image
-            className="m-48"
+            className="m-32"
             containerClassName="images-item-container p-32"
             animationHover
           />
         </FeatureTilesTemplate>
+        <Cta
+          split
+          hasBgColor
+          itemBgDark={ItemBgDark.medium}
+          color={Color.secondary}
+          id="cta"
+        />
       </>
     );
   }

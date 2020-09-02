@@ -23,6 +23,7 @@ import {
 
 // COMPONENTS
 import HeadingTyped from "../../atoms/HeadingTyped/HeadingTyped";
+import Heading from "../../atoms/Heading/Heading";
 import Arrow from "../../atoms/Arrow/Arrow";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
@@ -91,10 +92,19 @@ export default class HeroTyped extends Component<IProps> {
                 tag={Headings.h1}
                 isTyped
                 dataTypedSpeed={DataTypedSpeed.fast}
-                dataStr="We combine our tecnical expertise with know-how."
+                dataStr="The Fusion of Ideas, Art and Technology."
                 dataTypedDelay={1000}
                 hasCleaner={hasCleaner}
               >
+                <Heading
+                  classNameContainer="hero-about mt-48"
+                  classNameHeading="mt-0 mb-0"
+                  tag={Headings.h3}
+                  // scrollPosition={ScrollPosition.rightLeft}
+                >
+                  - combining technical expertise, cross-industry, know-how to
+                  lead you to success -
+                </Heading>
                 <SmoothScroll to="features-tiles">
                   <Arrow
                     className="hero-arrow"

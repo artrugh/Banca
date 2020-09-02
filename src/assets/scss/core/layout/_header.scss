@@ -3,8 +3,9 @@
   top: 0;
   width: 100%;
   z-index: 10;
+  background: color-bg(header-dark);
+
   @include vendor-prefix(transition, 0.3s all linear);
-  background-color: transparent;
 
   + .site-content {
     .section:first-of-type {
@@ -23,6 +24,27 @@
     width: 120px;
     height: 30px;
     @include vendor-prefix(transition, 0.3s all linear);
+  }
+
+  a {
+    svg {
+      fill: color-icon(logo);
+      @include vendor-prefix(transition, fill 0.15s ease);
+
+      .invert-color & {
+        fill: color-icon(social-inverse);
+      }
+    }
+
+    &:hover {
+      svg {
+        fill: color-icon(logo-hover);
+
+        .invert-color & {
+          fill: color-icon(social-hover-inverse);
+        }
+      }
+    }
   }
 }
 
@@ -48,18 +70,15 @@
     white-space: nowrap;
     margin-bottom: 0;
 
-    &:first-of-type {
-      flex-wrap: wrap;
-    }
+    // &:first-of-type {
+    //   flex-wrap: wrap;
+    // }
   }
 
   li {
     + .header-button {
       margin-left: $header-nav--padding-h;
     }
-
-    position: relative;
-    bottom: -2px;
   }
 
   a:not(.button) {
@@ -134,11 +153,15 @@
       right: 0;
       top: 100%;
       z-index: 9999;
-      background: color-bg(menu-mobile);
+      background: color-bg(header-dark);
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      @include vendor-prefix(transition, #{max-height 0.25s ease-in-out, opacity 0.15s});
+      @include vendor-prefix(
+        transition,
+        #{max-height 0.25s ease-in-out,
+        opacity 0.15s}
+      );
 
       &.is-active {
         opacity: 1;

@@ -73,7 +73,7 @@ class SplitItem extends Component<IProps> {
       return null;
     }
 
-    const anchorClassName = `text-xxs text-color-${textColor} fw-600 tt-u`;
+    const anchorClassName = `text-xxs text-color-${textColor} fw-600 tt-u mr-24`;
     const anchor = (
       <div className="mb-8">
         <a href={Object.values(obj)[0]} target="_blank" rel="noreferrer">
@@ -85,7 +85,7 @@ class SplitItem extends Component<IProps> {
     return anchor;
   }
 
-  private divElement(
+  private pElement(
     obj: { [key: string]: string | boolean },
     textColor: string
   ): JSX.Element | null {
@@ -93,24 +93,24 @@ class SplitItem extends Component<IProps> {
       return null;
     }
 
-    const divClassName = `mb-8 text-xxs text-color-${textColor} fw-600 tt-u`;
-    let div: JSX.Element;
+    const pClassName = `mb-8 text-xxs text-color-${textColor} fw-600 tt-u mr-24`;
+    let p: JSX.Element;
 
     if (Object.values(obj)[0] === false) {
-      div = <div className={divClassName}>in progress</div>;
+      p = <p className={pClassName}>in progress</p>;
 
-      return div;
+      return p;
     }
 
     if (Object.values(obj)[0] === true) {
-      div = <div className={divClassName}>launched</div>;
+      p = <p className={pClassName}>launched</p>;
 
-      return div;
+      return p;
     }
 
-    div = <div className={divClassName}>{Object.values(obj)[0]}</div>;
+    p = <p className={pClassName}>{Object.values(obj)[0]}</p>;
 
-    return div;
+    return p;
   }
 
   public render(): JSX.Element {
@@ -147,16 +147,20 @@ class SplitItem extends Component<IProps> {
           data-reveal-container=".split-item"
           data-reveal-delay={`${delay * 200}`}
         >
-          {this.divElement({ status }, "high")}
-          {this.divElement({ subtitle }, "primary")}
-          {this.anchorElement({ link }, "primary")}
-          {this.anchorElement({ repository }, "primary")}
+          <div className="links has-inline-flex">
+            {this.pElement({ status }, "primary")}
+            {this.anchorElement({ link }, "secondary")}
+            {this.anchorElement({ repository }, "secondary")}
+          </div>
+          {this.pElement({ subtitle }, "high")}
           <h3 className="mt-12 mb-12">{title}</h3>
           <p className="m-0 mb-32">{description}</p>
           <div className="logo-tec-box">{listTectools}</div>
         </div>
         <div className={this.classes.image} data-reveal-container=".split-item">
-          <Image src={`./images/products/${image}`} alt={alt} width={528} />
+          <a href={link} target="_blank" rel="noreferrer">
+            <Image src={`./images/products/${image}`} alt={alt} width={528} />
+          </a>
         </div>
       </div>
     );

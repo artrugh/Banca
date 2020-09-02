@@ -1,37 +1,46 @@
 .hero-typed {
-    height: 100vh;
+  height: 100vh;
 
+  .hero {
+    &-inner {
+      margin-top: 10vh;
+    }
+
+    &-arrow-container {
+      text-align: center;
+      margin-top: 5rem;
+      opacity: 0;
+      @include vendor-prefix(transition, opacity 0.8s linear);
+    }
+
+    &-about {
+      opacity: 0;
+      @include vendor-prefix(transition, opacity 1.5s linear 1s);
+    }
+
+    &-arrow {
+      padding: 0.7rem;
+    }
+
+    &-statement.clean-typed ~ a .hero-arrow-container {
+      opacity: 1;
+    }
+
+    &-statement.clean-typed ~ .hero-about {
+      opacity: 1;
+    }
+  }
+
+  @include media(">medium") {
     .hero {
-        &-inner {
-            margin-top: 15vh;
-        }
+      &-arrow-container {
+        display: block;
+        margin-top: 2rem;
+      }
 
-        &-arrow-container {
-            text-align: center;
-            margin-top: 5rem;
-            opacity: 0;
-            @include vendor-prefix(transition, all 0.8s);
-        }
-
-        &-arrow {
-            padding: 0.7rem;
-        }
-
-        &-statement.clean-typed ~ a .hero-arrow-container {
-            opacity: 1;
-        }
+      &-arrow {
+        float: right;
+      }
     }
-
-    @include media(">medium") {
-        .hero {
-            &-arrow-container {
-                display: block;
-                margin-top: 2rem;
-            }
-
-            &-arrow {
-                float: right;
-            }
-        }
-    }
+  }
 }

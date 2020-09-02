@@ -47,14 +47,11 @@
 
 // Anchor aspect
 @mixin anchor-aspect($type: "main", $layout: false) {
-  @if ($type=="main") {
-
+  @if ($type== "main") {
     // Base
-    @if ($layout=="inverse") {
+    @if ($layout== "inverse") {
       color: color(link-inverse);
-    }
-
-    @else {
+    } @else {
       color: color(link);
     }
 
@@ -62,25 +59,19 @@
 
     &:hover,
     &:active {
-      @if ($layout=="inverse") {
+      @if ($layout== "inverse") {
         color: color(link-hover-inverse);
-      }
-
-      @else {
+      } @else {
         color: color(link-hover);
       }
 
       outline: 0;
       text-decoration: $link-main--decoration-hover;
     }
-  }
-
-  @else if ($type=="header") {
-    @if ($layout=="inverse") {
+  } @else if ($type== "header") {
+    @if ($layout== "inverse") {
       color: color(header-link-inverse);
-    }
-
-    @else {
+    } @else {
       color: color(header-link);
     }
 
@@ -88,33 +79,25 @@
 
     &:hover,
     &:active {
-      @if ($layout=="inverse") {
+      @if ($layout== "inverse") {
         color: color(header-link-hover-inverse);
-      }
-
-      @else {
+      } @else {
         color: color(header-link-hover);
       }
 
       text-decoration: $link-header--decoration-hover;
     }
-  }
-
-  @else if ($type=="header-mobile") {
+  } @else if ($type== "header-mobile") {
     color: color(header-link-mobile);
 
     &:hover,
     &:active {
       color: color(header-link-mobile-hover);
     }
-  }
-
-  @else if ($type=="footer") {
-    @if ($layout=="inverse") {
+  } @else if ($type== "footer") {
+    @if ($layout== "inverse") {
       color: color(footer-link-inverse);
-    }
-
-    @else {
+    } @else {
       color: color(footer-link);
     }
 
@@ -122,24 +105,18 @@
 
     &:hover,
     &:active {
-      @if ($layout=="inverse") {
+      @if ($layout== "inverse") {
         color: color(footer-link-hover-inverse);
-      }
-
-      @else {
+      } @else {
         color: color(footer-link-hover);
       }
 
       text-decoration: $link-footer--decoration-hover;
     }
-  }
-
-  @else if ($type=="footer-block") {
-    @if ($layout=="inverse") {
+  } @else if ($type== "footer-block") {
+    @if ($layout== "inverse") {
       color: color(footer-block-link-inverse);
-    }
-
-    @else {
+    } @else {
       color: color(footer-block-link);
     }
 
@@ -147,24 +124,18 @@
 
     &:hover,
     &:active {
-      @if ($layout=="inverse") {
+      @if ($layout== "inverse") {
         color: color(footer-block-link-hover-inverse);
-      }
-
-      @else {
+      } @else {
         color: color(footer-block-link-hover);
       }
 
       text-decoration: $link-footer-block--decoration-hover;
     }
-  }
-
-  @else if ($type=="button-link") {
-    @if ($layout=="inverse") {
+  } @else if ($type== "button-link") {
+    @if ($layout== "inverse") {
       color: color(button-link-inverse);
-    }
-
-    @else {
+    } @else {
       color: color(button-link);
     }
 
@@ -172,24 +143,18 @@
 
     &:hover,
     &:active {
-      @if ($layout=="inverse") {
+      @if ($layout== "inverse") {
         color: color(button-link-hover-inverse);
-      }
-
-      @else {
+      } @else {
         color: color(button-link-hover);
       }
 
       text-decoration: $link-button--decoration-hover;
     }
-  }
-
-  @else if ($type=="func-link") {
-    @if ($layout=="inverse") {
+  } @else if ($type== "func-link") {
+    @if ($layout== "inverse") {
       color: color(func-link-inverse);
-    }
-
-    @else {
+    } @else {
       color: color(func-link);
     }
 
@@ -197,11 +162,9 @@
 
     &:hover,
     &:active {
-      @if ($layout=="inverse") {
+      @if ($layout== "inverse") {
         color: color(func-link-hover-inverse);
-      }
-
-      @else {
+      } @else {
         color: color(func-link-hover);
       }
 
@@ -216,17 +179,15 @@
   display: block;
   height: 1px;
 
-  @if ($layout=="inverse") {
+  @if ($layout== "inverse") {
     background: color-border(divider-inverse);
-  }
-
-  @else {
+  } @else {
     background: color-border(divider);
   }
 }
 
 @mixin divider($type: false, $layout: false) {
-  @if ($type=="before") {
+  @if ($type== "before") {
     position: relative;
 
     &::before {
@@ -237,9 +198,7 @@
       width: 100%;
       @include divider-mix($layout);
     }
-  }
-
-  @else if ($type=="after") {
+  } @else if ($type== "after") {
     position: relative;
 
     &::after {
@@ -250,9 +209,7 @@
       width: 100%;
       @include divider-mix($layout);
     }
-  }
-
-  @else if ($type=="center") {
+  } @else if ($type== "center") {
     position: relative;
 
     &::after {
@@ -264,16 +221,21 @@
       z-index: -1;
       @include divider-mix($layout);
     }
-  }
-
-  @else {
+  } @else {
     @include divider-mix($layout);
   }
 }
 
 // Underline ::after an element
 // add underline to an existing html element
-@mixin underline($type: "center", $width: 20%, $width-hover: 40%, $duration: 1s, $color: primary, $layout: false) {
+@mixin underline(
+  $type: "center",
+  $width: 20%,
+  $width-hover: 40%,
+  $duration: 1s,
+  $color: primary,
+  $layout: false
+) {
   &:hover::after {
     width: $width-hover;
     background-color: color-bg(button-primary-hover);
@@ -289,25 +251,19 @@
     @include divider-mix($layout);
   }
 
-  @if ($type=="left") {
+  @if ($type== "left") {
     &::after {
       margin: 1em auto 1em 0;
     }
-  }
-
-  @else if ($type=="right") {
+  } @else if ($type== "right") {
     &::after {
       margin: 1em 0 1em auto;
     }
-  }
-
-  @else if ($type=="center") {
+  } @else if ($type== "center") {
     &::after {
       margin: 1em auto;
     }
-  }
-
-  @else {
+  } @else {
     @include divider-mix($layout);
   }
 }
@@ -321,14 +277,12 @@
     @include vendor-prefix(transition, all 0.5s ease-out);
   }
 
-  @if ($type=="big") {
+  @if ($type== "big") {
     & {
       height: 1rem;
       margin: calc(1rem * 3) auto 0 0;
     }
-  }
-
-  @else if ($type=="sm") {
+  } @else if ($type== "sm") {
     & {
       height: 0.7rem;
       margin: calc(0.7rem * 3) auto 0 0;
@@ -356,7 +310,9 @@
       }
 
       100% {
-        left: calc(#{$final_width} * 2 - #{$hero-underline--width--right-position});
+        left: calc(
+          #{$final_width} * 2 - #{$hero-underline--width--right-position}
+        );
         width: $hero-underline--width--right-position;
         background-color: get-color(primary, 3);
       }
@@ -366,7 +322,12 @@
 
 // hr underline animation
 // Handler the heroscrollable liner movement from right to left
-@mixin underline-right-left($initial_width, $duration: 2s, $color: primary, $delay: 0) {
+@mixin underline-right-left(
+  $initial_width,
+  $duration: 2s,
+  $color: primary,
+  $delay: 0
+) {
   left: calc(#{$initial_width} * 2 - #{$hero-underline--width--right-position});
   width: $hero-underline--width--right-position;
   background-color: get-color(primary, 3);
@@ -374,7 +335,9 @@
 
   @include inline-animation($duration, $delay) {
     0% {
-      left: calc(#{$initial_width} * 2 - #{$hero-underline--width--right-position});
+      left: calc(
+        #{$initial_width} * 2 - #{$hero-underline--width--right-position}
+      );
       width: $hero-underline--width--right-position;
       background-color: get-color(primary, 3);
     }
@@ -399,8 +362,10 @@
     height: 18px;
     margin-top: 12px;
     margin-bottom: 16px;
-    background-image: inline-svg('<svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 13.481c0-2.34.611-4.761 1.833-7.263C3.056 3.716 4.733 1.643 6.865 0L11 2.689C9.726 4.382 8.777 6.093 8.152 7.824c-.624 1.73-.936 3.578-.936 5.545V18H0v-4.519zm13 0c0-2.34.611-4.761 1.833-7.263 1.223-2.502 2.9-4.575 5.032-6.218L24 2.689c-1.274 1.693-2.223 3.404-2.848 5.135-.624 1.73-.936 3.578-.936 5.545V18H13v-4.519z" fill="'+ get-color(secondary, 3) + '" fill-rule="nonzero"/></svg>'
-      );
+    background-image: inline-svg(
+      '<svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M0 13.481c0-2.34.611-4.761 1.833-7.263C3.056 3.716 4.733 1.643 6.865 0L11 2.689C9.726 4.382 8.777 6.093 8.152 7.824c-.624 1.73-.936 3.578-.936 5.545V18H0v-4.519zm13 0c0-2.34.611-4.761 1.833-7.263 1.223-2.502 2.9-4.575 5.032-6.218L24 2.689c-1.274 1.693-2.223 3.404-2.848 5.135-.624 1.73-.936 3.578-.936 5.545V18H13v-4.519z" fill="' +
+        get-color(secondary, 3) + '" fill-rule="nonzero"/></svg>'
+    );
     background-repeat: no-repeat;
 
     @include vendor-prefix(transition, all 0.5s ease-out);
@@ -414,7 +379,14 @@
 // $vpos: illustration is centered by default, allowed values: top or bottom
 // $hoffset: horizontal offset
 // $voffset: vertical offset
-@mixin illustration($file, $width, $height, $vpos: null, $hoffset: null, $voffset: null) {
+@mixin illustration(
+  $file,
+  $width,
+  $height,
+  $vpos: null,
+  $hoffset: null,
+  $voffset: null
+) {
   content: "";
   position: absolute;
   width: $width;
@@ -423,56 +395,42 @@
   background-image: url(./../../../images/#{$file});
   background-repeat: no-repeat;
 
-  @if (unit($height)=="%") {
+  @if (unit($height) == "%") {
     background-size: contain;
-  }
-
-  @else {
+  } @else {
     background-size: auto;
   }
 
   @if ($hoffset) {
     left: calc(50% + #{$hoffset});
-  }
-
-  @else {
+  } @else {
     left: 50%;
   }
 
-  @if ($vpos=="top") {
+  @if ($vpos== "top") {
     @if ($voffset) {
       top: #{$voffset};
-    }
-
-    @else {
+    } @else {
       top: 0;
     }
 
     background-position: center top;
     @include vendor-prefix(transform, translate(-50%));
-  }
-
-  @else if ($vpos=="bottom") {
+  } @else if ($vpos== "bottom") {
     @if ($voffset) {
       bottom: #{$voffset};
-    }
-
-    @else {
+    } @else {
       bottom: 0;
     }
 
     background-position: center bottom;
     @include vendor-prefix(transform, translate(-50%));
-  }
-
-  @else {
+  } @else {
     background-position: center;
 
     @if ($voffset) {
       top: calc(50% + #{$voffset});
-    }
-
-    @else {
+    } @else {
       top: 50%;
     }
 
@@ -514,7 +472,6 @@
   & {
     $content: $string;
     display: inherit;
-    padding: 10px;
     @include loop-str-length-keyframes($content);
 
     &::before {
@@ -525,7 +482,10 @@
       $speed: 100;
 
       &::before {
-        @include vendor-prefix(animation, list-of-typed-animations($content, $speed));
+        @include vendor-prefix(
+          animation,
+          list-of-typed-animations($content, $speed)
+        );
         @include vendor-prefix(animation-fill-mode, forwards);
       }
     }
@@ -534,7 +494,10 @@
       $speed: 200;
 
       &::before {
-        @include vendor-prefix(animation, list-of-typed-animations($content, $speed));
+        @include vendor-prefix(
+          animation,
+          list-of-typed-animations($content, $speed)
+        );
         @include vendor-prefix(animation-fill-mode, forwards);
       }
     }

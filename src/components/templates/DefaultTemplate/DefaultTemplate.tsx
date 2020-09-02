@@ -36,13 +36,12 @@ class DefaultTemplate extends Component<IProps> {
     return (
       <>
         <Head>
-          <title>Teclead {pageTitle ? `| ${pageTitle}` : ""}</title>
+          <title>ArturoRugh {pageTitle ? `| ${pageTitle}` : ""}</title>
         </Head>
         <CookiesModal itemBgDark={ItemBgDark.medium} />
         <Header
           containerSize={Size.big}
           navPosition="right"
-          scrollBg
           hideSignin
           underline={Underline.leftUnderline}
         />
