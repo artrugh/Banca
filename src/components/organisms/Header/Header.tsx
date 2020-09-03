@@ -18,11 +18,11 @@ import Nav from "../../molecules/Nav/Nav";
 import Logo from "../../atoms/Logo/Logo";
 import Link from "../../atoms/Link/Link";
 // DATA
-import { headerData } from "../../../data/staticData/staticDataHeader";
 
 interface IProps {
   navPosition?: string;
   underline?: Underline;
+  underlineRounded?: boolean;
   hideNav?: boolean;
   hideSignin?: boolean;
   bottomOuterDivider?: boolean;
@@ -89,6 +89,7 @@ class Header extends Component<IProps, State> {
       bottomDivider,
       className,
       underline,
+      underlineRounded,
       navPosition,
       bgTransparent,
       containerSize,
@@ -117,7 +118,11 @@ class Header extends Component<IProps, State> {
       navPosition && `header-nav-${navPosition}`
     );
 
-    const anchor = classNames("header-nav-toggle", underline && underline);
+    const anchor = classNames(
+      "header-nav-toggle",
+      underline && underline,
+      underlineRounded && "has-underline-rounded"
+    );
 
     return { header, container, inner, nav, ul, anchor };
   }
@@ -174,6 +179,7 @@ class Header extends Component<IProps, State> {
       bottomOuterDivider,
       bottomDivider,
       bgTransparent,
+      underlineRounded,
       ...rest
     } = this.props;
 

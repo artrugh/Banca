@@ -60,6 +60,8 @@ export interface IPropsItem {
   underline?: Underline;
   className?: string;
   delay?: number;
+  underlineRounded?: boolean;
+  shadow?: boolean;
   [propName: string]: any;
 }
 

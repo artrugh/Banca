@@ -29,7 +29,7 @@ class TilesItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { underline, bgColor } = this.props;
+    const { underline, underlineRounded, bgColor } = this.props;
 
     const container = classNames(
       "tiles-item reveal-from-bottom",
@@ -37,7 +37,12 @@ class TilesItem extends Component<IProps> {
       "m-24"
     );
 
-    const heading = classNames("heading", "mt-0 mb-8", underline && underline);
+    const heading = classNames(
+      "heading",
+      "mt-0 mb-8",
+      underline && underline,
+      underlineRounded && "has-underline-rounded"
+    );
 
     const parragraph = classNames("m-0 text-sm");
 

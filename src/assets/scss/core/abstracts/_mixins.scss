@@ -251,6 +251,10 @@
     @include divider-mix($layout);
   }
 
+  &.has-underline-rounded::after {
+    border-radius: $img-radius;
+  }
+
   @if ($type== "left") {
     &::after {
       margin: 1em auto 1em 0;

@@ -31,11 +31,18 @@ class TestimonialItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { centerDivider, quote, underline, bgColor } = this.props;
+    const {
+      centerDivider,
+      quote,
+      underline,
+      bgColor,
+      underlineRounded,
+    } = this.props;
 
     const outer = classNames(
       "testimonial-item-avatar-container",
       underline && underline,
+      underlineRounded && "has-underline-rounded",
       centerDivider && "has-center-divider"
     );
 

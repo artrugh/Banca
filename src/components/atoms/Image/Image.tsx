@@ -19,6 +19,7 @@ interface IProps {
   alt?: string;
   gradientBg?: boolean;
   className?: string;
+  shadow?: boolean | string;
   containerClassName?: string;
   animationHover?: boolean;
 }
@@ -38,6 +39,7 @@ class Image extends Component<IProps> {
   public get classes(): IPropsClasses {
     const {
       className,
+      shadow,
       containerClassName,
       gradientBg,
       animationHover,
@@ -49,7 +51,12 @@ class Image extends Component<IProps> {
       gradientBg && "has-gradient",
       animationHover && "has-animation-hover"
     );
-    const image = classNames(className && className);
+    const image = classNames(
+      className && className,
+      shadow && `has-shadow-${shadow}`
+    )
+      .split(" ")
+      .join("--");
 
     return { image, container };
   }
@@ -97,6 +104,7 @@ class Image extends Component<IProps> {
       containerClassName,
       animationHover,
       gradientBg,
+      shadow,
       src,
       width,
       height,

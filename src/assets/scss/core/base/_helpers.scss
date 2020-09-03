@@ -138,7 +138,7 @@
   background-color: color-bg(bg-dark-heigh);
   color: color(mid-contrast);
   .heading {
-    color: color(heading)
+    color: color(heading);
   }
 }
 
@@ -190,13 +190,23 @@
 }
 
 // Helper class for box shadow
-.has-shadow,
-[class*="has-shadow"] {
-  box-shadow: color-bg(shadow);
+.has-shadow-dark,
+[class*="has-shadow-dark"] {
+  box-shadow: color-bg(shadow-dark);
 }
 
-img.has-shadow,
-[class*="has-shadow"] {
+img.has-shadow-dark,
+[class*="has-shadow-dark"] {
+  border-radius: $img-radius;
+}
+
+.has-shadow-light,
+[class*="has-shadow-light"] {
+  box-shadow: color-bg(shadow-light);
+}
+
+img.has-shadow-light,
+[class*="has-shadow-light"] {
   border-radius: $img-radius;
 }
 

@@ -40,7 +40,13 @@ class SplitItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { imageFill, underline, animationHover, bgColor } = this.props;
+    const {
+      imageFill,
+      underline,
+      underlineRounded,
+      animationHover,
+      bgColor,
+    } = this.props;
 
     const container = classNames("split-item mb-32", bgColor && bgColor);
 
@@ -51,7 +57,8 @@ class SplitItem extends Component<IProps> {
 
     const description = classNames(
       "split-item-content center-content-mobile reveal-from-left",
-      underline && underline
+      underline && underline,
+      underlineRounded && "has-underline-rounded"
     );
 
     const imageContainer = classNames(
@@ -61,6 +68,25 @@ class SplitItem extends Component<IProps> {
     );
 
     return { image, description, container, imageContainer };
+  }
+
+  public get imageShadow(): boolean | string {
+    let imgShadow: boolean | string = false;
+    const { shadow, bgColor } = this.props;
+
+    if (shadow) {
+      if (
+        bgColor === BgColor.darkHeigh ||
+        bgColor === BgColor.darkMedium ||
+        bgColor === BgColor.darkLow
+      ) {
+        imgShadow = "light";
+      } else {
+        imgShadow = "dark";
+      }
+    }
+
+    return imgShadow;
   }
 
   public get listTectools(): ReactNode[] {
@@ -152,22 +178,9 @@ class SplitItem extends Component<IProps> {
       status,
       link,
       repository,
-      tectools,
     } = this.props.item;
 
     const { delay } = this.props;
-
-    // const listTectools: ReactNode[] | [] = tectools.map((tool: string) => (
-    //   <Image
-    //     src={`/images/logo-tec/logo_tec-${tool}-light.svg`}
-    //     alt={`logo-${tool}`}
-    //     width="30px"
-    //     height="30px"
-    //     key={Math.random()}
-    //     containerClassName={this.classes.imageContainer}
-    //     className="logo-tec-icon"
-    //   />
-    // ));
 
     return (
       <div className={this.classes.container}>
@@ -188,7 +201,12 @@ class SplitItem extends Component<IProps> {
         </div>
         <div className={this.classes.image} data-reveal-container=".split-item">
           <a href={link} target="_blank" rel="noreferrer">
-            <Image src={`./images/products/${image}`} alt={alt} width={528} />
+            <Image
+              src={`./images/products/${image}`}
+              alt={alt}
+              width={528}
+              shadow={this.imageShadow}
+            />
           </a>
         </div>
       </div>

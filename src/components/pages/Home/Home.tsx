@@ -84,6 +84,7 @@ export default class Home extends Component<IData> {
           <TilesItem
             config={tilesConfig.items}
             underline={Underline.centerUnderline}
+            underlineRounded
             delay={0}
           />
         </FeatureTilesTemplate>
@@ -102,7 +103,9 @@ export default class Home extends Component<IData> {
             imageFill
             config={splitConfig.items}
             underline={Underline.centerUnderline}
+            underlineRounded
             animationHover
+            bgColor={BgColor.darkHeigh}
           />
         </FeatureTilesTemplate>
 
@@ -118,6 +121,7 @@ export default class Home extends Component<IData> {
             config={testimonialConfig.items}
             bgColor={BgColor.darkMedium}
             delay={0}
+            underlineRounded
           />
         </FeatureTilesTemplate>
         <FeatureTilesTemplate
@@ -144,6 +148,7 @@ export default class Home extends Component<IData> {
           <KeyboardItem
             config={careerConfig.items}
             underline={Underline.centerUnderline}
+            underlineRounded
             delay={0}
           />
         </FeatureTilesTemplate>

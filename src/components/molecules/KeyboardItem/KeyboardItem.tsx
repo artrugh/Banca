@@ -29,7 +29,7 @@ class KeyboardItem extends Component<IProps> {
   }
 
   public get classes(): IPropsClasses {
-    const { underline, bgColor } = this.props;
+    const { underline, underlineRounded, bgColor } = this.props;
 
     const container = classNames(
       "tiles-item reveal-from-bottom",
@@ -40,7 +40,8 @@ class KeyboardItem extends Component<IProps> {
     const heading = classNames(
       "heading",
       "mt-0 mb-8 keyboard-item",
-      underline && underline
+      underline && underline,
+      underlineRounded && "has-underline-rounded"
     );
 
     const parragraph = classNames("m-0 text-sm");

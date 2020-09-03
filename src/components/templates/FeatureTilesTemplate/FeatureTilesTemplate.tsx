@@ -121,31 +121,6 @@ class FeaturesTilesTemplate extends Component<IProps> {
       ...rest
     } = this.props;
 
-    // const Items: JSX.Element[] = data.map((item: { [key: string]: any }) => {
-    //   const { bgColor } = this.props;
-
-    //   let logoColor: string;
-
-    //   if (
-    //     bgColor === BgColor.darkHeigh ||
-    //     bgColor === BgColor.darkMedium ||
-    //     bgColor === BgColor.darkLow
-    //   ) {
-    //     logoColor = "light";
-    //   } else {
-    //     logoColor = "dark";
-    //   }
-
-    //   return cloneElement(children, {
-    //     item,
-    //     key: Math.random(),
-    //     src: `${item.src}${item.name}-${colorLogo}.svg`,
-    //     alt: "logo-" + item.name,
-    //     width: item.width,
-    //     height: item.height,
-    //   });
-    // });
-
     return (
       <SectionTemplate
         {...rest}

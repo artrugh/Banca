@@ -44,6 +44,7 @@ class DefaultTemplate extends Component<IProps> {
           navPosition="right"
           hideSignin
           underline={Underline.leftUnderline}
+          underlineRounded
         />
         <main id="main" className="site-content">
           {children}

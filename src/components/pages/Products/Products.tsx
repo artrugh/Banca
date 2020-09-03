@@ -51,6 +51,7 @@ class Products extends Component<IProps> {
             imageFill
             config={splitConfig.items}
             underline={Underline.centerUnderline}
+            underlineRounded
             animationHover
             bgColor={BgColor.darkLow}
           />

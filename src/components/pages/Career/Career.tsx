@@ -48,6 +48,7 @@ class Career extends Component<IProps> {
           <KeyboardItem
             config={careerConfig.items}
             underline={Underline.centerUnderline}
+            underlineRounded
             delay={0}
           />
         </FeatureTilesTemplate>
