@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, ReactNode } from "react";
 import classNames from "classnames";
 
 // STYLE
@@ -11,8 +11,12 @@ import {
   Headings,
   ScrollPosition,
   Positions,
+  BgColor,
 } from "../../../common/enums";
-import { IPropsClasses } from "../../../common/interfacesProps";
+import {
+  IPropsClasses,
+  IPropsOuterInner,
+} from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -22,8 +26,8 @@ import Heading from "../../atoms/Heading/Heading";
 import Arrow from "../../atoms/Arrow/Arrow";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
-interface IProps {
-  children?: string;
+interface IProps extends IPropsOuterInner {
+  children?: ReactNode;
   containerSize?: string;
   underlineSize?: string;
   src?: string;
@@ -46,11 +50,12 @@ export default class HeroScrollable extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   public get classes(): IPropsClasses {
-    const { className } = this.props;
+    const { className, bgColor } = this.props;
+    const outer = classNames(`hero-scrollable`, bgColor && bgColor);
 
     const image = classNames("hero-img", className && className);
 
-    return { image };
+    return { image, outer };
   }
 
   public render(): JSX.Element {
@@ -62,6 +67,7 @@ export default class HeroScrollable extends Component<IProps> {
       width,
       height,
       alt,
+      bgColor,
       gradientBg,
       className,
       ...rest
@@ -74,7 +80,7 @@ export default class HeroScrollable extends Component<IProps> {
         id="hero"
         data-color="green"
       >
-        <div {...rest} className="hero-content">
+        <div {...rest} className={this.classes.outer}>
           <div className="hero-scrollable-container">
             <div
               id="scroll-behavior-main-underline-bg"
@@ -98,6 +104,10 @@ export default class HeroScrollable extends Component<IProps> {
               id="scroll-behavior-hero-statement-color"
               className="loaded-none hero-scrollable"
             />
+            <div
+              id="scroll-behavior-header-nav-color"
+              className="loaded-none hero-scrollable"
+            />
             <div id="scroll-smooth-position" className="loaded-none" />
             <div className="container-big">
               <div className="hero-divider" />
@@ -106,7 +116,7 @@ export default class HeroScrollable extends Component<IProps> {
                 underlineSize={Size.big}
                 classNameContainer="hero-statement"
                 animation
-                classNameHeading="mt-0 mb-0"
+                classNameHeading="mt-0 mb-0 heading"
                 tag={Headings.h1}
               >
                 We combine our tecnical expertise with know-how.
@@ -115,7 +125,7 @@ export default class HeroScrollable extends Component<IProps> {
               <Heading
                 underlineSize={Size.big}
                 classNameContainer="hero-about"
-                classNameHeading="mt-0 mb-0"
+                classNameHeading="mt-0 mb-0 sub-heading"
                 tag={Headings.h2}
                 scrollPosition={ScrollPosition.rightLeft}
               >

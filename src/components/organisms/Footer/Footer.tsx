@@ -7,6 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
+import { LogoType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -15,6 +16,7 @@ import { IPropsClasses } from "../../../common/interfacesProps";
 import Logo from "../../atoms/Logo/Logo";
 import FooterSocial from "../../molecules/FooterSocial/FooterSocial";
 import Nav from "../../molecules/Nav/Nav";
+import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
 interface IProps {
   pathname?: string;
@@ -67,7 +69,9 @@ class Footer extends Component<IProps> {
         <div className="container">
           <div className={this.classes.innerClasses}>
             <div className="footer-top space-between text-xxs">
-              <Logo pathname={pathname} footer />
+              <SmoothScroll to="main">
+                <Logo logoId={LogoType.miniLogoAr} className="mini-logo" />
+              </SmoothScroll>
               <FooterSocial />
             </div>
             <div className="footer-bottom space-between text-xxs invert-order-desktop">

@@ -23,9 +23,22 @@
 #scroll-behavior-hero-statement-color {
   position: absolute;
   &.hero-scrollable {
+    top: 10vh;
+  }
+  &.hero {
+    top: 0vh;
+  }
+}
+
+#scroll-behavior-header-nav-color {
+  position: absolute;
+  &.hero-scrollable {
     top: 20vh;
   }
   &.hero {
+    top: 0vh;
+  }
+  &.page {
     top: 0vh;
   }
 }

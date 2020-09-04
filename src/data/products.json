@@ -2,7 +2,7 @@
   {
     "title": "Subiendo al Sur - App",
     "description": "This is the SuAlSur-App. Find your new adventure and share your experiences. The goal of this NGO program is for young people from various countries and disciplines to travel to rural communities and interact on a social and cultural level.",
-    "image": "sualsur-01.png",
+    "image": "sualsur-02.png",
     "alt": "SubiendoAlSur",
     "status": true,
     "link": "http://subiendoalsur.herokuapp.com/",
@@ -13,8 +13,8 @@
     "title": "TecLead - V2",
     "subtitle": "website - landing page",
     "description": "Teaclead is a german company which operates in the fields of IT consulting and technological coaching. German DAX companies trust Teclead in the implementation of digital projects and Teclead trust us in the develoment of its new website.",
-    "image": "sualsur-02.png",
-    "alt": "Features split 01",
+    "image": "teclead-01.png",
+    "alt": "Teclead",
     "status": false,
     "link": "https://www.teclead.de/",
     "tectools": ["js", "nextjs", "react", "ts", "sass", "css", "figma", "ai"]

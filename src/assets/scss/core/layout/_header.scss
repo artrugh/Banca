@@ -3,46 +3,127 @@
   top: 0;
   width: 100%;
   z-index: 10;
-  background: color-bg(header-dark);
 
-  @include vendor-prefix(transition, 0.3s all linear);
+  @include vendor-prefix(transition, 1s all linear);
 
   + .site-content {
     .section:first-of-type {
       padding-top: $header-height__mobile;
     }
   }
-}
 
-.brand {
-  margin-right: $header-nav--padding-h;
+  body.off-nav-is-active & a:not(.button) {
+    @include anchor-aspect(header);
 
-  &-image {
-    background-image: url("./../../../../../public/images/logo-teclead-bk.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 120px;
-    height: 30px;
-    @include vendor-prefix(transition, 0.3s all linear);
+    &::after {
+      background-color: color-bg(underline-inverse);
+    }
+
+    &:hover::after {
+      background-color: color-bg(underline-hover);
+    }
   }
 
-  a {
-    svg {
-      fill: color-icon(logo);
-      @include vendor-prefix(transition, fill 0.15s ease);
+  &[class*="light"] {
+    background-color: color-bg(header-dark);
 
-      .invert-color & {
-        fill: color-icon(social-inverse);
+    a:not(.button) {
+      @include anchor-aspect(header);
+
+      &::after {
+        background-color: color-bg(underline-inverse);
+      }
+
+      &:hover::after {
+        background-color: color-bg(underline-hover);
       }
     }
 
-    &:hover {
-      svg {
-        fill: color-icon(logo-hover);
+    .main-logo-inner {
+      fill: color-icon(logo-inner-light);
+      @include vendor-prefix(transition, 1s all linear);
+    }
 
-        .invert-color & {
-          fill: color-icon(social-hover-inverse);
+    &[class*="transparent"] {
+      background-color: transparent;
+
+      body:not(.off-nav-is-active).scroll-behavior-header-nav-color & {
+        background: color-bg(header-light);
+
+        .main-logo-inner {
+          fill: color-icon(logo-inner-dark);
+          @include vendor-prefix(transition, 1s all linear);
         }
+
+        a:not(.button) {
+          @include anchor-aspect(header, inverse);
+
+          &::after {
+            background-color: color-bg(underline);
+          }
+
+          &:hover::after {
+            background-color: color-bg(underline-hover);
+          }
+        }
+      }
+    }
+  }
+
+  &[class*="dark"] {
+    background: color-bg(header-light);
+    a:not(.button) {
+      @include anchor-aspect(header, inverse);
+    }
+
+    .main-logo-inner {
+      fill: color-icon(logo-inner-dark);
+    }
+
+    &[class*="transparent"] {
+      background-color: transparent;
+
+      body:not(.off-nav-is-active).scroll-behavior-header-nav-color & {
+        background-color: color-bg(header-dark);
+
+        .main-logo-inner {
+          fill: color-icon(logo-inner-light);
+        }
+
+        a:not(.button) {
+          @include anchor-aspect(header);
+
+          &::after {
+            background-color: color-bg(underline-inverse);
+          }
+
+          &:hover::after {
+            background-color: color-bg(underline-hover);
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-logo {
+  margin-right: $header-nav--padding-h;
+
+  svg {
+    fill: color-icon(logo);
+    @include vendor-prefix(transition, fill 0.15s ease);
+
+    .invert-color & {
+      fill: color-icon(social-inverse);
+    }
+  }
+
+  &:hover {
+    svg {
+      fill: color-icon(logo-hover);
+
+      .invert-color & {
+        fill: color-icon(social-hover-inverse);
       }
     }
   }
@@ -81,12 +162,13 @@
     }
   }
 
-  a:not(.header-smooth-scroll) {
+  // a:not(.header-smooth-scroll) {
+  a:not(.button) {
     display: block;
-    @include anchor-aspect(header);
     @include font-weight(header-link);
     text-transform: $link-header--transform;
     padding: 0 $header-nav--padding-h__tablet;
+    @include vendor-prefix(transition, 0.2s all ease-in-out);
 
     &::after {
       margin-top: 0.22em;
@@ -105,7 +187,7 @@
     &.active-link {
       &::after {
         width: 100%;
-        background-color: color-bg(button-primary-hover);
+        background-color: color-bg(underline-hover);
       }
     }
 
@@ -158,11 +240,7 @@
       max-height: 0;
       opacity: 0;
       overflow: hidden;
-      @include vendor-prefix(
-        transition,
-        #{max-height 0.25s ease-in-out,
-        opacity 0.15s}
-      );
+      @include vendor-prefix(transition, #{max-height 0.25s ease-in-out, opacity 0.15s});
 
       &.is-active {
         opacity: 1;

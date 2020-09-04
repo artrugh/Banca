@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Social } from "../common/enums";
 
-export default class SocialLogos<P = {}> extends Component<P> {
+export default class SocialLogos<P = {}, S = {}> extends Component<P, S> {
   protected SVGLogos(title: string): JSX.Element {
     if (title === Social.vimeo) {
       return (

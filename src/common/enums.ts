@@ -77,6 +77,13 @@ export enum BgColor {
   transparent = "has-bg-transparent",
 }
 
+export enum BgHeader {
+  dark = "dark",
+  light = "light",
+  darkTransparent = "dark-transparent",
+  lightTransparent = "light-transparent",
+}
+
 export enum Underline {
   rightUnderline = "has-right-underline",
   leftUnderline = "has-left-underline",
@@ -122,4 +129,13 @@ export enum Social {
   vimeo = "vimeo",
   gitHub = "github",
   linkedIn = "linkedin",
+}
+
+export enum LogoType {
+  miniLogoAr = "mini-logo-ar",
+  mainLogoAr = "main-logo-ar",
+  miniLogoTeclead = "mini-logo-teclead",
+  mainLogoTeclead = "main-logo-teclead",
+  miniLogoBanca = "mini-logo-banca",
+  mainLogoBanca = "main-logo-banca",
 }

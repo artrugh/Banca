@@ -5,7 +5,7 @@ import React, { Component, MouseEvent } from "react";
 // BASE CLASS
 
 // COMMON
-
+import { BgColor } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -14,6 +14,8 @@ import React, { Component, MouseEvent } from "react";
 import Image from "../../atoms/Image/Image";
 
 interface IProps {
+  shadow?: boolean;
+  bgColor?: BgColor;
   openModal: (e: MouseEvent<HTMLAnchorElement>) => void;
   [key: string]: any;
 }
@@ -21,6 +23,25 @@ interface IProps {
 class HeroVideo extends Component<IProps> {
   public constructor(props: IProps) {
     super(props);
+  }
+
+  public get imageShadow(): boolean | string {
+    let imgShadow: boolean | string = false;
+    const { shadow, bgColor } = this.props;
+
+    if (shadow) {
+      if (
+        bgColor === BgColor.darkHeigh ||
+        bgColor === BgColor.darkMedium ||
+        bgColor === BgColor.darkLow
+      ) {
+        imgShadow = "light";
+      } else {
+        imgShadow = "dark";
+      }
+    }
+
+    return imgShadow;
   }
 
   public render(): JSX.Element {
@@ -42,11 +63,10 @@ class HeroVideo extends Component<IProps> {
           onClick={openModal}
         >
           <Image
-            className="has-shadow"
+            shadow={this.imageShadow}
             src="/images/video-placeholder.jpg"
             alt="Hero"
-            width={896}
-            height={504}
+            height="auto"
           />
         </a>
       </div>

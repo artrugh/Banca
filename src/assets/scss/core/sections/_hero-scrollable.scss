@@ -60,7 +60,7 @@
     &-about {
       position: relative;
       margin: 0 2rem;
-      margin-bottom: calc(6 * #{$hero-underline--height});
+      padding-bottom: $hero-about--padding-bottom;
       width: $hero-about--width__mobile;
 
       z-index: 1;
@@ -97,8 +97,6 @@
 
       &-about {
         width: $hero-about--width__tablet;
-        margin: $hero-about--margin__tablet;
-        margin-bottom: calc(8 * #{$hero-underline--height});
       }
     }
   }
@@ -115,7 +113,6 @@
 
       &-about {
         width: $hero-about--width__desktop;
-        margin-bottom: calc(10 * #{$hero-underline--height});
       }
     }
   }

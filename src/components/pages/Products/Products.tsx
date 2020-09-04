@@ -33,8 +33,8 @@ class Products extends Component<IProps> {
     return (
       <>
         <div
-          id="scroll-behavior-hero-statement-color-pages"
-          className="loaded-none"
+          id="scroll-behavior-header-nav-color"
+          className="loaded-none page"
         />
         <FeatureTilesTemplate
           data={products}

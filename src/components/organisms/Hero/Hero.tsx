@@ -102,14 +102,18 @@ class Hero extends Component<IProps, State> {
         <div className="container-sm">
           <div id="scroll-behavior-header-bg" className="loaded-none hero" />
           <div
-            id="scroll-behavior-hero-statement-color"
+            id="scroll-behavior-header-nav-color"
             className="loaded-none hero"
           />
           <div className={this.classes.innerClasses}>
             <div className="hero-content">
               <HeroHeading />
             </div>
-            <HeroVideo openModal={this.handleOpenModal} />
+            <HeroVideo
+              openModal={this.handleOpenModal}
+              bgColor={bgColor}
+              shadow
+            />
             <Modal
               id="video-modal"
               show={this.state.videoModalActive}

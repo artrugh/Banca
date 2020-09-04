@@ -114,7 +114,6 @@ class FeaturesTilesTemplate extends Component<IProps> {
       invertMobile,
       invertDesktop,
       alignTop,
-      colorLogo,
       pushLeft,
       children,
       config,

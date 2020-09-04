@@ -4,6 +4,14 @@
 $header--bg: (
   header: null,
   header-dark: get-color(dark, 1),
+  header-light: lighten(get-color(light, 1), 9%),
+  menu-mobile: darken(get-color(dark, 1), 3%),
+);
+
+$header--color: (
+  header: null,
+  header-dark: get-color(dark, 1),
+  header-light: lighten(get-color(light, 1), 9%),
   menu-mobile: darken(get-color(dark, 1), 3%),
 );
 
@@ -20,3 +28,4 @@ $header-hamburger--distance: 7px; // hamburger button, top and bottom lines dist
 
 // Don't change line below!
 $bg--color: map-push($bg--color, $header--bg);
+$color: map-push($color, $header--color);

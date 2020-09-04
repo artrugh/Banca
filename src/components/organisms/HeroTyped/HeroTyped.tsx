@@ -86,7 +86,7 @@ export default class HeroTyped extends Component<IProps> {
         <div className="container-sm">
           <div id="scroll-behavior-header-bg" className="loaded-none hero" />
           <div
-            id="scroll-behavior-hero-statement-color"
+            id="scroll-behavior-header-nav-color"
             className="loaded-none hero"
           />
           <div className={this.classes.innerClasses}>
@@ -101,7 +101,7 @@ export default class HeroTyped extends Component<IProps> {
                 hasCleaner={hasCleaner}
               >
                 <Heading
-                  classNameContainer="hero-about mt-48"
+                  classNameContainer="hero-about mt-48 sub-heading"
                   classNameHeading="mt-0 mb-0"
                   tag={Headings.h3}
                 >

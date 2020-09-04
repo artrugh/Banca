@@ -1,4 +1,5 @@
 import React, { Component, createRef, KeyboardEvent } from "react";
+import Link from "next/link";
 import classNames from "classnames";
 
 // STYLE
@@ -8,7 +9,7 @@ import classNames from "classnames";
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
 import { IEventHandler } from "../../../common/interfacesEvents";
-import { Size, Underline } from "../../../common/enums";
+import { Size, Underline, LogoType, BgHeader } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -16,7 +17,7 @@ import { ScrollManagerDisplayer } from "../../../utils/ScrollManagerDisplayer";
 // COMPONENTS
 import Nav from "../../molecules/Nav/Nav";
 import Logo from "../../atoms/Logo/Logo";
-import Link from "../../atoms/Link/Link";
+import ActiveLink from "../../atoms/Link/Link";
 // DATA
 
 interface IProps {
@@ -27,8 +28,10 @@ interface IProps {
   hideSignin?: boolean;
   bottomOuterDivider?: boolean;
   bottomDivider?: boolean;
-  bgTransparent?: boolean;
+  // bgTransparent?: boolean;
   containerSize?: Size;
+  bgColor?: BgHeader;
+  logoId?: LogoType;
   [propName: string]: any;
 }
 
@@ -38,7 +41,7 @@ const DefaultProps: IProps = {
   hideSignin: false,
   bottomOuterDivider: false,
   bottomDivider: false,
-  bgTransparent: false,
+  // bgTransparent: false,
 };
 
 type Props = {} & Partial<DefaultProps>;
@@ -61,25 +64,35 @@ class Header extends Component<IProps, State> {
       this.handleOpenMenu();
     }
 
-    if (this.props.bgTransparent) {
+    const { bgColor } = this.props;
+
+    if (
+      bgColor === BgHeader.darkTransparent ||
+      bgColor === BgHeader.lightTransparent
+    ) {
       ScrollManagerDisplayer("scroll-behavior-header-bg");
       ScrollManagerDisplayer("scroll-behavior-main-underline-bg");
     }
 
-    ScrollManagerDisplayer("scroll-behavior-hero-statement-color-pages");
     ScrollManagerDisplayer("scroll-behaviour-cookies");
     ScrollManagerDisplayer("scroll-behavior-hero-statement-color");
+    ScrollManagerDisplayer("scroll-behavior-header-nav-color");
 
     document.addEventListener("keydown", this.handlerKeyPress);
     document.addEventListener("click", this.handleClickOutside);
   }
 
   public componentDidUpdate(): void {
-    if (this.props.bgTransparent) {
+    const { bgColor } = this.props;
+
+    if (
+      bgColor === BgHeader.darkTransparent ||
+      bgColor === BgHeader.lightTransparent
+    ) {
       ScrollManagerDisplayer("scroll-behavior-header-bg");
       ScrollManagerDisplayer("scroll-behavior-main-underline-bg");
       ScrollManagerDisplayer("scroll-behavior-hero-statement-color");
-      ScrollManagerDisplayer("scroll-behavior-hero-statement-color-pages");
+      ScrollManagerDisplayer("scroll-behavior-header-nav-color");
     }
   }
 
@@ -88,6 +101,7 @@ class Header extends Component<IProps, State> {
       bottomOuterDivider,
       bottomDivider,
       className,
+      bgColor,
       underline,
       underlineRounded,
       navPosition,
@@ -97,6 +111,7 @@ class Header extends Component<IProps, State> {
 
     const header = classNames(
       "site-header",
+      bgColor && bgColor,
       bgTransparent && "has-bg-transparent",
       bottomOuterDivider && "has-bottom-divider",
       className
@@ -174,11 +189,13 @@ class Header extends Component<IProps, State> {
       className,
       navPosition,
       containerSize,
+      bgColor,
       hideNav,
       hideSignin,
       bottomOuterDivider,
       bottomDivider,
       bgTransparent,
+      logoId,
       underlineRounded,
       ...rest
     } = this.props;
@@ -187,7 +204,11 @@ class Header extends Component<IProps, State> {
       <header {...rest} className={this.classes.header}>
         <div className={this.classes.container} id="header">
           <div className={this.classes.inner}>
-            <Logo />
+            <Link href="/">
+              <a>
+                <Logo logoId={logoId} className="main-logo" />
+              </a>
+            </Link>
             {!hideNav && (
               <>
                 <button
@@ -218,7 +239,7 @@ class Header extends Component<IProps, State> {
                     {!hideSignin && (
                       <ul className="list-reset header-nav-right">
                         <li>
-                          <Link href="/signup" activeClassName="active">
+                          <ActiveLink href="/signup" activeClassName="active">
                             <a
                               role="button"
                               className="button button-primary button-wide-mobile button-sm"
@@ -228,7 +249,7 @@ class Header extends Component<IProps, State> {
                             >
                               signup
                             </a>
-                          </Link>
+                          </ActiveLink>
                         </li>
                       </ul>
                     )}

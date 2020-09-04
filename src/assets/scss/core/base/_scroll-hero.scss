@@ -13,14 +13,15 @@ body.scroll-behavior-hero-statement-color .hero-content .arrow-container {
     @include vendor-prefix(animation-fill-mode, forwards);
 }
 
+// change the bg-color of the underline when it moves left
 body.scroll-behavior-header-bg .underline-has-animation {
-    background-color: get-color(primary, 3);
+    background-color: color-bg(underline-hover);
 }
 
 // Statement Color
 body.scroll-behavior-hero-statement-color .hero-statement h1 {
     @include vendor-prefix(transition-duration, 0.5s);
-    color: color(heading);
+    color: color(heading-inverse);
 }
 
 // Heading Color

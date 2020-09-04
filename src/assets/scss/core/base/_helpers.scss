@@ -140,14 +140,21 @@
   .heading {
     color: color(heading);
   }
+  .sub-heading {
+    color: color(heading-lower);
+  }
 }
 
 .has-bg-dark-medium {
   z-index: 0;
   background-color: color-bg(bg-dark-medium);
+
   color: color(heigh-contrast);
   .heading {
     color: color(super-heigh-contrast);
+  }
+  .sub-heading {
+    color: color(heading-lower);
   }
 }
 
@@ -156,7 +163,10 @@
   background-color: color-bg(bg-dark-low);
   color: color(high-contrast);
   .heading {
-    color: color(super-heigh-cont);
+    color: color(super-heigh-contrast);
+  }
+  .sub-heading {
+    color: color(heading);
   }
 }
 
@@ -165,6 +175,9 @@
   background-color: color-bg(bg-light-heigh);
   color: color(low-contrast-inverse);
   .heading {
+    color: color(heigh-contrast-inverse);
+  }
+  .sub-heading {
     color: color(mid-contrast-inverse);
   }
 }
@@ -172,9 +185,13 @@
 .has-bg-light-medium {
   z-index: 0;
   background-color: color-bg(bg-light-medium);
-  color: color(super-high-contrast);
+  color: color(super-heigh-contrast);
 
   .heading {
+    color: color(heigh-contrast-inverse);
+  }
+
+  .sub-heading {
     color: color(mid-contrast-inverse);
   }
 }
@@ -182,10 +199,13 @@
 .has-bg-light-low {
   z-index: 0;
   background-color: color-bg(bg-light-low);
-  color: color(high-contrast);
+  color: color(heigh-contrast);
 
   .heading {
-    color: color(mid-contrast-inverse);
+    color: color(super-heigh-contrast);
+  }
+  .sub-heading {
+    color: color(heigh-contrast);
   }
 }
 
@@ -214,11 +234,7 @@ img.has-shadow-light,
 .has-gradient,
 [class*="has-gradient"] {
   position: relative;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 0, 0.5),
-    rgba(0, 0, 255, 0.5)
-  );
+  background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
 }
 
 .has-gradient img {

@@ -62,17 +62,21 @@ export default class Home extends Component<IData> {
 
     return (
       <>
-        {/* <Hero className="illustration-section-01" /> */}
-        <HeroTyped
+        <Hero
+          className="illustration-section-01"
+          bgColor={BgColor.lightHeigh}
+        />
+        {/* <HeroTyped
           bgColor={BgColor.darkHeigh}
           hasCleaner
           colorArrow={Color.primary}
-        />
+        /> */}
         {/* <HeroScrollable
           className="reveal-scale-down"
           containerSize={Size.big}
           underlineSize={Size.big}
           height="100vh"
+          bgColor={BgColor.lightHeigh}
         /> */}
         <FeatureTilesTemplate
           bgColor={BgColor.lightHeigh}

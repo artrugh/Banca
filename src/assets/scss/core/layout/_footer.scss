@@ -19,6 +19,27 @@
 
 .footer-top {
   padding-bottom: $footer-inner--padding-v / 2;
+
+  .mini-logo {
+    svg {
+      fill: color-icon(logo);
+      @include vendor-prefix(transition, fill 0.15s ease);
+
+      .invert-color & {
+        fill: color-icon(social-inverse);
+      }
+    }
+
+    &:hover {
+      svg {
+        fill: color-icon(logo-hover);
+
+        .invert-color & {
+          fill: color-icon(social-hover-inverse);
+        }
+      }
+    }
+  }
 }
 
 .footer-bottom {
@@ -98,8 +119,10 @@
 
 .footer-social {
   ul {
-    margin-right: -($footer-social--inner-padding + $footer-social--outer-padding-h);
-    margin-left: -($footer-social--inner-padding + $footer-social--outer-padding-h);
+    margin-right: -($footer-social--inner-padding +
+          $footer-social--outer-padding-h);
+    margin-left: -($footer-social--inner-padding +
+          $footer-social--outer-padding-h);
   }
 
   li {

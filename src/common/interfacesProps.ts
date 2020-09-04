@@ -55,6 +55,7 @@ export interface IPropsOuterInner extends IPropsOuter, IPropsInner {}
 
 // SECCION + CONTAINER
 export interface IPropsItem {
+  item?: { [key: string]: any };
   bgColor?: BgColor;
   padding?: string;
   underline?: Underline;
@@ -62,7 +63,6 @@ export interface IPropsItem {
   delay?: number;
   underlineRounded?: boolean;
   shadow?: boolean;
-  [propName: string]: any;
 }
 
 export interface IPropsFeatureItem extends IPropsOuterInner {
@@ -78,8 +78,6 @@ export interface IPropsFeatureItem extends IPropsOuterInner {
   alignTop?: boolean;
   className?: string;
   pushLeft?: boolean;
-  colorLogo?: "dark" | "light";
-  bgColor?: BgColor;
   id: string;
 }
 

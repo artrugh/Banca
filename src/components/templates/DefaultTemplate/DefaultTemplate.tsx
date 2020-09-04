@@ -7,7 +7,13 @@ import Head from "next/head";
 // BASE CLASS
 
 // COMMON
-import { Size, BgColor, Underline } from "../../../common/enums";
+import {
+  Size,
+  BgColor,
+  Underline,
+  BgHeader,
+  LogoType,
+} from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -45,6 +51,8 @@ class DefaultTemplate extends Component<IProps> {
           hideSignin
           underline={Underline.leftUnderline}
           underlineRounded
+          bgColor={BgHeader.lightTransparent}
+          logoId={LogoType.mainLogoTeclead}
         />
         <main id="main" className="site-content">
           {children}

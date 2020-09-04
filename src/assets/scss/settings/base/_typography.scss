@@ -4,14 +4,16 @@ $font--provider: "Google Fonts";
 $font--import: "Inter:400,500,600,700,800";
 
 // The font set
-$font--family: (heading: null,
+$font--family: (
+  heading: null,
   base: "Inter",
   code: 'Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace',
   pre: '"Courier 10 Pitch", Courier, monospace',
 );
 
 // The typographic scale
-$font--scale: ( // key 		// font-size, line-height, kerning
+$font--scale: (
+  // key 		// font-size, line-height, kerning
   alpha: (52px, 62px, -0.3px),
   beta: (44px, 54px, -0.3px),
   gamma: (32px, 42px, -0.3px),
@@ -21,11 +23,12 @@ $font--scale: ( // key 		// font-size, line-height, kerning
   eta: (16px, 24px, -0.1px),
   theta: (14px, 22px, null),
   lota: (13px, 21px, null),
-  kappa: (12px, 20px, null),
+  kappa: (12px, 20px, null)
 );
 
 // Base elements: font size
-$font--size: ( // ↓ Mobile 	// key in $font--scale
+$font--size: (
+  // ↓ Mobile 	// key in $font--scale
   h1: "gamma",
   h2: "delta",
   h3: "epsilon",
@@ -52,10 +55,12 @@ $font--size: ( // ↓ Mobile 	// key in $font--scale
   figcap-desktop: null,
   code-desktop: null,
   pre-desktop: null,
-  table-desktop: null);
+  table-desktop: null
+);
 
 // Base elements: font weight
-$font--weight: (heading: 800,
+$font--weight: (
+  heading: 800,
   base: 400,
   strong: 700,
   bquote: 600,

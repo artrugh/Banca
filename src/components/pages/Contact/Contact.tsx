@@ -25,8 +25,8 @@ class Contact extends Component<{}> {
     return (
       <>
         <div
-          id="scroll-behavior-hero-statement-color-pages"
-          className="loaded-none"
+          id="scroll-behavior-header-nav-color"
+          className="loaded-none page"
         />
         <SectionTemplate
           sectionHeaderData={contactHeading}
