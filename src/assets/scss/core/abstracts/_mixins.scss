@@ -372,8 +372,9 @@
   width: $width;
   max-width: $width;
   height: $height;
-  background-image: url(./../../../images/#{$file});
+  background-image: url(./../../../svgs/illustrations/#{$file});
   background-repeat: no-repeat;
+  z-index: auto;
 
   @if (unit($height) == "%") {
     background-size: contain;

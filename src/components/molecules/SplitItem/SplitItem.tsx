@@ -107,7 +107,7 @@ class SplitItem extends Component<IProps> {
 
     const listTectools: ReactNode[] | [] = tectools.map((tool: string) => (
       <Image
-        src={`/images/logo-tec/logo_tec-${tool}-${bgColorLogo}.svg`}
+        src={`/svgs/logo-tec/logo_tec-${tool}-${bgColorLogo}.svg`}
         alt={`logo-${tool}`}
         width="30px"
         height="30px"

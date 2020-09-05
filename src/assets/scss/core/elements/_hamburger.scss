@@ -27,8 +27,14 @@
   background: color-icon(hamburger);
   border-radius: $header-hamburger--radius;
 
+  @include vendor-prefix(transition, 0s all ease-in-out);
+
   .invert-color & {
     background: color-icon(hamburger-inverse);
+  }
+
+  body.off-nav-is-active & {
+    background: color-icon(hamburger-off);
   }
 }
 

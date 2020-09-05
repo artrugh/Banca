@@ -119,10 +119,8 @@
 
 .footer-social {
   ul {
-    margin-right: -($footer-social--inner-padding +
-          $footer-social--outer-padding-h);
-    margin-left: -($footer-social--inner-padding +
-          $footer-social--outer-padding-h);
+    margin-right: -($footer-social--inner-padding + $footer-social--outer-padding-h);
+    margin-left: -($footer-social--inner-padding + $footer-social--outer-padding-h);
   }
 
   li {

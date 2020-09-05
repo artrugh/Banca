@@ -67,6 +67,14 @@
           }
         }
       }
+
+      body.off-nav-is-active.scroll-behavior-header-nav-color & {
+        background-color: rgba(color-bg(header-light), 0.85);
+
+        .main-logo-inner {
+          fill: color-icon(logo-inner-dark);
+        }
+      }
     }
   }
 
@@ -100,6 +108,14 @@
           &:hover::after {
             background-color: color-bg(underline-hover);
           }
+        }
+      }
+
+      body.off-nav-is-active.scroll-behavior-header-nav-color & {
+        background-color: rgba(color-bg(header-dark), 0.85);
+
+        .main-logo-inner {
+          fill: color-icon(logo-inner-light);
         }
       }
     }
@@ -162,7 +178,6 @@
     }
   }
 
-  // a:not(.header-smooth-scroll) {
   a:not(.button) {
     display: block;
     @include font-weight(header-link);

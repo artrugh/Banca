@@ -1,7 +1,7 @@
 import { ClientName } from "../../common/enums";
 import { IClient } from "../../common/interfaces";
 
-const logoClientPathSrc = "/images/logo-client/logo_client-";
+const logoClientPathSrc = "/svgs/logo-client/logo_client-";
 const widthLogoClient = "170px";
 const heightLogoClient = "100px";
 

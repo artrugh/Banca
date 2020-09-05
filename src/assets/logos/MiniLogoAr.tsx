@@ -4,7 +4,7 @@ class MiniLogoAr extends Component {
   public render(): JSX.Element {
     return (
       <svg
-        height="20"
+        height="30"
         id="mini-logo-ar"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 163 146"

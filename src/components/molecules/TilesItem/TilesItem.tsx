@@ -62,7 +62,7 @@ class TilesItem extends Component<IProps> {
           <div className="features-tiles-item-header">
             <div className="features-tiles-item-image mb-16">
               <Image
-                src={`./images/${icon}`}
+                src={`./svgs/feature-tiles-icons/${icon}`}
                 alt={alt}
                 width={64}
                 height={64}

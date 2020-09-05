@@ -27,10 +27,18 @@
       height: 100vh;
       width: 100vw;
       background-image: linear-gradient(to bottom, rgba(#ffffff, 0.5), rgba(2, 50, 182, 0.5)),
-        url("../../../../../public/images/hero-1440-800.png");
+        url("../../../../../public/images/hero/hero-630-400.png");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+
+      //if the resolution is heigher than 192dpi
+      @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+        (-webkit-in-device-pixel-ratio: 2) and (min-width: 37.5em),
+        (min-width: 125rem) {
+        background-image: linear-gradient(to bottom, rgba(#ffffff, 0.5), rgba(2, 50, 182, 0.5)),
+          url("../../../../../public/images/hero/hero-1440-800.png");
+      }
     }
 
     &-illustration {

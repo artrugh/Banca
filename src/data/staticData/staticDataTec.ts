@@ -1,7 +1,7 @@
 import { TecTools } from "../../common/enums";
 import { ITec } from "../../common/interfaces";
 
-const logoTecPathSrc = "/images/logo-tec/logo_tec-";
+const logoTecPathSrc = "/svgs/logo-tec/logo_tec-";
 const widthLogoTec = "50px";
 const heightLogoTec = "50px";
 
