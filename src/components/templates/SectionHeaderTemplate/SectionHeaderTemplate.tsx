@@ -23,7 +23,7 @@ import SectionHeader from "../../molecules/SectionHeader/SectionHeader";
 interface IProps extends IPropsOuter, IPropsInner {
   children?: ReactNode;
   id: string;
-  sectionHeaderData: { title: string; paragraph: string };
+  sectionHeaderData: { title?: string; paragraph?: string };
   containerSize?: string;
   padding?: string;
   tag?: Headings;

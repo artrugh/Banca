@@ -16,8 +16,8 @@ import { Headings } from "../../../common/enums";
 
 interface IProps {
   data: {
-    title: string;
-    paragraph: string;
+    title?: string;
+    paragraph?: string;
   };
   children?: Partial<ReactNode>;
   tag: Headings;
@@ -61,13 +61,17 @@ class SectionHeader extends Component<IProps> {
   }
 
   private checkLenghPropsData = (data: {
-    title: string;
-    paragraph: string;
+    title?: string;
+    paragraph?: string;
   }): void | never => {
     const { title, paragraph } = data;
 
-    if (title.length < 4 || paragraph.length < 20) {
-      throw new Error("Check length!");
+    if (title && title.length < 4) {
+      throw new Error("Check title length!");
+    }
+
+    if (paragraph && paragraph.length < 20) {
+      throw new Error("Check paragraph length!");
     }
   };
 

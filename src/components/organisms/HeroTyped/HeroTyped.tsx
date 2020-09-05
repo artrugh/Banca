@@ -26,6 +26,8 @@ import HeadingTyped from "../../atoms/HeadingTyped/HeadingTyped";
 import Heading from "../../atoms/Heading/Heading";
 import Arrow from "../../atoms/Arrow/Arrow";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
+// DATA
+import { heroHeading } from "../../../data/staticData/staticDataHeadings";
 
 interface IProps extends IPropsOuterInner {
   arrowAnimation?: boolean;
@@ -104,7 +106,7 @@ export default class HeroTyped extends Component<IProps> {
                 tag={Headings.h1}
                 isTyped
                 dataTypedSpeed={DataTypedSpeed.fast}
-                dataStr="The Fusion of Ideas, Art and Technology."
+                dataStr={heroHeading.title}
                 dataTypedDelay={1000}
                 hasCleaner={hasCleaner}
               >
@@ -113,8 +115,9 @@ export default class HeroTyped extends Component<IProps> {
                   classNameHeading="mt-0 mb-0"
                   tag={Headings.h3}
                 >
-                  - combining technical expertise, cross-industry, know-how to
-                  lead you to success -
+                  {heroHeading.paragraph}
+                  {/* - combining technical expertise, cross-industry, know-how to
+                  lead you to success - */}
                 </Heading>
                 <SmoothScroll to="features-tiles">
                   <Arrow

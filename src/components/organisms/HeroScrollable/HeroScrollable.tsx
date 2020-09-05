@@ -25,6 +25,8 @@ import {
 import Heading from "../../atoms/Heading/Heading";
 import Arrow from "../../atoms/Arrow/Arrow";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
+// DATA
+import { heroHeading } from "../../../data/staticData/staticDataHeadings";
 
 interface IProps extends IPropsOuterInner {
   colorArrow?: Color;
@@ -129,7 +131,7 @@ export default class HeroScrollable extends Component<IProps> {
                 classNameHeading="mt-0 mb-0 heading"
                 tag={Headings.h1}
               >
-                We combine our tecnical expertise with know-how.
+                {heroHeading.title}
                 <div id="scroll-behaviour-cookies" />
               </Heading>
               <Heading
@@ -139,9 +141,7 @@ export default class HeroScrollable extends Component<IProps> {
                 tag={Headings.h2}
                 scrollPosition={ScrollPosition.rightLeft}
               >
-                We combine our tech competence with our experiencies in
-                different fields leading our clients from concepts to successful
-                IT projects.
+                {heroHeading.paragraph}
               </Heading>
             </div>
           </div>

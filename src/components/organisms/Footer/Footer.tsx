@@ -19,6 +19,7 @@ import Nav from "../../molecules/Nav/Nav";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
 interface IProps {
+  logoId?: LogoType;
   pathname?: string;
   topOuterDivider?: boolean;
   topDivider?: boolean;
@@ -61,6 +62,7 @@ class Footer extends Component<IProps> {
       pathname,
       topOuterDivider,
       topDivider,
+      logoId,
       ...rest
     } = this.props;
 
@@ -70,7 +72,7 @@ class Footer extends Component<IProps> {
           <div className={this.classes.innerClasses}>
             <div className="footer-top space-between text-xxs">
               <SmoothScroll to="main">
-                <Logo logoId={LogoType.miniLogoAr} className="mini-logo" />
+                <Logo logoId={logoId} className="mini-logo" />
               </SmoothScroll>
               <FooterSocial />
             </div>

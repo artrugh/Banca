@@ -68,8 +68,8 @@ export interface IPropsItem {
 export interface IPropsFeatureItem extends IPropsOuterInner {
   children?: ReactNode;
   heading?: {
-    title: string;
-    paragraph: string;
+    title?: string;
+    paragraph?: string;
   };
   sectionHeadingPaddingMargin?: string;
   wrapName: string;

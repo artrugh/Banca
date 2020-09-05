@@ -57,7 +57,7 @@ class DefaultTemplate extends Component<IProps> {
         <main id="main" className="site-content">
           {children}
         </main>
-        <Footer pathname={pathname} />
+        <Footer pathname={pathname} logoId={LogoType.miniLogoTeclead} />
       </>
     );
   }

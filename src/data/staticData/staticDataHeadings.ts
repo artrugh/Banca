@@ -1,7 +1,13 @@
 interface IHeading {
-  title: string;
-  paragraph: string;
+  title?: string;
+  paragraph?: string;
 }
+
+export const heroHeading: { title: string; paragraph?: string } = {
+  title: "We combine our tecnical expertise with know-how.",
+  paragraph:
+    "We combine our tech competence with our experiencies in different fields leading our clients from concepts to successful IT projects.",
+};
 
 export const tileHeading: IHeading = {
   title: "Build up the whole picture",
