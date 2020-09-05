@@ -116,8 +116,6 @@ export default class HeroTyped extends Component<IProps> {
                   tag={Headings.h3}
                 >
                   {heroHeading.paragraph}
-                  {/* - combining technical expertise, cross-industry, know-how to
-                  lead you to success - */}
                 </Heading>
                 <SmoothScroll to="features-tiles">
                   <Arrow

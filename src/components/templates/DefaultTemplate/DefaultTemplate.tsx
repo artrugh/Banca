@@ -52,12 +52,12 @@ class DefaultTemplate extends Component<IProps> {
           underline={Underline.leftUnderline}
           underlineRounded
           bgColor={BgHeader.lightTransparent}
-          logoId={LogoType.mainLogoTeclead}
+          logoId={LogoType.mainLogoAr}
         />
         <main id="main" className="site-content">
           {children}
         </main>
-        <Footer pathname={pathname} logoId={LogoType.miniLogoTeclead} />
+        <Footer pathname={pathname} logoId={LogoType.miniLogoAr} />
       </>
     );
   }
