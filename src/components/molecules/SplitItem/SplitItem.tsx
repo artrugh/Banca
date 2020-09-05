@@ -11,7 +11,7 @@ import { Env, BgColor } from "../../../common/enums";
 // HELPERS
 
 // UTILS
-import checkLenghPropsData from "../../../utils/checkLenghPropsData";
+import checkLengthPropsData from "../../../utils/checkLengthPropsData";
 // COMPONENTS
 import Image from "../../atoms/Image/Image";
 
@@ -34,8 +34,8 @@ class SplitItem extends Component<IProps> {
   public constructor(public props: IProps) {
     super(props);
 
-    if (process.env.NODE_ENV === Env.prod) {
-      checkLenghPropsData.check(this.props.item, this.props.config);
+    if (process.env.NODE_ENV === Env.dev) {
+      checkLengthPropsData.check(this.props.item, this.props.config);
     }
   }
 

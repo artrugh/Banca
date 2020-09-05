@@ -41,7 +41,7 @@ class SectionHeader extends Component<IProps> {
 
   public constructor(props: IProps) {
     super(props);
-    this.checkLenghPropsData(this.props.data);
+    this.checkLengthPropsData(this.props.data);
   }
 
   public get classes(): IPropsClasses {
@@ -60,7 +60,7 @@ class SectionHeader extends Component<IProps> {
     return { container, heading };
   }
 
-  private checkLenghPropsData = (data: {
+  private checkLengthPropsData = (data: {
     title?: string;
     paragraph?: string;
   }): void | never => {

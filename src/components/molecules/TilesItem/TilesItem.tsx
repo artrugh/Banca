@@ -11,7 +11,7 @@ import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
-import checkLenghPropsData from "../../../utils/checkLenghPropsData";
+import checkLengthPropsData from "../../../utils/checkLengthPropsData";
 // COMPONENTS
 import Image from "../../atoms/Image/Image";
 
@@ -23,8 +23,8 @@ class TilesItem extends Component<IProps> {
   public constructor(props: IProps) {
     super(props);
 
-    if (process.env.NODE_ENV === Env.prod) {
-      checkLenghPropsData.check(this.props.item, this.props.config);
+    if (process.env.NODE_ENV === Env.dev) {
+      checkLengthPropsData.check(this.props.item, this.props.config);
     }
   }
 

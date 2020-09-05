@@ -16,7 +16,7 @@ import { Headings, Env } from "../../../common/enums";
 // HELPERS
 
 // UTILS
-import checkLenghPropsData from "../../../utils/checkLenghPropsData";
+import checkLengthPropsData from "../../../utils/checkLengthPropsData";
 // COMPONENTS
 import SectionHeader from "../../molecules/SectionHeader/SectionHeader";
 
@@ -51,8 +51,8 @@ class SectionTemplate extends Component<IProps> {
   public constructor(props: IProps) {
     super(props);
 
-    if (process.env.NODE_ENV === Env.prod) {
-      checkLenghPropsData.check(
+    if (process.env.NODE_ENV === Env.dev) {
+      checkLengthPropsData.check(
         this.props.sectionHeaderData,
         this.props.config
       );
