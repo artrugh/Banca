@@ -31,7 +31,7 @@
       @include anchor-aspect(header);
 
       &::after {
-        background-color: color-bg(underline-inverse);
+        background-color: color-bg(underline-primary);
       }
 
       &:hover::after {
@@ -47,6 +47,12 @@
     &[class*="transparent"] {
       background-color: transparent;
 
+      a:not(.button) {
+        &::after {
+          background-color: color-bg(underline-light);
+        }
+      }
+
       body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
         background: color-bg(header-light);
 
@@ -59,11 +65,19 @@
           @include anchor-aspect(header, inverse);
 
           &::after {
-            background-color: color-bg(underline);
+            background-color: color-bg(underline-primary);
           }
 
           &:hover::after {
             background-color: color-bg(underline-hover);
+          }
+        }
+      }
+
+      body.off-nav-is-active & {
+        a:not(.button) {
+          &::after {
+            background-color: color-bg(underline-primary);
           }
         }
       }
@@ -91,6 +105,12 @@
     &[class*="transparent"] {
       background-color: transparent;
 
+      a:not(.button) {
+        &::after {
+          background-color: color-bg(underline-dark);
+        }
+      }
+
       body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
         background-color: color-bg(header-dark);
 
@@ -102,11 +122,19 @@
           @include anchor-aspect(header);
 
           &::after {
-            background-color: color-bg(underline-inverse);
+            background-color: color-bg(underline-primary);
           }
 
           &:hover::after {
             background-color: color-bg(underline-hover);
+          }
+        }
+      }
+
+      body.off-nav-is-active & {
+        a:not(.button) {
+          &::after {
+            background-color: color-bg(underline-primary);
           }
         }
       }

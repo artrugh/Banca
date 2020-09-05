@@ -28,7 +28,6 @@ interface IProps {
   hideSignin?: boolean;
   bottomOuterDivider?: boolean;
   bottomDivider?: boolean;
-  // bgTransparent?: boolean;
   containerSize?: Size;
   bgColor?: BgHeader;
   logoId?: LogoType;
@@ -41,7 +40,6 @@ const DefaultProps: IProps = {
   hideSignin: false,
   bottomOuterDivider: false,
   bottomDivider: false,
-  // bgTransparent: false,
 };
 
 type Props = {} & Partial<DefaultProps>;

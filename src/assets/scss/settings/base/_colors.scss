@@ -97,8 +97,9 @@ $bg--color: (
   code-inverse: darken(get-color(dark, 1), 3%),
   scroll-bar: darken(get-color(dark, 1), 1%),
   // ScrollBar
-  underline: get-color(dark, 2),
-  underline-inverse: get-color(primary, 2),
+  underline-dark: get-color(dark, 2),
+  underline-light: get-color(light, 1),
+  underline-primary: get-color(primary, 2),
   underline-hover: get-color(primary, 1),
   // Underline
 );

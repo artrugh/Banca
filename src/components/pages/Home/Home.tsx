@@ -62,10 +62,6 @@ export default class Home extends Component<IData> {
 
     return (
       <>
-        {/* <Hero
-          className="illustration-section-01"
-          bgColor={BgColor.lightHeigh}
-        /> */}
         {/* <HeroTyped
           bgColor={BgColor.darkHeigh}
           hasCleaner
@@ -113,50 +109,6 @@ export default class Home extends Component<IData> {
             underlineRounded
             animationHover
             bgColor={BgColor.darkHeigh}
-          />
-        </FeatureTilesTemplate>
-
-        <FeatureTilesTemplate
-          data={testimonial}
-          heading={testimonialHeading}
-          config={testimonialConfig.heading}
-          bgColor={BgColor.lightHeigh}
-          id="testimonial"
-        >
-          <TestimonialItem
-            underline={Underline.centerUnderline}
-            config={testimonialConfig.items}
-            bgColor={BgColor.darkMedium}
-            delay={0}
-            underlineRounded
-          />
-        </FeatureTilesTemplate>
-        <FeatureTilesTemplate
-          data={clients}
-          heading={clientHeading}
-          config={clientsConfig.heading}
-          sectionHeadingPaddingMargin="p-0"
-          id="clients"
-          bgColor={BgColor.darkHeigh}
-        >
-          <Image
-            className="p-32"
-            containerClassName="images-item-container p-32"
-          />
-        </FeatureTilesTemplate>
-        <FeatureTilesTemplate
-          data={careers}
-          heading={careerHeading}
-          className="illustration-section-02"
-          config={careerConfig.heading}
-          id="careers"
-          bgColor={BgColor.lightHeigh}
-        >
-          <KeyboardItem
-            config={careerConfig.items}
-            underline={Underline.centerUnderline}
-            underlineRounded
-            delay={0}
           />
         </FeatureTilesTemplate>
         <FeatureTilesTemplate

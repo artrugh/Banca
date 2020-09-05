@@ -51,7 +51,7 @@ class DefaultTemplate extends Component<IProps> {
           hideSignin
           underline={Underline.leftUnderline}
           underlineRounded
-          bgColor={BgHeader.lightTransparent}
+          bgColor={BgHeader.light}
           logoId={LogoType.mainLogoAr}
         />
         <main id="main" className="site-content">
