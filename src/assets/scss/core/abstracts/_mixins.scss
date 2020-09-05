@@ -483,3 +483,77 @@
     @include vendor-prefix(animation, none);
   }
 }
+
+@mixin bg-header($color) {
+  background-color: color-bg(header-#{$color});
+}
+
+@mixin bg-header-transparent-to($color) {
+  background-color: transparent;
+  will-change: scroll-position;
+
+  body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
+    background: color-bg(header-#{$color});
+  }
+
+  body.off-nav-is-active.scroll-behaviour-header-nav-color & {
+    background-color: rgba(color-bg(header-#{$color}), 0.9);
+  }
+}
+@mixin links($from, $to: null) {
+  a:not(.button) {
+    &::after {
+      background-color: color-bg(underline-primary);
+    }
+
+    &:hover::after {
+      background-color: color-bg(underline-hover);
+    }
+  }
+
+  @if ($from == "dark") {
+    a:not(.button) {
+      @include anchor-aspect(header, inverse);
+    }
+  } @else {
+    @include anchor-aspect(header);
+  }
+
+  @if ($to == "light") {
+    body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
+      a:not(.button) {
+        @include anchor-aspect(header);
+      }
+    }
+  }
+
+  @if ($to == "dark") {
+    body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
+      a:not(.button) {
+        @include anchor-aspect(header, inverse);
+      }
+    }
+  }
+}
+
+@mixin logo($from, $to: null) {
+  .main-logo-inner {
+    fill: color-icon(logo-inner-#{$from});
+    @include vendor-prefix(transition, 1s all linear);
+  }
+
+  @if ($to != null) {
+    body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
+      .main-logo-inner {
+        fill: color-icon(logo-inner-#{$to});
+        @include vendor-prefix(transition, 1s all linear);
+      }
+    }
+
+    body.off-nav-is-active.scroll-behaviour-header-nav-color & {
+      .main-logo-inner {
+        fill: color-icon(logo-inner-#{$to});
+      }
+    }
+  }
+}

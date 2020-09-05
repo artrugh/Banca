@@ -80,8 +80,10 @@ export enum BgColor {
 export enum BgHeader {
   dark = "dark",
   light = "light",
-  darkTransparent = "dark-transparent",
-  lightTransparent = "light-transparent",
+  transparentToDarkTypoLightToLight = "transparent-to-dark-typo-light-to-light",
+  transparentToDarkTypoDarkToLight = "transparent-to-dark-typo-dark-to-light",
+  transparentToLightTypoDarkToDark = "transparent-to-light-typo-dark-to-dark",
+  transparentToLightTypoLightToDark = "transparent-to-light-typo-light-to-dark",
 }
 
 export enum Underline {

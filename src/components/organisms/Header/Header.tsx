@@ -65,8 +65,10 @@ class Header extends Component<IProps, State> {
     const { bgColor } = this.props;
 
     if (
-      bgColor === BgHeader.darkTransparent ||
-      bgColor === BgHeader.lightTransparent
+      bgColor === BgHeader.transparentToDarkTypoDarkToLight ||
+      bgColor === BgHeader.transparentToDarkTypoLightToLight ||
+      bgColor === BgHeader.transparentToLightTypoLightToDark ||
+      bgColor === BgHeader.transparentToLightTypoDarkToDark
     ) {
       ScrollManagerDisplayer("scroll-behaviour-underline");
       ScrollManagerDisplayer("scroll-behaviour-main-underline-bg");
@@ -84,8 +86,10 @@ class Header extends Component<IProps, State> {
     const { bgColor } = this.props;
 
     if (
-      bgColor === BgHeader.darkTransparent ||
-      bgColor === BgHeader.lightTransparent
+      bgColor === BgHeader.transparentToDarkTypoDarkToLight ||
+      bgColor === BgHeader.transparentToDarkTypoLightToLight ||
+      bgColor === BgHeader.transparentToLightTypoLightToDark ||
+      bgColor === BgHeader.transparentToLightTypoDarkToDark
     ) {
       ScrollManagerDisplayer("scroll-behaviour-underline");
       ScrollManagerDisplayer("scroll-behaviour-main-underline-bg");
@@ -110,7 +114,6 @@ class Header extends Component<IProps, State> {
     const header = classNames(
       "site-header",
       bgColor && bgColor,
-      bgTransparent && "has-bg-transparent",
       bottomOuterDivider && "has-bottom-divider",
       className
     );
@@ -192,7 +195,6 @@ class Header extends Component<IProps, State> {
       hideSignin,
       bottomOuterDivider,
       bottomDivider,
-      bgTransparent,
       logoId,
       underlineRounded,
       ...rest

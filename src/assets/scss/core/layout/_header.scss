@@ -12,141 +12,40 @@
     }
   }
 
-  body.off-nav-is-active & a:not(.button) {
-    @include anchor-aspect(header);
-
-    &::after {
-      background-color: color-bg(underline-inverse);
-    }
-
-    &:hover::after {
-      background-color: color-bg(underline-hover);
-    }
+  &.dark {
+    @include bg-header(dark);
+    @include links(light);
+    @include logo(light);
   }
 
-  &[class*="light"] {
-    background-color: color-bg(header-dark);
-
-    a:not(.button) {
-      @include anchor-aspect(header);
-
-      &::after {
-        background-color: color-bg(underline-primary);
-      }
-
-      &:hover::after {
-        background-color: color-bg(underline-hover);
-      }
-    }
-
-    .main-logo-inner {
-      fill: color-icon(logo-inner-light);
-      @include vendor-prefix(transition, 1s all linear);
-    }
-
-    &[class*="transparent"] {
-      background-color: transparent;
-
-      a:not(.button) {
-        &::after {
-          background-color: color-bg(underline-light);
-        }
-      }
-
-      body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
-        background: color-bg(header-light);
-
-        .main-logo-inner {
-          fill: color-icon(logo-inner-dark);
-          @include vendor-prefix(transition, 1s all linear);
-        }
-
-        a:not(.button) {
-          @include anchor-aspect(header, inverse);
-
-          &::after {
-            background-color: color-bg(underline-primary);
-          }
-
-          &:hover::after {
-            background-color: color-bg(underline-hover);
-          }
-        }
-      }
-
-      body.off-nav-is-active & {
-        a:not(.button) {
-          &::after {
-            background-color: color-bg(underline-primary);
-          }
-        }
-      }
-
-      body.off-nav-is-active.scroll-behaviour-header-nav-color & {
-        background-color: rgba(color-bg(header-light), 0.85);
-
-        .main-logo-inner {
-          fill: color-icon(logo-inner-dark);
-        }
-      }
-    }
+  &.light {
+    @include bg-header(light);
+    @include links(dark);
+    @include logo(dark);
   }
 
-  &[class*="dark"] {
-    background: color-bg(header-light);
-    a:not(.button) {
-      @include anchor-aspect(header, inverse);
-    }
+  &.transparent-to-dark-typo-light-to-light {
+    @include bg-header-transparent-to(dark);
+    @include links(light);
+    @include logo(light);
+  }
 
-    .main-logo-inner {
-      fill: color-icon(logo-inner-dark);
-    }
+  &.transparent-to-dark-typo-dark-to-light {
+    @include bg-header-transparent-to(dark);
+    @include links(dark, light);
+    @include logo(dark, light);
+  }
 
-    &[class*="transparent"] {
-      background-color: transparent;
+  &.transparent-to-light-typo-dark-to-dark {
+    @include bg-header-transparent-to(light);
+    @include links(dark);
+    @include logo(dark);
+  }
 
-      a:not(.button) {
-        &::after {
-          background-color: color-bg(underline-dark);
-        }
-      }
-
-      body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
-        background-color: color-bg(header-dark);
-
-        .main-logo-inner {
-          fill: color-icon(logo-inner-light);
-        }
-
-        a:not(.button) {
-          @include anchor-aspect(header);
-
-          &::after {
-            background-color: color-bg(underline-primary);
-          }
-
-          &:hover::after {
-            background-color: color-bg(underline-hover);
-          }
-        }
-      }
-
-      body.off-nav-is-active & {
-        a:not(.button) {
-          &::after {
-            background-color: color-bg(underline-primary);
-          }
-        }
-      }
-
-      body.off-nav-is-active.scroll-behaviour-header-nav-color & {
-        background-color: rgba(color-bg(header-dark), 0.85);
-
-        .main-logo-inner {
-          fill: color-icon(logo-inner-light);
-        }
-      }
-    }
+  &.transparent-to-light-typo-light-to-dark {
+    @include bg-header-transparent-to(light);
+    @include links(light, dark);
+    @include logo(light, dark);
   }
 }
 
@@ -194,10 +93,6 @@
     flex-grow: 1;
     white-space: nowrap;
     margin-bottom: 0;
-
-    // &:first-of-type {
-    //   flex-wrap: wrap;
-    // }
   }
 
   li {
