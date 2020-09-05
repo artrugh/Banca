@@ -1,38 +1,5 @@
 // Colors
 
-// The color palette
-$palette: (
-  light: (
-    0: #ffffff,
-    1: #eceded,
-    2: #9ca9b3,
-    3: #717d86,
-  ),
-  dark: (
-    0: #000000,
-    1: #151719,
-    2: #25282c,
-    3: #33363a,
-  ),
-  primary: (
-    1: #6163ff,
-    2: #acadff,
-    3: #5658dd,
-    4: #e9e9ff,
-  ),
-  secondary: (
-    1: #24e5af,
-    2: #73efcc,
-    3: #1cb68b,
-    4: #d2f9ee,
-  ),
-  alert: (
-    error: #ff6171,
-    warning: #ffa173,
-    success: #24e5af,
-  ),
-);
-
 // Base typography: color
 $color: (
   heading: get-color(light, 1),

@@ -24,7 +24,7 @@ class HeroHeading extends Component<{}> {
   public render(): JSX.Element {
     return (
       <>
-        <div id="scroll-behavior-header-bg" className="loaded-none" />
+        <div id="scroll-behaviour-underline" className="loaded-none" />
         <h1
           className="mt-0 mb-16 reveal-from-bottom heading"
           data-reveal-delay="200"

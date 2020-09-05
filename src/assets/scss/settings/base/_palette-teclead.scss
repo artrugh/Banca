@@ -1,0 +1,32 @@
+// Colors
+
+// The color palette
+$palette: (
+  light: (
+    1: #f0f0f0,
+    2: #959a9b,
+    3: #616668,
+  ),
+  dark: (
+    1: #0e131e,
+    2: #1b253e,
+    3: #243559,
+  ),
+  primary: (
+    1: #2ebfff,
+    2: #304872,
+    3: #1eaaf3,
+    4: #83dfff,
+  ),
+  secondary: (
+    1: #24e5af,
+    2: #73efcc,
+    3: #1cb68b,
+    4: #d2f9ee,
+  ),
+  alert: (
+    error: #ff6171,
+    warning: #ffa173,
+    success: #24e5af,
+  ),
+);

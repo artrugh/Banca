@@ -70,13 +70,13 @@ class Header extends Component<IProps, State> {
       bgColor === BgHeader.darkTransparent ||
       bgColor === BgHeader.lightTransparent
     ) {
-      ScrollManagerDisplayer("scroll-behavior-header-bg");
-      ScrollManagerDisplayer("scroll-behavior-main-underline-bg");
+      ScrollManagerDisplayer("scroll-behaviour-underline");
+      ScrollManagerDisplayer("scroll-behaviour-main-underline-bg");
     }
 
     ScrollManagerDisplayer("scroll-behaviour-cookies");
-    ScrollManagerDisplayer("scroll-behavior-hero-statement-color");
-    ScrollManagerDisplayer("scroll-behavior-header-nav-color");
+    ScrollManagerDisplayer("scroll-behaviour-hero-statement-color");
+    ScrollManagerDisplayer("scroll-behaviour-header-nav-color");
 
     document.addEventListener("keydown", this.handlerKeyPress);
     document.addEventListener("click", this.handleClickOutside);
@@ -89,10 +89,10 @@ class Header extends Component<IProps, State> {
       bgColor === BgHeader.darkTransparent ||
       bgColor === BgHeader.lightTransparent
     ) {
-      ScrollManagerDisplayer("scroll-behavior-header-bg");
-      ScrollManagerDisplayer("scroll-behavior-main-underline-bg");
-      ScrollManagerDisplayer("scroll-behavior-hero-statement-color");
-      ScrollManagerDisplayer("scroll-behavior-header-nav-color");
+      ScrollManagerDisplayer("scroll-behaviour-underline");
+      ScrollManagerDisplayer("scroll-behaviour-main-underline-bg");
+      ScrollManagerDisplayer("scroll-behaviour-hero-statement-color");
+      ScrollManagerDisplayer("scroll-behaviour-header-nav-color");
     }
   }
 

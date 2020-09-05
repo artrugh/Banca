@@ -1,4 +1,4 @@
-#scroll-behavior-header-bg {
+#scroll-behaviour-behaviour {
   position: absolute;
 
   &.hero-scrollable {
@@ -10,17 +10,17 @@
   }
 }
 
-#scroll-behavior-main-underline-bg {
+#scroll-behaviour-main-underline-bg {
   position: absolute;
   bottom: -80px;
 }
 
 #scroll-smooth-position {
   position: absolute;
-  bottom: -42vh;
+  bottom: -50vh;
 }
 
-#scroll-behavior-hero-statement-color {
+#scroll-behaviour-hero-statement-color {
   position: absolute;
   &.hero-scrollable {
     top: 10vh;
@@ -30,7 +30,7 @@
   }
 }
 
-#scroll-behavior-header-nav-color {
+#scroll-behaviour-header-nav-color {
   position: absolute;
   &.hero-scrollable {
     top: 20vh;

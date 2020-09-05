@@ -18,6 +18,7 @@ body {
   /* Fallback for when there is no custom background color defined. */
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 // scrollbar background

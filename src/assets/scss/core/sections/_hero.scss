@@ -58,3 +58,9 @@
     }
   }
 }
+
+body.scroll-behaviour-header-nav-color .hero .arrow-container.has-animation {
+  transition: all 0.8s;
+  transform: translateY(-400px);
+  opacity: 0 !important;
+}

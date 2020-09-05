@@ -28,6 +28,7 @@ import Arrow from "../../atoms/Arrow/Arrow";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
 interface IProps extends IPropsOuterInner {
+  arrowAnimation?: boolean;
   colorArrow?: Color;
   hasCleaner?: boolean;
   className?: string;
@@ -47,10 +48,11 @@ export default class HeroTyped extends Component<IProps> {
       bgColor,
       invertColor,
       className,
+      arrowAnimation,
     } = this.props;
 
     const outerClasses = classNames(
-      "hero-typed section",
+      "hero hero-typed section",
       topOuterDivider && "has-top-divider",
       bottomOuterDivider && "has-bottom-divider",
       bgColor && bgColor,
@@ -64,7 +66,12 @@ export default class HeroTyped extends Component<IProps> {
       bottomDivider && "has-bottom-divider"
     );
 
-    return { outerClasses, innerClasses };
+    const arrowContainer = classNames(
+      "hero-arrow-container",
+      arrowAnimation && "has-animation"
+    );
+
+    return { outerClasses, innerClasses, arrowContainer };
   }
 
   public render(): JSX.Element {
@@ -78,15 +85,16 @@ export default class HeroTyped extends Component<IProps> {
       hasCleaner,
       colorArrow,
       className,
+      arrowAnimation,
       ...rest
     } = this.props;
 
     return (
       <section {...rest} className={this.classes.outerClasses}>
         <div className="container-sm">
-          <div id="scroll-behavior-header-bg" className="loaded-none hero" />
+          <div id="scroll-behaviour-underline" className="loaded-none hero" />
           <div
-            id="scroll-behavior-header-nav-color"
+            id="scroll-behaviour-header-nav-color"
             className="loaded-none hero"
           />
           <div className={this.classes.innerClasses}>
@@ -111,7 +119,7 @@ export default class HeroTyped extends Component<IProps> {
                 <SmoothScroll to="features-tiles">
                   <Arrow
                     className="hero-arrow"
-                    containerClass="hero-arrow-container"
+                    containerClass={this.classes.arrowContainer}
                     color={colorArrow}
                     containerSize={Size.sm}
                     position={Positions.down}

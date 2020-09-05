@@ -47,7 +47,7 @@
     &[class*="transparent"] {
       background-color: transparent;
 
-      body:not(.off-nav-is-active).scroll-behavior-header-nav-color & {
+      body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
         background: color-bg(header-light);
 
         .main-logo-inner {
@@ -68,7 +68,7 @@
         }
       }
 
-      body.off-nav-is-active.scroll-behavior-header-nav-color & {
+      body.off-nav-is-active.scroll-behaviour-header-nav-color & {
         background-color: rgba(color-bg(header-light), 0.85);
 
         .main-logo-inner {
@@ -91,7 +91,7 @@
     &[class*="transparent"] {
       background-color: transparent;
 
-      body:not(.off-nav-is-active).scroll-behavior-header-nav-color & {
+      body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
         background-color: color-bg(header-dark);
 
         .main-logo-inner {
@@ -111,7 +111,7 @@
         }
       }
 
-      body.off-nav-is-active.scroll-behavior-header-nav-color & {
+      body.off-nav-is-active.scroll-behaviour-header-nav-color & {
         background-color: rgba(color-bg(header-dark), 0.85);
 
         .main-logo-inner {

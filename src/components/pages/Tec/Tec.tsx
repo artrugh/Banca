@@ -24,7 +24,7 @@ class Tec extends Component {
     return (
       <>
         <div
-          id="scroll-behavior-header-nav-color"
+          id="scroll-behaviour-header-nav-color"
           className="loaded-none page"
         />
         <FeatureTilesTemplate

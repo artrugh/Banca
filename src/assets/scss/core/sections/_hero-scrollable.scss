@@ -1,12 +1,35 @@
 .hero-scrollable {
+  //delete
+  // width: 40vw;
   .hero {
     &-divider {
-      width: 100vw;
       height: 160vh;
+      width: 0;
+    }
+
+    &-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-image: linear-gradient(to bottom, rgba(#ffffff, 0.5), rgba(2, 50, 182, 0.5)),
+        url("../../../../../public/images/hero/hero-630-400.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 1;
+
+      //if the resolution is heigher than 192dpi
+      @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+        (-webkit-in-device-pixel-ratio: 2) and (min-width: 37.5em),
+        (min-width: 125rem) {
+        background-image: linear-gradient(to bottom, rgba(#ffffff, 0.5), rgba(2, 50, 182, 0.5)),
+          url("../../../../../public/images/hero/hero-1440-800.png");
+      }
     }
 
     &-arrow-container {
-      position: relative;
       margin-top: 90vh;
       z-index: -1;
       display: none;
@@ -21,31 +44,12 @@
       padding: 0.7rem;
     }
 
-    &-img {
-      position: absolute;
-      top: 0;
-      height: 100vh;
-      width: 100vw;
-      background-image: linear-gradient(to bottom, rgba(#ffffff, 0.5), rgba(2, 50, 182, 0.5)),
-        url("../../../../../public/images/hero/hero-630-400.png");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-
-      //if the resolution is heigher than 192dpi
-      @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
-        (-webkit-in-device-pixel-ratio: 2) and (min-width: 37.5em),
-        (min-width: 125rem) {
-        background-image: linear-gradient(to bottom, rgba(#ffffff, 0.5), rgba(2, 50, 182, 0.5)),
-          url("../../../../../public/images/hero/hero-1440-800.png");
-      }
-    }
-
     &-illustration {
       position: absolute !important;
       width: 100vw;
       height: 100vh;
       bottom: -100vh;
+      left: 0;
     }
 
     &-statement {
@@ -53,7 +57,7 @@
       bottom: 6rem;
 
       margin: 0 2rem;
-      margin-bottom: calc(6 * #{$hero-underline--height});
+      margin-bottom: calc(5 * #{$hero-underline--height});
 
       width: $hero-statement--width__mobile;
 
@@ -100,7 +104,7 @@
 
       &-statement {
         width: $hero-statement--width__tablet;
-        margin-bottom: calc(8 * #{$hero-underline--height});
+        margin-bottom: calc(7 * #{$hero-underline--height});
       }
 
       &-about {
@@ -116,7 +120,7 @@
       }
 
       &-statement {
-        margin-bottom: calc(10 * #{$hero-underline--height});
+        margin-bottom: calc(8 * #{$hero-underline--height});
       }
 
       &-about {

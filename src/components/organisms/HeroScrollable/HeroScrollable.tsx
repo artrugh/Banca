@@ -11,7 +11,7 @@ import {
   Headings,
   ScrollPosition,
   Positions,
-  BgColor,
+  Color,
 } from "../../../common/enums";
 import {
   IPropsClasses,
@@ -27,6 +27,7 @@ import Arrow from "../../atoms/Arrow/Arrow";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
 interface IProps extends IPropsOuterInner {
+  colorArrow?: Color;
   children?: ReactNode;
   containerSize?: string;
   underlineSize?: string;
@@ -34,6 +35,7 @@ interface IProps extends IPropsOuterInner {
   width?: number | string;
   height?: number | string;
   alt?: string;
+  arrowAnimation?: boolean;
   gradientBg?: boolean;
   className?: string;
 }
@@ -50,12 +52,17 @@ export default class HeroScrollable extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   public get classes(): IPropsClasses {
-    const { className, bgColor } = this.props;
-    const outer = classNames(`hero-scrollable`, bgColor && bgColor);
+    const { className, bgColor, arrowAnimation } = this.props;
+    const outer = classNames("hero hero-scrollable", bgColor && bgColor);
 
     const image = classNames("hero-img", className && className);
 
-    return { image, outer };
+    const arrowContainer = classNames(
+      "hero-arrow-container",
+      arrowAnimation && "has-animation"
+    );
+
+    return { image, outer, arrowContainer };
   }
 
   public render(): JSX.Element {
@@ -70,6 +77,8 @@ export default class HeroScrollable extends Component<IProps> {
       bgColor,
       gradientBg,
       className,
+      colorArrow,
+      arrowAnimation,
       ...rest
     } = this.props;
 
@@ -83,29 +92,30 @@ export default class HeroScrollable extends Component<IProps> {
         <div {...rest} className={this.classes.outer}>
           <div className="hero-scrollable-container">
             <div
-              id="scroll-behavior-main-underline-bg"
+              id="scroll-behaviour-main-underline-bg"
               className="loaded-none"
             />
             <div className={this.classes.image}>
               <SmoothScroll to="scroll-smooth-position">
                 <Arrow
                   className="hero-arrow"
-                  containerClass="hero-arrow-container"
+                  containerClass={this.classes.arrowContainer}
+                  color={colorArrow}
                   containerSize={Size.sm}
                   position={Positions.down}
                 />
               </SmoothScroll>
             </div>
             <div
-              id="scroll-behavior-header-bg"
+              id="scroll-behaviour-underline"
               className="hero-scrollable loaded-none"
             />
             <div
-              id="scroll-behavior-hero-statement-color"
+              id="scroll-behaviour-hero-statement-color"
               className="loaded-none hero-scrollable"
             />
             <div
-              id="scroll-behavior-header-nav-color"
+              id="scroll-behaviour-header-nav-color"
               className="loaded-none hero-scrollable"
             />
             <div id="scroll-smooth-position" className="loaded-none" />

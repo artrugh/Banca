@@ -100,9 +100,8 @@ class Hero extends Component<IProps, State> {
     return (
       <section {...rest} className={this.classes.outerClasses} id="hero">
         <div className="container-sm">
-          <div id="scroll-behavior-header-bg" className="loaded-none hero" />
           <div
-            id="scroll-behavior-header-nav-color"
+            id="scroll-behaviour-header-nav-color"
             className="loaded-none hero"
           />
           <div className={this.classes.innerClasses}>
