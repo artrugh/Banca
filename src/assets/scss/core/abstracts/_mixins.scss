@@ -503,12 +503,19 @@
 @mixin links($from, $to: null) {
   a:not(.button) {
     &::after {
-      background-color: color-bg(underline-primary);
+      @if ($to == null) {
+        background-color: color-bg(underline-primary);
+      } @else {
+        background-color: color-bg(underline-primary-light);
+      }
     }
 
     &:hover::after {
       background-color: color-bg(underline-hover);
     }
+  }
+
+  @if ($to == null) {
   }
 
   @if ($from == "dark") {
@@ -523,6 +530,10 @@
     body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
       a:not(.button) {
         @include anchor-aspect(header);
+
+        &::after {
+          background-color: color-bg(underline-primary);
+        }
       }
     }
   }
@@ -531,6 +542,10 @@
     body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
       a:not(.button) {
         @include anchor-aspect(header, inverse);
+
+        &::after {
+          background-color: color-bg(underline-primary);
+        }
       }
     }
   }
