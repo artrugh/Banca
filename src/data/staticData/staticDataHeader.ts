@@ -1,27 +1,31 @@
-import { IHeader } from "../../common/interfaces";
-import { HeaderItemType } from "../../common/enums";
+import { IHeader, ICheckbox } from "../../common/interfaces";
+import { HeaderItemType, Languages } from "../../common/enums";
 
-export const headerData: Array<IHeader> = [
+export const headerData: Array<IHeader | ICheckbox> = [
   {
     title: "contact",
-    role: HeaderItemType.button,
+    to: "cta",
+    role: HeaderItemType.anchor,
   },
   {
     title: "career",
+    to: "career",
     role: HeaderItemType.button,
   },
   {
     title: "products",
+    to: "products",
     role: HeaderItemType.anchor,
   },
   {
     title: "tec",
+    to: "tec",
     role: HeaderItemType.anchor,
   },
   {
     title: "language",
     role: HeaderItemType.checkbox,
-    off: "EN",
-    on: "ES",
+    off: Languages.EN,
+    on: Languages.ES,
   },
 ];

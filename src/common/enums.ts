@@ -125,6 +125,12 @@ export enum HeaderItemType {
   anchor = "anchor",
 }
 
+export enum Languages {
+  ES = "ES",
+  EN = "EN",
+  DE = "DE",
+}
+
 export enum Social {
   vimeo = "vimeo",
   gitHub = "github",

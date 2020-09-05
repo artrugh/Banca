@@ -1,4 +1,10 @@
-import { TecTools, ClientName, HeaderItemType, Social } from "./enums";
+import {
+  TecTools,
+  ClientName,
+  HeaderItemType,
+  Social,
+  Languages,
+} from "./enums";
 
 export interface ITile {
   title: string;
@@ -49,8 +55,16 @@ export interface IClient {
 export interface IHeader {
   title: string;
   role: HeaderItemType;
+  to: string;
   on?: string;
   off?: string;
+}
+
+export interface ICheckbox {
+  title: string;
+  role: HeaderItemType.checkbox;
+  on: Languages;
+  off: Languages;
 }
 
 export interface ISocial {

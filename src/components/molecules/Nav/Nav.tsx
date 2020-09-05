@@ -36,7 +36,7 @@ export default class Nav extends Component<IProps> {
       if (li.role === HeaderItemType.button) {
         item = (
           <li key={Math.random()}>
-            <Link href={`/${li.title}`} activeClassName="active-link">
+            <Link href={`/${li.to}`} activeClassName="active-link">
               <a
                 role="button"
                 onKeyDown={handlerOnClick}
@@ -53,7 +53,7 @@ export default class Nav extends Component<IProps> {
         item = (
           <li key={Math.random()}>
             <SmoothScroll
-              to={li.title}
+              to={li.to}
               className={classesAnchor}
               handlerOnClick={handlerOnClick}
             >
