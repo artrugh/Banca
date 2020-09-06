@@ -37,6 +37,16 @@ body::-webkit-scrollbar-thumb {
   border-radius: $scrollbar--border-radius;
 }
 
+::-moz-selection {
+  background-color:color-bg(selection);
+  color: color(selection);
+}
+
+::selection {
+  background-color:color-bg(selection);
+  color: color(selection);
+}
+
 hr {
   border: 0;
   @include divider();

@@ -22,6 +22,7 @@ $color: (
   mid-contrast-inverse: get-color(dark, 2),
   low-contrast-inverse: get-color(light, 3),
   scroll-bar: get-color(primary, 1),
+  selection: get-color(light, 1),
 );
 
 // Borders and dividers: color
@@ -103,4 +104,5 @@ $bg--color: (
   underline-primary-light: get-color(primary, 4),
   underline-hover: get-color(primary, 1),
   // Underline
+  selection: get-color(primary, 1),
 );
