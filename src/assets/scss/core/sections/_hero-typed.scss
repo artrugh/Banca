@@ -5,34 +5,47 @@
     &-arrow-container {
       text-align: center;
       margin-top: 5rem;
-      opacity: 0;
-      @include vendor-prefix(transition, opacity 0.8s linear);
-    }
-
-    &-about {
-      opacity: 0;
-      display: none;
-      @include vendor-prefix(transition, opacity 1.5s linear 1s);
     }
 
     &-arrow {
       padding: 0.7rem;
     }
 
-    &-statement.clean-typed ~ a .hero-arrow-container {
-      opacity: 1;
+    // initial state-about and arrow
+    &-about,
+    &-arrow-container i {
+      opacity: 0;
+      display: none;
+    }
+    // set delay
+    &-about {
+      @include vendor-prefix(transition, opacity 1.5s linear 0.2s);
+    }
+    // set delay
+    &-arrow-container i {
+      @include vendor-prefix(transition, opacity 1.5s linear 0.7s);
     }
 
+    // display about invisible
+    &-statement.is-typed ~ .hero-about {
+      display: block;
+    }
+    // display arrow invisible
+    &-statement.is-typed ~ a .hero-arrow-container i {
+      display: inline-block;
+    }
+    // display about visible
     &-statement.clean-typed ~ .hero-about {
       opacity: 1;
-      display: block;
+    }
+    &-statement.clean-typed ~ a .hero-arrow-container i {
+      opacity: 1;
     }
   }
 
   @include media(">medium") {
     .hero {
       &-arrow-container {
-        display: block;
         margin-top: 2rem;
       }
 
