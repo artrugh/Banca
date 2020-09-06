@@ -3,15 +3,15 @@ import React, { Component } from "react";
 import { Social } from "../common/enums";
 
 export default class SocialLogos<P = {}, S = {}> extends Component<P, S> {
-  protected SVGLogos(title: string): JSX.Element {
+  protected SVGLogos(title: string, widthHeight: number): JSX.Element {
     if (title === Social.vimeo) {
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
           focusable="false"
-          width="20"
-          height="20"
+          width={widthHeight}
+          height={widthHeight}
           viewBox="0 0 1000 1000"
         >
           <title>Vimeo</title>
@@ -26,8 +26,8 @@ export default class SocialLogos<P = {}, S = {}> extends Component<P, S> {
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
           focusable="false"
-          width="20"
-          height="20"
+          width={widthHeight}
+          height={widthHeight}
           viewBox="0 0 32 32"
         >
           <title>GitHub</title>
@@ -42,8 +42,8 @@ export default class SocialLogos<P = {}, S = {}> extends Component<P, S> {
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
           focusable="false"
-          width="20"
-          height="20"
+          width={widthHeight}
+          height={widthHeight}
           viewBox="0 0 32 32"
         >
           <title>LinkedIn</title>

@@ -24,7 +24,7 @@
     svg {
       fill: color-icon(logo);
       @include vendor-prefix(transition, fill 0.15s ease);
-
+      margin: 0;
       .invert-color & {
         fill: color-icon(social-inverse);
       }
@@ -105,26 +105,26 @@
 .footer-nav {
   a {
     display: flex;
+    width: 100%;
   }
 
   ul {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // align-items: center;
+    // white-space: nowrap;
+    width: fit-content;
+    margin: 0 0 0 auto;
     margin-bottom: 0;
   }
 }
 
 .footer-social {
+  height: max-content;
   ul {
-    margin-right: -($footer-social--inner-padding + $footer-social--outer-padding-h);
+    // margin-right: -($footer-social--inner-padding + $footer-social--outer-padding-h);
     margin-left: -($footer-social--inner-padding + $footer-social--outer-padding-h);
-  }
-
-  li {
-    padding: 0 $footer-social--outer-padding-h;
   }
 
   a {
@@ -149,11 +149,29 @@
       }
     }
   }
+
+  li {
+    padding: 0 $footer-social--outer-padding-h;
+
+    &:last-of-type {
+      padding-right: 0;
+
+      a {
+        padding-right: 0;
+      }
+    }
+  }
 }
 
 .footer-nav {
-  margin-right: -$footer-nav--padding-h;
-  margin-left: -$footer-nav--padding-h;
+  // margin-right: -$footer-nav--padding-h;
+  // margin-left: -$footer-nav--padding-h;
+
+  li:last-of-type {
+    a {
+      padding-right: 0;
+    }
+  }
 
   a {
     @include anchor-aspect(footer);

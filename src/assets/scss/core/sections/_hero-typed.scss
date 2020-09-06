@@ -11,6 +11,7 @@
 
     &-about {
       opacity: 0;
+      display: none;
       @include vendor-prefix(transition, opacity 1.5s linear 1s);
     }
 
@@ -24,6 +25,7 @@
 
     &-statement.clean-typed ~ .hero-about {
       opacity: 1;
+      display: block;
     }
   }
 

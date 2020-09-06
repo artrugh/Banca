@@ -30,7 +30,7 @@ class FooterSocial extends SocialLogos<IProps> {
     const items = social.map((item) => (
       <li key={Math.random()}>
         <a href={item.link} target="_blank" rel="noreferrer">
-          {this.SVGLogos(item.title)}
+          {this.SVGLogos(item.title, item.widthHeight)}
         </a>
       </li>
     ));

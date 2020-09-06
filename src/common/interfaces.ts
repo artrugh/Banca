@@ -70,6 +70,7 @@ export interface ICheckbox {
 export interface ISocial {
   title: Social;
   link: string;
+  widthHeight: number;
 }
 
 // Initial Data
