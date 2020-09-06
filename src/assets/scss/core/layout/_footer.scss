@@ -115,7 +115,7 @@
     // align-items: center;
     // white-space: nowrap;
     width: fit-content;
-    margin: 0 0 0 auto;
+    // margin: 0 0 0 auto;
     margin-bottom: 0;
   }
 }
@@ -197,6 +197,16 @@
     display: flex;
     justify-content: space-around;
   }
+
+  .footer-nav {
+    ul {
+      margin: 0 auto;
+
+      a:first-of-type {
+        padding-left: 0;
+      }
+    }
+  }
 }
 
 @include media(">medium") {
@@ -221,6 +231,12 @@
       > *:first-child {
         order: 1;
       }
+    }
+  }
+
+  .footer-nav {
+    ul {
+      margin: 0 0 0 auto;
     }
   }
 }
