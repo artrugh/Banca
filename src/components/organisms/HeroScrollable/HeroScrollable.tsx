@@ -121,11 +121,11 @@ export default class HeroScrollable extends Component<IProps> {
               className="loaded-none hero-scrollable"
             />
             <div id="scroll-smooth-position" className="loaded-none" />
-            <div className="container-big">
+            <div className="container-lg">
               <div className="hero-divider" />
               <div className="hero-illustration illustration-section-01" />
               <Heading
-                underlineSize={Size.big}
+                underlineSize={Size.lg}
                 classNameContainer="hero-statement"
                 animation
                 classNameHeading="mt-0 mb-0 heading"
@@ -135,7 +135,7 @@ export default class HeroScrollable extends Component<IProps> {
                 <div id="scroll-behaviour-cookies" />
               </Heading>
               <Heading
-                underlineSize={Size.big}
+                underlineSize={Size.lg}
                 classNameContainer="hero-about"
                 classNameHeading="mt-0 mb-0 sub-heading"
                 tag={Headings.h2}

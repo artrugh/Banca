@@ -4,7 +4,7 @@ interface IHeading {
 }
 
 export const heroHeading: { title: string; paragraph?: string } = {
-  title: "The Fusion of Ideas, Art and Technology.",
+  title: "We combine our tecnical expertise with know-how.",
   paragraph:
     "- combining technical expertise, cross-industry, know-how to lead you to success -",
 };

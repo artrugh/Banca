@@ -46,7 +46,7 @@ class DefaultTemplate extends Component<IProps> {
         </Head>
         <CookiesModal bgColor={BgColor.darkMedium} />
         <Header
-          containerSize={Size.big}
+          containerSize={Size.lg}
           navPosition="right"
           hideSignin
           underline={Underline.leftUnderline}

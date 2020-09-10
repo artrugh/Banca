@@ -273,7 +273,7 @@
     @include vendor-prefix(transition, all 0.5s ease-out);
   }
 
-  @if ($type== "big") {
+  @if ($type== "lg") {
     & {
       height: 1rem;
       margin: calc(1rem * 3) auto 0 0;

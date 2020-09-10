@@ -4,13 +4,11 @@ export enum Headings {
   h3 = "h3",
 }
 
-export enum DataTypedSpeed {
-  fast = "100",
-  slow = "200",
-}
-
 export enum Size {
   big = "big",
+  xl = " xl",
+  lg = "lg",
+  md = "md",
   sm = "sm",
   xs = "xs",
 }
@@ -25,6 +23,11 @@ export enum Positions {
 export enum VideoTag {
   iframe = "iframe",
   video = "video",
+}
+
+export enum DataTypedSpeed {
+  fast = "100",
+  slow = "200",
 }
 
 export enum Reveal {

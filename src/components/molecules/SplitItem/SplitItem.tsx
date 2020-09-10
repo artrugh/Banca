@@ -202,6 +202,7 @@ class SplitItem extends Component<IProps> {
         <div className={this.classes.image} data-reveal-container=".split-item">
           <a href={link} target="_blank" rel="noreferrer">
             <Image
+              className={alt.toLowerCase()}
               src={`./images/products/${image}`}
               alt={alt}
               width={528}

@@ -74,8 +74,8 @@ export default class Home extends Component<IData> {
         /> */}
         <HeroScrollable
           className="reveal-scale-down"
-          containerSize={Size.big}
-          underlineSize={Size.big}
+          containerSize={Size.lg}
+          underlineSize={Size.lg}
           height="100vh"
           bgColor={BgColor.lightHeigh}
           colorArrow={Color.light}

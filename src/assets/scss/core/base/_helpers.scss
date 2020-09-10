@@ -359,8 +359,8 @@ img.has-shadow-light,
 
 // Underline Hr
 
-.underline--big {
-  @include underlineHr(big);
+.underline--lg {
+  @include underlineHr(lg);
 }
 
 .underline--sm {

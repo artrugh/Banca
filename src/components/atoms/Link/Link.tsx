@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
 import { ReactElementLike } from "prop-types";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface LinkProps extends WithRouterProps {
   href: string;
@@ -21,7 +21,9 @@ class Link<P extends LinkProps> extends Component<P> {
 
     const child = Children.only(children);
     const active = this.props.router.pathname === href && activeClassName;
-    const className = cx(child.props.className, { [activeClassName]: active });
+    const className = classNames(child.props.className, {
+      [activeClassName]: active,
+    });
 
     return (
       <NextLink href={this.props.href} {...rest}>
