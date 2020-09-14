@@ -1,12 +1,11 @@
 import React, { Component, createElement, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
 import {
   Size,
   Headings,
@@ -51,37 +50,6 @@ class HeadingTyped extends Component<IProps> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const {
-      containerSize,
-      underlineSize,
-      className,
-      animation,
-      scrollPosition,
-      classNameHeading,
-      hasCleaner,
-    } = this.props;
-
-    const container = classNames(
-      className && className,
-      containerSize ? `container-${containerSize}` : "container"
-    );
-
-    const underline = classNames(
-      "underline",
-      animation && "underline-has-animation",
-      underlineSize ? `underline--${underlineSize}` : "",
-      scrollPosition
-    );
-
-    const heading = classNames(
-      classNameHeading && classNameHeading,
-      hasCleaner && "has-cleaner"
-    );
-
-    return { container, underline, heading };
-  }
-
   private createReactElement = (tag: string, props: {}): JSX.Element => {
     const e = createElement;
     const el: JSX.Element = e(tag, props);
@@ -108,7 +76,10 @@ class HeadingTyped extends Component<IProps> {
     } = this.props;
 
     const props = {
-      className: this.classes.heading,
+      className: cn({
+        [classNameHeading]: classNameHeading,
+        "has-cleaner": hasCleaner,
+      }),
       "data-typed-speed": dataTypedSpeed,
       "data-str": dataStr,
       "data-typed-delay": dataTypedDelay,
@@ -116,9 +87,23 @@ class HeadingTyped extends Component<IProps> {
     };
 
     return (
-      <div {...rest} className={this.classes.container}>
+      <div
+        {...rest}
+        className={cn({
+          [`container-${containerSize}`]: containerSize,
+          [className]: className,
+        })}
+      >
         {this.createReactElement(tag, props)}
-        {underlineSize && <hr className={this.classes.underline} />}
+        {underlineSize && (
+          <hr
+            className={cn("underline", {
+              "underline-has-animation": animation,
+              [`underline--${underlineSize}`]: underlineSize,
+              [scrollPosition]: scrollPosition,
+            })}
+          />
+        )}
         {children}
       </div>
     );

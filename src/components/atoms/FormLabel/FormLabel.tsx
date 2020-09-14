@@ -1,12 +1,12 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
+
 // HELPERS
 
 // UTILS
@@ -36,22 +36,18 @@ class FormLabel extends Component<IProps> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const { className, labelHidden } = this.props;
-    const classes = classNames(
-      "form-label",
-      labelHidden && "screen-reader",
-      className
-    );
-
-    return { classes };
-  }
-
   public render(): JSX.Element {
     const { className, children, labelHidden, id, ...rest } = this.props;
 
     return (
-      <label {...rest} className={this.classes.classes} htmlFor={id}>
+      <label
+        {...rest}
+        className={cn("form-label", {
+          "screen-reader": labelHidden,
+          [className]: className,
+        })}
+        htmlFor={id}
+      >
         {children}
       </label>
     );

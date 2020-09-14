@@ -1,6 +1,4 @@
 .hero-scrollable {
-  //delete
-  // width: 40vw;
   .hero {
     &-divider {
       height: 160vh;
@@ -29,8 +27,8 @@
       }
     }
 
-    &-arrow-container {
-      margin-top: 90vh;
+    &-chevron-container {
+      margin-top: 85vh;
       z-index: -1;
       display: none;
       opacity: 1;
@@ -38,11 +36,6 @@
       @include vendor-prefix(transition, all 0.5s);
     }
 
-    &-arrow {
-      position: absolute;
-      bottom: 0;
-      padding: 0.7rem;
-    }
 
     &-illustration {
       position: absolute !important;
@@ -94,12 +87,8 @@
 
   @include media(">medium") {
     .hero {
-      &-arrow-container {
+      &-chevron-container {
         display: block;
-      }
-
-      &-arrow {
-        right: $hero-arrow--right-position__table;
       }
 
       &-statement {
@@ -115,10 +104,6 @@
 
   @include media(">large") {
     .hero {
-      &-arrow {
-        right: $hero-arrow--right-position__desktop;
-      }
-
       &-statement {
         margin-bottom: calc(8 * #{$hero-underline--height});
       }

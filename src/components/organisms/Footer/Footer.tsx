@@ -7,19 +7,21 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
-import { LogoType } from "../../../common/enums";
+import { Logo, Color, Size } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
-import Logo from "../../atoms/Logo/Logo";
+import Icon from "../../atoms/Icon/Icon";
 import FooterSocial from "../../molecules/FooterSocial/FooterSocial";
 import Nav from "../../molecules/Nav/Nav";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
 interface IProps {
-  logoId?: LogoType;
+  logoName?: Logo;
+  logoColor?: Color;
+  logoSize?: Size;
   pathname?: string;
   topOuterDivider?: boolean;
   topDivider?: boolean;
@@ -62,7 +64,9 @@ class Footer extends Component<IProps> {
       pathname,
       topOuterDivider,
       topDivider,
-      logoId,
+      logoName,
+      logoColor,
+      logoSize,
       ...rest
     } = this.props;
 
@@ -72,7 +76,7 @@ class Footer extends Component<IProps> {
           <div className={this.classes.innerClasses}>
             <div className="footer-top space-between text-xxs">
               <SmoothScroll to="main">
-                <Logo logoId={logoId} className="mini-logo" />
+                <Icon name={logoName} color={logoColor} size={logoSize} />
               </SmoothScroll>
               <FooterSocial />
             </div>

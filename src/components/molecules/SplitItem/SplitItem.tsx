@@ -7,13 +7,14 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
-import { Env, BgColor } from "../../../common/enums";
+import { Env, BgColor, IconName, Size } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 import checkLengthPropsData from "../../../utils/checkLengthPropsData";
 // COMPONENTS
 import Image from "../../atoms/Image/Image";
+import Icon from "../../atoms/Icon/Icon";
 
 interface IProps extends IPropsItem {
   animationHover?: boolean;
@@ -106,14 +107,11 @@ class SplitItem extends Component<IProps> {
     }
 
     const listTectools: ReactNode[] | [] = tectools.map((tool: string) => (
-      <Image
-        src={`/svgs/logo-tec/logo_tec-${tool}-${bgColorLogo}.svg`}
-        alt={`logo-${tool}`}
-        width="30px"
-        height="30px"
+      <Icon
+        name={IconName[tool]}
+        size={Size.lg}
+        className="logo-tec-icon p-8"
         key={Math.random()}
-        containerClassName={this.classes.imageContainer}
-        className="logo-tec-icon"
       />
     ));
 
@@ -189,7 +187,7 @@ class SplitItem extends Component<IProps> {
           data-reveal-container=".split-item"
           data-reveal-delay={`${delay * 200}`}
         >
-          <div className="links has-inline-flex">
+          <div className="links d-inline-flex">
             {this.pElement({ status }, "primary")}
             {this.anchorElement({ link }, "secondary")}
             {this.anchorElement({ repository }, "secondary")}

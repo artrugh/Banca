@@ -1,99 +1,65 @@
-import { TecTools } from "../../common/enums";
-import { ITec } from "../../common/interfaces";
+import { Tech, Size } from "../../common/enums";
+import { ITech } from "../../common/interfaces";
 
-const logoTecPathSrc = "/svgs/logo-tec/logo_tec-";
-const widthLogoTec = "50px";
-const heightLogoTec = "50px";
-
-export const tec: Array<ITec> = [
+export const tec: Array<ITech> = [
   {
-    name: TecTools.nodejs,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.nodejs,
+    size: Size.lg,
   },
   {
-    name: TecTools.js,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.js,
+    size: Size.lg,
   },
   {
-    name: TecTools.ts,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.ts,
+    size: Size.lg,
   },
   {
-    name: TecTools.html,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.html,
+    size: Size.lg,
   },
   {
-    name: TecTools.css,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.css,
+    size: Size.lg,
   },
   {
-    name: TecTools.sass,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.sass,
+    size: Size.lg,
   },
   {
-    name: TecTools.react,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.react,
+    size: Size.lg,
   },
   {
-    name: TecTools.nextjs,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.nextjs,
+    size: Size.lg,
   },
   {
-    name: TecTools.express,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.express,
+    size: Size.lg,
   },
   {
-    name: TecTools.mongodb,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.mongodb,
+    size: Size.lg,
   },
   {
-    name: TecTools.pug,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.pug,
+    size: Size.lg,
   },
   {
-    name: TecTools.stripe,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.stripe,
+    size: Size.lg,
   },
   {
-    name: TecTools.figma,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.figma,
+    size: Size.lg,
   },
   {
-    name: TecTools.ai,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.ai,
+    size: Size.lg,
   },
   {
-    name: TecTools.ps,
-    src: logoTecPathSrc,
-    width: widthLogoTec,
-    height: heightLogoTec,
+    name: Tech.ps,
+    size: Size.lg,
   },
 ];

@@ -37,7 +37,7 @@ class Tec extends Component {
         >
           <Image
             className="m-32"
-            containerClassName="images-item-container p-32"
+            classNameContainer="images-item-container p-32"
             animationHover
           />
         </FeatureTilesTemplate>

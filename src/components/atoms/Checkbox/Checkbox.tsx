@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
@@ -57,7 +57,12 @@ class Checkbox extends Component<IProps> {
     } = this.props;
 
     return (
-      <label className={classNames("form-checkbox", className)} htmlFor={id}>
+      <label
+        className={cn("form-checkbox", {
+          [className]: className,
+        })}
+        htmlFor={id}
+      >
         <input
           id={id}
           {...rest}

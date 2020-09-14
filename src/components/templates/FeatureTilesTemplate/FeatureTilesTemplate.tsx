@@ -1,4 +1,4 @@
-import React, { Component, cloneElement, ReactElement } from "react";
+import React, { Component, cloneElement, ReactElement, ReactNode } from "react";
 import classNames from "classnames";
 
 // STYLE
@@ -16,7 +16,7 @@ import {
   IProduct,
   ICareer,
   ITestimonial,
-  ITec,
+  ITech,
   ITile,
   IClient,
 } from "../../../common/interfaces";
@@ -28,8 +28,8 @@ import {
 import SectionTemplate from "../SectionHeaderTemplate/SectionHeaderTemplate";
 
 interface IProps extends IPropsFeatureItem {
-  children?: ReactElement;
-  data: Array<IProduct | ITestimonial | ICareer | ITec | ITile | IClient | []>;
+  children?: ReactNode | ReactElement;
+  data: Array<IProduct | ITestimonial | ICareer | ITech | ITile | IClient | []>;
   config?: {
     title: number[];
     paragraph?: number[];
@@ -89,13 +89,15 @@ class FeaturesTilesTemplate extends Component<IProps> {
     }
 
     const Items: JSX.Element[] = data.map((item: { [key: string]: any }) => {
-      return cloneElement(children, {
+      return cloneElement(children as ReactElement<any>, {
         item,
         key: Math.random(),
         src: `${item.src}${item.name}-${bgColorLogo}.svg`,
         alt: "logo-" + item.name,
+        name: item.name,
         width: item.width,
         height: item.height,
+        size: item.size,
       });
     });
 

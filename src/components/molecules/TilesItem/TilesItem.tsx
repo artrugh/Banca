@@ -6,16 +6,21 @@ import classNames from "classnames";
 // BASE CLASS
 
 // COMMON
-import { Env } from "../../../common/enums";
+import { Color, Env, Size } from "../../../common/enums";
 import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
 import checkLengthPropsData from "../../../utils/checkLengthPropsData";
 // COMPONENTS
-import Image from "../../atoms/Image/Image";
+import Icon from "../../atoms/Icon/Icon";
 
 interface IProps extends IPropsItem {
+  iconColor?: Color;
+  iconSize?: Size;
+  strokeColor?: Color;
+  circleColor?: Color;
+  ellipseColor?: Color;
   config: { [key: string]: number[] };
 }
 
@@ -51,7 +56,14 @@ class TilesItem extends Component<IProps> {
 
   public render(): JSX.Element {
     const { title, description, icon, alt } = this.props.item;
-    const { delay } = this.props;
+    const {
+      delay,
+      iconColor,
+      iconSize,
+      strokeColor,
+      circleColor,
+      ellipseColor,
+    } = this.props;
 
     return (
       <div
@@ -61,11 +73,13 @@ class TilesItem extends Component<IProps> {
         <div className="tiles-item-inner">
           <div className="features-tiles-item-header">
             <div className="features-tiles-item-image mb-16">
-              <Image
-                src={`./svgs/feature-tiles-icons/${icon}`}
-                alt={alt}
-                width={64}
-                height={64}
+              <Icon
+                name={icon}
+                color={iconColor}
+                size={iconSize}
+                strokeColor={strokeColor}
+                circleColor={circleColor}
+                ellipseColor={ellipseColor}
               />
             </div>
           </div>

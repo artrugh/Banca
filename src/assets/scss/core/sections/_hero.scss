@@ -59,8 +59,12 @@
   }
 }
 
-body.scroll-behaviour-header-nav-color .hero .arrow-container.has-animation {
+.hero-chevron-container.has-animation {
   transition: all 0.8s;
+  transform: translateY(0);
+}
+
+body.scroll-behaviour-header-nav-color .hero .hero-chevron-container.has-animation {
   transform: translateY(-400px);
   opacity: 0 !important;
 }

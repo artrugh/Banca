@@ -34,4 +34,5 @@ yarn-error.log*
 repositories_structure.md
 tree.md
 
-./src/components/atoms/Icon/Icons.tsx
+/disable/*
+

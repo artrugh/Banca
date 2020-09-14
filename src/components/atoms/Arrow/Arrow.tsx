@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
@@ -7,23 +7,25 @@ import classNames from "classnames";
 
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
-import { Size, Positions, Color } from "../../../common/enums";
+import { Size, Color, Icons } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
+import Icon from "../Icon/Icon";
 
 interface IProps {
   className?: string;
   containerClass?: string;
-  color?: Color;
   containerSize?: Size;
-  position?: Positions;
+  color?: Color;
+  iconColor?: Color;
+  iconSize?: Size;
+  strokeColor?: Color;
 }
 
 const DefaultProps: IProps = {
-  position: Positions.right,
   color: Color.light,
 };
 
@@ -42,30 +44,44 @@ export default class Arrow extends Component<IProps> {
       className,
       containerClass,
       containerSize,
-      position,
+      // position,
       color,
     } = this.props;
 
-    const container = classNames(
-      "arrow-container",
+    const container = cn(
+      "chevron-container",
       containerSize && `container-${containerSize}`,
       containerClass && containerClass
     );
 
-    const arrow = classNames(
+    const arrow = cn(
       className && className,
-      color && `arrow-${color}`,
-      "arrow",
-      position
+      // color && `arrow-${color}`,
+      "arrow"
+      // position
     );
 
     return { container, arrow };
   }
 
   public render(): JSX.Element {
+    const { color, containerClass, containerSize } = this.props;
+
     return (
-      <div className={this.classes.container}>
-        <i className={this.classes.arrow} />
+      <div
+        className={cn({
+          [`container-${containerSize}`]: containerSize,
+          [containerClass]: containerClass,
+        })}
+
+        // {this.classes.container}
+      >
+        <Icon
+          className={this.classes.arrow}
+          name={Icons.chevron}
+          color={color}
+        />
+        {/* <i className={this.classes.arrow} /> */}
       </div>
     );
   }

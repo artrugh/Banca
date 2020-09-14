@@ -1,5 +1,17 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
+
+// STYLE
+
+// BASE CLASS
+
+// COMMON
+
+// HELPERS
+
+// UTILS
+
+// COMPONENTS
 
 interface IProps {
   children?: ReactNode;
@@ -41,10 +53,11 @@ class Switch extends Component<IProps> {
       ...rest
     } = this.props;
 
-    const classes = classNames("form-switch", className);
-
     return (
-      <label className={classes} htmlFor={id}>
+      <label
+        className={cn("form-switch", { [className]: className })}
+        htmlFor={id}
+      >
         <input
           {...rest}
           type="checkbox"

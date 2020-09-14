@@ -1,12 +1,12 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
+
 // HELPERS
 
 // UTILS
@@ -51,19 +51,6 @@ class Select extends Component<IProps> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const { className, status, size } = this.props;
-
-    const classes = classNames(
-      "form-select",
-      size && `form-select-${size}`,
-      status && `form-${status}`,
-      className
-    );
-
-    return { classes };
-  }
-
   public render(): JSX.Element {
     const {
       className,
@@ -90,7 +77,11 @@ class Select extends Component<IProps> {
         )}
         <select
           {...rest}
-          className={this.classes.classes}
+          className={cn("form-select", {
+            [`form-select-${size}`]: size,
+            [`form-${status}`]: status,
+            [className]: className,
+          })}
           name={name}
           disabled={disabled}
           value={value}

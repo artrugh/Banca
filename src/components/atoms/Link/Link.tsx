@@ -3,7 +3,7 @@ import NextLink from "next/link";
 import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
 import { ReactElementLike } from "prop-types";
-import classNames from "classnames";
+import cn from "classnames";
 
 interface LinkProps extends WithRouterProps {
   href: string;
@@ -17,17 +17,31 @@ class Link<P extends LinkProps> extends Component<P> {
   }
 
   public render(): any {
-    const { router, children, href, activeClassName, ...rest } = this.props;
+    const {
+      router,
+      children,
+      // className,
+      href,
+      activeClassName,
+      ...rest
+    } = this.props;
 
     const child = Children.only(children);
     const active = this.props.router.pathname === href && activeClassName;
-    const className = classNames(child.props.className, {
-      [activeClassName]: active,
-    });
+    const { className } = child.props;
+    // const some = cn(child.props.className, {
+    //   [activeClassName]: active,
+    //   [className]: className,
+    // });
 
     return (
       <NextLink href={this.props.href} {...rest}>
-        {cloneElement(child, { className })}
+        {cloneElement(child, {
+          className: cn(child.props.className, {
+            [activeClassName]: active,
+            [className]: className,
+          }),
+        })}
       </NextLink>
     );
   }

@@ -62,20 +62,6 @@ $button--max-size-mobile: 280px; // button max width on mobile (.button-wide-mob
 $button-group-padding: 16px; // padding between sibling buttons (nested into .button-group)
 $button-loading--thickness: 2px; // button loading spinner, stroke width (.button.is-loading)
 $button-language--padding-t: 7px; // button, padding to nav-is-active
-// Arrow: border color
-$arrow--border: (
-  arrow-primary: get-color(primary, 1),
-  arrow-primary-hover: lighten(get-color(primary, 2), 2%),
-  arrow-secondary: get-color(secondary, 1),
-  arrow-secondary-hover: lighten(get-color(secondary, 2), 2%),
-  arrow-dark: get-color(dark, 3),
-  arrow-dark-hover: lighten(get-color(dark, 2), 2%),
-  arrow-light: darken(get-color(light, 1), 5%),
-  arrow-light-hover: get-color(light, 3),
-);
-
-$arrow-border-width: 0 0.7rem 0.7rem 0; // arrow, boder width
-$arrow-border-radius: 3px;
 
 // Forms: color
 $form--color: (
@@ -162,7 +148,6 @@ $color: map-push($color, $form--color);
 $bg--color: map-push($bg--color, $button--bg);
 $bg--color: map-push($bg--color, $form--bg);
 $border--color: map-push($border--color, $button--border);
-$border--color: map-push($border--color, $arrow--border);
 $border--color: map-push($border--color, $form--border);
 $icon--color: map-push($icon--color, $form--icon);
 $font--size: map-push($font--size, $button--size);

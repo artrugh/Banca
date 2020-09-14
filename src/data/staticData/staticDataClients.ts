@@ -1,33 +1,21 @@
-import { ClientName } from "../../common/enums";
+import { Client, Size } from "../../common/enums";
 import { IClient } from "../../common/interfaces";
-
-const logoClientPathSrc = "/svgs/logo-client/logo_client-";
-const widthLogoClient = "170px";
-const heightLogoClient = "100px";
 
 export const clients: Array<IClient> = [
   {
-    name: ClientName.audi,
-    src: logoClientPathSrc,
-    width: widthLogoClient,
-    height: heightLogoClient,
+    name: Client.audi,
+    size: Size.super,
   },
   {
-    name: ClientName.audi,
-    src: logoClientPathSrc,
-    width: widthLogoClient,
-    height: heightLogoClient,
+    name: Client.audi,
+    size: Size.super,
   },
   {
-    name: ClientName.audi,
-    src: logoClientPathSrc,
-    width: widthLogoClient,
-    height: heightLogoClient,
+    name: Client.audi,
+    size: Size.super,
   },
   {
-    name: ClientName.audi,
-    src: logoClientPathSrc,
-    width: widthLogoClient,
-    height: heightLogoClient,
+    name: Client.audi,
+    size: Size.super,
   },
 ];

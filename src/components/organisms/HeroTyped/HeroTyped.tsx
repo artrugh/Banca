@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
@@ -10,7 +10,7 @@ import {
   Size,
   Headings,
   DataTypedSpeed,
-  Positions,
+  Icons,
   Color,
 } from "../../../common/enums";
 import {
@@ -24,14 +24,15 @@ import {
 // COMPONENTS
 import HeadingTyped from "../../atoms/HeadingTyped/HeadingTyped";
 import Heading from "../../atoms/Heading/Heading";
-import Arrow from "../../atoms/Arrow/Arrow";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
+import Icon from "../../atoms/Icon/Icon";
 // DATA
 import { heroHeading } from "../../../data/staticData/staticDataHeadings";
 
 interface IProps extends IPropsOuterInner {
-  arrowAnimation?: boolean;
-  colorArrow?: Color;
+  chevronAnimation?: boolean;
+  colorChevron?: Color;
+  strokeChevron?: Color;
   hasCleaner?: boolean;
   className?: string;
 }
@@ -50,10 +51,10 @@ export default class HeroTyped extends Component<IProps> {
       bgColor,
       invertColor,
       className,
-      arrowAnimation,
+      chevronAnimation,
     } = this.props;
 
-    const outerClasses = classNames(
+    const outerClasses = cn(
       "hero hero-typed section",
       topOuterDivider && "has-top-divider",
       bottomOuterDivider && "has-bottom-divider",
@@ -62,18 +63,13 @@ export default class HeroTyped extends Component<IProps> {
       className
     );
 
-    const innerClasses = classNames(
+    const innerClasses = cn(
       "hero-inner section-inner",
       topDivider && "has-top-divider",
       bottomDivider && "has-bottom-divider"
     );
 
-    const arrowContainer = classNames(
-      "hero-arrow-container",
-      arrowAnimation && "has-animation"
-    );
-
-    return { outerClasses, innerClasses, arrowContainer };
+    return { outerClasses, innerClasses };
   }
 
   public render(): JSX.Element {
@@ -85,9 +81,10 @@ export default class HeroTyped extends Component<IProps> {
       bgColor,
       invertColor,
       hasCleaner,
-      colorArrow,
       className,
-      arrowAnimation,
+      chevronAnimation,
+      colorChevron,
+      strokeChevron,
       ...rest
     } = this.props;
 
@@ -118,13 +115,19 @@ export default class HeroTyped extends Component<IProps> {
                   {heroHeading.paragraph}
                 </Heading>
                 <SmoothScroll to="features-tiles">
-                  <Arrow
-                    className="hero-arrow"
-                    containerClass={this.classes.arrowContainer}
-                    color={colorArrow}
-                    containerSize={Size.sm}
-                    position={Positions.down}
-                  />
+                  <div
+                    className={cn("hero-chevron-container container-sm", {
+                      [`has-animation`]: chevronAnimation,
+                    })}
+                  >
+                    <Icon
+                      className="float-right hero-chevron"
+                      name={Icons.chevron}
+                      color={colorChevron}
+                      strokeColor={strokeChevron}
+                      size={Size.super}
+                    />
+                  </div>
                 </SmoothScroll>
               </HeadingTyped>
             </div>

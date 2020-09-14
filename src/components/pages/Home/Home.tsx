@@ -27,7 +27,7 @@ import Cta from "../../organisms/Cta/Cta";
 // ITEMS
 import TilesItem from "../../molecules/TilesItem/TilesItem";
 import TestimonialItem from "../../molecules/TestimonialItem/TestimonialItem";
-import Image from "../../atoms/Image/Image";
+import Icon from "../../atoms/Icon/Icon";
 import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
 // DATA
 import { clients } from "../../../data/staticData/staticDataClients";
@@ -69,8 +69,9 @@ export default class Home extends Component<IData> {
         {/* <HeroTyped
           bgColor={BgColor.darkHeigh}
           hasCleaner
-          colorArrow={Color.primary}
-          arrowAnimation
+          colorChevron={Color.white}
+          strokeChevron={Color.white}
+          chevronAnimation 
         /> */}
         <HeroScrollable
           className="reveal-scale-down"
@@ -78,8 +79,9 @@ export default class Home extends Component<IData> {
           underlineSize={Size.lg}
           height="100vh"
           bgColor={BgColor.lightHeigh}
-          colorArrow={Color.light}
-          arrowAnimation
+          colorChevron={Color.white}
+          strokeChevron={Color.white}
+          chevronAnimation
         />
         <FeatureTilesTemplate
           bgColor={BgColor.lightHeigh}
@@ -92,6 +94,11 @@ export default class Home extends Component<IData> {
             config={tilesConfig.items}
             underline={Underline.centerUnderline}
             underlineRounded
+            iconColor={Color.white}
+            strokeColor={Color.primary}
+            circleColor={Color.secondary}
+            ellipseColor={Color.white}
+            // iconSize={Size.super}
             delay={0}
           />
         </FeatureTilesTemplate>
@@ -139,10 +146,7 @@ export default class Home extends Component<IData> {
           id="clients"
           bgColor={BgColor.darkHeigh}
         >
-          <Image
-            className="p-32"
-            containerClassName="images-item-container p-32"
-          />
+          <Icon className="client-icon p-32" animationHover />
         </FeatureTilesTemplate>
         <FeatureTilesTemplate
           data={careers}
@@ -167,11 +171,12 @@ export default class Home extends Component<IData> {
           bgColor={BgColor.lightHeigh}
           id="tec"
         >
-          <Image
+          {/* <Image
             className="m-32"
             containerClassName="images-item-container p-32"
             animationHover
-          />
+          /> */}
+          <Icon className="tech-icon p-32" animationHover />
         </FeatureTilesTemplate>
         <Cta
           split

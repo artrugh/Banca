@@ -14,8 +14,8 @@
 
   &.dark {
     @include bg-header(dark);
-    @include links(light);
-    @include logo(light);
+    @include links(white-color);
+    @include logo(white-color);
   }
 
   &.light {
@@ -26,14 +26,14 @@
 
   &.transparent-to-dark-typo-light-to-light {
     @include bg-header-transparent-to(dark);
-    @include links(light);
-    @include logo(light);
+    @include links(white-color);
+    @include logo(white-color);
   }
 
   &.transparent-to-dark-typo-dark-to-light {
     @include bg-header-transparent-to(dark);
-    @include links(dark, light);
-    @include logo(dark, light);
+    @include links(dark, white-color);
+    @include logo(dark, white-color);
   }
 
   &.transparent-to-light-typo-dark-to-dark {
@@ -44,8 +44,20 @@
 
   &.transparent-to-light-typo-light-to-dark {
     @include bg-header-transparent-to(light);
-    @include links(light, dark);
-    @include logo(light, dark);
+    @include links(white-color, dark);
+    @include logo(white-color, dark);
+  }
+
+  &.transparent-to-dark-typo-light-to-light-underline-change {
+    @include bg-header-transparent-to(dark);
+    @include links(white-color, white-color);
+    @include logo(white-color, white-color);
+  }
+
+  &.transparent-to-light-typo-dark-to-dark-underline-change {
+    @include bg-header-transparent-to(light);
+    @include links(dark, dark);
+    @include logo(dark, dark);
   }
 }
 
@@ -53,20 +65,24 @@
   margin-right: $header-nav--padding-h;
 
   svg {
-    fill: color-icon(logo);
-    @include vendor-prefix(transition, fill 0.15s ease);
+    path {
+      fill: color(icon-primary);
+      @include vendor-prefix(transition, fill 0.15s ease);
 
-    .invert-color & {
-      fill: color-icon(social-inverse);
+      .invert-color & {
+        fill: color-icon(social-inverse);
+      }
     }
   }
 
   &:hover {
     svg {
-      fill: color-icon(logo-hover);
+      path {
+        fill: color(icon-primary-hover);
 
-      .invert-color & {
-        fill: color-icon(social-hover-inverse);
+        .invert-color & {
+          fill: color-icon(social-hover-inverse);
+        }
       }
     }
   }

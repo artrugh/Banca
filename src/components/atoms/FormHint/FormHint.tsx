@@ -1,12 +1,12 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
+
 // HELPERS
 
 // UTILS
@@ -33,22 +33,17 @@ class FormHint extends Component<IProps> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const { className, status } = this.props;
-    const classes = classNames(
-      "form-hint",
-      status && `text-color-${status}`,
-      className
-    );
-
-    return { classes };
-  }
-
   public render(): JSX.Element {
     const { children, className, status, ...rest } = this.props;
 
     return (
-      <div {...rest} className={this.classes.classes}>
+      <div
+        {...rest}
+        className={cn("form-hint", {
+          [`text-color-${status}`]: status,
+          [className]: className,
+        })}
+      >
         {children}
       </div>
     );

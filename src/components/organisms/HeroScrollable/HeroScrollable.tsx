@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
@@ -10,7 +10,7 @@ import {
   Size,
   Headings,
   ScrollPosition,
-  Positions,
+  Icons,
   Color,
 } from "../../../common/enums";
 import {
@@ -23,13 +23,12 @@ import {
 
 // COMPONENTS
 import Heading from "../../atoms/Heading/Heading";
-import Arrow from "../../atoms/Arrow/Arrow";
+import Icon from "../../atoms/Icon/Icon";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 // DATA
 import { heroHeading } from "../../../data/staticData/staticDataHeadings";
 
 interface IProps extends IPropsOuterInner {
-  colorArrow?: Color;
   children?: ReactNode;
   containerSize?: string;
   underlineSize?: string;
@@ -37,9 +36,11 @@ interface IProps extends IPropsOuterInner {
   width?: number | string;
   height?: number | string;
   alt?: string;
-  arrowAnimation?: boolean;
+  chevronAnimation?: boolean;
   gradientBg?: boolean;
   className?: string;
+  colorChevron?: Color;
+  strokeChevron?: Color;
 }
 
 const DefaultProps: IProps = {
@@ -54,17 +55,12 @@ export default class HeroScrollable extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
   public get classes(): IPropsClasses {
-    const { className, bgColor, arrowAnimation } = this.props;
-    const outer = classNames("hero hero-scrollable", bgColor && bgColor);
+    const { className, bgColor, chevronAnimation } = this.props;
+    const outer = cn("hero hero-scrollable", bgColor && bgColor);
 
-    const image = classNames("hero-img", className && className);
+    const image = cn("hero-img", className && className);
 
-    const arrowContainer = classNames(
-      "hero-arrow-container",
-      arrowAnimation && "has-animation"
-    );
-
-    return { image, outer, arrowContainer };
+    return { image, outer };
   }
 
   public render(): JSX.Element {
@@ -79,8 +75,9 @@ export default class HeroScrollable extends Component<IProps> {
       bgColor,
       gradientBg,
       className,
-      colorArrow,
-      arrowAnimation,
+      chevronAnimation,
+      colorChevron,
+      strokeChevron,
       ...rest
     } = this.props;
 
@@ -99,13 +96,19 @@ export default class HeroScrollable extends Component<IProps> {
             />
             <div className={this.classes.image}>
               <SmoothScroll to="scroll-smooth-position">
-                <Arrow
-                  className="hero-arrow"
-                  containerClass={this.classes.arrowContainer}
-                  color={colorArrow}
-                  containerSize={Size.sm}
-                  position={Positions.down}
-                />
+                <div
+                  className={cn("hero-chevron-container container-sm", {
+                    [`has-animation`]: chevronAnimation,
+                  })}
+                >
+                  <Icon
+                    className="float-right hero-chevron"
+                    name={Icons.chevron}
+                    color={colorChevron}
+                    strokeColor={strokeChevron}
+                    size={Size.super}
+                  />
+                </div>
               </SmoothScroll>
             </div>
             <div

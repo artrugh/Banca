@@ -78,7 +78,7 @@ class TestimonialItem extends Component<IProps> {
           {avatar && (
             <Image
               className="testimonial-item-avatar"
-              containerClassName={this.classes.outer}
+              classNameContainer={this.classes.outer}
               src={avatar}
               alt={name}
               width="32%"

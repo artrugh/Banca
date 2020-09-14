@@ -9,14 +9,15 @@ import classNames from "classnames";
 // COMMON
 import { IPropsClasses } from "../../../common/interfacesProps";
 import { IEventHandler } from "../../../common/interfacesEvents";
-import { Size, Underline, LogoType, BgHeader } from "../../../common/enums";
+import { Size, Color, Underline, Logo, BgHeader } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 import { ScrollManagerDisplayer } from "../../../utils/ScrollManagerDisplayer";
 // COMPONENTS
 import Nav from "../../molecules/Nav/Nav";
-import Logo from "../../atoms/Logo/Logo";
+// import Logo from "../../atoms/Logo/Logo";
+import Icon from "../../atoms/Icon/Icon";
 import ActiveLink from "../../atoms/Link/Link";
 // DATA
 
@@ -30,7 +31,9 @@ interface IProps {
   bottomDivider?: boolean;
   containerSize?: Size;
   bgColor?: BgHeader;
-  logoId?: LogoType;
+  logoName?: Logo;
+  logoColor?: Color;
+  logoSize?: Size;
   [propName: string]: any;
 }
 
@@ -67,8 +70,10 @@ class Header extends Component<IProps, State> {
     if (
       bgColor === BgHeader.transparentToDarkTypoDarkToLight ||
       bgColor === BgHeader.transparentToDarkTypoLightToLight ||
+      bgColor === BgHeader.transparentToDarkTypoLightToLightUnderlineChange ||
       bgColor === BgHeader.transparentToLightTypoLightToDark ||
-      bgColor === BgHeader.transparentToLightTypoDarkToDark
+      bgColor === BgHeader.transparentToLightTypoDarkToDark ||
+      bgColor === BgHeader.transparentToLightTypoDarkToDarkUnderlineChange
     ) {
       ScrollManagerDisplayer("scroll-behaviour-underline");
       ScrollManagerDisplayer("scroll-behaviour-main-underline-bg");
@@ -195,7 +200,10 @@ class Header extends Component<IProps, State> {
       hideSignin,
       bottomOuterDivider,
       bottomDivider,
-      logoId,
+      logoName,
+      logoColor,
+      logoSize,
+      underline,
       underlineRounded,
       ...rest
     } = this.props;
@@ -206,7 +214,12 @@ class Header extends Component<IProps, State> {
           <div className={this.classes.inner}>
             <Link href="/">
               <a>
-                <Logo logoId={logoId} className="main-logo" />
+                <Icon
+                  name={logoName}
+                  color={logoColor}
+                  size={logoSize}
+                  className="main-logo"
+                />
               </a>
             </Link>
             {!hideNav && (
