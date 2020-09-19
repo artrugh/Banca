@@ -1,25 +1,26 @@
 import React, { Component } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
-import { LogoType } from "../../../common/enums";
+import { Logo, Color, Size } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
-import Logo from "../../atoms/Logo/Logo";
+import Icon from "../../atoms/Icon/Icon";
 import FooterSocial from "../../molecules/FooterSocial/FooterSocial";
 import Nav from "../../molecules/Nav/Nav";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
 interface IProps {
-  logoId?: LogoType;
+  logoName?: Logo;
+  logoColor?: Color;
+  logoSize?: Size;
   pathname?: string;
   topOuterDivider?: boolean;
   topDivider?: boolean;
@@ -40,39 +41,34 @@ class Footer extends Component<IProps> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const { className, topOuterDivider, topDivider } = this.props;
-    const outerClasses = classNames(
-      "site-footer center-content-mobile",
-      topOuterDivider && "has-top-divider",
-      className
-    );
-
-    const innerClasses = classNames(
-      "site-footer-inner",
-      topDivider && "has-top-divider"
-    );
-
-    return { outerClasses, innerClasses };
-  }
-
   public render(): JSX.Element {
     const {
       className,
       pathname,
       topOuterDivider,
       topDivider,
-      logoId,
+      logoName,
+      logoColor,
+      logoSize,
       ...rest
     } = this.props;
 
     return (
-      <footer {...rest} className={this.classes.outerClasses}>
+      <footer
+        {...rest}
+        className={cn("site-footer center-content-mobile", className, {
+          "has-top-divider": topOuterDivider,
+        })}
+      >
         <div className="container">
-          <div className={this.classes.innerClasses}>
+          <div
+            className={cn("site-footer-inner", {
+              "has-top-divider": topDivider,
+            })}
+          >
             <div className="footer-top space-between text-xxs">
               <SmoothScroll to="main">
-                <Logo logoId={logoId} className="mini-logo" />
+                <Icon name={logoName} color={logoColor} size={logoSize} />
               </SmoothScroll>
               <FooterSocial />
             </div>

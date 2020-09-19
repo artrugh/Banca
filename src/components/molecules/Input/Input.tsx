@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses, IPropsInput } from "../../../common/interfacesProps";
+import { IPropsInput } from "../../../common/interfacesProps";
 import { InputTypes, Size } from "../../../common/enums";
 // HELPERS
 
@@ -41,32 +41,6 @@ class Input extends Component<IPropsInput> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const { formGroup, reveal, hasIcon, size, status, className } = this.props;
-
-    const containerClasses = classNames(
-      "input-container--main",
-      reveal && reveal
-    );
-
-    const outerClasses = classNames(
-      "input-container--sub",
-      formGroup &&
-        formGroup !== "" &&
-        (formGroup === "desktop" ? "form-group-desktop" : "form-group"),
-      hasIcon && hasIcon !== "" && "has-icon-" + hasIcon
-    );
-
-    const innerClasses = classNames(
-      "form-input",
-      size && `form-input-${size}`,
-      status && `form-${status}`,
-      className
-    );
-
-    return { containerClasses, outerClasses, innerClasses };
-  }
-
   public render(): JSX.Element {
     const {
       id,
@@ -82,7 +56,7 @@ class Input extends Component<IPropsInput> {
       formGroup,
       hasIcon,
       size,
-
+      reveal,
       placeholder,
       rows,
       hint,
@@ -93,17 +67,29 @@ class Input extends Component<IPropsInput> {
       type === "textarea" ? InputTypes.textarea : InputTypes.input;
 
     return (
-      <div className={this.classes.containerClasses} data-reveal-delay={200}>
+      <div
+        className={cn("input-container--main", reveal)}
+        data-reveal-delay={200}
+      >
         {label && (
           <FormLabel labelHidden={labelHidden} id={id}>
             {label}
           </FormLabel>
         )}
-        <div className={this.classes.outerClasses}>
+        <div
+          className={cn("input-container--sub", {
+            "form-group-desktop": formGroup === "desktop",
+            "form-group": formGroup !== "desktop",
+            [`has-icon-${hasIcon}`]: hasIcon,
+          })}
+        >
           <C
             {...rest}
             type={type !== "textarea" ? type : null}
-            className={this.classes.innerClasses}
+            className={cn("form-input", className, {
+              [`form-input-${size}`]: size,
+              [`form-${status}`]: status,
+            })}
             name={name}
             disabled={disabled}
             value={value}

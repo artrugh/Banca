@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import cn from "classnames";
 
 // STYLE
 
@@ -15,6 +16,7 @@ import { VideoTag } from "../../../common/enums";
 interface IProps {
   videoTag?: VideoTag;
   video?: string;
+  className?: string;
 }
 class Video extends Component<IProps> {
   public constructor(props: IProps) {
@@ -22,10 +24,10 @@ class Video extends Component<IProps> {
   }
 
   public render(): JSX.Element {
-    const { videoTag, video } = this.props;
+    const { videoTag, video, className } = this.props;
 
     return (
-      <div className="responsive-video">
+      <div className={cn("responsive-video", className)}>
         {videoTag === VideoTag.iframe ? (
           <iframe title="video" src={video} frameBorder="0" allowFullScreen />
         ) : (

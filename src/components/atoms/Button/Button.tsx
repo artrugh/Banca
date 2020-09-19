@@ -1,12 +1,12 @@
 import React, { Component, createElement } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses, IPropsButton } from "../../../common/interfacesProps";
+import { IPropsButton } from "../../../common/interfacesProps";
 import { Size, Color } from "../../../common/enums";
 // HELPERS
 
@@ -35,32 +35,6 @@ class Button extends Component<IPropsButton> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const {
-      color,
-      size,
-      reveal,
-      loading,
-      wide,
-      wideMobile,
-      className,
-    } = this.props;
-
-    const classesContainer = classNames("button-container", reveal && reveal);
-
-    const classesButton = classNames(
-      "button",
-      color && `button-${color}`,
-      size && `button-${size}`,
-      loading && "is-loading",
-      wide && "button-block",
-      wideMobile && "button-wide-mobile",
-      className
-    );
-
-    return { classesButton, classesContainer };
-  }
-
   private createReactElement = (tag: string, props: {}): JSX.Element => {
     const e = createElement;
     const el: JSX.Element = e(tag, props);
@@ -79,18 +53,26 @@ class Button extends Component<IPropsButton> {
       tag,
       className,
       children,
+      reveal,
       ...rest
     } = this.props;
 
     const props = {
-      className: this.classes.classesButton,
+      className: cn("button", {
+        [`button-${color}`]: color,
+        [`button-${size}`]: size,
+        "is-loading": loading,
+        "button-block": wide,
+        "button-wide-mobile": wideMobile,
+        [className]: className,
+      }),
       children,
       disabled,
       ...rest,
     };
 
     return (
-      <div className={this.classes.classesContainer} data-reveal-delay={200}>
+      <div className={cn("button-container", reveal)} data-reveal-delay={200}>
         {this.createReactElement(tag, props)}
       </div>
     );

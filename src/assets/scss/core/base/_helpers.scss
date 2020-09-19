@@ -127,21 +127,21 @@
   will-change: scroll-position;
 }
 
-// .has-bg-color {
-//   position: relative;
-//   background-color: color-bg(bg-color);
-//   z-index: 0;
-// }
-
 .has-bg-dark-heigh {
   z-index: 0;
   background-color: color-bg(bg-dark-heigh);
   color: color(mid-contrast);
   .heading {
     color: color(heading);
+    &::after {
+      background-color: color(heading-lower);
+    }
   }
   .sub-heading {
     color: color(heading-lower);
+  }
+  path {
+    fill: color(icon-light);
   }
 }
 
@@ -152,9 +152,15 @@
   color: color(heigh-contrast);
   .heading {
     color: color(super-heigh-contrast);
+    &::after {
+      background-color: color(heading-lower);
+    }
   }
   .sub-heading {
     color: color(heading-lower);
+  }
+  path {
+    fill: color(icon-light);
   }
 }
 
@@ -164,9 +170,15 @@
   color: color(high-contrast);
   .heading {
     color: color(super-heigh-contrast);
+    &::after {
+      background-color: color(heading);
+    }
   }
   .sub-heading {
     color: color(heading);
+  }
+  path {
+    fill: color(icon-light);
   }
 }
 
@@ -176,9 +188,15 @@
   color: color(low-contrast-inverse);
   .heading {
     color: color(heigh-contrast-inverse);
+    &::after {
+      background-color: color(mid-contrast-inverse);
+    }
   }
   .sub-heading {
     color: color(mid-contrast-inverse);
+  }
+  path {
+    fill: color(icon-dark);
   }
 }
 
@@ -186,13 +204,17 @@
   z-index: 0;
   background-color: color-bg(bg-light-medium);
   color: color(super-heigh-contrast);
-
   .heading {
     color: color(heigh-contrast-inverse);
+    &::after {
+      background-color: color(mid-contrast-inverse);
+    }
   }
-
   .sub-heading {
     color: color(mid-contrast-inverse);
+  }
+  path {
+    fill: color(icon-dark);
   }
 }
 
@@ -203,9 +225,15 @@
 
   .heading {
     color: color(super-heigh-contrast);
+    &::after {
+      background-color: color(heigh-contrast);
+    }
   }
   .sub-heading {
     color: color(heigh-contrast);
+  }
+  path {
+    fill: color(icon-dark);
   }
 }
 
@@ -234,7 +262,11 @@ img.has-shadow-light,
 .has-gradient,
 [class*="has-gradient"] {
   position: relative;
-  background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(0, 0, 255, 0.5));
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 0, 0.5),
+    rgba(0, 0, 255, 0.5)
+  );
 }
 
 .has-gradient img {
@@ -318,13 +350,21 @@ img.has-shadow-light,
   }
 }
 
-// Has Inline Flex
-.has-inline-flex {
+// Inline Flex
+.d-inline-flex {
   display: inline-flex;
 
   & *:first-child {
     display: inherit;
   }
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
 }
 
 // Underline
@@ -359,8 +399,8 @@ img.has-shadow-light,
 
 // Underline Hr
 
-.underline--big {
-  @include underlineHr(big);
+.underline--lg {
+  @include underlineHr(lg);
 }
 
 .underline--sm {

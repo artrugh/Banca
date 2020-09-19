@@ -1,21 +1,15 @@
-// Arrow Container
-body.scroll-behaviour-hero-statement-color .hero-content .arrow-container {
-    @include vendor-prefix(transition, all 0.5s);
-    @include vendor-prefix(transform, translateY(-400px));
-    opacity: 0 !important;
+// // =================  STATEMENT ================= //
+
+// Heading Initial Color
+body:not(.scroll-behaviour-hero-statement-color) .hero-statement h1 {
+    @include vendor-prefix(transition-duration, 0.5s);
+    color: color-bg(bg-color);
 }
 
-// =================  STATEMENT ================= //
-
-// Statement Initial Animation
-#scroll-behaviour-main-underline-bg.loaded-none ~ [class*="container"] .hero-statement .underline-has-animation {
+// Heading Underline Initial Animation
+#scroll-behaviour-underline.loaded-none ~ [class*="container"] .hero-statement .underline-has-animation {
     @include vendor-prefix(animation, moveInLeft 1.5s 0.5s ease-out);
     @include vendor-prefix(animation-fill-mode, forwards);
-}
-
-// change the bg-color of the underline when it moves left
-body.scroll-behaviour-underline .underline-has-animation {
-    background-color: color-bg(underline-hover);
 }
 
 // Statement Color
@@ -24,10 +18,9 @@ body.scroll-behaviour-hero-statement-color .hero-statement h1 {
     color: color(heading-inverse);
 }
 
-// Heading Color
-body:not(.scroll-behaviour-hero-statement-color) .hero-statement h1 {
-    @include vendor-prefix(transition-duration, 0.5s);
-    color: color-bg(bg-color);
+// change the bg-color of the underline when it moves left
+body.scroll-behaviour-header-nav-color .underline-has-animation {
+    background-color: color-bg(underline-hover);
 }
 
 // Left-Right

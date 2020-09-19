@@ -5,7 +5,6 @@ import { ParsedUrlQuery } from "querystring";
 interface IProps {
   router: SingletonRouter;
   pageTitle?: string;
-  [index: string]: any;
 }
 
 class Product extends Component<IProps> {

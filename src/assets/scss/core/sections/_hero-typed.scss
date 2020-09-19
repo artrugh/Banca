@@ -2,18 +2,14 @@
   height: 100vh;
 
   .hero {
-    &-arrow-container {
+    &-chevron-container {
       text-align: center;
       margin-top: 5rem;
     }
 
-    &-arrow {
-      padding: 0.7rem;
-    }
-
-    // initial state-about and arrow
+    // initial state-about and chevron
     &-about,
-    &-arrow-container i {
+    &-chevron-container i {
       opacity: 0;
       display: none;
     }
@@ -22,7 +18,7 @@
       @include vendor-prefix(transition, opacity 1.5s linear 0.2s);
     }
     // set delay
-    &-arrow-container i {
+    &-chevron-container i {
       @include vendor-prefix(transition, opacity 1.5s linear 0.7s);
     }
 
@@ -30,27 +26,23 @@
     &-statement.is-typed ~ .hero-about {
       display: block;
     }
-    // display arrow invisible
-    &-statement.is-typed ~ a .hero-arrow-container i {
+    // display chevron invisible
+    &-statement.is-typed ~ a .hero-chevron-container i {
       display: inline-block;
     }
     // display about visible
     &-statement.clean-typed ~ .hero-about {
       opacity: 1;
     }
-    &-statement.clean-typed ~ a .hero-arrow-container i {
+    &-statement.clean-typed ~ a .hero-chevron-container i {
       opacity: 1;
     }
   }
 
   @include media(">medium") {
     .hero {
-      &-arrow-container {
-        margin-top: 2rem;
-      }
-
-      &-arrow {
-        float: right;
+      &-chevron-container {
+        margin-top: 3rem;
       }
     }
   }

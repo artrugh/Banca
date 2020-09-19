@@ -1,12 +1,11 @@
 import React, { Component, createElement, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
 import { Size, Headings, ScrollPosition } from "../../../common/enums";
 // HELPERS
 
@@ -43,35 +42,6 @@ class Heading extends Component<IProps> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const {
-      containerSize,
-      underlineSize,
-      className,
-      animation,
-      scrollPosition,
-      classNameHeading,
-      classNameContainer,
-    } = this.props;
-
-    const container = classNames(
-      classNameContainer && classNameContainer,
-      className && className,
-      containerSize && `container-${containerSize}`
-    );
-
-    const underline = classNames(
-      "underline",
-      animation && "underline-has-animation",
-      underlineSize ? `underline--${underlineSize}` : "",
-      scrollPosition
-    );
-
-    const heading = classNames(classNameHeading && classNameHeading);
-
-    return { container, underline, heading };
-  }
-
   private createReactElement = (tag: string, props: {}): JSX.Element => {
     const e = createElement;
     const el: JSX.Element = e(tag, props);
@@ -94,14 +64,27 @@ class Heading extends Component<IProps> {
     } = this.props;
 
     const props = {
-      className: this.classes.heading,
+      className: cn({ [`${classNameHeading}`]: classNameHeading }),
       children,
     };
 
     return (
-      <div {...rest} className={this.classes.container}>
+      <div
+        {...rest}
+        className={cn({
+          [classNameContainer]: classNameContainer,
+          [`container-${containerSize}`]: containerSize,
+        })}
+      >
         {this.createReactElement(tag, props)}
-        {underlineSize && <hr className={this.classes.underline} />}
+        {underlineSize && (
+          <hr
+            className={cn("underline", scrollPosition, className, {
+              "underline-has-animation": animation,
+              [`underline--${underlineSize}`]: underlineSize,
+            })}
+          />
+        )}
       </div>
     );
   }

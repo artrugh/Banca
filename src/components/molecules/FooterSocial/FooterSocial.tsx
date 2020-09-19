@@ -1,18 +1,18 @@
-import React, { ReactNode } from "react";
-import classNames from "classnames";
+import React, { ReactNode, Component } from "react";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-
+import { IconName, Size, Color } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
-import SocialLogos from "../../../utils/SocialLogos";
+import Icon from "../../atoms/Icon/Icon";
 // DATA
 import { social } from "../../../data/staticData/staticDataSocial";
 
@@ -21,7 +21,7 @@ interface IProps {
   [propName: string]: any;
 }
 
-class FooterSocial extends SocialLogos<IProps> {
+class FooterSocial extends Component<IProps> {
   public constructor(props: IProps) {
     super(props);
   }
@@ -30,7 +30,12 @@ class FooterSocial extends SocialLogos<IProps> {
     const items = social.map((item) => (
       <li key={Math.random()}>
         <a href={item.link} target="_blank" rel="noreferrer">
-          {this.SVGLogos(item.title, item.widthHeight)}
+          <Icon
+            name={IconName[item.title]}
+            size={Size.md}
+            className="social-icon"
+            color={Color.primary}
+          />
         </a>
       </li>
     ));
@@ -40,10 +45,9 @@ class FooterSocial extends SocialLogos<IProps> {
 
   public render(): JSX.Element {
     const { className, ...rest } = this.props;
-    const classes = classNames("footer-social", className);
 
     return (
-      <div {...rest} className={classes}>
+      <div {...rest} className={cn("footer-social", className)}>
         <ul className="list-reset">{this.socialList}</ul>
       </div>
     );

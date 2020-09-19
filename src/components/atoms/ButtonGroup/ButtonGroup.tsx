@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 interface IProps {
   className?: string;
@@ -16,7 +16,7 @@ class ButtonGroup extends Component<IProps> {
     const { children, className, ...rest } = this.props;
 
     return (
-      <div {...rest} className={classNames("button-group", className)}>
+      <div {...rest} className={cn("button-group", className)}>
         {children}
       </div>
     );

@@ -1,15 +1,17 @@
 import {
-  TecTools,
-  ClientName,
+  Tech,
   HeaderItemType,
   Social,
   Languages,
+  Tile,
+  Client,
+  Size,
 } from "./enums";
 
 export interface ITile {
   title: string;
   description: string;
-  icon: string;
+  icon: Tile;
   alt: string;
 }
 // // Products
@@ -22,7 +24,7 @@ export interface IProduct {
   status?: boolean;
   link?: string;
   repository?: string;
-  tectools: TecTools[];
+  tectools: Tech[];
 }
 // // Career
 export interface ICareer {
@@ -38,18 +40,14 @@ export interface ITestimonial {
 }
 
 // // Image Logo
-export interface ITec {
-  name: TecTools;
-  src: string;
-  width?: string;
-  height?: string;
+export interface ITech {
+  name: Tech;
+  size?: Size;
 }
 
 export interface IClient {
-  name: ClientName;
-  src: string;
-  width?: string;
-  height?: string;
+  name: Client;
+  size?: Size;
 }
 
 export interface IHeader {

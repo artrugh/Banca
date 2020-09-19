@@ -69,23 +69,33 @@
       text-decoration: $link-main--decoration-hover;
     }
   } @else if ($type== "header") {
+    @if ($layout== null) {
+      color: color(header-link);
+      text-decoration: $link-header--decoration;
+      &:hover,
+      &:active {
+        color: color(header-link-hover);
+        text-decoration: $link-header--decoration-hover;
+      }
+    }
     @if ($layout== "inverse") {
       color: color(header-link-inverse);
-    } @else {
-      color: color(header-link);
+
+      &:hover,
+      &:active {
+        color: color(header-link-hover-inverse);
+        text-decoration: $link-header--decoration-hover;
+      }
     }
 
-    text-decoration: $link-header--decoration;
-
-    &:hover,
-    &:active {
-      @if ($layout== "inverse") {
+    @if ($layout== "white-color") {
+      color: color(header-link-white);
+      text-decoration: $link-header--decoration;
+      &:hover,
+      &:active {
         color: color(header-link-hover-inverse);
-      } @else {
-        color: color(header-link-hover);
+        text-decoration: $link-header--decoration-hover;
       }
-
-      text-decoration: $link-header--decoration-hover;
     }
   } @else if ($type== "header-mobile") {
     color: color(header-link-mobile);
@@ -228,7 +238,14 @@
 
 // Underline ::after an element
 // add underline to an existing html element
-@mixin underline($type: "center", $width: 20%, $width-hover: 40%, $duration: 1s, $color: primary, $layout: false) {
+@mixin underline(
+  $type: "center",
+  $width: 20%,
+  $width-hover: 40%,
+  $duration: 1s,
+  $color: primary,
+  $layout: false
+) {
   &::after {
     content: "";
     width: $width;
@@ -273,7 +290,7 @@
     @include vendor-prefix(transition, all 0.5s ease-out);
   }
 
-  @if ($type== "big") {
+  @if ($type== "lg") {
     & {
       height: 1rem;
       margin: calc(1rem * 3) auto 0 0;
@@ -306,7 +323,9 @@
       }
 
       100% {
-        left: calc(#{$final_width} * 2 - #{$hero-underline--width--right-position});
+        left: calc(
+          #{$final_width} * 2 - #{$hero-underline--width--right-position}
+        );
         width: $hero-underline--width--right-position;
         background-color: get-color(primary, 3);
       }
@@ -316,7 +335,12 @@
 
 // hr underline animation
 // Handler the heroscrollable liner movement from right to left
-@mixin underline-right-left($initial_width, $duration: 2s, $color: primary, $delay: 0) {
+@mixin underline-right-left(
+  $initial_width,
+  $duration: 2s,
+  $color: primary,
+  $delay: 0
+) {
   left: calc(#{$initial_width} * 2 - #{$hero-underline--width--right-position});
   width: $hero-underline--width--right-position;
   background-color: get-color(primary, 3);
@@ -324,7 +348,9 @@
 
   @include inline-animation($duration, $delay) {
     0% {
-      left: calc(#{$initial_width} * 2 - #{$hero-underline--width--right-position});
+      left: calc(
+        #{$initial_width} * 2 - #{$hero-underline--width--right-position}
+      );
       width: $hero-underline--width--right-position;
       background-color: get-color(primary, 3);
     }
@@ -366,7 +392,14 @@
 // $vpos: illustration is centered by default, allowed values: top or bottom
 // $hoffset: horizontal offset
 // $voffset: vertical offset
-@mixin illustration($file, $width, $height, $vpos: null, $hoffset: null, $voffset: null) {
+@mixin illustration(
+  $file,
+  $width,
+  $height,
+  $vpos: null,
+  $hoffset: null,
+  $voffset: null
+) {
   content: "";
   position: absolute;
   width: $width;
@@ -463,7 +496,10 @@
       $speed: 100;
 
       &::before {
-        @include vendor-prefix(animation, list-of-typed-animations($content, $speed));
+        @include vendor-prefix(
+          animation,
+          list-of-typed-animations($content, $speed)
+        );
         @include vendor-prefix(animation-fill-mode, forwards);
       }
     }
@@ -472,7 +508,10 @@
       $speed: 200;
 
       &::before {
-        @include vendor-prefix(animation, list-of-typed-animations($content, $speed));
+        @include vendor-prefix(
+          animation,
+          list-of-typed-animations($content, $speed)
+        );
         @include vendor-prefix(animation-fill-mode, forwards);
       }
     }
@@ -488,12 +527,13 @@
   background-color: color-bg(header-#{$color});
 }
 
+// desktop - mobile header background color
 @mixin bg-header-transparent-to($color) {
   background-color: transparent;
   will-change: scroll-position;
 
   body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
-    background: color-bg(header-#{$color});
+    background-color: color-bg(header-#{$color});
   }
 
   body.off-nav-is-active.scroll-behaviour-header-nav-color & {
@@ -501,29 +541,60 @@
   }
 }
 @mixin links($from, $to: null) {
-  a:not(.button) {
-    &::after {
-      @if ($to == null) {
-        background-color: color-bg(underline-primary);
-      } @else {
-        background-color: color-bg(underline-primary-light);
-      }
-    }
+  @if ($from == "white-color") {
+    a:not(.button) {
+      @include anchor-aspect(header, white-color);
 
-    &:hover::after {
-      background-color: color-bg(underline-hover);
+      &::after {
+        background-color: color-bg(underline-primary-dark);
+      }
     }
   }
 
-  @if ($to == null) {
+  @if ($from == "light") {
+    a:not(.button) {
+      @include anchor-aspect(header);
+
+      &::after {
+        background-color: color-bg(underline-primary-dark);
+      }
+    }
   }
 
   @if ($from == "dark") {
     a:not(.button) {
       @include anchor-aspect(header, inverse);
+
+      &::after {
+        background-color: color-bg(underline-primary);
+      }
     }
-  } @else {
-    @include anchor-aspect(header);
+  }
+
+  // @if ($to == null) {
+  //   a:not(.button) {
+  //     @include anchor-aspect(header, inverse);
+
+  //     &::after {
+  //       background-color: color-bg(underline-primary);
+
+  //       &:hover::after {
+  //         background-color: color-bg(underline-hover);
+  //       }
+  //     }
+  //   }
+  // }
+
+  @if ($to == "white-color") {
+    body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
+      a:not(.button) {
+        @include anchor-aspect(header, white-color);
+
+        &::after {
+          background-color: color-bg(underline-primary);
+        }
+      }
+    }
   }
 
   @if ($to == "light") {
@@ -553,21 +624,21 @@
 
 @mixin logo($from, $to: null) {
   .main-logo-inner {
-    fill: color-icon(logo-inner-#{$from});
+    fill: color(icon-#{$from});
     @include vendor-prefix(transition, 1s all linear);
   }
 
   @if ($to != null) {
     body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
       .main-logo-inner {
-        fill: color-icon(logo-inner-#{$to});
+        fill: color(icon-#{$to});
         @include vendor-prefix(transition, 1s all linear);
       }
     }
 
     body.off-nav-is-active.scroll-behaviour-header-nav-color & {
       .main-logo-inner {
-        fill: color-icon(logo-inner-#{$to});
+        fill: color(icon-#{$to});
       }
     }
   }

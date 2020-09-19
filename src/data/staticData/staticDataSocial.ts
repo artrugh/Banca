@@ -10,12 +10,12 @@ export const social: Array<ISocial> = [
     widthHeight,
   },
   {
-    title: Social.gitHub,
+    title: Social.github,
     link: "https://github.com/artrugh",
     widthHeight,
   },
   {
-    title: Social.linkedIn,
+    title: Social.linkedin,
     link: "https://www.linkedin.com/in/arturorugh/",
     widthHeight,
   },

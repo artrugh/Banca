@@ -1,22 +1,22 @@
 import React, { Component, createRef, KeyboardEvent } from "react";
 import Link from "next/link";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
 import { IEventHandler } from "../../../common/interfacesEvents";
-import { Size, Underline, LogoType, BgHeader } from "../../../common/enums";
+import { Size, Color, Underline, Logo, BgHeader } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 import { ScrollManagerDisplayer } from "../../../utils/ScrollManagerDisplayer";
 // COMPONENTS
 import Nav from "../../molecules/Nav/Nav";
-import Logo from "../../atoms/Logo/Logo";
+// import Logo from "../../atoms/Logo/Logo";
+import Icon from "../../atoms/Icon/Icon";
 import ActiveLink from "../../atoms/Link/Link";
 // DATA
 
@@ -30,7 +30,9 @@ interface IProps {
   bottomDivider?: boolean;
   containerSize?: Size;
   bgColor?: BgHeader;
-  logoId?: LogoType;
+  logoName?: Logo;
+  logoColor?: Color;
+  logoSize?: Size;
   [propName: string]: any;
 }
 
@@ -67,8 +69,10 @@ class Header extends Component<IProps, State> {
     if (
       bgColor === BgHeader.transparentToDarkTypoDarkToLight ||
       bgColor === BgHeader.transparentToDarkTypoLightToLight ||
+      bgColor === BgHeader.transparentToDarkTypoLightToLightUnderlineChange ||
       bgColor === BgHeader.transparentToLightTypoLightToDark ||
-      bgColor === BgHeader.transparentToLightTypoDarkToDark
+      bgColor === BgHeader.transparentToLightTypoDarkToDark ||
+      bgColor === BgHeader.transparentToLightTypoDarkToDarkUnderlineChange
     ) {
       ScrollManagerDisplayer("scroll-behaviour-underline");
       ScrollManagerDisplayer("scroll-behaviour-main-underline-bg");
@@ -96,51 +100,6 @@ class Header extends Component<IProps, State> {
       ScrollManagerDisplayer("scroll-behaviour-hero-statement-color");
       ScrollManagerDisplayer("scroll-behaviour-header-nav-color");
     }
-  }
-
-  public get classes(): IPropsClasses {
-    const {
-      bottomOuterDivider,
-      bottomDivider,
-      className,
-      bgColor,
-      underline,
-      underlineRounded,
-      navPosition,
-      bgTransparent,
-      containerSize,
-    } = this.props;
-
-    const header = classNames(
-      "site-header",
-      bgColor && bgColor,
-      bottomOuterDivider && "has-bottom-divider",
-      className
-    );
-
-    const container = classNames(
-      containerSize ? `container-${containerSize}` : "container"
-    );
-
-    const inner = classNames(
-      "site-header-inner",
-      bottomDivider && "has-bottom-divider"
-    );
-
-    const nav = classNames("header-nav", this.state.isActive && "is-active");
-
-    const ul = classNames(
-      "list-reset text-xs",
-      navPosition && `header-nav-${navPosition}`
-    );
-
-    const anchor = classNames(
-      "header-nav-toggle",
-      underline && underline,
-      underlineRounded && "has-underline-rounded"
-    );
-
-    return { header, container, inner, nav, ul, anchor };
   }
 
   private handleOpenMenu = (): void => {
@@ -195,18 +154,40 @@ class Header extends Component<IProps, State> {
       hideSignin,
       bottomOuterDivider,
       bottomDivider,
-      logoId,
+      logoName,
+      logoColor,
+      logoSize,
+      underline,
       underlineRounded,
       ...rest
     } = this.props;
 
     return (
-      <header {...rest} className={this.classes.header}>
-        <div className={this.classes.container} id="header">
-          <div className={this.classes.inner}>
+      <header
+        {...rest}
+        className={cn("site-header", bgColor, className, {
+          "has-bottom-divider": bottomOuterDivider,
+        })}
+      >
+        <div
+          className={cn("container", {
+            [`container-${containerSize}`]: containerSize,
+          })}
+          id="header"
+        >
+          <div
+            className={cn("site-header-inner", {
+              "has-bottom-divider": bottomDivider,
+            })}
+          >
             <Link href="/">
               <a>
-                <Logo logoId={logoId} className="main-logo" />
+                <Icon
+                  name={logoName}
+                  color={logoColor}
+                  size={logoSize}
+                  className="main-logo"
+                />
               </a>
             </Link>
             {!hideNav && (
@@ -227,11 +208,22 @@ class Header extends Component<IProps, State> {
                     <span className="hamburger-inner" />
                   </span>
                 </button>
-                <nav ref={this.nav} className={this.classes.nav}>
+                <nav
+                  ref={this.nav}
+                  className={cn("header-nav", {
+                    "is-active": this.state.isActive,
+                  })}
+                >
                   <div className="header-nav-inner">
-                    <ul className={this.classes.ul}>
+                    <ul
+                      className={cn("list-reset text-xs", {
+                        [`header-nav-${navPosition}`]: navPosition,
+                      })}
+                    >
                       <Nav
-                        classesAnchor={this.classes.anchor}
+                        classesAnchor={cn("header-nav-toggle", underline, {
+                          "has-underline-rounded": underlineRounded,
+                        })}
                         handlerOnClick={this.handleCloseMenu}
                         withLeng
                       />

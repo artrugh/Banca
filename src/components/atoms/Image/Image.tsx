@@ -1,11 +1,11 @@
 import React, { Component, createRef } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
+
 // HELPERS
 
 // UTILS
@@ -20,7 +20,7 @@ interface IProps {
   gradientBg?: boolean;
   className?: string;
   shadow?: boolean | string;
-  containerClassName?: string;
+  classNameContainer?: string;
   animationHover?: boolean;
 }
 
@@ -34,31 +34,6 @@ class Image extends Component<IProps> {
   public componentDidMount(): void {
     const placeholderImage = document.createElement("img")! as HTMLImageElement;
     this.handlePlaceholder(this.image.current, placeholderImage);
-  }
-
-  public get classes(): IPropsClasses {
-    const {
-      className,
-      shadow,
-      containerClassName,
-      gradientBg,
-      animationHover,
-    } = this.props;
-
-    const container = classNames(
-      containerClassName && containerClassName,
-      "img-container",
-      gradientBg && "has-gradient",
-      animationHover && "has-animation-hover"
-    );
-    const image = classNames(
-      className && className,
-      shadow && `has-shadow-${shadow}`
-    )
-      .split(" ")
-      .join("--");
-
-    return { image, container };
   }
 
   private placeholderSrc = (w: number, h: number): string => {
@@ -101,7 +76,7 @@ class Image extends Component<IProps> {
   public render(): JSX.Element {
     const {
       className,
-      containerClassName,
+      classNameContainer,
       animationHover,
       gradientBg,
       shadow,
@@ -113,11 +88,20 @@ class Image extends Component<IProps> {
     } = this.props;
 
     return (
-      <div className={this.classes.container}>
+      <div
+        className={cn("img-container", classNameContainer, {
+          "has-gradient": gradientBg,
+          "has-animation-hover": animationHover,
+        })}
+      >
         <img
           {...rest}
           ref={this.image}
-          className={this.classes.image}
+          className={cn(className, {
+            [`has-shadow-${shadow}`]: shadow,
+          })
+            .split(" ")
+            .join("--")}
           src={src}
           style={{ width, height }}
           alt={alt}

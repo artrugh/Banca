@@ -4,27 +4,23 @@ export enum Headings {
   h3 = "h3",
 }
 
-export enum DataTypedSpeed {
-  fast = "100",
-  slow = "200",
-}
-
 export enum Size {
-  big = "big",
+  super = "super",
+  xl = "xl",
+  lg = "lg",
+  md = "md",
   sm = "sm",
   xs = "xs",
-}
-
-export enum Positions {
-  right = "right",
-  left = "left",
-  up = "up",
-  down = "down",
 }
 
 export enum VideoTag {
   iframe = "iframe",
   video = "video",
+}
+
+export enum DataTypedSpeed {
+  fast = "100",
+  slow = "200",
 }
 
 export enum Reveal {
@@ -81,8 +77,10 @@ export enum BgHeader {
   dark = "dark",
   light = "light",
   transparentToDarkTypoLightToLight = "transparent-to-dark-typo-light-to-light",
+  transparentToDarkTypoLightToLightUnderlineChange = "transparent-to-dark-typo-light-to-light-underline-change",
   transparentToDarkTypoDarkToLight = "transparent-to-dark-typo-dark-to-light",
   transparentToLightTypoDarkToDark = "transparent-to-light-typo-dark-to-dark",
+  transparentToLightTypoDarkToDarkUnderlineChange = "transparent-to-light-typo-dark-to-dark-underline-change",
   transparentToLightTypoLightToDark = "transparent-to-light-typo-light-to-dark",
 }
 
@@ -93,10 +91,12 @@ export enum Underline {
 }
 
 export enum Color {
+  white = "white",
   dark = "dark",
   light = "light",
   primary = "primary",
   secondary = "secondary",
+  high = "high",
 }
 
 export enum TecTools {
@@ -115,10 +115,7 @@ export enum TecTools {
   figma = "figma",
   ai = "ai",
   ps = "ps",
-}
-
-export enum ClientName {
-  audi = "audi",
+  premiere = "premiere",
 }
 
 export enum HeaderItemType {
@@ -133,17 +130,63 @@ export enum Languages {
   DE = "DE",
 }
 
-export enum Social {
-  vimeo = "vimeo",
-  gitHub = "github",
-  linkedIn = "linkedin",
+export enum Icons {
+  chevron = "chevron",
 }
 
-export enum LogoType {
-  miniLogoAr = "mini-logo-ar",
-  mainLogoAr = "main-logo-ar",
-  miniLogoTeclead = "mini-logo-teclead",
-  mainLogoTeclead = "main-logo-teclead",
-  miniLogoBanca = "mini-logo-banca",
-  mainLogoBanca = "main-logo-banca",
+export enum Logo {
+  miniAr = "mini-ar",
+  mainAr = "main-ar",
+  miniTeclead = "mini-teclead",
+  mainTeclead = "main-teclead",
+  miniBanca = "mini-banca",
+  mainBanca = "main-banca",
 }
+
+export enum Tech {
+  nodejs = "nodejs",
+  js = "js",
+  ts = "ts",
+  html = "html",
+  css = "css",
+  sass = "sass",
+  react = "react",
+  nextjs = "nextjs",
+  express = "express",
+  mongodb = "mongodb",
+  premiere = "premiere",
+  pug = "pug",
+  stripe = "stripe",
+  figma = "figma",
+  ai = "ai",
+  ps = "ps",
+}
+
+export enum Social {
+  vimeo = "vimeo",
+  github = "github",
+  linkedin = "linkedin",
+}
+
+export enum Tile {
+  tile1 = "tile1",
+  tile2 = "tile2",
+  tile3 = "tile3",
+  tile4 = "tile4",
+  tile5 = "tile5",
+  tile6 = "tile6",
+}
+
+export enum Client {
+  audi = "audi",
+}
+
+export type IconName = Icons | Logo | Tech | Social | Tile | Client;
+export const IconName = {
+  ...Icons,
+  ...Logo,
+  ...Tech,
+  ...Social,
+  ...Tile,
+  ...Client,
+};

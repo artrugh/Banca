@@ -1,12 +1,11 @@
 import React, { Component, ReactNode, createElement } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
 import { Headings } from "../../../common/enums";
 // HELPERS
 
@@ -44,22 +43,6 @@ class SectionHeader extends Component<IProps> {
     this.checkLengthPropsData(this.props.data);
   }
 
-  public get classes(): IPropsClasses {
-    const { data, className, sectionHeadingPaddingMargin } = this.props;
-    const container = classNames(
-      "section-header",
-      className && className,
-      sectionHeadingPaddingMargin && sectionHeadingPaddingMargin
-    );
-    const heading = classNames(
-      "heading",
-      "mt-0",
-      data.paragraph ? "mb-16" : "mb-0"
-    );
-
-    return { container, heading };
-  }
-
   private checkLengthPropsData = (data: {
     title?: string;
     paragraph?: string;
@@ -92,8 +75,9 @@ class SectionHeader extends Component<IProps> {
       ...rest
     } = this.props;
     const { title, paragraph } = this.props.data;
+
     const props = {
-      className: this.classes.heading,
+      className: cn("heading mt-0", data.paragraph ? "mb-16" : "mb-0"),
       children: title,
       ...rest,
     };
@@ -101,7 +85,14 @@ class SectionHeader extends Component<IProps> {
     return (
       <>
         {(title || paragraph) && (
-          <div {...rest} className={this.classes.container}>
+          <div
+            {...rest}
+            className={cn(
+              "section-header",
+              className,
+              sectionHeadingPaddingMargin
+            )}
+          >
             <div className="container-xs">
               {children}
               {title && this.createReactElement(tag, props)}

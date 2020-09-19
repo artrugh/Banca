@@ -12,7 +12,8 @@ import {
   BgColor,
   Underline,
   BgHeader,
-  LogoType,
+  Logo,
+  Color,
 } from "../../../common/enums";
 // HELPERS
 
@@ -46,18 +47,23 @@ class DefaultTemplate extends Component<IProps> {
         </Head>
         <CookiesModal bgColor={BgColor.darkMedium} />
         <Header
-          containerSize={Size.big}
+          containerSize={Size.lg}
           navPosition="right"
           hideSignin
           underline={Underline.leftUnderline}
           underlineRounded
-          bgColor={BgHeader.transparentToLightTypoLightToDark}
-          logoId={LogoType.mainLogoTeclead}
+          bgColor={BgHeader.transparentToDarkTypoLightToLightUnderlineChange}
+          logoName={Logo.mainTeclead}
         />
         <main id="main" className="site-content">
           {children}
         </main>
-        <Footer pathname={pathname} logoId={LogoType.miniLogoAr} />
+        <Footer
+          pathname={pathname}
+          logoName={Logo.miniTeclead}
+          logoColor={Color.primary}
+          logoSize={Size.lg}
+        />
       </>
     );
   }

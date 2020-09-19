@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
@@ -8,7 +8,6 @@ import classNames from "classnames";
 // COMMON
 import {
   DefaultP,
-  IPropsClasses,
   IPropsOuter,
   IPropsInner,
 } from "../../../common/interfacesProps";
@@ -59,44 +58,6 @@ class SectionTemplate extends Component<IProps> {
     }
   }
 
-  public get classes(): IPropsClasses {
-    const {
-      id,
-      containerSize,
-      className,
-      topOuterDivider,
-      bottomOuterDivider,
-      bgColor,
-      invertColor,
-      topDivider,
-      bottomDivider,
-      padding,
-    } = this.props;
-
-    const containerClasses = classNames(
-      containerSize ? `container-${containerSize}` : "container"
-    );
-
-    const outerClasses = classNames(
-      `${id} section`,
-      topOuterDivider && "has-top-divider",
-      bottomOuterDivider && "has-bottom-divider",
-      bgColor && bgColor,
-      invertColor && "invert-color"
-    );
-
-    const innerClasses = classNames(
-      `${id}-inner section-inner`,
-      padding && `${padding}`,
-      topDivider && "has-top-divider",
-      bottomDivider && "has-bottom-divider"
-    );
-
-    const sectionHeader = classNames("center-content", className && className);
-
-    return { outerClasses, innerClasses, containerClasses, sectionHeader };
-  }
-
   public render(): JSX.Element {
     const {
       containerSize,
@@ -117,13 +78,31 @@ class SectionTemplate extends Component<IProps> {
     } = this.props;
 
     return (
-      <section {...rest} className={this.classes.outerClasses} id={id}>
-        <div className={this.classes.containerClasses}>
-          <div className={this.classes.innerClasses}>
+      <section
+        {...rest}
+        className={cn(`${id} section`, bgColor, {
+          "has-top-divider": topOuterDivider,
+          "has-bottom-divider": bottomOuterDivider,
+          "invert-color": invertColor,
+        })}
+        id={id}
+      >
+        <div
+          className={cn("container", {
+            [`container-${containerSize}`]: containerSize,
+          })}
+        >
+          <div
+            className={cn(`${id}-inner section-inner`, {
+              [`${padding}`]: padding,
+              "has-top-divider": topDivider,
+              "has-bottom-divider": bottomDivider,
+            })}
+          >
             <SectionHeader
               tag={tag}
               data={sectionHeaderData}
-              className={this.classes.sectionHeader}
+              className={cn("center-content", className)}
               sectionHeadingPaddingMargin={sectionHeadingPaddingMargin}
             />
             {children}

@@ -81,10 +81,6 @@ export interface IPropsFeatureItem extends IPropsOuterInner {
   id: string;
 }
 
-export interface IPropsClasses {
-  [key: string]: string;
-}
-
 export const DefaultP: IPropsOuterInner = {
   topOuterDivider: false,
   bottomOuterDivider: false,

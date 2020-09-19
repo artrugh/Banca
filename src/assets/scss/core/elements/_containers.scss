@@ -1,5 +1,5 @@
 .container,
-.container-big,
+.container-lg,
 .container-sm,
 .container-xs {
   width: 100%;
@@ -17,8 +17,8 @@
   max-width: $container--width + ($container--padding__desktop * 2);
 }
 
-.container-big {
-  max-width: $container--width-big + ($container--padding__desktop * 2);
+.container-lg {
+  max-width: $container--width-lg + ($container--padding__desktop * 2);
 }
 
 .container-sm {
@@ -35,8 +35,8 @@
     padding-right: 0;
   }
 
-  .container-big {
-    max-width: $container--width-big;
+  .container-lg {
+    max-width: $container--width-lg;
   }
 
   .container-sm {

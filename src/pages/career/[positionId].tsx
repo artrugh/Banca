@@ -3,7 +3,6 @@ import { withRouter, SingletonRouter } from "next/router";
 
 interface IProps {
   router: SingletonRouter;
-  // children?: ReactNode;
   pageTitle?: string;
   [index: string]: any;
 }

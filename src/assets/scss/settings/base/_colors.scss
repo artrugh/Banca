@@ -57,7 +57,7 @@ $icon--color: (
   modal-hover: get-color(light, 2),
   // modal icon (:hover)
   news-more: get-color(primary, 2),
-  // news - read more link arrow
+  // news - read more link
   // ↓ Inverted colors
   logo-inverse: null,
   // logo icons
@@ -70,8 +70,7 @@ $icon--color: (
   social-inverse: null,
   // social icons
   social-hover-inverse: null,
-  // social icons (:hover),,,,,// arrow
-  arrow: get-color(light, 1),
+  // social icons (:hover),,,,,//
 );
 
 // Misc elements: background color
@@ -100,7 +99,8 @@ $bg--color: (
   // ScrollBar
   underline-dark: get-color(dark, 2),
   underline-light: get-color(light, 1),
-  underline-primary: get-color(primary, 2),
+  underline-primary: get-color(primary, 3),
+  underline-primary-dark: get-color(primary, 2),
   underline-primary-light: get-color(primary, 4),
   underline-hover: get-color(primary, 1),
   // Underline

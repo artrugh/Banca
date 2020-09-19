@@ -1,5 +1,5 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
@@ -58,7 +58,7 @@ class Radio extends Component<IProps> {
     } = this.props;
 
     return (
-      <label className={classNames("form-radio", className)} htmlFor={id}>
+      <label className={cn("form-radio", className)} htmlFor={id}>
         <input
           {...rest}
           type="radio"

@@ -1,15 +1,12 @@
 import React, { Component, KeyboardEvent, MouseEvent } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import {
-  IPropsOuterInner,
-  IPropsClasses,
-} from "../../../common/interfacesProps";
+import { IPropsOuterInner } from "../../../common/interfacesProps";
 import { IEventHandler } from "../../../common/interfacesEvents";
 import { VideoTag } from "../../../common/enums";
 // HELPERS
@@ -30,35 +27,6 @@ class Hero extends Component<IProps, State> {
   public constructor(props: Readonly<IProps>, public state: State) {
     super(props);
     this.state = { videoModalActive: false };
-  }
-
-  public get classes(): IPropsClasses {
-    const {
-      topOuterDivider,
-      bottomOuterDivider,
-      topDivider,
-      bottomDivider,
-      bgColor,
-      invertColor,
-      className,
-    } = this.props;
-
-    const outerClasses = classNames(
-      "hero section center-content",
-      topOuterDivider && "has-top-divider",
-      bottomOuterDivider && "has-bottom-divider",
-      bgColor && bgColor,
-      invertColor && "invert-color",
-      className
-    );
-
-    const innerClasses = classNames(
-      "hero-inner section-inner",
-      topDivider && "has-top-divider",
-      bottomDivider && "has-bottom-divider"
-    );
-
-    return { outerClasses, innerClasses };
   }
 
   private handleOpenModal = (e: MouseEvent<HTMLAnchorElement>): void => {
@@ -98,13 +66,26 @@ class Hero extends Component<IProps, State> {
     } = this.props;
 
     return (
-      <section {...rest} className={this.classes.outerClasses} id="hero">
+      <section
+        {...rest}
+        className={cn("hero section center-content", className, bgColor, {
+          "has-top-divider": topOuterDivider,
+          "has-bottom-divider": bottomOuterDivider,
+          "invert-color": invertColor,
+        })}
+        id="hero"
+      >
         <div className="container-sm">
           <div
             id="scroll-behaviour-header-nav-color"
             className="loaded-none hero"
           />
-          <div className={this.classes.innerClasses}>
+          <div
+            className={cn("hero-inner section-inner", {
+              "has-top-divider": topDivider,
+              "has-bottom-divider": bottomDivider,
+            })}
+          >
             <div className="hero-content">
               <HeroHeading />
             </div>

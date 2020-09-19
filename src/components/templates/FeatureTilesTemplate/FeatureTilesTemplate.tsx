@@ -1,22 +1,18 @@
-import React, { Component, cloneElement, ReactElement } from "react";
-import classNames from "classnames";
+import React, { Component, cloneElement, ReactElement, ReactNode } from "react";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import {
-  DefaultP,
-  IPropsClasses,
-  IPropsFeatureItem,
-} from "../../../common/interfacesProps";
+import { DefaultP, IPropsFeatureItem } from "../../../common/interfacesProps";
 import { Headings, BgColor } from "../../../common/enums";
 import {
   IProduct,
   ICareer,
   ITestimonial,
-  ITec,
+  ITech,
   ITile,
   IClient,
 } from "../../../common/interfaces";
@@ -28,8 +24,8 @@ import {
 import SectionTemplate from "../SectionHeaderTemplate/SectionHeaderTemplate";
 
 interface IProps extends IPropsFeatureItem {
-  children?: ReactElement;
-  data: Array<IProduct | ITestimonial | ICareer | ITec | ITile | IClient | []>;
+  children?: ReactNode | ReactElement;
+  data: Array<IProduct | ITestimonial | ICareer | ITech | ITile | IClient | []>;
   config?: {
     title: number[];
     paragraph?: number[];
@@ -54,25 +50,6 @@ class FeaturesTilesTemplate extends Component<IProps> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const {
-      wrapName,
-      pushLeft,
-      invertMobile,
-      invertDesktop,
-      alignTop,
-    } = this.props;
-    const classes = classNames(
-      wrapName,
-      pushLeft && "push-left",
-      invertMobile && "invert-mobile",
-      invertDesktop && "invert-desktop",
-      alignTop && "align-top"
-    );
-
-    return { classes };
-  }
-
   public get Items(): JSX.Element[] {
     const { bgColor, data, children } = this.props;
 
@@ -89,13 +66,15 @@ class FeaturesTilesTemplate extends Component<IProps> {
     }
 
     const Items: JSX.Element[] = data.map((item: { [key: string]: any }) => {
-      return cloneElement(children, {
+      return cloneElement(children as ReactElement<any>, {
         item,
         key: Math.random(),
         src: `${item.src}${item.name}-${bgColorLogo}.svg`,
         alt: "logo-" + item.name,
+        name: item.name,
         width: item.width,
         height: item.height,
+        size: item.size,
       });
     });
 
@@ -131,7 +110,16 @@ class FeaturesTilesTemplate extends Component<IProps> {
         sectionHeadingPaddingMargin={sectionHeadingPaddingMargin}
         id={id}
       >
-        <div className={this.classes.classes}>{this.Items}</div>
+        <div
+          className={cn(wrapName, {
+            "push-left": pushLeft,
+            "invert-mobile": invertMobile,
+            "invert-desktop": invertDesktop,
+            "align-top": alignTop,
+          })}
+        >
+          {this.Items}
+        </div>
       </SectionTemplate>
     );
   }

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
+
 // HELPERS
 
 // UTILS
@@ -25,14 +25,6 @@ class ButtonLanguage extends Component<Props> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const { className } = this.props;
-
-    const label = classNames("button-checkbox-label", className && className);
-
-    return { label };
-  }
-
   public render(): JSX.Element {
     const { id, dataOn, dataOff, className } = this.props;
 
@@ -41,7 +33,7 @@ class ButtonLanguage extends Component<Props> {
         <input id={id} type="checkbox" className="button-checkbox" />
         <label
           htmlFor={id}
-          className={this.classes.label}
+          className={cn("button-checkbox-label", className)}
           data-off={dataOff}
           data-on={dataOn}
         >

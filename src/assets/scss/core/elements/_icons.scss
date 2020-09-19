@@ -1,0 +1,181 @@
+i {
+  &.size {
+    &-xs {
+      svg,
+      g {
+        height: $icon--height-xs;
+        width: $icon--width-xs;
+      }
+    }
+    &-sm {
+      svg,
+      g {
+        height: $icon--height-sm;
+        width: $icon--width-sm;
+      }
+    }
+    &-md {
+      svg,
+      g {
+        height: $icon--height-md;
+        width: $icon--width-md;
+      }
+    }
+    &-lg {
+      svg,
+      g {
+        height: $icon--height-lg;
+        width: $icon--width-lg;
+      }
+    }
+    &-xl {
+      svg,
+      g {
+        height: $icon--height-xl;
+        width: $icon--width-xl;
+      }
+    }
+
+    &-super {
+      svg,
+      g {
+        height: $icon--height-super;
+        width: $icon--width-super;
+      }
+    }
+  }
+
+  &.color {
+    &-primary {
+      path {
+        fill: color(icon-primary);
+      }
+    }
+
+    &-secondary {
+      path {
+        fill: color(icon-secondary);
+      }
+    }
+    &-light {
+      path {
+        fill: color(icon-light);
+      }
+    }
+
+    &-dark {
+      path {
+        fill: color(icon-dark);
+      }
+    }
+
+    &-white {
+      path {
+        fill: white;
+      }
+    }
+  }
+
+  &.stroke-color {
+    &-primary {
+      path {
+        stroke: color(icon-primary);
+      }
+    }
+
+    &-secondary {
+      path {
+        stroke: color(icon-secondary);
+      }
+    }
+
+    &-dark {
+      path {
+        stroke: color(icon-dark);
+      }
+    }
+
+    &-light {
+      path {
+        stroke: color(icon-light);
+      }
+    }
+
+    &-white {
+      path {
+        stroke: white;
+      }
+    }
+  }
+
+  &.circle-color {
+    &-primary {
+      circle {
+        stroke: color(icon-primary);
+      }
+    }
+
+    &-secondary {
+      circle {
+        stroke: color(icon-secondary);
+      }
+    }
+
+    &-dark {
+      circle {
+        stroke: color(icon-dark);
+      }
+    }
+
+    &-light {
+      circle {
+        stroke: color(icon-light);
+      }
+    }
+
+    &-white {
+      circle {
+        stroke: white;
+      }
+    }
+  }
+
+  &.ellipse-color {
+    &-primary {
+      ellipse {
+        stroke: color(icon-primary);
+      }
+    }
+
+    &-secondary {
+      ellipse {
+        stroke: color(icon-secondary);
+      }
+    }
+
+    &-dark {
+      ellipse {
+        stroke: color(icon-dark);
+      }
+    }
+
+    &-light {
+      ellipse {
+        stroke: color(icon-light);
+      }
+    }
+
+    &-white {
+      ellipse {
+        stroke: white;
+      }
+    }
+  }
+
+  &.chevron-hero {
+    path {
+      stroke-width: 1.5px;
+      stroke-linecap: square;
+    }
+  }
+}

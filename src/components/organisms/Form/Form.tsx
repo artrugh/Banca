@@ -1,15 +1,11 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import {
-  IPropsButton,
-  IPropsInput,
-  IPropsClasses,
-} from "../../../common/interfacesProps";
+import { IPropsButton, IPropsInput } from "../../../common/interfacesProps";
 import { Reveal, Color } from "../../../common/enums";
 // HELPERS
 
@@ -27,13 +23,6 @@ interface IProps {
 class Form extends Component<IProps> {
   public constructor(props: IProps) {
     super(props);
-  }
-
-  public get classes(): IPropsClasses {
-    const { reveal } = this.props.data;
-    const classesForm = classNames("form", reveal && reveal);
-
-    return { classesForm };
   }
 
   public render(): JSX.Element {
@@ -141,7 +130,10 @@ class Form extends Component<IProps> {
     }
 
     return (
-      <form className={this.classes.classesForm} data-reveal-delay={200}>
+      <form
+        className={cn("form", this.props.data.reveal)}
+        data-reveal-delay={200}
+      >
         {Inputs}
         {Buttons.length > 1 ? <ButtonGroup>{Buttons}</ButtonGroup> : Buttons}
       </form>
