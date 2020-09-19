@@ -111,7 +111,7 @@ class SmoothScroll extends Component<IProps> {
         {...rest}
         tabIndex={0}
         role="button"
-        className={cn({ [className]: className })}
+        className={cn(className)}
         href={"#" + to}
         onClick={(e) => this.smoothScroll(e, to, duration, handlerOnClick)}
       >

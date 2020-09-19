@@ -16,7 +16,7 @@ class ButtonGroup extends Component<IProps> {
     const { children, className, ...rest } = this.props;
 
     return (
-      <div {...rest} className={cn("button-group", { [className]: className })}>
+      <div {...rest} className={cn("button-group", className)}>
         {children}
       </div>
     );

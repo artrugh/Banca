@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
@@ -8,7 +8,7 @@ import classNames from "classnames";
 
 // COMMON
 import { Env } from "../../../common/enums";
-import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
+import { IPropsItem } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -28,41 +28,26 @@ class KeyboardItem extends Component<IProps> {
     }
   }
 
-  public get classes(): IPropsClasses {
-    const { underline, underlineRounded, bgColor } = this.props;
-
-    const container = classNames(
-      "tiles-item reveal-from-bottom",
-      bgColor && bgColor,
-      "m-24"
-    );
-
-    const heading = classNames(
-      "heading",
-      "mt-0 mb-8 keyboard-item",
-      underline && underline,
-      underlineRounded && "has-underline-rounded"
-    );
-
-    const parragraph = classNames("m-0 text-sm");
-
-    return { heading, container, parragraph };
-  }
-
   public render(): JSX.Element {
-    const { title } = this.props.item;
-    const { delay } = this.props;
+    const { title, underline, underlineRounded } = this.props.item;
+    const { delay, bgColor } = this.props;
 
     return (
       <div
-        className={this.classes.container}
+        className={cn("tiles-item reveal-from-bottom m-24", bgColor)}
         data-reveal-delay={`${delay * 200}`}
       >
         <div className="tiles-item-inner">
           <div className="features-tiles-item-content">
             <Link href={`/career/#${title.toLowerCase()}`}>
               <a>
-                <h4 className={this.classes.heading}>{title}</h4>
+                <h4
+                  className={cn("heading mt-0 mb-8 keyboard-item", underline, {
+                    "has-underline-rounded": underlineRounded,
+                  })}
+                >
+                  {title}
+                </h4>
               </a>
             </Link>
           </div>

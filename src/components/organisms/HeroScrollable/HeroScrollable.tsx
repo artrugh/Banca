@@ -13,10 +13,7 @@ import {
   Icons,
   Color,
 } from "../../../common/enums";
-import {
-  IPropsClasses,
-  IPropsOuterInner,
-} from "../../../common/interfacesProps";
+import { IPropsOuterInner } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -54,15 +51,6 @@ type DefaultProps = Readonly<typeof DefaultProps>;
 export default class HeroScrollable extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
 
-  public get classes(): IPropsClasses {
-    const { className, bgColor, chevronAnimation } = this.props;
-    const outer = cn("hero hero-scrollable", bgColor && bgColor);
-
-    const image = cn("hero-img", className && className);
-
-    return { image, outer };
-  }
-
   public render(): JSX.Element {
     const {
       children,
@@ -88,13 +76,13 @@ export default class HeroScrollable extends Component<IProps> {
         id="hero"
         data-color="green"
       >
-        <div {...rest} className={this.classes.outer}>
+        <div {...rest} className={cn("hero hero-scrollable", bgColor)}>
           <div className="hero-scrollable-container">
             <div
               id="scroll-behaviour-main-underline-bg"
               className="loaded-none"
             />
-            <div className={this.classes.image}>
+            <div className={cn("hero-img", className)}>
               <SmoothScroll to="scroll-smooth-position">
                 <div
                   className={cn("hero-chevron-container container-sm", {

@@ -42,9 +42,8 @@ class FormLabel extends Component<IProps> {
     return (
       <label
         {...rest}
-        className={cn("form-label", {
+        className={cn("form-label", className, {
           "screen-reader": labelHidden,
-          [className]: className,
         })}
         htmlFor={id}
       >

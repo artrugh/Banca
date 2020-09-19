@@ -39,9 +39,8 @@ class FormHint extends Component<IProps> {
     return (
       <div
         {...rest}
-        className={cn("form-hint", {
+        className={cn("form-hint", className, {
           [`text-color-${status}`]: status,
-          [className]: className,
         })}
       >
         {children}

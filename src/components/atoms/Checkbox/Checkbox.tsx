@@ -57,12 +57,7 @@ class Checkbox extends Component<IProps> {
     } = this.props;
 
     return (
-      <label
-        className={cn("form-checkbox", {
-          [className]: className,
-        })}
-        htmlFor={id}
-      >
+      <label className={cn("form-checkbox", className)} htmlFor={id}>
         <input
           id={id}
           {...rest}

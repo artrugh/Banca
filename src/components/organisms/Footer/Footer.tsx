@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
 import { Logo, Color, Size } from "../../../common/enums";
 // HELPERS
 
@@ -42,22 +41,6 @@ class Footer extends Component<IProps> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const { className, topOuterDivider, topDivider } = this.props;
-    const outerClasses = classNames(
-      "site-footer center-content-mobile",
-      topOuterDivider && "has-top-divider",
-      className
-    );
-
-    const innerClasses = classNames(
-      "site-footer-inner",
-      topDivider && "has-top-divider"
-    );
-
-    return { outerClasses, innerClasses };
-  }
-
   public render(): JSX.Element {
     const {
       className,
@@ -71,9 +54,18 @@ class Footer extends Component<IProps> {
     } = this.props;
 
     return (
-      <footer {...rest} className={this.classes.outerClasses}>
+      <footer
+        {...rest}
+        className={cn("site-footer center-content-mobile", className, {
+          "has-top-divider": topOuterDivider,
+        })}
+      >
         <div className="container">
-          <div className={this.classes.innerClasses}>
+          <div
+            className={cn("site-footer-inner", {
+              "has-top-divider": topDivider,
+            })}
+          >
             <div className="footer-top space-between text-xxs">
               <SmoothScroll to="main">
                 <Icon name={logoName} color={logoColor} size={logoSize} />

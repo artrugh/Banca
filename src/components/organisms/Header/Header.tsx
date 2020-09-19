@@ -1,13 +1,12 @@
 import React, { Component, createRef, KeyboardEvent } from "react";
 import Link from "next/link";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
 import { IEventHandler } from "../../../common/interfacesEvents";
 import { Size, Color, Underline, Logo, BgHeader } from "../../../common/enums";
 // HELPERS
@@ -103,51 +102,6 @@ class Header extends Component<IProps, State> {
     }
   }
 
-  public get classes(): IPropsClasses {
-    const {
-      bottomOuterDivider,
-      bottomDivider,
-      className,
-      bgColor,
-      underline,
-      underlineRounded,
-      navPosition,
-      bgTransparent,
-      containerSize,
-    } = this.props;
-
-    const header = classNames(
-      "site-header",
-      bgColor && bgColor,
-      bottomOuterDivider && "has-bottom-divider",
-      className
-    );
-
-    const container = classNames(
-      containerSize ? `container-${containerSize}` : "container"
-    );
-
-    const inner = classNames(
-      "site-header-inner",
-      bottomDivider && "has-bottom-divider"
-    );
-
-    const nav = classNames("header-nav", this.state.isActive && "is-active");
-
-    const ul = classNames(
-      "list-reset text-xs",
-      navPosition && `header-nav-${navPosition}`
-    );
-
-    const anchor = classNames(
-      "header-nav-toggle",
-      underline && underline,
-      underlineRounded && "has-underline-rounded"
-    );
-
-    return { header, container, inner, nav, ul, anchor };
-  }
-
   private handleOpenMenu = (): void => {
     document.body.classList.add("off-nav-is-active");
     this.nav.current.style.maxHeight = this.nav.current.scrollHeight + "px";
@@ -209,9 +163,23 @@ class Header extends Component<IProps, State> {
     } = this.props;
 
     return (
-      <header {...rest} className={this.classes.header}>
-        <div className={this.classes.container} id="header">
-          <div className={this.classes.inner}>
+      <header
+        {...rest}
+        className={cn("site-header", bgColor, className, {
+          "has-bottom-divider": bottomOuterDivider,
+        })}
+      >
+        <div
+          className={cn("container", {
+            [`container-${containerSize}`]: containerSize,
+          })}
+          id="header"
+        >
+          <div
+            className={cn("site-header-inner", {
+              "has-bottom-divider": bottomDivider,
+            })}
+          >
             <Link href="/">
               <a>
                 <Icon
@@ -240,11 +208,22 @@ class Header extends Component<IProps, State> {
                     <span className="hamburger-inner" />
                   </span>
                 </button>
-                <nav ref={this.nav} className={this.classes.nav}>
+                <nav
+                  ref={this.nav}
+                  className={cn("header-nav", {
+                    "is-active": this.state.isActive,
+                  })}
+                >
                   <div className="header-nav-inner">
-                    <ul className={this.classes.ul}>
+                    <ul
+                      className={cn("list-reset text-xs", {
+                        [`header-nav-${navPosition}`]: navPosition,
+                      })}
+                    >
                       <Nav
-                        classesAnchor={this.classes.anchor}
+                        classesAnchor={cn("header-nav-toggle", underline, {
+                          "has-underline-rounded": underlineRounded,
+                        })}
                         handlerOnClick={this.handleCloseMenu}
                         withLeng
                       />

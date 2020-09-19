@@ -72,10 +72,7 @@ class Button extends Component<IPropsButton> {
     };
 
     return (
-      <div
-        className={cn("button-container", { [reveal]: reveal })}
-        data-reveal-delay={200}
-      >
+      <div className={cn("button-container", reveal)} data-reveal-delay={200}>
         {this.createReactElement(tag, props)}
       </div>
     );

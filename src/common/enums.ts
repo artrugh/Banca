@@ -96,6 +96,7 @@ export enum Color {
   light = "light",
   primary = "primary",
   secondary = "secondary",
+  high = "high",
 }
 
 export enum TecTools {

@@ -1,5 +1,5 @@
 import React, { Component, createElement } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
@@ -7,7 +7,6 @@ import classNames from "classnames";
 
 // COMMON
 import { BgColor, Color } from "../../../common/enums";
-import { IPropsClasses } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -24,18 +23,6 @@ class CookiesModal extends Component<Props, State> {
   public constructor(props: Readonly<Props>, public state: State) {
     super(props);
     this.state = { checked: false };
-  }
-
-  public get classes(): IPropsClasses {
-    const { bgColor } = this.props;
-
-    const label = classNames(
-      "cookies__checkbox__label",
-      "p-24",
-      bgColor && bgColor
-    );
-
-    return { label };
   }
 
   public handlerLabel = (): void => {
@@ -60,6 +47,8 @@ class CookiesModal extends Component<Props, State> {
     const description =
       "Wir verwenden Cookies, um Inhalte zu personalisieren, Werbeanzeigen anzupassen, diese zu messen und die Sicherheit für unsere Besucher zu steigern.";
 
+    const { bgColor } = this.props;
+
     return (
       <>
         <input
@@ -69,7 +58,10 @@ class CookiesModal extends Component<Props, State> {
           defaultChecked={this.state.checked}
           onChange={this.handlerLabel}
         />
-        <label className={this.classes.label} htmlFor="cookies__checkbox">
+        <label
+          className={cn("cookies__checkbox__label p-24", bgColor)}
+          htmlFor="cookies__checkbox"
+        >
           <div className="container-sm">
             <div className="cookies__checkbox__text">
               <p className="m-0 text-sm text-color-high">{description}</p>

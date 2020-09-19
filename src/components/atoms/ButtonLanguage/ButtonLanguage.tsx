@@ -33,9 +33,7 @@ class ButtonLanguage extends Component<Props> {
         <input id={id} type="checkbox" className="button-checkbox" />
         <label
           htmlFor={id}
-          className={cn("button-checkbox-label", {
-            [className]: className,
-          })}
+          className={cn("button-checkbox-label", className)}
           data-off={dataOff}
           data-on={dataOn}
         >

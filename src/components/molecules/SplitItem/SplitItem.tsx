@@ -1,13 +1,13 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
-import { Env, BgColor, IconName, Size } from "../../../common/enums";
+import { IPropsItem } from "../../../common/interfacesProps";
+import { Env, BgColor, Color, IconName, Size } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -40,37 +40,6 @@ class SplitItem extends Component<IProps> {
     }
   }
 
-  public get classes(): IPropsClasses {
-    const {
-      imageFill,
-      underline,
-      underlineRounded,
-      animationHover,
-      bgColor,
-    } = this.props;
-
-    const container = classNames("split-item mb-32", bgColor && bgColor);
-
-    const image = classNames(
-      "split-item-image center-content-mobile reveal-from-bottom",
-      imageFill && "split-item-image-fill"
-    );
-
-    const description = classNames(
-      "split-item-content center-content-mobile reveal-from-left",
-      underline && underline,
-      underlineRounded && "has-underline-rounded"
-    );
-
-    const imageContainer = classNames(
-      animationHover && "has-animation-hover",
-      "logo-tec-container mr-12 mt-32",
-      "has-inline-flex"
-    );
-
-    return { image, description, container, imageContainer };
-  }
-
   public get imageShadow(): boolean | string {
     let imgShadow: boolean | string = false;
     const { shadow, bgColor } = this.props;
@@ -81,9 +50,9 @@ class SplitItem extends Component<IProps> {
         bgColor === BgColor.darkMedium ||
         bgColor === BgColor.darkLow
       ) {
-        imgShadow = "light";
+        imgShadow = Color.light;
       } else {
-        imgShadow = "dark";
+        imgShadow = Color.dark;
       }
     }
 
@@ -101,9 +70,9 @@ class SplitItem extends Component<IProps> {
       bgColor === BgColor.darkMedium ||
       bgColor === BgColor.darkLow
     ) {
-      bgColorLogo = "light";
+      bgColorLogo = Color.light;
     } else {
-      bgColorLogo = "dark";
+      bgColorLogo = Color.dark;
     }
 
     const listTectools: ReactNode[] | [] = tectools.map((tool: string) => (
@@ -120,7 +89,7 @@ class SplitItem extends Component<IProps> {
 
   private anchorElement(
     obj: { [key: string]: string },
-    textColor: string
+    textColor: Color
   ): JSX.Element | null {
     if (Object.values(obj)[0] === undefined) {
       return null;
@@ -140,7 +109,7 @@ class SplitItem extends Component<IProps> {
 
   private pElement(
     obj: { [key: string]: string | boolean },
-    textColor: string
+    textColor: Color
   ): JSX.Element | null {
     if (Object.values(obj)[0] === undefined) {
       return null;
@@ -178,26 +147,43 @@ class SplitItem extends Component<IProps> {
       repository,
     } = this.props.item;
 
-    const { delay } = this.props;
+    const {
+      delay,
+      imageFill,
+      underline,
+      underlineRounded,
+      animationHover,
+      bgColor,
+    } = this.props;
 
     return (
-      <div className={this.classes.container}>
+      <div className={cn("split-item mb-32", bgColor)}>
         <div
-          className={this.classes.description}
+          className={cn(
+            "split-item-content center-content-mobile reveal-from-left",
+            underline,
+            { "has-underline-rounded": underlineRounded }
+          )}
           data-reveal-container=".split-item"
           data-reveal-delay={`${delay * 200}`}
         >
           <div className="links d-inline-flex">
-            {this.pElement({ status }, "primary")}
-            {this.anchorElement({ link }, "secondary")}
-            {this.anchorElement({ repository }, "secondary")}
+            {this.pElement({ status }, Color.primary)}
+            {this.anchorElement({ link }, Color.secondary)}
+            {this.anchorElement({ repository }, Color.secondary)}
           </div>
-          {this.pElement({ subtitle }, "high")}
+          {this.pElement({ subtitle }, Color.high)}
           <h3 className="mt-12 mb-12 heading">{title}</h3>
           <p className="m-0 mb-32">{description}</p>
           <div className="logo-tec-box">{this.listTectools}</div>
         </div>
-        <div className={this.classes.image} data-reveal-container=".split-item">
+        <div
+          className={cn(
+            "split-item-image center-content-mobile reveal-from-bottom",
+            { "split-item-image-fill": imageFill }
+          )}
+          data-reveal-container=".split-item"
+        >
           <a href={link} target="_blank" rel="noreferrer">
             <Image
               className={alt.toLowerCase()}

@@ -54,10 +54,7 @@ class Switch extends Component<IProps> {
     } = this.props;
 
     return (
-      <label
-        className={cn("form-switch", { [className]: className })}
-        htmlFor={id}
-      >
+      <label className={cn("form-switch", className)} htmlFor={id}>
         <input
           {...rest}
           type="checkbox"

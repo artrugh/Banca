@@ -20,8 +20,8 @@ import SplitItem from "../../molecules/SplitItem/SplitItem";
 
 // COMPONENTS
 import HeroScrollable from "../../organisms/HeroScrollable/HeroScrollable";
-import HeroTyped from "../../organisms/HeroTyped/HeroTyped";
-import Hero from "../../organisms/Hero/Hero";
+// import HeroTyped from "../../organisms/HeroTyped/HeroTyped";
+// import Hero from "../../organisms/Hero/Hero";
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import Cta from "../../organisms/Cta/Cta";
 // ITEMS

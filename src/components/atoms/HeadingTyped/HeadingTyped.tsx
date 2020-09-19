@@ -97,10 +97,9 @@ class HeadingTyped extends Component<IProps> {
         {this.createReactElement(tag, props)}
         {underlineSize && (
           <hr
-            className={cn("underline", {
+            className={cn("underline", scrollPosition, {
               "underline-has-animation": animation,
               [`underline--${underlineSize}`]: underlineSize,
-              [scrollPosition]: scrollPosition,
             })}
           />
         )}

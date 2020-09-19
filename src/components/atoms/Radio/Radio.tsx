@@ -58,10 +58,7 @@ class Radio extends Component<IProps> {
     } = this.props;
 
     return (
-      <label
-        className={cn("form-radio", { [className]: className })}
-        htmlFor={id}
-      >
+      <label className={cn("form-radio", className)} htmlFor={id}>
         <input
           {...rest}
           type="radio"

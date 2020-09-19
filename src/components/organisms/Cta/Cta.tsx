@@ -1,16 +1,12 @@
 import React, { Component, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import {
-  DefaultP,
-  IPropsClasses,
-  IPropsFeatureItem,
-} from "../../../common/interfacesProps";
+import { DefaultP, IPropsFeatureItem } from "../../../common/interfacesProps";
 import {
   InputTypes,
   BgColor,
@@ -49,41 +45,6 @@ class Cta extends Component<IProps> {
   public static defaultProps: Partial<Props> = DefaultProps;
   public constructor(props: IProps) {
     super(props);
-  }
-
-  public get classes(): IPropsClasses {
-    const {
-      className,
-      wrapName,
-      topOuterDivider,
-      bottomOuterDivider,
-      topDivider,
-      bgColor,
-      bottomDivider,
-      bgColorBox,
-      invertColor,
-      split,
-    } = this.props;
-
-    const outerClasses = classNames(
-      "cta section center-content-mobile",
-      topOuterDivider && "has-top-divider",
-      bottomOuterDivider && "has-bottom-divider",
-      bgColor && bgColor,
-      invertColor && "invert-color",
-      className
-    );
-
-    const innerClasses = classNames(
-      "reveal-from-bottom",
-      wrapName,
-      topDivider && "has-top-divider",
-      bottomDivider && "has-bottom-divider",
-      split && "cta-split",
-      bgColorBox && bgColorBox
-    );
-
-    return { outerClasses, innerClasses };
   }
 
   private get button(): ReactNode {
@@ -144,10 +105,24 @@ class Cta extends Component<IProps> {
     } = this.props;
 
     return (
-      <section {...rest} className={this.classes.outerClasses} id={id}>
+      <section
+        {...rest}
+        className={cn("cta section center-content-mobile", className, bgColor, {
+          "has-top-divider": topOuterDivider,
+          "has-bottom-divider": bottomOuterDivider,
+          "invert-color": invertColor,
+        })}
+        id={id}
+      >
         <div className="container">
           <div className="section-inner">
-            <div className={this.classes.innerClasses}>
+            <div
+              className={cn("reveal-from-bottom", wrapName, bgColorBox, {
+                "has-top-divider": topDivider,
+                "has-bottom-divider": bottomDivider,
+                "cta-split": split,
+              })}
+            >
               <div className="cta-slogan">
                 <h3 className="m-0 text-color-high">{children}</h3>
               </div>

@@ -107,7 +107,7 @@ export default class Icon extends React.Component<IIcon> {
             [`stroke-color-${strokeColor}`]: strokeColor,
             [`circle-color-${circleColor}`]: circleColor,
             [`ellipse-color-${ellipseColor}`]: ellipseColor,
-            [`has-animation-hover`]: animationHover,
+            "has-animation-hover": animationHover,
           },
           className
         )}

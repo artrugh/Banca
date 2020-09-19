@@ -77,10 +77,9 @@ class Select extends Component<IProps> {
         )}
         <select
           {...rest}
-          className={cn("form-select", {
+          className={cn("form-select", className, {
             [`form-select-${size}`]: size,
             [`form-${status}`]: status,
-            [className]: className,
           })}
           name={name}
           disabled={disabled}

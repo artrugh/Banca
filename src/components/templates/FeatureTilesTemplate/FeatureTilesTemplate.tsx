@@ -1,16 +1,12 @@
 import React, { Component, cloneElement, ReactElement, ReactNode } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import {
-  DefaultP,
-  IPropsClasses,
-  IPropsFeatureItem,
-} from "../../../common/interfacesProps";
+import { DefaultP, IPropsFeatureItem } from "../../../common/interfacesProps";
 import { Headings, BgColor } from "../../../common/enums";
 import {
   IProduct,
@@ -52,25 +48,6 @@ class FeaturesTilesTemplate extends Component<IProps> {
 
   public constructor(props: IProps) {
     super(props);
-  }
-
-  public get classes(): IPropsClasses {
-    const {
-      wrapName,
-      pushLeft,
-      invertMobile,
-      invertDesktop,
-      alignTop,
-    } = this.props;
-    const classes = classNames(
-      wrapName,
-      pushLeft && "push-left",
-      invertMobile && "invert-mobile",
-      invertDesktop && "invert-desktop",
-      alignTop && "align-top"
-    );
-
-    return { classes };
   }
 
   public get Items(): JSX.Element[] {
@@ -133,7 +110,16 @@ class FeaturesTilesTemplate extends Component<IProps> {
         sectionHeadingPaddingMargin={sectionHeadingPaddingMargin}
         id={id}
       >
-        <div className={this.classes.classes}>{this.Items}</div>
+        <div
+          className={cn(wrapName, {
+            "push-left": pushLeft,
+            "invert-mobile": invertMobile,
+            "invert-desktop": invertDesktop,
+            "align-top": alignTop,
+          })}
+        >
+          {this.Items}
+        </div>
       </SectionTemplate>
     );
   }

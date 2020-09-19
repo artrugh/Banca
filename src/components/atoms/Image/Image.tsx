@@ -89,8 +89,7 @@ class Image extends Component<IProps> {
 
     return (
       <div
-        className={cn("img-container", {
-          [classNameContainer]: classNameContainer,
+        className={cn("img-container", classNameContainer, {
           "has-gradient": gradientBg,
           "has-animation-hover": animationHover,
         })}
@@ -98,8 +97,7 @@ class Image extends Component<IProps> {
         <img
           {...rest}
           ref={this.image}
-          className={cn({
-            [className]: className,
+          className={cn(className, {
             [`has-shadow-${shadow}`]: shadow,
           })
             .split(" ")

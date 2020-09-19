@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 // COMMON
 import { Color, Env, Size } from "../../../common/enums";
-import { IPropsClasses, IPropsItem } from "../../../common/interfacesProps";
+import { IPropsItem } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -33,27 +33,6 @@ class TilesItem extends Component<IProps> {
     }
   }
 
-  public get classes(): IPropsClasses {
-    const { underline, underlineRounded, bgColor } = this.props;
-
-    const container = classNames(
-      "tiles-item reveal-from-bottom",
-      bgColor && bgColor,
-      "m-24"
-    );
-
-    const heading = classNames(
-      "heading",
-      "mt-0 mb-8",
-      underline && underline,
-      underlineRounded && "has-underline-rounded"
-    );
-
-    const parragraph = classNames("m-0 text-sm");
-
-    return { heading, container, parragraph };
-  }
-
   public render(): JSX.Element {
     const { title, description, icon, alt } = this.props.item;
     const {
@@ -63,11 +42,14 @@ class TilesItem extends Component<IProps> {
       strokeColor,
       circleColor,
       ellipseColor,
+      bgColor,
+      underline,
+      underlineRounded,
     } = this.props;
 
     return (
       <div
-        className={this.classes.container}
+        className={cn("tiles-item reveal-from-bottom m-24", bgColor)}
         data-reveal-delay={`${delay * 200}`}
       >
         <div className="tiles-item-inner">
@@ -84,8 +66,14 @@ class TilesItem extends Component<IProps> {
             </div>
           </div>
           <div className="features-tiles-item-content">
-            <h4 className={this.classes.heading}>{title}</h4>
-            <p className={this.classes.parragraph}>{description}</p>
+            <h4
+              className={cn("heading mt-0 mb-8", underline, {
+                "has-underline-rounded": underlineRounded,
+              })}
+            >
+              {title}
+            </h4>
+            <p className="m-0 text-sm">{description}</p>
           </div>
         </div>
       </div>

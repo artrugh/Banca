@@ -13,10 +13,7 @@ import {
   Icons,
   Color,
 } from "../../../common/enums";
-import {
-  IPropsClasses,
-  IPropsOuterInner,
-} from "../../../common/interfacesProps";
+import { IPropsOuterInner } from "../../../common/interfacesProps";
 // HELPERS
 
 // UTILS
@@ -42,36 +39,6 @@ export default class HeroTyped extends Component<IProps> {
     super(props);
   }
 
-  public get classes(): IPropsClasses {
-    const {
-      topOuterDivider,
-      bottomOuterDivider,
-      topDivider,
-      bottomDivider,
-      bgColor,
-      invertColor,
-      className,
-      chevronAnimation,
-    } = this.props;
-
-    const outerClasses = cn(
-      "hero hero-typed section",
-      topOuterDivider && "has-top-divider",
-      bottomOuterDivider && "has-bottom-divider",
-      bgColor && bgColor,
-      invertColor && "invert-color",
-      className
-    );
-
-    const innerClasses = cn(
-      "hero-inner section-inner",
-      topDivider && "has-top-divider",
-      bottomDivider && "has-bottom-divider"
-    );
-
-    return { outerClasses, innerClasses };
-  }
-
   public render(): JSX.Element {
     const {
       topOuterDivider,
@@ -89,14 +56,26 @@ export default class HeroTyped extends Component<IProps> {
     } = this.props;
 
     return (
-      <section {...rest} className={this.classes.outerClasses}>
+      <section
+        {...rest}
+        className={cn("hero hero-typed section", bgColor, className, {
+          "has-top-divider": topOuterDivider,
+          "has-bottom-divider": bottomOuterDivider,
+          "invert-color": invertColor,
+        })}
+      >
         <div className="container-sm">
           <div id="scroll-behaviour-underline" className="loaded-none hero" />
           <div
             id="scroll-behaviour-header-nav-color"
             className="loaded-none hero"
           />
-          <div className={this.classes.innerClasses}>
+          <div
+            className={cn("hero-inner section-inner", {
+              "has-top-divider": topDivider,
+              "has-bottom-divider": bottomDivider,
+            })}
+          >
             <div className="hero-content">
               <HeadingTyped
                 classNameHeading="mt-0 mb-16 hero-statement typed--statement has-type-sign"

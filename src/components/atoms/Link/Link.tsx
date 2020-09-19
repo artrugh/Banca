@@ -29,17 +29,12 @@ class Link<P extends LinkProps> extends Component<P> {
     const child = Children.only(children);
     const active = this.props.router.pathname === href && activeClassName;
     const { className } = child.props;
-    // const some = cn(child.props.className, {
-    //   [activeClassName]: active,
-    //   [className]: className,
-    // });
 
     return (
       <NextLink href={this.props.href} {...rest}>
         {cloneElement(child, {
-          className: cn(child.props.className, {
+          className: cn(className, child.props.className, {
             [activeClassName]: active,
-            [className]: className,
           }),
         })}
       </NextLink>

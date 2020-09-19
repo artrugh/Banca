@@ -1,5 +1,5 @@
 import React, { ReactNode, Component } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
@@ -45,10 +45,9 @@ class FooterSocial extends Component<IProps> {
 
   public render(): JSX.Element {
     const { className, ...rest } = this.props;
-    const classes = classNames("footer-social", className);
 
     return (
-      <div {...rest} className={classes}>
+      <div {...rest} className={cn("footer-social", className)}>
         <ul className="list-reset">{this.socialList}</ul>
       </div>
     );

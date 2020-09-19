@@ -1,12 +1,11 @@
 import React, { Component, ReactNode, MouseEvent, KeyboardEvent } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { IPropsClasses } from "../../../common/interfacesProps";
 import { IEventHandler } from "../../../common/interfacesEvents";
 import { VideoTag } from "../../../common/enums";
 // HELPERS
@@ -64,18 +63,6 @@ class Modal extends Component<IProps> {
     } else {
       this.handleBodyClass();
     }
-  }
-
-  public get classes(): IPropsClasses {
-    const { className, show, video } = this.props;
-    const classes = classNames(
-      "modal",
-      show && "is-active",
-      video && "modal-video",
-      className
-    );
-
-    return { classes };
   }
 
   private handleBodyClass = (): void => {
@@ -140,7 +127,10 @@ class Modal extends Component<IProps> {
         {show && (
           <div
             {...rest}
-            className={this.classes.classes}
+            className={cn("modal", className, {
+              "is-active": show,
+              "modal-video": video,
+            })}
             onClick={closeModal}
             onKeyDown={closeModalKeyboard}
             tabIndex={0}
