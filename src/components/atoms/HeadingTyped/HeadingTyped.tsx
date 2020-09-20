@@ -89,9 +89,8 @@ class HeadingTyped extends Component<IProps> {
     return (
       <div
         {...rest}
-        className={cn({
+        className={cn(className, {
           [`container-${containerSize}`]: containerSize,
-          [className]: className,
         })}
       >
         {this.createReactElement(tag, props)}
