@@ -58,13 +58,12 @@ class Button extends Component<IPropsButton> {
     } = this.props;
 
     const props = {
-      className: cn("button", {
+      className: cn("button", className, {
         [`button-${color}`]: color,
         [`button-${size}`]: size,
         "is-loading": loading,
         "button-block": wide,
         "button-wide-mobile": wideMobile,
-        [className]: className,
       }),
       children,
       disabled,
