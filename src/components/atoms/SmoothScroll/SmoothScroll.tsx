@@ -21,7 +21,7 @@ interface IProps extends IPropsButton {
 }
 
 const DefaultProps: IPropsButton = {
-  tag: "button",
+  tag: "anchor",
   color: Color.transparent,
   size: Size.sm,
   children: "click",
@@ -112,6 +112,7 @@ class SmoothScroll extends Component<IProps> {
 
   public render(): JSX.Element {
     const {
+      tag,
       className,
       children,
       color,
@@ -130,7 +131,8 @@ class SmoothScroll extends Component<IProps> {
           {...rest}
           tabIndex={0}
           role="button"
-          className={cn("button", className, {
+          className={cn(className, {
+            button: tag === "button",
             [`button-${color}`]: color,
             [`button-${size}`]: size,
             "button-block": wide,
