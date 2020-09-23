@@ -97,6 +97,7 @@ export enum Color {
   primary = "primary",
   secondary = "secondary",
   high = "high",
+  transparent = "transparent",
 }
 
 export enum TecTools {

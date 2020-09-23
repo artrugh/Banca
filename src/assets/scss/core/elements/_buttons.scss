@@ -118,7 +118,6 @@
     }
   }
 }
-
 .button-secondary {
   color: color(button-secondary);
   background-color: color-bg(button-secondary);
@@ -132,6 +131,23 @@
   &.is-loading {
     &::after {
       border-color: color(button-secondary);
+    }
+  }
+}
+
+.button-transparent {
+  color: color(button-primary);
+  background-color: transparent;
+  border-color: transparent;
+
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &.is-loading {
+    &::after {
+      border-color: color(button-primary);
     }
   }
 }
