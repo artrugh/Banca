@@ -39,12 +39,12 @@ class HeroHeading extends Component<IProps> {
         >
           Garantizamos una compra
           <br />
-          tan <span className="text-color-primary">facil </span>
+          tan <span className="text-color-primary">fácil </span>
           como <span className="text-color-primary">personal</span>
         </h1>
         <div className="container-xs">
           <p
-            className="m-0 mb-32 reveal-from-bottom sub-heading"
+            className="m-0 mb-48 reveal-from-bottom sub-heading"
             data-reveal-delay="400"
           >
             Banca es una empresa que se especializa en la venta de tierra,
@@ -65,7 +65,7 @@ class HeroHeading extends Component<IProps> {
               </SmoothScroll>
               <Button
                 tag="a"
-                color={Color.primary}
+                color={Color.secondary}
                 wideMobile
                 href={mail ? mailito : "/"}
               >

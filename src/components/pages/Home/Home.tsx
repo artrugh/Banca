@@ -19,9 +19,6 @@ import SplitItem from "../../molecules/SplitItem/SplitItem";
 // UTILS
 
 // COMPONENTS
-
-// import HeroScrollable from "../../organisms/HeroScrollable/HeroScrollable";
-// import HeroTyped from "../../organisms/HeroTyped/HeroTyped";
 import Hero from "../../organisms/Hero/Hero";
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import Cta from "../../organisms/Cta/Cta";
@@ -63,30 +60,9 @@ export default class Home extends Component<IData> {
 
     return (
       <>
-        <Hero
-          className="illustration-section-01"
-          bgColor={BgColor.lightHeigh}
-          mail="arturo.rugh@gmail.com"
-        />
-        {/* <HeroTyped
-          bgColor={BgColor.darkHeigh}
-          hasCleaner
-          colorChevron={Color.white}
-          strokeChevron={Color.white}
-          chevronAnimation 
-        /> */}
-        {/* <HeroScrollable
-          className="reveal-scale-down"
-          containerSize={Size.lg}
-          underlineSize={Size.lg}
-          height="100vh"
-          bgColor={BgColor.lightHeigh}
-          colorChevron={Color.white}
-          strokeChevron={Color.white}
-          chevronAnimation
-        /> */}
+        <Hero mail="arturo.rugh@gmail.com" bgColor={BgColor.darkHeigh} />
         <FeatureTilesTemplate
-          bgColor={BgColor.lightHeigh}
+          bgColor={BgColor.darkHeigh}
           data={tiles}
           heading={tileHeading}
           config={tilesConfig.heading}
@@ -138,7 +114,7 @@ export default class Home extends Component<IData> {
             underlineRounded
           />
         </FeatureTilesTemplate>
-        <FeatureTilesTemplate
+        {/* <FeatureTilesTemplate
           data={clients}
           heading={clientHeading}
           config={clientsConfig.heading}
@@ -147,37 +123,7 @@ export default class Home extends Component<IData> {
           bgColor={BgColor.darkHeigh}
         >
           <Icon className="client-icon p-32" animationHover />
-        </FeatureTilesTemplate>
-        <FeatureTilesTemplate
-          data={careers}
-          heading={careerHeading}
-          className="illustration-section-02"
-          config={careerConfig.heading}
-          id="careers"
-          bgColor={BgColor.lightHeigh}
-        >
-          <KeyboardItem
-            config={careerConfig.items}
-            underline={Underline.centerUnderline}
-            underlineRounded
-            delay={0}
-          />
-        </FeatureTilesTemplate>
-        <FeatureTilesTemplate
-          data={tec}
-          heading={tecHeading}
-          config={tecConfig.heading}
-          sectionHeadingPaddingMargin="p-0"
-          bgColor={BgColor.lightHeigh}
-          id="tec"
-        >
-          {/* <Image
-            className="m-32"
-            containerClassName="images-item-container p-32"
-            animationHover
-          /> */}
-          <Icon className="tech-icon p-32" animationHover />
-        </FeatureTilesTemplate>
+        </FeatureTilesTemplate> */}
         <Cta
           split
           bgColor={BgColor.lightHeigh}

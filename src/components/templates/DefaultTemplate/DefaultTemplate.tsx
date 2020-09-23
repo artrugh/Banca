@@ -22,7 +22,6 @@ import {
 // COMPONENTS
 import Header from "../../organisms/Header/Header";
 import Footer from "../../organisms/Footer/Footer";
-import CookiesModal from "../../molecules/CookiesModal/CookiesModal";
 
 interface IProps {
   router: SingletonRouter;
@@ -45,7 +44,6 @@ class DefaultTemplate extends Component<IProps> {
         <Head>
           <title>ArturoRugh {pageTitle ? `| ${pageTitle}` : ""}</title>
         </Head>
-        <CookiesModal bgColor={BgColor.darkMedium} />
         <Header
           containerSize={Size.lg}
           navPosition="right"
