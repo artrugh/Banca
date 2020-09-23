@@ -184,6 +184,11 @@
   }
 }
 
+body.off-nav-is-active .button-lang {
+  padding-top: $button-language--padding-t;
+  padding-bottom: $button-language--padding-b;
+}
+
 @include media("<=medium") {
   .button-wide-mobile {
     width: 100%;

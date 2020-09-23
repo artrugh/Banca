@@ -61,7 +61,8 @@ $button--transform: null; // button text-transform property (null is allowed)
 $button--max-size-mobile: 280px; // button max width on mobile (.button-wide-mobile)
 $button-group-padding: 16px; // padding between sibling buttons (nested into .button-group)
 $button-loading--thickness: 2px; // button loading spinner, stroke width (.button.is-loading)
-$button-language--padding-t: 7px; // button, padding to nav-is-active
+$button-language--padding-t: 20px; // button, padding to nav-is-active
+$button-language--padding-b: 10px; // button, padding to nav-is-active
 
 // Forms: color
 $form--color: (
