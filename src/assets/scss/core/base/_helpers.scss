@@ -141,7 +141,7 @@
     color: color(heading-lower);
   }
   path {
-    fill: color(icon-light);
+    fill: color-icon(icon-light);
   }
 }
 
@@ -160,7 +160,7 @@
     color: color(heading-lower);
   }
   path {
-    fill: color(icon-light);
+    fill: color-icon(icon-light);
   }
 }
 
@@ -178,7 +178,7 @@
     color: color(heading);
   }
   path {
-    fill: color(icon-light);
+    fill: color-icon(icon-light);
   }
 }
 
@@ -196,7 +196,7 @@
     color: color(mid-contrast-inverse);
   }
   path {
-    fill: color(icon-dark);
+    fill: color-icon(icon-dark);
   }
 }
 
@@ -214,7 +214,7 @@
     color: color(mid-contrast-inverse);
   }
   path {
-    fill: color(icon-dark);
+    fill: color-icon(icon-dark);
   }
 }
 
@@ -233,7 +233,7 @@
     color: color(heigh-contrast);
   }
   path {
-    fill: color(icon-dark);
+    fill: color-icon(icon-dark);
   }
 }
 

@@ -12,7 +12,44 @@ $icon--height-super: 96px;
 $icon--width-super: 96px;
 
 $icon--color: (
-  icon-primary: get-color(primary, 1),
+  logo: get-color(primary, 1),
+  // logo icon
+    logo-hover: get-color(primary, 2),
+  // logo icon (:hover)
+    logo-inner-dark: get-color(dark, 3),
+  // logo icon
+    logo-inner-light: get-color(light, 1),
+  // logo icon (:hover)
+    hamburger: get-color(light, 2),
+  // hamburger icon
+    hamburger-off: get-color(primary, 1),
+  // hamburger icon
+    accordion: get-color(primary, 1),
+  // accordion icon
+    social: get-color(primary, 1),
+  // social icons
+    social-hover: get-color(primary, 2),
+  // social icons (:hover)
+    modal: get-color(light, 3),
+  // modal icon
+    modal-hover: get-color(light, 2),
+  // modal icon (:hover)
+    news-more: get-color(primary, 2),
+  // news - read more link
+    // ↓ Inverted colors
+    logo-inverse: null,
+  // logo icons
+    logo-hover-inverse: null,
+  // logo icons (:hover),,,,,
+    hamburger-inverse: get-color(dark, 2),
+  // hamburger icon
+    accordion-inverse: get-color(primary, 1),
+  // accordion icon
+    social-inverse: null,
+  // social icons
+    social-hover-inverse: null,
+  // social icons (:hover),,,,,//
+    icon-primary: get-color(primary, 1),
   icon-primary-hover: lighten(get-color(primary, 3), 2%),
   icon-secondary: get-color(secondary, 1),
   icon-secondary-hover: lighten(get-color(secondary, 2), 2%),
@@ -22,5 +59,3 @@ $icon--color: (
   icon-light-hover: get-color(light, 3),
   icon-white-color: white,
 );
-
-$color: map-push($color, $icon--color);

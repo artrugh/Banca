@@ -126,7 +126,11 @@
   $index: str-index($string, $search);
   @if $index {
     @return str-slice($string, 1, $index - 1) + $replace +
-      str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
   }
   @return $string;
 }
@@ -177,7 +181,8 @@
   $list-of-typed-animations: inline-1 0ms ease 0ms;
   @for $index from 2 through $string-lenght {
     $name: inline-#{$index};
-    $list-of-typed-animations: $list-of-typed-animations, $name 0ms ease calc(#{$index} * #{$speed} * 1ms);
+    $list-of-typed-animations: $list-of-typed-animations,
+      $name 0ms ease calc(#{$index} * #{$speed} * 1ms);
   }
   @return $list-of-typed-animations;
 }
@@ -189,9 +194,8 @@
 @function get-str-typed($string-type) {
   @if ($string-type == statement) {
     @return $str-typed--statement;
-  }
-  @else if ($string-type == about) {
+  } @else if ($string-type == about) {
     @return $str-typed--about;
-  } 
+  }
   @return $str-typed;
 }
