@@ -22,10 +22,9 @@ interface IProps extends IPropsButton {
 
 const DefaultProps: IPropsButton = {
   tag: "button",
-  color: Color.dark,
+  color: Color.transparent,
   size: Size.sm,
   children: "click",
-  loading: false,
   wide: false,
   wideMobile: false,
   disabled: false,
