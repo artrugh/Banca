@@ -43,7 +43,10 @@
   margin-top: -($header-hamburger--thickness / 2);
 
   @include vendor-prefix(transition-duration, 0.22s);
-  @include vendor-prefix(transition-timing-function, cubic-bezier(0.55, 0.055, 0.675, 0.19));
+  @include vendor-prefix(
+    transition-timing-function,
+    cubic-bezier(0.55, 0.055, 0.675, 0.19)
+  );
 
   &::before,
   &::after {
@@ -53,7 +56,11 @@
 
   &::before {
     top: -$header-hamburger--distance;
-    @include vendor-prefix(transition, #{top 0.1s 0.25s ease-in, opacity 0.1s ease-in});
+    @include vendor-prefix(
+      transition,
+      #{top 0.1s 0.25s ease-in,
+      opacity 0.1s ease-in}
+    );
   }
 
   &::after {
@@ -69,12 +76,19 @@
   .off-nav-is-active & {
     @include vendor-prefix(transform, rotate(225deg));
     @include vendor-prefix(transition-delay, 0.12s);
-    @include vendor-prefix(transition-timing-function, cubic-bezier(0.215, 0.61, 0.355, 1));
+    @include vendor-prefix(
+      transition-timing-function,
+      cubic-bezier(0.215, 0.61, 0.355, 1)
+    );
 
     &::before {
       top: 0;
       opacity: 0;
-      @include vendor-prefix(transition, #{top 0.1s ease-out, opacity 0.1s 0.12s ease-out});
+      @include vendor-prefix(
+        transition,
+        #{top 0.1s ease-out,
+        opacity 0.1s 0.12s ease-out}
+      );
     }
 
     &::after {

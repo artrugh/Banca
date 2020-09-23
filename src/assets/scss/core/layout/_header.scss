@@ -66,7 +66,7 @@
 
   svg {
     path {
-      fill: color(icon-primary);
+      fill: color-icon(icon-primary);
       @include vendor-prefix(transition, fill 0.15s ease);
 
       .invert-color & {
@@ -78,7 +78,7 @@
   &:hover {
     svg {
       path {
-        fill: color(icon-primary-hover);
+        fill: color-icon(icon-primary-hover);
 
         .invert-color & {
           fill: color-icon(social-hover-inverse);

@@ -624,21 +624,21 @@
 
 @mixin logo($from, $to: null) {
   .main-logo-inner {
-    fill: color(icon-#{$from});
+    fill: color-icon(icon-#{$from});
     @include vendor-prefix(transition, 1s all linear);
   }
 
   @if ($to != null) {
     body:not(.off-nav-is-active).scroll-behaviour-header-nav-color & {
       .main-logo-inner {
-        fill: color(icon-#{$to});
+        fill: color-icon(icon-#{$to});
         @include vendor-prefix(transition, 1s all linear);
       }
     }
 
     body.off-nav-is-active.scroll-behaviour-header-nav-color & {
       .main-logo-inner {
-        fill: color(icon-#{$to});
+        fill: color-icon(icon-#{$to});
       }
     }
   }

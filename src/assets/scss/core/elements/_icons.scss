@@ -48,24 +48,24 @@ i {
   &.color {
     &-primary {
       path {
-        fill: color(icon-primary);
+        fill: color-icon(icon-primary);
       }
     }
 
     &-secondary {
       path {
-        fill: color(icon-secondary);
+        fill: color-icon(icon-secondary);
       }
     }
     &-light {
       path {
-        fill: color(icon-light);
+        fill: color-icon(icon-light);
       }
     }
 
     &-dark {
       path {
-        fill: color(icon-dark);
+        fill: color-icon(icon-dark);
       }
     }
 
@@ -79,25 +79,25 @@ i {
   &.stroke-color {
     &-primary {
       path {
-        stroke: color(icon-primary);
+        stroke: color-icon(icon-primary);
       }
     }
 
     &-secondary {
       path {
-        stroke: color(icon-secondary);
+        stroke: color-icon(icon-secondary);
       }
     }
 
     &-dark {
       path {
-        stroke: color(icon-dark);
+        stroke: color-icon(icon-dark);
       }
     }
 
     &-light {
       path {
-        stroke: color(icon-light);
+        stroke: color-icon(icon-light);
       }
     }
 
@@ -111,25 +111,25 @@ i {
   &.circle-color {
     &-primary {
       circle {
-        stroke: color(icon-primary);
+        stroke: color-icon(icon-primary);
       }
     }
 
     &-secondary {
       circle {
-        stroke: color(icon-secondary);
+        stroke: color-icon(icon-secondary);
       }
     }
 
     &-dark {
       circle {
-        stroke: color(icon-dark);
+        stroke: color-icon(icon-dark);
       }
     }
 
     &-light {
       circle {
-        stroke: color(icon-light);
+        stroke: color-icon(icon-light);
       }
     }
 
@@ -143,25 +143,25 @@ i {
   &.ellipse-color {
     &-primary {
       ellipse {
-        stroke: color(icon-primary);
+        stroke: color-icon(icon-primary);
       }
     }
 
     &-secondary {
       ellipse {
-        stroke: color(icon-secondary);
+        stroke: color-icon(icon-secondary);
       }
     }
 
     &-dark {
       ellipse {
-        stroke: color(icon-dark);
+        stroke: color-icon(icon-dark);
       }
     }
 
     &-light {
       ellipse {
-        stroke: color(icon-light);
+        stroke: color-icon(icon-light);
       }
     }
 
