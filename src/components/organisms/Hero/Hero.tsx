@@ -20,6 +20,7 @@ import Modal from "../../molecules/Modal/Modal";
 
 interface IProps extends IPropsOuterInner {
   className?: string;
+  mail?: string;
 }
 type State = { videoModalActive: boolean };
 
@@ -62,6 +63,7 @@ class Hero extends Component<IProps, State> {
       bgColor,
       invertColor,
       className,
+      mail,
       ...rest
     } = this.props;
 
@@ -87,7 +89,7 @@ class Hero extends Component<IProps, State> {
             })}
           >
             <div className="hero-content">
-              <HeroHeading />
+              <HeroHeading mail={mail} />
             </div>
             <HeroVideo
               openModal={this.handleOpenModal}

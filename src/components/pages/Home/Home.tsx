@@ -19,6 +19,9 @@ import SplitItem from "../../molecules/SplitItem/SplitItem";
 // UTILS
 
 // COMPONENTS
+
+// import HeroScrollable from "../../organisms/HeroScrollable/HeroScrollable";
+// import HeroTyped from "../../organisms/HeroTyped/HeroTyped";
 import Hero from "../../organisms/Hero/Hero";
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import Cta from "../../organisms/Cta/Cta";
@@ -61,8 +64,27 @@ export default class Home extends Component<IData> {
     return (
       <>
         <Hero
+          className="illustration-section-01"
           bgColor={BgColor.lightHeigh}
+          mail="arturo.rugh@gmail.com"
         />
+        {/* <HeroTyped
+          bgColor={BgColor.darkHeigh}
+          hasCleaner
+          colorChevron={Color.white}
+          strokeChevron={Color.white}
+          chevronAnimation 
+        /> */}
+        {/* <HeroScrollable
+          className="reveal-scale-down"
+          containerSize={Size.lg}
+          underlineSize={Size.lg}
+          height="100vh"
+          bgColor={BgColor.lightHeigh}
+          colorChevron={Color.white}
+          strokeChevron={Color.white}
+          chevronAnimation
+        /> */}
         <FeatureTilesTemplate
           bgColor={BgColor.lightHeigh}
           data={tiles}
@@ -101,7 +123,6 @@ export default class Home extends Component<IData> {
             bgColor={BgColor.darkHeigh}
           />
         </FeatureTilesTemplate>
-
         <FeatureTilesTemplate
           data={testimonial}
           heading={testimonialHeading}

@@ -15,14 +15,21 @@ import ButtonGroup from "../../atoms/ButtonGroup/ButtonGroup";
 import Button from "../../atoms/Button/Button";
 import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
-class HeroHeading extends Component<{}> {
-  public constructor(props: {}) {
+interface IProps {
+  mail?: string;
+}
+
+class HeroHeading extends Component<IProps> {
+  public constructor(props: IProps) {
     super(props);
   }
 
   public componentDidMount(): void {}
 
   public render(): JSX.Element {
+    const { mail } = this.props;
+    const mailito = `mailto:${mail}`;
+
     return (
       <>
         <div id="scroll-behaviour-underline" className="loaded-none" />
@@ -49,21 +56,18 @@ class HeroHeading extends Component<{}> {
           </p>
           <div className="reveal-from-bottom" data-reveal-delay="600">
             <ButtonGroup>
-              <SmoothScroll to="features-tiles">
-                <Button
-                  tag="a"
-                  color={Color.primary}
-                  wideMobile
-                  href="https://cruip.com/"
-                >
-                  visitanos
-                </Button>
+              <SmoothScroll
+                to="features-tiles"
+                color={Color.primary}
+                wideMobile
+              >
+                visitanos
               </SmoothScroll>
               <Button
                 tag="a"
-                color={Color.secondary}
+                color={Color.primary}
                 wideMobile
-                href="https://github.com/cruip/open-react-template/"
+                href={mail ? mailito : "/"}
               >
                 contactanos
               </Button>
