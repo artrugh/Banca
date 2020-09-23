@@ -6,22 +6,37 @@ import cn from "classnames";
 // BASE CLASS
 
 // COMMON
-
+import { IPropsButton } from "../../../common/interfacesProps";
+import { Size, Color } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
 
-interface IProps {
-  className?: string;
-  children?: ReactNode;
+interface IProps extends IPropsButton {
   to: string;
   duration?: number;
   handlerOnClick?(): void;
 }
 
+const DefaultProps: IPropsButton = {
+  tag: "button",
+  color: Color.dark,
+  size: Size.sm,
+  children: "click",
+  loading: false,
+  wide: false,
+  wideMobile: false,
+  disabled: false,
+};
+
+type Props = {} & Partial<DefaultProps>;
+type DefaultProps = Readonly<typeof DefaultProps>;
+
 class SmoothScroll extends Component<IProps> {
+  public static defaultProps: Partial<Props> = DefaultProps;
+
   public constructor(props: IProps) {
     super(props);
   }
@@ -100,6 +115,10 @@ class SmoothScroll extends Component<IProps> {
     const {
       className,
       children,
+      color,
+      size,
+      wide,
+      wideMobile,
       to,
       duration,
       handlerOnClick,
@@ -107,16 +126,23 @@ class SmoothScroll extends Component<IProps> {
     } = this.props;
 
     return (
-      <a
-        {...rest}
-        tabIndex={0}
-        role="button"
-        className={cn(className)}
-        href={"#" + to}
-        onClick={(e) => this.smoothScroll(e, to, duration, handlerOnClick)}
-      >
-        {children}
-      </a>
+      <div className="button-container">
+        <a
+          {...rest}
+          tabIndex={0}
+          role="button"
+          className={cn("button", className, {
+            [`button-${color}`]: color,
+            [`button-${size}`]: size,
+            "button-block": wide,
+            "button-wide-mobile": wideMobile,
+          })}
+          href={"#" + to}
+          onClick={(e) => this.smoothScroll(e, to, duration, handlerOnClick)}
+        >
+          {children}
+        </a>
+      </div>
     );
   }
 }
