@@ -40,7 +40,6 @@ class Products extends Component<IProps> {
           data={products}
           heading={productsHeading}
           invertMobile
-          className="illustration-section-02"
           config={splitConfig.heading}
           wrapName="split-wrap"
           id="products"

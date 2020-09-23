@@ -100,7 +100,7 @@ class Hero extends Component<IProps, State> {
               closeModal={this.handleCloseModal}
               closeModalDocument={this.handleCloseModalDocument}
               closeModalKeyboard={this.handleCloseModalKeyboard}
-              video="https://player.vimeo.com/video/174002812"
+              video="https://player.vimeo.com/video/174395277"
               videoTag={VideoTag.iframe}
             />
           </div>

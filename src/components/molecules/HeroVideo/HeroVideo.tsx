@@ -55,7 +55,7 @@ class HeroVideo extends Component<IProps> {
       >
         <div id="scroll-behaviour-cookies" className="loaded-none" />
         <a
-          data-video="https://player.vimeo.com/video/174002812"
+          data-video="https://player.vimeo.com/video/174395277"
           href="/"
           aria-controls="video-modal"
           tabIndex={0}

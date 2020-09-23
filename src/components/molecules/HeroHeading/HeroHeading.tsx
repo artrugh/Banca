@@ -13,6 +13,7 @@ import { Color } from "../../../common/enums";
 // COMPONENTS
 import ButtonGroup from "../../atoms/ButtonGroup/ButtonGroup";
 import Button from "../../atoms/Button/Button";
+import SmoothScroll from "../../atoms/SmoothScroll/SmoothScroll";
 
 class HeroHeading extends Component<{}> {
   public constructor(props: {}) {
@@ -29,35 +30,42 @@ class HeroHeading extends Component<{}> {
           className="mt-0 mb-16 reveal-from-bottom heading"
           data-reveal-delay="200"
         >
-          Technical Expertise and{" "}
-          <span className="text-color-primary">Cross-Industry</span>
+          Garantizamos una compra
+          <br />
+          tan <span className="text-color-primary">facil </span>
+          como <span className="text-color-primary">personal</span>
         </h1>
         <div className="container-xs">
           <p
             className="m-0 mb-32 reveal-from-bottom sub-heading"
             data-reveal-delay="400"
           >
-            Wir agieren in den Gebieten IT-Consulting und technologisches
-            Coaching. Deutsche DAX-Konzerne vertrauen uns bei der Umsetzung
-            digitaler Projekte.
+            Banca es una empresa que se especializa en la venta de tierra,
+            ofreciendo una variedad de productos que se ajusta a la necesidad de
+            cada uno de nuestros clientes. <br />
+            <span className="text-color-primary">Calidad </span>y{" "}
+            <span className="text-color-primary">accesibilidad</span> nos
+            identifican.
           </p>
           <div className="reveal-from-bottom" data-reveal-delay="600">
             <ButtonGroup>
+              <SmoothScroll to="features-tiles">
+                <Button
+                  tag="a"
+                  color={Color.primary}
+                  wideMobile
+                  href="https://cruip.com/"
+                >
+                  visitanos
+                </Button>
+              </SmoothScroll>
               <Button
                 tag="a"
-                color={Color.primary}
-                wideMobile
-                href="https://cruip.com/"
-              >
-                visit us
-              </Button>
-              <Button
-                tag="a"
-                color={Color.primary}
+                color={Color.secondary}
                 wideMobile
                 href="https://github.com/cruip/open-react-template/"
               >
-                contact us
+                contactanos
               </Button>
             </ButtonGroup>
           </div>

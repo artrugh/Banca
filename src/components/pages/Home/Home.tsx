@@ -19,9 +19,7 @@ import SplitItem from "../../molecules/SplitItem/SplitItem";
 // UTILS
 
 // COMPONENTS
-import HeroScrollable from "../../organisms/HeroScrollable/HeroScrollable";
-// import HeroTyped from "../../organisms/HeroTyped/HeroTyped";
-// import Hero from "../../organisms/Hero/Hero";
+import Hero from "../../organisms/Hero/Hero";
 import FeatureTilesTemplate from "../../templates/FeatureTilesTemplate/FeatureTilesTemplate";
 import Cta from "../../organisms/Cta/Cta";
 // ITEMS
@@ -62,26 +60,8 @@ export default class Home extends Component<IData> {
 
     return (
       <>
-        {/* <Hero
-          className="illustration-section-01"
+        <Hero
           bgColor={BgColor.lightHeigh}
-        /> */}
-        {/* <HeroTyped
-          bgColor={BgColor.darkHeigh}
-          hasCleaner
-          colorChevron={Color.white}
-          strokeChevron={Color.white}
-          chevronAnimation 
-        /> */}
-        <HeroScrollable
-          className="reveal-scale-down"
-          containerSize={Size.lg}
-          underlineSize={Size.lg}
-          height="100vh"
-          bgColor={BgColor.lightHeigh}
-          colorChevron={Color.white}
-          strokeChevron={Color.white}
-          chevronAnimation
         />
         <FeatureTilesTemplate
           bgColor={BgColor.lightHeigh}
@@ -106,7 +86,6 @@ export default class Home extends Component<IData> {
           data={products}
           heading={productsHeading}
           invertMobile
-          className="illustration-section-02"
           config={splitConfig.heading}
           wrapName="split-wrap"
           id="products"

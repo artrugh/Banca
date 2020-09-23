@@ -53,14 +53,14 @@ class DefaultTemplate extends Component<IProps> {
           underline={Underline.leftUnderline}
           underlineRounded
           bgColor={BgHeader.transparentToDarkTypoLightToLightUnderlineChange}
-          logoName={Logo.mainTeclead}
+          logoName={Logo.mainBanca}
         />
         <main id="main" className="site-content">
           {children}
         </main>
         <Footer
           pathname={pathname}
-          logoName={Logo.miniTeclead}
+          logoName={Logo.miniBanca}
           logoColor={Color.primary}
           logoSize={Size.lg}
         />
