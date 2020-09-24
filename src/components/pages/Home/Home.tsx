@@ -7,7 +7,6 @@ import React, { Component } from "react";
 // COMMON
 import { IData } from "../../../common/interfaces";
 import {
-  Size,
   BgColor,
   Underline,
   Color,
@@ -27,8 +26,6 @@ import Cta from "../../organisms/Cta/Cta";
 // ITEMS
 import TilesItem from "../../molecules/TilesItem/TilesItem";
 import TestimonialItem from "../../molecules/TestimonialItem/TestimonialItem";
-import Icon from "../../atoms/Icon/Icon";
-import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
 // DATA
 import { tiles } from "../../../data/staticData/staticDataTiles";
 
@@ -78,7 +75,6 @@ export default class Home extends Component<IData> {
             strokeColor={Color.primary}
             circleColor={Color.secondary}
             ellipseColor={Color.white}
-            // iconSize={Size.super}
             delay={0}
           />
         </FeatureTilesTemplate>
