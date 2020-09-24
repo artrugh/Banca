@@ -9,10 +9,13 @@
     padding-left: 16px;
     padding-right: 16px;
     background-color: get-color(primary, 3);
-    background-image: url(./../../../svgs/illustrations/cta-illustration.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right bottom;
+
+    &.illustration {
+        background-image: url(./../../../svgs/illustrations/cta-illustration.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right bottom;
+    }
 }
 
 @include media(">medium") {

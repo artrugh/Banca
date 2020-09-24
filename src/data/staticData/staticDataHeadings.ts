@@ -10,21 +10,20 @@ export const heroHeading: { title: string; paragraph?: string } = {
 };
 
 export const tileHeading: IHeading = {
-  title: "Build up the whole picture",
+  title: "Lo que nos caracteriza",
   paragraph:
-    "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at",
+    "Ofrecemos a un amplio abanico de clientes una compra fácil, económica y personalizada.",
 };
 
 export const productsHeading: IHeading = {
-  title: "Workflow that just works",
-  paragraph:
-    "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.",
+  title: "Nuestros Productos",
+  paragraph: "Evaluamos cada necesidad, ofreciendo soluciones a medida.",
 };
 
 export const testimonialHeading: IHeading = {
-  title: "Customer testimonials",
+  title: "Nuestro clientes",
   paragraph:
-    "Vitae aliquet nec ullamcorper sit amet risus nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.",
+    "La confianza depositada por nuestros clientes es nuestra mayor recompensa.",
 };
 
 export const careerHeading: IHeading = {
@@ -44,7 +43,7 @@ export const tecHeading: IHeading = {
 };
 
 export const contactHeading: IHeading = {
-  title: "Contact",
+  title: "Contáctenos",
   paragraph:
-    "Don't waste your time and contact us to start your next awesome project!",
+    "La personalización de los nuetros productos es nuestro sello de identidad.",
 };

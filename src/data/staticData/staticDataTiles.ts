@@ -3,31 +3,24 @@ import { Tile } from "../../common/enums";
 
 export const tiles: Array<ITile> = [
   {
-    title: "IT-Consulting",
+    title: "Calidad",
     description:
-      "Wir verbinden technologische Kompetenz mit branchenübergreifender Projekterfahrung und begleiten Sie von der Konzeption bis zur erfolgr",
+      "Garantizamos la mejor tierra, a la altura de sus necesidades. Un perfecto balance entre precios accesibles y excelente calidad.",
     icon: Tile.tile1,
     alt: "Features tile icon 01",
   },
   {
-    title: "Technologie Coaching",
+    title: "Facilidad",
     description:
-      "Technologie Coaching Firmeninternes technologisches Know-How ist eine Grundvoraussetzung abgeschlossener IT-Projekte, um langfristig erf",
+      "Facilidades en el pago, envios a domicilio, compras online sin necesidad de registrarse: son algunos de nuestros servicios.",
     icon: Tile.tile2,
     alt: "Features tile icon 02",
   },
   {
-    title: "IT-Architectur",
+    title: "Personalización",
     description:
-      "Beratung in der Konzeption und Erstellung von nachaltigenTechnologiestrategien in den Bereichen Software- und Infrastrukturarchitektur.",
+      "Evaluamos las necesidades de cada cliente, ofreciendo soluciones a medida. Un producto personalizado es nuestro sello de identidad.",
     icon: Tile.tile3,
-    alt: "Features tile icon 01",
-  },
-  {
-    title: "Robust Workflow",
-    description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.",
-    icon: Tile.tile4,
     alt: "Features tile icon 01",
   },
 ];

@@ -15,7 +15,7 @@ export const headerData: Array<IHeader | ICheckbox> = [
     role: TagType.anchor,
   },
   {
-    title: "contact",
+    title: "contacto",
     to: "cta",
     role: TagType.anchor,
   },

@@ -1,32 +1,26 @@
 [
   {
-    "title": "Subiendo al Sur - App",
-    "description": "This is the SuAlSur-App. Find your new adventure and share your experiences. The goal of this NGO program is for young people from various countries and disciplines to travel to rural communities and interact on a social and cultural level.",
-    "image": "sualsur-03.png",
-    "alt": "SubiendoAlSur",
-    "status": true,
-    "link": "http://subiendoalsur.herokuapp.com/",
-    "repository": "https://github.com/artrugh/sualsur",
-    "tectools": ["nodejs", "js", "express", "mongodb", "sass", "pug", "stripe"]
+    "title": "Premium-boxes",
+    "subtitle": "Calidad y elegancia",
+    "description": "Las premium-boxes son sin duda el producto predilecto del cliente más exigente. Ofrecemos diversos tamaños que se ajustan a cada encargo.",
+    "image": "banca-01.png",
+    "alt": "banca-premium-boxes",
+    "status": true
   },
   {
-    "title": "TecLead - V2",
-    "subtitle": "website - landing page",
-    "description": "Teaclead is a german company which operates in the fields of IT consulting and technological coaching. German DAX companies trust Teclead in the implementation of digital projects and Teclead trust us in the develoment of its new website.",
-    "image": "teclead-02.png",
-    "alt": "Teclead",
-    "status": false,
-    "link": "https://www.teclead.de/",
-    "tectools": ["js", "nextjs", "react", "ts", "sass", "css", "figma", "ai"]
+    "title": "Tiny-bags",
+    "subtitle": "El tamaño predilecto",
+    "description": "Las tiny-bags son una alternativa original y atractiva frente a la adquisición de tierra, fáciles de transportar y a precios razonables.",
+    "image": "banca-02.png",
+    "alt": "banca-tiny-bags",
+    "status": true
   },
   {
-    "title": "Banca",
-    "description": "Borned in 2016 as an artistic project, Banca is the first spanish E-Commerce in the real estate market. Its aim is to create an ironic commentary on the spanish financial crisis.",
-    "image": "features-split-image-01.png",
-    "alt": "Featuressplit01",
-    "status": false,
-    "link": "https://www.youtube.com/",
-    "repository": "https://github.com/artrugh/sualsur",
-    "tectools": ["js", "nextjs", "react", "ts", "sass", "figma", "ai", "ps"]
+    "title": "Earth xKg",
+    "subtitle": "Cliente mayorista",
+    "description": "Nos preocupamos también por el cliente mayorista, ofreciéndole un producto de calidad al mejor precio de mercado.",
+    "image": "banca-03.png",
+    "alt": "banca-earth",
+    "status": true
   }
 ]

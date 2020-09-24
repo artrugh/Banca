@@ -44,17 +44,16 @@ class DefaultTemplate extends Component<IProps> {
     return (
       <>
         <Head>
-          <title>ArturoRugh {pageTitle ? `| ${pageTitle}` : ""}</title>
+          <title>Banca {pageTitle ? `| ${pageTitle}` : ""}</title>
         </Head>
         <Header
           containerSize={Size.lg}
           navPosition="right"
           hideSignin
           underline={Underline.leftUnderline}
-          underlineRounded={UnderlineRounded.underlineRoundedRight}
           bgColor={BgHeader.transparentToDarkTypoLightToLightUnderlineChange}
-          logoName={Logo.mainTeclead}
-          density={Density.medium}
+          logoName={Logo.mainBanca}
+          density={Density.low}
         />
         <main id="main" className="site-content">
           {children}

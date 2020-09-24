@@ -30,24 +30,16 @@ import TestimonialItem from "../../molecules/TestimonialItem/TestimonialItem";
 import Icon from "../../atoms/Icon/Icon";
 import KeyboardItem from "../../molecules/KeyboardItem/KeyboardItem";
 // DATA
-import { clients } from "../../../data/staticData/staticDataClients";
-import { tec } from "../../../data/staticData/staticDataTec";
 import { tiles } from "../../../data/staticData/staticDataTiles";
 
 import {
   productsHeading,
   testimonialHeading,
-  clientHeading,
-  careerHeading,
-  tecHeading,
   tileHeading,
 } from "../../../data/staticData/staticDataHeadings";
 // CONFIG_DATA
 import {
-  careerConfig,
   tilesConfig,
-  clientsConfig,
-  tecConfig,
   testimonialConfig,
   splitConfig,
 } from "../../../config/configData";
@@ -74,7 +66,7 @@ export default class Home extends Component<IData> {
             config={tilesConfig.items}
             underline={Underline.centerUnderline}
             underlineRounded={UnderlineRounded.underlineRounded}
-            density={Density.high}
+            density={Density.low}
             iconColor={Color.white}
             strokeColor={Color.primary}
             circleColor={Color.secondary}
@@ -97,7 +89,7 @@ export default class Home extends Component<IData> {
             imageFill
             config={splitConfig.items}
             underline={Underline.centerUnderline}
-            underlineRounded={UnderlineRounded.underlineRoundedRight}
+            underlineRounded={UnderlineRounded.underlineRounded}
             density={Density.medium}
             animationHover
             bgColor={BgColor.darkHigh}
@@ -116,7 +108,7 @@ export default class Home extends Component<IData> {
             bgColor={BgColor.darkMedium}
             delay={0}
             underlineRounded={UnderlineRounded.underlineRounded}
-            density={Density.low}
+            density={Density.medium}
           />
         </FeatureTilesTemplate>
 
@@ -129,7 +121,8 @@ export default class Home extends Component<IData> {
           mail="arturo.rugh@gmail.com"
           id="cta"
         >
-          Get in contact to work together!
+          La personalización de los nuetros productos es nuestro sello de
+          identidad.
         </Cta>
       </>
     );

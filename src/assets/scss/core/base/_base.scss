@@ -38,12 +38,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 ::-moz-selection {
-  background-color:color-bg(selection);
+  background-color: color-bg(selection);
   color: color(selection);
 }
 
 ::selection {
-  background-color:color-bg(selection);
+  background-color: color-bg(selection);
   color: color(selection);
 }
 

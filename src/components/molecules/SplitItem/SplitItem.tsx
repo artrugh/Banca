@@ -75,7 +75,7 @@ class SplitItem extends Component<IProps> {
       bgColorLogo = Color.dark;
     }
 
-    const listTectools: ReactNode[] | [] = tectools.map((tool: string) => (
+    const listTectools: ReactNode[] | [] = tectools?.map((tool: string) => (
       <Icon
         name={IconName[tool]}
         size={Size.lg}
@@ -174,7 +174,7 @@ class SplitItem extends Component<IProps> {
             {this.anchorElement({ link }, Color.secondary)}
             {this.anchorElement({ repository }, Color.secondary)}
           </div>
-          {this.pElement({ subtitle }, Color.high)}
+          {this.pElement({ subtitle }, Color.secondary)}
           <h3 className="mt-12 mb-12 heading">{title}</h3>
           <p className="m-0 mb-32">{description}</p>
           <div className="logo-tec-box">{this.listTectools}</div>

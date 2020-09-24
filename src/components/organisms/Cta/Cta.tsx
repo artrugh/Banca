@@ -28,6 +28,7 @@ interface IProps extends IPropsFeatureItem {
   color?: Color;
   buttonType: CtaButtonType;
   mail?: string;
+  illustration?: boolean;
 }
 
 const DefaultProps: IProps = {
@@ -77,7 +78,7 @@ class Cta extends Component<IProps> {
     if (buttonType === CtaButtonType.mail) {
       return (
         <a href={`mailto:${mail}`}>
-          <Button color={color} />
+          <Button color={color}>Contáctenos</Button>
         </a>
       );
     }
@@ -101,6 +102,7 @@ class Cta extends Component<IProps> {
       bgColor,
       buttonType,
       split,
+      illustration,
       ...rest
     } = this.props;
 
@@ -115,7 +117,7 @@ class Cta extends Component<IProps> {
         id={id}
       >
         <div className="container">
-          <div className="section-inner">
+          <div className={cn("section-inner", illustration)}>
             <div
               className={cn("reveal-from-bottom", wrapName, bgColorBox, {
                 "has-top-divider": topDivider,
