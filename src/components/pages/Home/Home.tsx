@@ -59,6 +59,7 @@ export default class Home extends Component<IData> {
           bgColor={BgColor.darkHigh}
           colorIcon={Color.primary}
           withIcon
+          iconAnimation
         />
 
         <FeatureTilesTemplate

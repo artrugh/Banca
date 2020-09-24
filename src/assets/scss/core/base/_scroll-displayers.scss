@@ -42,3 +42,29 @@
     top: 0vh;
   }
 }
+
+.hero-chevron-container.has-animation {
+  transition: all 0.8s;
+  transform: translateY(0);
+}
+
+.hero-icon-container.has-animation {
+  transition: all 0.8s;
+  opacity: 0;
+  transform: translateY(-400px);
+}
+
+body.scroll-behaviour-header-nav-color .hero .hero-chevron-container.has-animation {
+  transform: translateY(-400px);
+  opacity: 0 !important;
+}
+
+body.scroll-behaviour-header-nav-color .hero .hero-icon-container.has-animation {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+body.scroll-behaviour-cookies .hero .hero-icon-container.has-animation {
+  opacity: 0;
+  transform: translateY(-400px);
+}

@@ -22,6 +22,7 @@ interface IProps {
   [key: string]: any;
   colorIcon?: Color;
   withIcon?: boolean;
+  iconAnimation?: boolean;
 }
 
 class HeroVideo extends Component<IProps> {
@@ -49,7 +50,7 @@ class HeroVideo extends Component<IProps> {
   }
 
   public render(): JSX.Element {
-    const { openModal, colorIcon, withIcon } = this.props;
+    const { openModal, colorIcon, withIcon, iconAnimation } = this.props;
 
     return (
       <div
@@ -73,7 +74,12 @@ class HeroVideo extends Component<IProps> {
             height="auto"
           >
             {withIcon && (
-              <div className="container-sm absolute top-50">
+              <div
+                className={cn(
+                  "hero-icon-container container-sm absolute top-50",
+                  { [`has-animation`]: iconAnimation }
+                )}
+              >
                 <Icon
                   className="hero-play"
                   name={Icons.play}

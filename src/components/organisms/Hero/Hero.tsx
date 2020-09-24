@@ -23,6 +23,7 @@ interface IProps extends IPropsOuterInner {
   mail?: string;
   colorIcon?: Color;
   withIcon?: boolean;
+  iconAnimation?: boolean;
 }
 type State = { videoModalActive: boolean };
 
@@ -67,6 +68,7 @@ class Hero extends Component<IProps, State> {
       className,
       colorIcon,
       withIcon,
+      iconAnimation,
       mail,
       ...rest
     } = this.props;
@@ -101,6 +103,7 @@ class Hero extends Component<IProps, State> {
               shadow
               colorIcon={colorIcon}
               withIcon={withIcon}
+              iconAnimation={iconAnimation}
             />
             <Modal
               id="video-modal"
