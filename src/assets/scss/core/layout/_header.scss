@@ -238,3 +238,8 @@
     height: $header-height__desktop;
   }
 }
+
+body.off-nav-is-active .header-nav-inner li {
+  margin-top: $header-li--margin;
+  margin-bottom: $header-li--margin;
+}
