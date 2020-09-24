@@ -70,6 +70,7 @@ export default class Home extends Component<IData> {
           mail="arturo.rugh@gmail.com"
           colorIcon={Color.primary}
           withIcon
+          iconAnimation
         />
         {/* <HeroTyped
           bgColor={BgColor.darkHigh}
