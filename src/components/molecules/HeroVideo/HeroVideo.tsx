@@ -1,23 +1,27 @@
 import React, { Component, MouseEvent } from "react";
+import cn from "classnames";
 
 // STYLE
 
 // BASE CLASS
 
 // COMMON
-import { BgColor } from "../../../common/enums";
+import { BgColor, Color, Icons, Size } from "../../../common/enums";
 // HELPERS
 
 // UTILS
 
 // COMPONENTS
 import Image from "../../atoms/Image/Image";
+import Icon from "../../atoms/Icon/Icon";
 
 interface IProps {
   shadow?: boolean;
   bgColor?: BgColor;
   openModal: (e: MouseEvent<HTMLAnchorElement>) => void;
   [key: string]: any;
+  colorIcon?: Color;
+  withIcon?: boolean;
 }
 
 class HeroVideo extends Component<IProps> {
@@ -45,7 +49,7 @@ class HeroVideo extends Component<IProps> {
   }
 
   public render(): JSX.Element {
-    const { openModal } = this.props;
+    const { openModal, colorIcon, withIcon } = this.props;
 
     return (
       <div
@@ -67,7 +71,19 @@ class HeroVideo extends Component<IProps> {
             src="/images/video-placeholder.jpg"
             alt="Hero"
             height="auto"
-          />
+          >
+            {withIcon && (
+              <div className="container-sm absolute top-50">
+                <Icon
+                  className="hero-play"
+                  name={Icons.play}
+                  color={Color.transparent}
+                  strokeColor={colorIcon}
+                  size={Size.xl}
+                />
+              </div>
+            )}
+          </Image>
         </a>
       </div>
     );

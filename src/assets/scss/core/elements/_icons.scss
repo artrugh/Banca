@@ -74,6 +74,12 @@ i {
         fill: white;
       }
     }
+
+    &-transparent {
+      path {
+        fill: transparent;
+      }
+    }
   }
 
   &.stroke-color {
@@ -104,6 +110,12 @@ i {
     &-white {
       path {
         stroke: white;
+      }
+    }
+
+    &-transparent {
+      path {
+        stroke: transparent;
       }
     }
   }
@@ -138,6 +150,12 @@ i {
         stroke: white;
       }
     }
+
+    &-transparent {
+      circle {
+        stroke: transparent;
+      }
+    }
   }
 
   &.ellipse-color {
@@ -168,6 +186,12 @@ i {
     &-white {
       ellipse {
         stroke: white;
+      }
+    }
+
+    &-transparent {
+      ellipse {
+        stroke: transparent;
       }
     }
   }

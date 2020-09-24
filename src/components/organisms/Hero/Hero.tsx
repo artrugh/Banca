@@ -8,7 +8,7 @@ import cn from "classnames";
 // COMMON
 import { IPropsOuterInner } from "../../../common/interfacesProps";
 import { IEventHandler } from "../../../common/interfacesEvents";
-import { VideoTag } from "../../../common/enums";
+import { VideoTag, Color } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -21,6 +21,8 @@ import Modal from "../../molecules/Modal/Modal";
 interface IProps extends IPropsOuterInner {
   className?: string;
   mail?: string;
+  colorIcon?: Color;
+  withIcon?: boolean;
 }
 type State = { videoModalActive: boolean };
 
@@ -63,6 +65,8 @@ class Hero extends Component<IProps, State> {
       bgColor,
       invertColor,
       className,
+      colorIcon,
+      withIcon,
       mail,
       ...rest
     } = this.props;
@@ -95,6 +99,8 @@ class Hero extends Component<IProps, State> {
               openModal={this.handleOpenModal}
               bgColor={bgColor}
               shadow
+              colorIcon={colorIcon}
+              withIcon={withIcon}
             />
             <Modal
               id="video-modal"

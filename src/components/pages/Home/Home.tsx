@@ -68,6 +68,8 @@ export default class Home extends Component<IData> {
           className="illustration-section-01"
           bgColor={BgColor.lightHigh}
           mail="arturo.rugh@gmail.com"
+          colorIcon={Color.primary}
+          withIcon
         />
         {/* <HeroTyped
           bgColor={BgColor.darkHigh}
@@ -80,7 +82,7 @@ export default class Home extends Component<IData> {
           className="reveal-scale-down"
           containerSize={Size.lg}
           underlineSize={Size.lg}
-          hight="100vh"
+          height="100vh"
           bgColor={BgColor.lightHigh}
           colorChevron={Color.white}
           strokeChevron={Color.white}

@@ -26,6 +26,7 @@ interface IIcon {
 export default class Icon extends React.Component<IIcon> {
   private generalIcons: { [key: string]: string } = {
     [IconName.chevron]: require("./images/general/chevron.svg?include"),
+    [IconName.play]: require("./images/general/play.svg?include"),
   };
 
   private logoIcons: { [key: string]: string } = {

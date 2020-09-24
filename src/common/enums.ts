@@ -145,6 +145,7 @@ export enum Languages {
 
 export enum Icons {
   chevron = "chevron",
+  play = "play",
 }
 
 export enum Logo {
