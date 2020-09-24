@@ -48,9 +48,7 @@
   transform: translateY(0);
 }
 
-body.scroll-behaviour-header-nav-color
-  .hero
-  .hero-chevron-container.has-animation {
+body.scroll-behaviour-header-nav-color .hero .hero-chevron-container.has-animation {
   transform: translateY(-400px);
   opacity: 0 !important;
 }
@@ -66,7 +64,7 @@ body.scroll-behaviour-header-nav-color
   }
 }
 
-body.scroll-behaviour-underline .hero .hero-icon-container.has-animation {
+body.scroll-behaviour-play-on .hero .hero-icon-container.has-animation {
   opacity: 1 !important;
   transform: scale(0.5);
   @include media(">medium") {
@@ -74,7 +72,7 @@ body.scroll-behaviour-underline .hero .hero-icon-container.has-animation {
   }
 }
 
-body.scroll-behaviour-cookies .hero .hero-icon-container.has-animation {
+body.scroll-behaviour-play-off .hero .hero-icon-container.has-animation {
   transform: scale(0);
   opacity: 0;
 }

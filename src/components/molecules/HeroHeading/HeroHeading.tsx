@@ -41,6 +41,7 @@ class HeroHeading extends Component<IProps> {
           <span className="text-color-primary">Cross-Industry</span>
         </h1>
         <div className="container-xs">
+          <div id="scroll-behaviour-play-on" className="loaded-none" />
           <p
             className="m-0 mb-32 reveal-from-bottom sub-heading"
             data-reveal-delay="400"

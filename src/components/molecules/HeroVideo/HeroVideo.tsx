@@ -91,6 +91,7 @@ class HeroVideo extends Component<IProps> {
             )}
           </Image>
         </a>
+        <div id="scroll-behaviour-play-off" className="loaded-none" />
       </div>
     );
   }
