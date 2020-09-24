@@ -91,6 +91,8 @@ class Header extends Component<IProps, State> {
     ScrollManagerDisplayer("scroll-behaviour-cookies");
     ScrollManagerDisplayer("scroll-behaviour-hero-statement-color");
     ScrollManagerDisplayer("scroll-behaviour-header-nav-color");
+    ScrollManagerDisplayer("scroll-behaviour-play-on");
+    ScrollManagerDisplayer("scroll-behaviour-play-off");
 
     document.addEventListener("keydown", this.handlerKeyPress);
     document.addEventListener("click", this.handleClickOutside);
@@ -98,6 +100,8 @@ class Header extends Component<IProps, State> {
 
   public componentDidUpdate(): void {
     const { bgColor } = this.props;
+    ScrollManagerDisplayer("scroll-behaviour-play-on");
+    ScrollManagerDisplayer("scroll-behaviour-play-off");
 
     if (
       bgColor === BgHeader.transparentToDarkTypoDarkToLight ||

@@ -48,33 +48,37 @@
   transform: translateY(0);
 }
 
-body.scroll-behaviour-header-nav-color
-  .hero
-  .hero-chevron-container.has-animation {
+body.scroll-behaviour-header-nav-color .hero .hero-chevron-container.has-animation {
   transform: translateY(-400px);
   opacity: 0 !important;
 }
 
 .hero-icon-container.has-animation {
-  transition: all 1s;
+  transition: all 0.5s;
   opacity: 0 !important;
-  transition-delay: 0.5s;
   transform: scale(0);
   top: 0;
+  cursor: pointer;
   @include media(">medium") {
-    top: 30%;
+    top: 25%;
   }
 }
 
-body.scroll-behaviour-underline .hero .hero-icon-container.has-animation {
+body.scroll-behaviour-play-on .hero .hero-icon-container.has-animation {
   opacity: 1 !important;
   transform: scale(0.4);
+  top: 0;
   @include media(">medium") {
-    transform: scale(0.9);
+    transform: scale(1.2);
+    top: 25%;
   }
 }
 
-body.scroll-behaviour-cookies .hero .hero-icon-container.has-animation {
+body.scroll-behaviour-play-off .hero .hero-icon-container.has-animation {
+  top: 32%;
+  top: 0;
   transform: scale(0);
-  opacity: 0;
+  @include media(">medium") {
+    top: 25%;
+  }
 }

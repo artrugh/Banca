@@ -59,6 +59,7 @@ class HeroVideo extends Component<IProps> {
         data-reveal-delay="100"
       >
         <div id="scroll-behaviour-cookies" className="loaded-none" />
+        <div id="scroll-behaviour-play-off" className="loaded-none" />
         <a
           data-video="https://player.vimeo.com/video/174395277"
           href="/"

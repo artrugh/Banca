@@ -43,6 +43,7 @@ class HeroHeading extends Component<IProps> {
           como <span className="text-color-primary">personal.</span>
         </h1>
         <div className="container-xs">
+          <div id="scroll-behaviour-play-on" className="loaded-none" />
           <p
             className="m-0 mb-48 reveal-from-bottom sub-heading"
             data-reveal-delay="400"
