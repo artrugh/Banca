@@ -7,7 +7,7 @@ import cn from "classnames";
 
 // COMMON
 import { IPropsButton } from "../../../common/interfacesProps";
-import { Size, Color } from "../../../common/enums";
+import { Size, Color, TagType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -15,7 +15,7 @@ import { Size, Color } from "../../../common/enums";
 // COMPONENTS
 
 const DefaultProps: IPropsButton = {
-  tag: "button",
+  tag: TagType.button,
   color: Color.dark,
   size: Size.sm,
   children: "click",
@@ -35,7 +35,7 @@ class Button extends Component<IPropsButton> {
     super(props);
   }
 
-  private createReactElement = (tag: string, props: {}): JSX.Element => {
+  private createReactElement = (tag: TagType, props: {}): JSX.Element => {
     const e = createElement;
     const el: JSX.Element = e(tag, props);
 

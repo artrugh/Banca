@@ -1,6 +1,6 @@
 // COMMON
 import { IPropsInput, IPropsButton } from "../../common/interfacesProps";
-import { InputTypes, Reveal, Size, Color } from "../../common/enums";
+import { InputTypes, Reveal, Size, Color, TagType } from "../../common/enums";
 
 interface IForms {
   reveal?: Reveal;
@@ -72,14 +72,14 @@ export const contactForm: IForms = {
   ],
   buttons: [
     {
-      tag: "a",
+      tag: TagType.anchor,
       color: Color.primary,
       wide: true,
       href: "https://cruip.com/",
       children: "WIDE props",
     },
     {
-      tag: "a",
+      tag: TagType.anchor,
       color: Color.primary,
       href: "https://cruip.com/",
       wideMobile: true,

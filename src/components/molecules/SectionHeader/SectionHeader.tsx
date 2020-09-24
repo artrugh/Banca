@@ -58,7 +58,7 @@ class SectionHeader extends Component<IProps> {
     }
   };
 
-  private createReactElement = (tag: string, props: {}): JSX.Element => {
+  private createReactElement = (tag: Headings, props: {}): JSX.Element => {
     const e = createElement;
     const el: JSX.Element = e(tag, props);
 

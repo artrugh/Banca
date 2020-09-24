@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // BASE CLASS
 
 // COMMON
-import { Color } from "../../../common/enums";
+import { Color, TagType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -59,7 +59,7 @@ class HeroHeading extends Component<IProps> {
                 visit us
               </SmoothScroll>
               <Button
-                tag="a"
+                tag={TagType.anchor}
                 color={Color.primary}
                 wideMobile
                 href={mail ? mailito : "/"}

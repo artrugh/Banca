@@ -6,7 +6,7 @@ import cn from "classnames";
 // BASE CLASS
 
 // COMMON
-import { BgColor, Color } from "../../../common/enums";
+import { BgColor, Color, TagType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -67,7 +67,7 @@ class CookiesModal extends Component<Props, State> {
               <p className="m-0 text-sm text-color-high">{description}</p>
             </div>
             <Button
-              tag="button"
+              tag={TagType.button}
               color={Color.secondary}
               className="cookies__checkbox__button m-12"
               onClick={this.handlerLabel}

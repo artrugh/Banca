@@ -119,7 +119,7 @@ export enum TecTools {
   premiere = "premiere",
 }
 
-export enum HeaderItemType {
+export enum TagType {
   button = "button",
   checkbox = "checkbox",
   anchor = "anchor",
