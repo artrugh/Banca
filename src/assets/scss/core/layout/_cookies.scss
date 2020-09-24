@@ -1,12 +1,11 @@
 .cookies {
   &__checkbox {
     &__label {
-      position: fixed !important;
+      position: fixed;
       top: -100%;
 
       @include vendor-prefix(transition, 1s all ease-out);
       cursor: pointer;
-      z-index: 1000 !important;
     }
 
     &__button {
@@ -16,6 +15,7 @@
 
     body.scroll-behaviour-cookies &__label {
       top: 0;
+      z-index: 1000;
     }
   }
 
