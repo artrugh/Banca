@@ -93,7 +93,7 @@ class Image extends Component<IProps> {
 
     return (
       <div
-        className={cn("img-container", classNameContainer, {
+        className={cn("img-container relative mt-48", classNameContainer, {
           "has-gradient": gradientBg,
           "has-animation-hover": animationHover,
         })}
