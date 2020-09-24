@@ -54,7 +54,13 @@ export default class Home extends Component<IData> {
 
     return (
       <>
-        <Hero mail="arturo.rugh@gmail.com" bgColor={BgColor.darkHigh} />
+        <Hero
+          mail="arturo.rugh@gmail.com"
+          bgColor={BgColor.darkHigh}
+          colorIcon={Color.primary}
+          withIcon
+        />
+
         <FeatureTilesTemplate
           bgColor={BgColor.darkHigh}
           data={tiles}

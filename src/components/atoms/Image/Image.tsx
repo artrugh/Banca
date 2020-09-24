@@ -1,4 +1,4 @@
-import React, { Component, createRef } from "react";
+import React, { Component, createRef, ReactNode } from "react";
 import cn from "classnames";
 // STYLE
 
@@ -23,6 +23,7 @@ interface IProps {
   classNameContainer?: string;
   animationHover?: boolean;
   density?: Density;
+  children?: ReactNode;
 }
 
 class Image extends Component<IProps> {
@@ -86,6 +87,7 @@ class Image extends Component<IProps> {
       height,
       density,
       alt,
+      children,
       ...rest
     } = this.props;
 
@@ -109,6 +111,7 @@ class Image extends Component<IProps> {
           style={{ width, height }}
           alt={alt}
         />
+        {children}
       </div>
     );
   }
