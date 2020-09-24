@@ -48,7 +48,9 @@
   transform: translateY(0);
 }
 
-body.scroll-behaviour-header-nav-color .hero .hero-chevron-container.has-animation {
+body.scroll-behaviour-header-nav-color
+  .hero
+  .hero-chevron-container.has-animation {
   transform: translateY(-400px);
   opacity: 0 !important;
 }
@@ -58,11 +60,18 @@ body.scroll-behaviour-header-nav-color .hero .hero-chevron-container.has-animati
   opacity: 0 !important;
   transition-delay: 0.5s;
   transform: scale(0);
+  top: 32%;
+  @include media(">medium") {
+    top: 43.5%;
+  }
 }
 
 body.scroll-behaviour-underline .hero .hero-icon-container.has-animation {
   opacity: 1 !important;
-  transform: scale(0.8);
+  transform: scale(0.5);
+  @include media(">medium") {
+    transform: scale(0.8);
+  }
 }
 
 body.scroll-behaviour-cookies .hero .hero-icon-container.has-animation {
