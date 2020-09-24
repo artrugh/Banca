@@ -47,9 +47,9 @@ class HeroHeading extends Component<IProps> {
             className="m-0 mb-48 reveal-from-bottom sub-heading"
             data-reveal-delay="400"
           >
-            Banca es una empresa que se especializa en la venta de tierra,
-            ofreciendo una variedad de productos que se ajusta a la necesidad de
-            cada uno de nuestros clientes. <br />
+            Somos una empresa especializada en la venta de tierra. Ofrecemos una
+            variedad de productos que se ajusta a la necesidad de cada uno de
+            nuestros clientes. <br />
             <span className="text-color-primary">Calidad </span>y{" "}
             <span className="text-color-primary">accesibilidad</span> nos
             identifican.
