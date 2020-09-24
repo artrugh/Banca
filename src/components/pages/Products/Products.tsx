@@ -6,7 +6,7 @@ import React, { Component } from "react";
 
 // COMMON
 import { IProduct } from "../../../common/interfaces";
-import { Underline, BgColor } from "../../../common/enums";
+import { Underline, BgColor, UnderlineRounded } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -51,7 +51,7 @@ class Products extends Component<IProps> {
             imageFill
             config={splitConfig.items}
             underline={Underline.centerUnderline}
-            underlineRounded
+            underlineRounded={UnderlineRounded.underlineRoundedRight}
             animationHover
             bgColor={BgColor.darkLow}
           />

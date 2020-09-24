@@ -46,7 +46,7 @@ class SplitItem extends Component<IProps> {
 
     if (shadow) {
       if (
-        bgColor === BgColor.darkHeigh ||
+        bgColor === BgColor.darkHigh ||
         bgColor === BgColor.darkMedium ||
         bgColor === BgColor.darkLow
       ) {
@@ -66,7 +66,7 @@ class SplitItem extends Component<IProps> {
     let bgColorLogo: string;
 
     if (
-      bgColor === BgColor.darkHeigh ||
+      bgColor === BgColor.darkHigh ||
       bgColor === BgColor.darkMedium ||
       bgColor === BgColor.darkLow
     ) {
@@ -152,6 +152,7 @@ class SplitItem extends Component<IProps> {
       imageFill,
       underline,
       underlineRounded,
+      density,
       animationHover,
       bgColor,
     } = this.props;
@@ -162,10 +163,11 @@ class SplitItem extends Component<IProps> {
           className={cn(
             "split-item-content center-content-mobile reveal-from-left",
             underline,
-            { "has-underline-rounded": underlineRounded }
+            underlineRounded
           )}
           data-reveal-container=".split-item"
           data-reveal-delay={`${delay * 200}`}
+          data-density={density}
         >
           <div className="links d-inline-flex">
             {this.pElement({ status }, Color.primary)}

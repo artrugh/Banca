@@ -31,7 +31,7 @@ class HeroVideo extends Component<IProps> {
 
     if (shadow) {
       if (
-        bgColor === BgColor.darkHeigh ||
+        bgColor === BgColor.darkHigh ||
         bgColor === BgColor.darkMedium ||
         bgColor === BgColor.darkLow
       ) {

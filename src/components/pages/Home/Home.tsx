@@ -12,6 +12,8 @@ import {
   Underline,
   Color,
   CtaButtonType,
+  UnderlineRounded,
+  Density,
 } from "../../../common/enums";
 import SplitItem from "../../molecules/SplitItem/SplitItem";
 // HELPERS
@@ -64,11 +66,11 @@ export default class Home extends Component<IData> {
       <>
         <Hero
           className="illustration-section-01"
-          bgColor={BgColor.lightHeigh}
+          bgColor={BgColor.lightHigh}
           mail="arturo.rugh@gmail.com"
         />
         {/* <HeroTyped
-          bgColor={BgColor.darkHeigh}
+          bgColor={BgColor.darkHigh}
           hasCleaner
           colorChevron={Color.white}
           strokeChevron={Color.white}
@@ -78,14 +80,14 @@ export default class Home extends Component<IData> {
           className="reveal-scale-down"
           containerSize={Size.lg}
           underlineSize={Size.lg}
-          height="100vh"
-          bgColor={BgColor.lightHeigh}
+          hight="100vh"
+          bgColor={BgColor.lightHigh}
           colorChevron={Color.white}
           strokeChevron={Color.white}
           chevronAnimation
         /> */}
         <FeatureTilesTemplate
-          bgColor={BgColor.lightHeigh}
+          bgColor={BgColor.lightHigh}
           data={tiles}
           heading={tileHeading}
           config={tilesConfig.heading}
@@ -94,7 +96,8 @@ export default class Home extends Component<IData> {
           <TilesItem
             config={tilesConfig.items}
             underline={Underline.centerUnderline}
-            underlineRounded
+            underlineRounded={UnderlineRounded.underlineRounded}
+            density={Density.high}
             iconColor={Color.white}
             strokeColor={Color.primary}
             circleColor={Color.secondary}
@@ -111,16 +114,17 @@ export default class Home extends Component<IData> {
           config={splitConfig.heading}
           wrapName="split-wrap"
           id="products"
-          bgColor={BgColor.darkHeigh}
+          bgColor={BgColor.darkHigh}
         >
           <SplitItem
             delay={0}
             imageFill
             config={splitConfig.items}
             underline={Underline.centerUnderline}
-            underlineRounded
+            underlineRounded={UnderlineRounded.underlineRoundedRight}
+            density={Density.medium}
             animationHover
-            bgColor={BgColor.darkHeigh}
+            bgColor={BgColor.darkHigh}
           />
         </FeatureTilesTemplate>
 
@@ -128,7 +132,7 @@ export default class Home extends Component<IData> {
           data={testimonial}
           heading={testimonialHeading}
           config={testimonialConfig.heading}
-          bgColor={BgColor.lightHeigh}
+          bgColor={BgColor.lightHigh}
           id="testimonial"
         >
           <TestimonialItem
@@ -136,7 +140,8 @@ export default class Home extends Component<IData> {
             config={testimonialConfig.items}
             bgColor={BgColor.darkMedium}
             delay={0}
-            underlineRounded
+            underlineRounded={UnderlineRounded.underlineRounded}
+            density={Density.low}
           />
         </FeatureTilesTemplate>
         <FeatureTilesTemplate
@@ -145,7 +150,7 @@ export default class Home extends Component<IData> {
           config={clientsConfig.heading}
           sectionHeadingPaddingMargin="p-0"
           id="clients"
-          bgColor={BgColor.darkHeigh}
+          bgColor={BgColor.darkHigh}
         >
           <Icon className="client-icon p-32" animationHover />
         </FeatureTilesTemplate>
@@ -155,12 +160,13 @@ export default class Home extends Component<IData> {
           className="illustration-section-02"
           config={careerConfig.heading}
           id="careers"
-          bgColor={BgColor.lightHeigh}
+          bgColor={BgColor.lightHigh}
         >
           <KeyboardItem
             config={careerConfig.items}
             underline={Underline.centerUnderline}
-            underlineRounded
+            underlineRounded={UnderlineRounded.underlineRounded}
+            density={Density.high}
             delay={0}
           />
         </FeatureTilesTemplate>
@@ -169,7 +175,7 @@ export default class Home extends Component<IData> {
           heading={tecHeading}
           config={tecConfig.heading}
           sectionHeadingPaddingMargin="p-0"
-          bgColor={BgColor.lightHeigh}
+          bgColor={BgColor.lightHigh}
           id="tec"
         >
           {/* <Image
@@ -181,7 +187,7 @@ export default class Home extends Component<IData> {
         </FeatureTilesTemplate>
         <Cta
           split
-          bgColor={BgColor.lightHeigh}
+          bgColor={BgColor.lightHigh}
           bgColorBox={BgColor.darkMedium}
           color={Color.secondary}
           buttonType={CtaButtonType.mail}

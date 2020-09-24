@@ -127,9 +127,9 @@
   will-change: scroll-position;
 }
 
-.has-bg-dark-heigh {
+.has-bg-dark-high {
   z-index: 0;
-  background-color: color-bg(bg-dark-heigh);
+  background-color: color-bg(bg-dark-high);
   color: color(mid-contrast);
   .heading {
     color: color(heading);
@@ -149,9 +149,9 @@
   z-index: 0;
   background-color: color-bg(bg-dark-medium);
 
-  color: color(heigh-contrast);
+  color: color(high-contrast);
   .heading {
-    color: color(super-heigh-contrast);
+    color: color(super-high-contrast);
     &::after {
       background-color: color(heading-lower);
     }
@@ -169,7 +169,7 @@
   background-color: color-bg(bg-dark-low);
   color: color(high-contrast);
   .heading {
-    color: color(super-heigh-contrast);
+    color: color(super-high-contrast);
     &::after {
       background-color: color(heading);
     }
@@ -182,12 +182,12 @@
   }
 }
 
-.has-bg-light-heigh {
+.has-bg-light-high {
   z-index: 0;
-  background-color: color-bg(bg-light-heigh);
+  background-color: color-bg(bg-light-high);
   color: color(low-contrast-inverse);
   .heading {
-    color: color(heigh-contrast-inverse);
+    color: color(high-contrast-inverse);
     &::after {
       background-color: color(mid-contrast-inverse);
     }
@@ -203,9 +203,9 @@
 .has-bg-light-medium {
   z-index: 0;
   background-color: color-bg(bg-light-medium);
-  color: color(super-heigh-contrast);
+  color: color(super-high-contrast);
   .heading {
-    color: color(heigh-contrast-inverse);
+    color: color(high-contrast-inverse);
     &::after {
       background-color: color(mid-contrast-inverse);
     }
@@ -221,16 +221,16 @@
 .has-bg-light-low {
   z-index: 0;
   background-color: color-bg(bg-light-low);
-  color: color(heigh-contrast);
+  color: color(high-contrast);
 
   .heading {
-    color: color(super-heigh-contrast);
+    color: color(super-high-contrast);
     &::after {
-      background-color: color(heigh-contrast);
+      background-color: color(high-contrast);
     }
   }
   .sub-heading {
-    color: color(heigh-contrast);
+    color: color(high-contrast);
   }
   path {
     fill: color-icon(icon-dark);

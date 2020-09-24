@@ -8,7 +8,15 @@ import cn from "classnames";
 
 // COMMON
 import { IEventHandler } from "../../../common/interfacesEvents";
-import { Size, Color, Underline, Logo, BgHeader } from "../../../common/enums";
+import {
+  Size,
+  Color,
+  Underline,
+  Logo,
+  BgHeader,
+  UnderlineRounded,
+  Density,
+} from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -23,7 +31,7 @@ import ActiveLink from "../../atoms/Link/Link";
 interface IProps {
   navPosition?: string;
   underline?: Underline;
-  underlineRounded?: boolean;
+  underlineRounded?: UnderlineRounded;
   hideNav?: boolean;
   hideSignin?: boolean;
   bottomOuterDivider?: boolean;
@@ -33,6 +41,7 @@ interface IProps {
   logoName?: Logo;
   logoColor?: Color;
   logoSize?: Size;
+  density?: Density;
   [propName: string]: any;
 }
 
@@ -42,6 +51,7 @@ const DefaultProps: IProps = {
   hideSignin: false,
   bottomOuterDivider: false,
   bottomDivider: false,
+  density: Density.high,
 };
 
 type Props = {} & Partial<DefaultProps>;
@@ -159,6 +169,7 @@ class Header extends Component<IProps, State> {
       logoSize,
       underline,
       underlineRounded,
+      density,
       ...rest
     } = this.props;
 
@@ -221,11 +232,14 @@ class Header extends Component<IProps, State> {
                       })}
                     >
                       <Nav
-                        classesAnchor={cn("header-nav-toggle", underline, {
-                          "has-underline-rounded": underlineRounded,
-                        })}
+                        classesAnchor={cn(
+                          "header-nav-toggle",
+                          underline,
+                          underlineRounded
+                        )}
                         handlerOnClick={this.handleCloseMenu}
                         withLeng
+                        density={density}
                       />
                     </ul>
                     {!hideSignin && (

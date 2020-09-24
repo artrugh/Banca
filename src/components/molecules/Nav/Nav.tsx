@@ -5,7 +5,7 @@ import React, { Component, ReactNode } from "react";
 // BASE CLASS
 
 // COMMON
-import { TagType } from "../../../common/enums";
+import { TagType, Density } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -21,6 +21,7 @@ interface IProps {
   handlerOnClick?(): void;
   classesAnchor?: string;
   withLeng?: boolean;
+  density?: Density;
 }
 
 export default class Nav extends Component<IProps> {
@@ -29,7 +30,7 @@ export default class Nav extends Component<IProps> {
   }
 
   public get listOfItems(): Array<ReactNode> {
-    const { handlerOnClick, classesAnchor, withLeng } = this.props;
+    const { handlerOnClick, classesAnchor, withLeng, density } = this.props;
     const listItems: Array<ReactNode> | void = headerData.map((li: any) => {
       let item: ReactNode;
 
@@ -56,6 +57,7 @@ export default class Nav extends Component<IProps> {
               to={li.to}
               className={classesAnchor}
               handlerOnClick={handlerOnClick}
+              data-density={density}
             >
               {li.title}
             </SmoothScroll>

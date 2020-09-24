@@ -64,10 +64,10 @@ export enum Env {
 }
 
 export enum BgColor {
-  darkHeigh = "has-bg-dark-heigh",
+  darkHigh = "has-bg-dark-high",
   darkMedium = "has-bg-dark-medium",
   darkLow = "has-bg-dark-low",
-  lightHeigh = "has-bg-light-heigh",
+  lightHigh = "has-bg-light-high",
   lightMedium = "has-bg-light-medium",
   lightLow = "has-bg-light-low",
   transparent = "has-bg-transparent",
@@ -88,6 +88,18 @@ export enum Underline {
   rightUnderline = "has-right-underline",
   leftUnderline = "has-left-underline",
   centerUnderline = "has-center-underline",
+}
+
+export enum Density {
+  high = "high",
+  medium = "medium",
+  low = "low",
+}
+
+export enum UnderlineRounded {
+  underlineRounded = "has-underline-rounded",
+  underlineRoundedLeft = "has-underline-rounded-left",
+  underlineRoundedRight = "has-underline-rounded-right",
 }
 
 export enum Color {

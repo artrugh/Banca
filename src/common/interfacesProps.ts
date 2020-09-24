@@ -6,7 +6,9 @@ import {
   BgColor,
   Underline,
   Color,
+  UnderlineRounded,
   TagType,
+  Density,
 } from "./enums";
 
 export interface IPropsInput {
@@ -69,8 +71,9 @@ export interface IPropsItem {
   underline?: Underline;
   className?: string;
   delay?: number;
-  underlineRounded?: boolean;
+  underlineRounded?: UnderlineRounded;
   shadow?: boolean;
+  density?: Density;
 }
 
 export interface IPropsFeatureItem extends IPropsOuterInner {
