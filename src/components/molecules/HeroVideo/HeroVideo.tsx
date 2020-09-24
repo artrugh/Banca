@@ -63,8 +63,8 @@ class HeroVideo extends Component<IProps> {
           onClick={openModal}
         >
           <Image
-            shadow={this.imageShadow}
-            src="/images/video-placeholder.jpg"
+            // shadow={this.imageShadow}
+            src="/images/banca-video-placeholder.png"
             alt="Hero"
             height="auto"
           />

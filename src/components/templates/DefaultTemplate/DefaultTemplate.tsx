@@ -49,7 +49,6 @@ class DefaultTemplate extends Component<IProps> {
           navPosition="right"
           hideSignin
           underline={Underline.leftUnderline}
-          underlineRounded
           bgColor={BgHeader.transparentToDarkTypoLightToLightUnderlineChange}
           logoName={Logo.mainBanca}
         />

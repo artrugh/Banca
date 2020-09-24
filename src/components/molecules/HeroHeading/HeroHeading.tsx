@@ -50,8 +50,8 @@ class HeroHeading extends Component<IProps> {
             Somos una empresa especializada en la venta de tierra. Ofrecemos una
             variedad de productos que se ajusta a la necesidad de cada uno de
             nuestros clientes. <br />
-            <span className="text-color-primary">Calidad </span>y{" "}
-            <span className="text-color-primary">accesibilidad</span> nos
+            <span className="text-color-secondary">Calidad </span>y{" "}
+            <span className="text-color-secondary">accesibilidad</span> nos
             identifican.
           </p>
           <div className="reveal-from-bottom" data-reveal-delay="600">
