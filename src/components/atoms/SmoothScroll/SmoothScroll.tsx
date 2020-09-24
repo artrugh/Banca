@@ -7,7 +7,7 @@ import cn from "classnames";
 
 // COMMON
 import { IPropsButton } from "../../../common/interfacesProps";
-import { Size, Color } from "../../../common/enums";
+import { Size, Color, TagType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -21,7 +21,7 @@ interface IProps extends IPropsButton {
 }
 
 const DefaultProps: IPropsButton = {
-  tag: "anchor",
+  tag: TagType.anchor,
   color: Color.transparent,
   size: Size.sm,
   children: "click",
@@ -132,7 +132,7 @@ class SmoothScroll extends Component<IProps> {
           tabIndex={0}
           role="button"
           className={cn(className, {
-            button: tag === "button",
+            button: tag === TagType.button,
             [`button-${color}`]: color,
             [`button-${size}`]: size,
             "button-block": wide,

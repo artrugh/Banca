@@ -6,7 +6,7 @@ import cn from "classnames";
 
 // COMMON
 import { IPropsButton, IPropsInput } from "../../../common/interfacesProps";
-import { Reveal, Color } from "../../../common/enums";
+import { Reveal, Color, TagType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -82,7 +82,7 @@ class Form extends Component<IProps> {
     if (!buttons || buttons.length === 0) {
       Buttons.push(
         <Button
-          tag="a"
+          tag={TagType.anchor}
           color={Color.primary}
           wideMobile
           href="https://cruip.com/"

@@ -1,12 +1,4 @@
-import {
-  Tech,
-  HeaderItemType,
-  Social,
-  Languages,
-  Tile,
-  Client,
-  Size,
-} from "./enums";
+import { Tech, TagType, Social, Languages, Tile, Client, Size } from "./enums";
 
 export interface ITile {
   title: string;
@@ -52,7 +44,7 @@ export interface IClient {
 
 export interface IHeader {
   title: string;
-  role: HeaderItemType;
+  role: TagType;
   to: string;
   on?: string;
   off?: string;
@@ -60,7 +52,7 @@ export interface IHeader {
 
 export interface ICheckbox {
   title: string;
-  role: HeaderItemType.checkbox;
+  role: TagType.checkbox;
   on: Languages;
   off: Languages;
 }

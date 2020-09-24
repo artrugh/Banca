@@ -7,7 +7,7 @@ import Link from "next/link";
 
 // COMMON
 import { IPropsButton } from "../../../common/interfacesProps";
-import { Size, Color } from "../../../common/enums";
+import { Size, Color, TagType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -16,7 +16,7 @@ import { Size, Color } from "../../../common/enums";
 import Button from "../Button/Button";
 
 const DefaultProps: IPropsButton = {
-  tag: "button",
+  tag: TagType.button,
   color: Color.dark,
   size: Size.sm,
   children: "click",

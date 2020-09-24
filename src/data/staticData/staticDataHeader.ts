@@ -1,20 +1,20 @@
 import { IHeader, ICheckbox } from "../../common/interfaces";
-import { HeaderItemType, Languages } from "../../common/enums";
+import { TagType } from "../../common/enums";
 
 export const headerData: Array<IHeader | ICheckbox> = [
   {
     title: "productos",
     to: "products",
-    role: HeaderItemType.anchor,
+    role: TagType.anchor,
   },
   {
     title: "clientes",
     to: "testimonial",
-    role: HeaderItemType.anchor,
+    role: TagType.anchor,
   },
   {
     title: "contact",
     to: "cta",
-    role: HeaderItemType.anchor,
+    role: TagType.anchor,
   },
 ];

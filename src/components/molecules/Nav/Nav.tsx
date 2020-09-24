@@ -5,7 +5,7 @@ import React, { Component, ReactNode } from "react";
 // BASE CLASS
 
 // COMMON
-import { HeaderItemType } from "../../../common/enums";
+import { TagType } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -33,7 +33,7 @@ export default class Nav extends Component<IProps> {
     const listItems: Array<ReactNode> | void = headerData.map((li: any) => {
       let item: ReactNode;
 
-      if (li.role === HeaderItemType.button) {
+      if (li.role === TagType.button) {
         item = (
           <li key={Math.random()}>
             <Link href={`/${li.to}`} activeClassName="active-link">
@@ -49,7 +49,7 @@ export default class Nav extends Component<IProps> {
             </Link>
           </li>
         );
-      } else if (li.role === HeaderItemType.anchor) {
+      } else if (li.role === TagType.anchor) {
         item = (
           <li key={Math.random()}>
             <SmoothScroll
@@ -61,7 +61,7 @@ export default class Nav extends Component<IProps> {
             </SmoothScroll>
           </li>
         );
-      } else if (li.role === HeaderItemType.checkbox && withLeng) {
+      } else if (li.role === TagType.checkbox && withLeng) {
         item = (
           <li key={Math.random()} className="button-lang">
             <ButtonLanguage

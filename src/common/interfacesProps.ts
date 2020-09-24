@@ -1,5 +1,13 @@
 import { ReactNode } from "react";
-import { InputTypes, Reveal, Size, BgColor, Underline, Color } from "./enums";
+import {
+  InputTypes,
+  Reveal,
+  Size,
+  BgColor,
+  Underline,
+  Color,
+  TagType,
+} from "./enums";
 
 export interface IPropsInput {
   children?: ReactNode;
@@ -23,7 +31,7 @@ export interface IPropsInput {
 }
 
 export interface IPropsButton {
-  readonly tag?: string;
+  readonly tag?: TagType;
   color?: Color;
   size?: Size;
   loading?: boolean;
