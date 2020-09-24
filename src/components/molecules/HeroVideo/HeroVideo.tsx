@@ -56,7 +56,7 @@ class HeroVideo extends Component<IProps> {
       <div
         className="hero-figure reveal-from-bottom illustration-element-01"
         data-reveal-value="20px"
-        data-reveal-delay="800"
+        data-reveal-delay="100"
       >
         <div id="scroll-behaviour-cookies" className="loaded-none" />
         <a
@@ -68,24 +68,22 @@ class HeroVideo extends Component<IProps> {
           onClick={openModal}
         >
           <Image
-            // shadow={this.imageShadow}
             src="/images/banca-video-placeholder.png"
             alt="Hero"
             height="auto"
           >
             {withIcon && (
               <div
-                className={cn(
-                  "hero-icon-container container-sm absolute top-50",
-                  { [`has-animation`]: iconAnimation }
-                )}
+                className={cn("hero-icon-container container-sm absolute", {
+                  [`has-animation`]: iconAnimation,
+                })}
               >
                 <Icon
                   className="hero-play"
                   name={Icons.play}
                   color={Color.transparent}
                   strokeColor={colorIcon}
-                  size={Size.xl}
+                  size={Size.super}
                 />
               </div>
             )}

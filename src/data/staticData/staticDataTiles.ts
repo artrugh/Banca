@@ -13,14 +13,14 @@ export const tiles: Array<ITile> = [
     title: "Facilidad",
     description:
       "Facilidades en el pago, envios a domicilio, compras online sin necesidad de registrarse: son algunos de nuestros servicios.",
-    icon: Tile.tile2,
+    icon: Tile.tile5,
     alt: "Features tile icon 02",
   },
   {
     title: "Personalización",
     description:
       "Evaluamos las necesidades de cada cliente, ofreciendo soluciones a medida. Un producto personalizado es nuestro sello de identidad.",
-    icon: Tile.tile3,
+    icon: Tile.tile6,
     alt: "Features tile icon 01",
   },
 ];
