@@ -14,6 +14,8 @@ import {
   BgHeader,
   Logo,
   Color,
+  UnderlineRounded,
+  Density,
 } from "../../../common/enums";
 // HELPERS
 
@@ -49,8 +51,10 @@ class DefaultTemplate extends Component<IProps> {
           navPosition="right"
           hideSignin
           underline={Underline.leftUnderline}
+          underlineRounded={UnderlineRounded.underlineRoundedRight}
           bgColor={BgHeader.transparentToDarkTypoLightToLightUnderlineChange}
-          logoName={Logo.mainBanca}
+          logoName={Logo.mainTeclead}
+          density={Density.medium}
         />
         <main id="main" className="site-content">
           {children}

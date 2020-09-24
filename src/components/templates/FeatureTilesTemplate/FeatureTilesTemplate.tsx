@@ -56,7 +56,7 @@ class FeaturesTilesTemplate extends Component<IProps> {
     let bgColorLogo: string;
 
     if (
-      bgColor === BgColor.darkHeigh ||
+      bgColor === BgColor.darkHigh ||
       bgColor === BgColor.darkMedium ||
       bgColor === BgColor.darkLow
     ) {

@@ -29,8 +29,8 @@ class KeyboardItem extends Component<IProps> {
   }
 
   public render(): JSX.Element {
-    const { title, underline, underlineRounded } = this.props.item;
-    const { delay, bgColor } = this.props;
+    const { title } = this.props.item;
+    const { delay, bgColor, underline, underlineRounded, density } = this.props;
 
     return (
       <div
@@ -42,9 +42,12 @@ class KeyboardItem extends Component<IProps> {
             <Link href={`/career/#${title.toLowerCase()}`}>
               <a>
                 <h4
-                  className={cn("heading mt-0 mb-8 keyboard-item", underline, {
-                    "has-underline-rounded": underlineRounded,
-                  })}
+                  className={cn(
+                    "heading mt-0 mb-8 keyboard-item",
+                    underline,
+                    underlineRounded
+                  )}
+                  data-density={density}
                 >
                   {title}
                 </h4>

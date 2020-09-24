@@ -45,6 +45,7 @@ class TilesItem extends Component<IProps> {
       bgColor,
       underline,
       underlineRounded,
+      density,
     } = this.props;
 
     return (
@@ -67,9 +68,8 @@ class TilesItem extends Component<IProps> {
           </div>
           <div className="features-tiles-item-content">
             <h4
-              className={cn("heading mt-0 mb-8", underline, {
-                "has-underline-rounded": underlineRounded,
-              })}
+              className={cn("heading mt-0 mb-8", underline, underlineRounded)}
+              data-density={density}
             >
               {title}
             </h4>

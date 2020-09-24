@@ -5,8 +5,8 @@ $color: (
   heading: get-color(light, 1),
   heading-lower: darken(get-color(light, 1), 9%),
   base: get-color(light, 2),
-  super-heigh-contrast: get-color(light, 0),
-  heigh-contrast: get-color(light, 1),
+  super-high-contrast: get-color(light, 0),
+  high-contrast: get-color(light, 1),
   mid-contrast: get-color(light, 2),
   low-contrast: get-color(light, 3),
   primary: get-color(primary, 3),
@@ -17,8 +17,8 @@ $color: (
   // ↓ Inverted colors
     heading-inverse: get-color(dark, 1),
   base-inverse: get-color(light, 3),
-  super-heigh-contrast-inverse: get-color(dark, 0),
-  heigh-contrast-inverse: get-color(dark, 1),
+  super-high-contrast-inverse: get-color(dark, 0),
+  high-contrast-inverse: get-color(dark, 1),
   mid-contrast-inverse: get-color(dark, 2),
   low-contrast-inverse: get-color(light, 3),
   scroll-bar: get-color(primary, 1),
@@ -41,11 +41,11 @@ $bg--color: (
   // outer bg color when a boxed layout is used
     bg-color: lighten(get-color(light, 1), 9%),
   // .has-bg-color helper class
-    bg-light-heigh: lighten(get-color(light, 1), 9%),
+    bg-light-high: lighten(get-color(light, 1), 9%),
   bg-light-medium: lighten(get-color(light, 2), 9%),
   bg-light-low: lighten(get-color(light, 3), 9%),
   // .has-bg-light
-    bg-dark-heigh: darken(get-color(dark, 1), 1%),
+    bg-dark-high: darken(get-color(dark, 1), 1%),
   bg-dark-medium: darken(get-color(dark, 2), 1%),
   bg-dark-low: darken(get-color(dark, 3), 1%),
   // .has-bg-dark

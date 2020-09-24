@@ -238,18 +238,10 @@
 
 // Underline ::after an element
 // add underline to an existing html element
-@mixin underline(
-  $type: "center",
-  $width: 20%,
-  $width-hover: 40%,
-  $duration: 1s,
-  $color: primary,
-  $layout: false
-) {
+@mixin underline($type: "center", $width: 20%, $width-hover: 40%, $duration: 1s, $color: primary, $layout: false) {
   &::after {
     content: "";
     width: $width;
-    padding-top: 0.4em;
     background-color: color-bg(underline);
     display: block;
     height: 1px;
@@ -259,6 +251,25 @@
 
   &.has-underline-rounded::after {
     border-radius: $img-radius;
+  }
+
+  &.has-underline-rounded-right::after {
+    border-radius: 0 $img-radius $img-radius 0;
+  }
+
+  &.has-underline-rounded-left::after {
+    border-radius: $img-radius 0 0 $img-radius;
+  }
+
+  &[data-density="high"]::after {
+    padding-top: 0.4em;
+  }
+  &[data-density="medium"]::after {
+    padding-top: 0.2em;
+  }
+
+  &[data-density="low"]::after {
+    padding-top: 0.1em;
   }
 
   &:hover::after {
@@ -323,9 +334,7 @@
       }
 
       100% {
-        left: calc(
-          #{$final_width} * 2 - #{$hero-underline--width--right-position}
-        );
+        left: calc(#{$final_width} * 2 - #{$hero-underline--width--right-position});
         width: $hero-underline--width--right-position;
         background-color: get-color(primary, 3);
       }
@@ -335,12 +344,7 @@
 
 // hr underline animation
 // Handler the heroscrollable liner movement from right to left
-@mixin underline-right-left(
-  $initial_width,
-  $duration: 2s,
-  $color: primary,
-  $delay: 0
-) {
+@mixin underline-right-left($initial_width, $duration: 2s, $color: primary, $delay: 0) {
   left: calc(#{$initial_width} * 2 - #{$hero-underline--width--right-position});
   width: $hero-underline--width--right-position;
   background-color: get-color(primary, 3);
@@ -348,9 +352,7 @@
 
   @include inline-animation($duration, $delay) {
     0% {
-      left: calc(
-        #{$initial_width} * 2 - #{$hero-underline--width--right-position}
-      );
+      left: calc(#{$initial_width} * 2 - #{$hero-underline--width--right-position});
       width: $hero-underline--width--right-position;
       background-color: get-color(primary, 3);
     }
@@ -392,14 +394,7 @@
 // $vpos: illustration is centered by default, allowed values: top or bottom
 // $hoffset: horizontal offset
 // $voffset: vertical offset
-@mixin illustration(
-  $file,
-  $width,
-  $height,
-  $vpos: null,
-  $hoffset: null,
-  $voffset: null
-) {
+@mixin illustration($file, $width, $height, $vpos: null, $hoffset: null, $voffset: null) {
   content: "";
   position: absolute;
   width: $width;
@@ -496,10 +491,7 @@
       $speed: 100;
 
       &::before {
-        @include vendor-prefix(
-          animation,
-          list-of-typed-animations($content, $speed)
-        );
+        @include vendor-prefix(animation, list-of-typed-animations($content, $speed));
         @include vendor-prefix(animation-fill-mode, forwards);
       }
     }
@@ -508,10 +500,7 @@
       $speed: 200;
 
       &::before {
-        @include vendor-prefix(
-          animation,
-          list-of-typed-animations($content, $speed)
-        );
+        @include vendor-prefix(animation, list-of-typed-animations($content, $speed));
         @include vendor-prefix(animation-fill-mode, forwards);
       }
     }

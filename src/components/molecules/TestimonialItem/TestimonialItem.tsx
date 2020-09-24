@@ -37,6 +37,7 @@ class TestimonialItem extends Component<IProps> {
       bgColor,
       underline,
       underlineRounded,
+      density,
       centerDivider,
       quote,
     } = this.props;
@@ -56,8 +57,8 @@ class TestimonialItem extends Component<IProps> {
               classNameContainer={cn(
                 "testimonial-item-avatar-container",
                 underline,
+                underlineRounded,
                 {
-                  "has-underline-rounded": underlineRounded,
                   "has-center-divider": centerDivider,
                 }
               )}
@@ -65,6 +66,7 @@ class TestimonialItem extends Component<IProps> {
               alt={name}
               width="32%"
               height="32%"
+              density={density}
             />
           )}
           <div

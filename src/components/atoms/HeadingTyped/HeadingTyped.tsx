@@ -50,7 +50,7 @@ class HeadingTyped extends Component<IProps> {
     super(props);
   }
 
-  private createReactElement = (tag: string, props: {}): JSX.Element => {
+  private createReactElement = (tag: Headings, props: {}): JSX.Element => {
     const e = createElement;
     const el: JSX.Element = e(tag, props);
 

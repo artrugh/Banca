@@ -32,7 +32,7 @@ class Tec extends Component {
           heading={tecHeading}
           config={tecConfig.heading}
           sectionHeadingPaddingMargin="p-0"
-          bgColor={BgColor.lightHeigh}
+          bgColor={BgColor.lightHigh}
           id="tec"
         >
           <Image

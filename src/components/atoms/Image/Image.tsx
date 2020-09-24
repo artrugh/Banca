@@ -5,7 +5,7 @@ import cn from "classnames";
 // BASE CLASS
 
 // COMMON
-
+import { Density } from "../../../common/enums";
 // HELPERS
 
 // UTILS
@@ -22,6 +22,7 @@ interface IProps {
   shadow?: boolean | string;
   classNameContainer?: string;
   animationHover?: boolean;
+  density?: Density;
 }
 
 class Image extends Component<IProps> {
@@ -83,6 +84,7 @@ class Image extends Component<IProps> {
       src,
       width,
       height,
+      density,
       alt,
       ...rest
     } = this.props;
@@ -93,6 +95,7 @@ class Image extends Component<IProps> {
           "has-gradient": gradientBg,
           "has-animation-hover": animationHover,
         })}
+        data-density={density}
       >
         <img
           {...rest}

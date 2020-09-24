@@ -127,9 +127,30 @@
     &::after {
       margin-top: 0.22em;
       margin-bottom: 0.3em;
-      padding-top: 0.31em;
       width: 12px;
+    }
+
+    &[data-density="high"]::after {
+      padding-top: 0.4em;
+    }
+    &[data-density="medium"]::after {
+      padding-top: 0.2em;
+    }
+
+    &[data-density="low"]::after {
+      padding-top: 0.1em;
+    }
+
+    &.has-underline-rounded::after {
+      border-radius: $img-radius;
+    }
+
+    &.has-underline-rounded-right::after {
       border-radius: 0 $img-radius $img-radius 0;
+    }
+
+    &.has-underline-rounded-left::after {
+      border-radius: $img-radius 0 0 $img-radius;
     }
 
     &:hover {
