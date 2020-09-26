@@ -1,14 +1,22 @@
 import { readFileSync } from "fs";
 import path from "path";
 
-export const readFile = (fileName: string): string => {
-  const dirPath: string = path.join(process.cwd(), "src");
+export class ReadFile {
+  public data: string;
+  private dirPath: string = path.join(process.cwd(), "src");
 
-  try {
-    const response = readFileSync(`${dirPath}/data/${fileName}.json`, "utf8");
+  public constructor(public fileName: string) {}
 
-    return response;
-  } catch (err) {
-    return "[]";
+  public read(): string {
+    try {
+      this.data = readFileSync(
+        `${this.dirPath}/data/${this.fileName}.json`,
+        "utf-8"
+      );
+
+      return this.data;
+    } catch (err) {
+      throw Error(`msg: Error, ${this.fileName} not readeable.`);
+    }
   }
-};
+}

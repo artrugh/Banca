@@ -8,7 +8,7 @@ import { GetStaticProps } from "next";
 // COMMON
 import { IProduct, ICareer, ITestimonial, IData } from "../common/interfaces";
 // HELPERS
-import { readFile } from "../helpers/ReadFile";
+import { ReadFile } from "../helpers/ReadFile";
 // UTILS
 
 // COMPONENTS
@@ -25,10 +25,14 @@ export default class HomePage extends Component<IData> {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const products: Array<IProduct> | [] = await JSON.parse(readFile("products"));
-  const careers: Array<ICareer> | [] = await JSON.parse(readFile("career"));
+  const products: Array<IProduct> | [] = await JSON.parse(
+    new ReadFile("products").read()
+  );
+  const careers: Array<ICareer> | [] = await JSON.parse(
+    new ReadFile("career").read()
+  );
   const testimonial: Array<ITestimonial> | [] = await JSON.parse(
-    readFile("testimonial")
+    new ReadFile("testimonial").read()
   );
 
   return {
