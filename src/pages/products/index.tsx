@@ -8,7 +8,7 @@ import { GetStaticProps } from "next";
 // COMMON
 import { IProduct } from "../../common/interfaces";
 // HELPERS
-import { readFile } from "../../helpers/ReadFile";
+import { ReadFile } from "../../helpers/ReadFile";
 // UTILS
 
 // COMPONENTS
@@ -29,7 +29,9 @@ export default class ProductPage extends Component<IProps> {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const products: Array<IProduct> | [] = JSON.parse(readFile("products"));
+  const products: Array<IProduct> | [] = JSON.parse(
+    new ReadFile("products").read()
+  );
 
   return {
     props: {

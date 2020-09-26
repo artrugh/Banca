@@ -8,7 +8,7 @@ import { GetStaticProps } from "next";
 // COMMON
 import { ICareer } from "../../common/interfaces";
 // HELPERS
-import { readFile } from "../../helpers/ReadFile";
+import { ReadFile } from "../../helpers/ReadFile";
 // UTILS
 
 // COMPONENTS
@@ -28,7 +28,9 @@ export default class CareerPage extends Component<IProps> {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const careers: Array<ICareer> | [] = JSON.parse(readFile("career"));
+  const careers: Array<ICareer> | [] = JSON.parse(
+    new ReadFile("career").read()
+  );
 
   return {
     props: {
