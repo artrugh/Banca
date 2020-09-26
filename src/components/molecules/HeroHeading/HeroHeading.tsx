@@ -63,7 +63,7 @@ class HeroHeading extends Component<IProps> {
                 wideMobile
                 tag={TagType.button}
               >
-                visitanos
+                visítenos
               </SmoothScroll>
               <Button
                 tag={TagType.anchor}
@@ -71,7 +71,7 @@ class HeroHeading extends Component<IProps> {
                 wideMobile
                 href={mail ? mailito : "/"}
               >
-                contactanos
+                contáctenos
               </Button>
             </ButtonGroup>
           </div>

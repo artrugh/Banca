@@ -193,6 +193,7 @@ class SplitItem extends Component<IProps> {
               alt={alt}
               width={528}
               shadow={this.imageShadow}
+              classNameContainer="m-8"
             />
           </a>
         </div>

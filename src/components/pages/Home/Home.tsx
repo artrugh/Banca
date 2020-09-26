@@ -60,7 +60,7 @@ export default class Home extends Component<IData> {
         />
 
         <FeatureTilesTemplate
-          bgColor={BgColor.darkHigh}
+          bgColor={BgColor.lightHigh}
           data={tiles}
           heading={tileHeading}
           config={tilesConfig.heading}

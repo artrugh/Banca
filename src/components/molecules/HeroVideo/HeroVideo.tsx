@@ -72,10 +72,11 @@ class HeroVideo extends Component<IProps> {
             src="/images/banca-video-placeholder.png"
             alt="Hero"
             height="auto"
+            classNameContainer="d-flex-center"
           >
             {withIcon && (
               <div
-                className={cn("hero-icon-container container-sm absolute", {
+                className={cn("hero-icon-container absolute", {
                   [`has-animation`]: iconAnimation,
                 })}
               >

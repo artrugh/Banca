@@ -4,6 +4,11 @@ import { TagType } from "../../common/enums";
 
 export const headerData: Array<IHeader | ICheckbox> = [
   {
+    title: "nosotros",
+    to: "features-tiles",
+    role: TagType.anchor,
+  },
+  {
     title: "productos",
     to: "products",
     role: TagType.anchor,

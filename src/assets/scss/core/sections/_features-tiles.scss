@@ -9,8 +9,8 @@
 
   .tiles-wrap {
     @if ($features-tiles-items--padding__mobile !=null) {
-      margin-right: -($features-tiles-items--padding__mobile / 2);
-      margin-left: -($features-tiles-items--padding__mobile / 2);
+      // margin-right: -($features-tiles-items--padding__mobile / 2);
+      // margin-left: -($features-tiles-items--padding__mobile / 2);
       margin-top: -($features-tiles-items--padding__mobile / 2);
 
       &:last-of-type {
@@ -69,8 +69,8 @@
 
     @if ($features-tiles-items--padding__desktop !=null) {
       .tiles-wrap {
-        margin-right: -($features-tiles-items--padding__desktop / 2);
-        margin-left: -($features-tiles-items--padding__desktop / 2);
+        // margin-right: -($features-tiles-items--padding__desktop / 2);
+        // margin-left: -($features-tiles-items--padding__desktop / 2);
         margin-top: -($features-tiles-items--padding__desktop / 2);
 
         &:last-of-type {
